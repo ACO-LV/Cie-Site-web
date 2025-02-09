@@ -123,12 +123,12 @@ button[type="submit"]:hover {
 
 /* Style du logo */
 .logo-container {
-  text-align: center; /* Centre le logo */
+  text-align: left;
   margin: 20px 0;
 }
 
 .logo {
-  width: 180px; /* Ajustez la taille selon vos besoins */
+  width: 18px; /* Ajustez la taille selon vos besoins */
   max-width: 100%; /* Empêche le dépassement de l'écran */
   height: auto; /* Conserve les proportions */
 }
