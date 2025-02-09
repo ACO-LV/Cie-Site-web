@@ -49,7 +49,7 @@ header {
 
 /* Style du logo */
 .logo {
-  width: 100px; /* Ajuste la taille selon tes besoins */
+  width: 60px; /* Ajuste la taille selon tes besoins */
   height: auto;
   margin-right: 15px; /* Espace entre le logo et le nom */
 }
