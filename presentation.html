@@ -1,47 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cie Sensible Indocile - Présentation</title>
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation - Sensible Indocile</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- HEADER -->
-  <header id="header-placeholder"></header>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('header-placeholder').innerHTML = data);
-  </script>
+    <!-- Importer le header dynamiquement -->
+    <header id="header-placeholder"></header>
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
 
-  <!-- CONTENU PRINCIPAL -->
-  <main>
-    <h1>Présentation de la Compagnie</h1>
-    <section>
-      <p>Notre association de théâtre « Sensible et Indocile » existe depuis...</p>
-      <p>Nous visons à promouvoir la création théâtrale pour tout public...</p>
-      <!-- Ajoutez ici le texte d'historique, valeurs, etc. -->
-    </section>
+    <main>
+        <!-- Section Membres du Bureau -->
+        <section class="bureau">
+            <h1>Notre Bureau</h1>
+            <div class="bureau-container">
+                <div class="bureau-member">
+                    <img src="images/membre1.jpg" alt="Nom du membre 1">
+                    <h3>Nom du Membre 1</h3>
+                    <p>Rôle (ex : Président.e)</p>
+                </div>
+                <div class="bureau-member">
+                    <img src="images/membre2.jpg" alt="Nom du membre 2">
+                    <h3>Nom du Membre 2</h3>
+                    <p>Rôle (ex : Trésorier.e)</p>
+                </div>
+            </div>
+        </section>
 
-    <section>
-      <h2>Les Comédiens</h2>
-      <ul class="comedien-list">
-        <li>
-          <strong>Nom du comédien</strong> – Rôle / spécialité
-          <p>Brève description, parcours, etc.</p>
-        </li>
-        <li>
-          <strong>Nom du comédien</strong> – Rôle / spécialité
-          <p>Brève description, parcours, etc.</p>
-        </li>
-        <!-- Ajoutez autant de comédiens que nécessaire -->
-      </ul>
-    </section>
-  </main>
+        <!-- Section Présentation de la Comédienne -->
+        <section class="comedienne">
+            <h1>À la rencontre de notre comédienne</h1>
+            <div class="comedienne-container">
+                <img src="images/comedienne.jpg" alt="Nom de la comédienne" class="comedienne-photo">
+                <div class="comedienne-info">
+                    <h2>Nom de la Comédienne</h2>
+                    <p>
+                        Brève biographie de la comédienne. Parlez de son parcours, de sa passion pour le théâtre,
+                        et de ses expériences passées.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Compagnie Sensible Indocile Tous droits réservés.</p>
-  </footer>
+        <!-- Section Performances passées -->
+        <section class="performances">
+            <h1>Ses performances</h1>
+            <div class="performances-container">
+                <div class="performance-card">
+                    <img src="images/spectacle1.jpg" alt="Spectacle 1">
+                    <h3>Nom du Spectacle 1</h3>
+                    <p>Brève description de la performance.</p>
+                </div>
+                <div class="performance-card">
+                    <img src="images/spectacle2.jpg" alt="Spectacle 2">
+                    <h3>Nom du Spectacle 2</h3>
+                    <p>Brève description de la performance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sensible Indocile. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
