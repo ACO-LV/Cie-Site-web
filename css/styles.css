@@ -238,3 +238,26 @@ button[type="submit"]:hover {
     font-size: 18px;
 }
 
+/* ----- STYLE DES LIENS SOCIAUX ----- */
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px; /* Espacement entre les icônes */
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px; /* Taille de l'icône */
+    height: 40px;
+}
+
+.social-links img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1); /* Met les icônes en blanc sur fond sombre */
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.1); /* Effet de zoom au survol */
+}
