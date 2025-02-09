@@ -34,26 +34,41 @@ header {
   padding: 10px 20px;
 }
 
-/* Conteneur pour aligner logo + menu */
+/* Conteneur principal du header */
 .header-container {
   display: flex;
-  align-items: center; /* Centre verticalement le logo et le menu */
-  justify-content: space-between; /* Espace naturel entre logo et menu */
+  align-items: center; /* Aligne verticalement le logo, le texte et la navigation */
+  padding: 10px 20px;
+}
+
+/* Section contenant le logo + nom */
+.logo-section {
+  display: flex;
+  align-items: center;
 }
 
 /* Style du logo */
 .logo {
-  width: 60px; /* Ajuster la taille du logo */
-  height: auto; /* Conserver les proportions */
+  width: 100px; /* Ajuste la taille selon tes besoins */
+  height: auto;
+  margin-right: 15px; /* Espace entre le logo et le nom */
 }
 
-/* Style de la navigation */
+/* Nom de la compagnie */
+.company-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px; /* Espacement entre les liens */
-  margin: 0;
+  margin-left: 30px; /* Rapproche les liens du nom de la compagnie */
   padding: 0;
+  gap: 15px; /* Espacement entre les liens */
 }
 
 nav ul li {
