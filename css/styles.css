@@ -14,7 +14,7 @@ body {
 body {
   font-family: sans-serif; /* Ou une police Google Fonts */
   color: #333;
-  background-color: #FAF8F4; /* Exemple de fond crème léger */
+  background-color: #F5F2EB; /* Exemple de fond crème léger */
   line-height: 1.6;
 }
 
@@ -63,6 +63,7 @@ main {
 /* Titres principaux */
 main h1 {
   font-size: 2rem;
+  font-family: 'Playfair Display'; 
   margin-bottom: 1rem;
 }
 
