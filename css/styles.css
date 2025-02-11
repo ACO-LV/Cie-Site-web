@@ -180,52 +180,6 @@ button[type="submit"]:hover {
     margin: 50px auto;
 }
 
-/* ----- CONTAINER DE LA PHOTO DE LA COMÉDIENNE ----- */
-.comedienne-photo-container {
-    position: relative;
-    display: inline-block; /* Permet d'encapsuler l'image et le texte */
-    cursor: pointer; /* Indique qu'il y a une interaction possible */
-}
-
-/* ----- STYLE DE LA PHOTO ----- */
-.comedienne-photo {
-    width: 250px;
-    height: auto;
-    border-radius: 10px; /* Coins arrondis */
-    display: block;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* ----- STYLE DU TEXTE MASQUÉ ----- */
-.comedienne-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0; /* Caché par défaut */
-    transition: opacity 0.3s ease-in-out;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-/* ----- FAIRE APPARAÎTRE LE TEXTE AU SURVOL ----- */
-.comedienne-photo-container:hover .comedienne-text {
-    opacity: 1; /* Affiche le texte */
-}
-
-/* ----- OPTIONNEL : RÉDUIRE L'OPACITÉ DE L'IMAGE AU SURVOL ----- */
-.comedienne-photo-container:hover .comedienne-photo {
-    opacity: 0.3;
-}
-
 .comedien-container {
     display: flex;
     align-items: center;
