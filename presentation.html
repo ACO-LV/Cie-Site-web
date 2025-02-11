@@ -35,15 +35,15 @@
 
         <!-- Section Présentation des comédiens et comédiennes -->
         <section class="comedien">
-            <h1>À la rencontre de la troupe </h1>
+            <h1>À la rencontre de la troupe</h1>
             <div class="comedien-container">
-                <img src="images/comedienne.jpg" alt="Nom de la comédienne" class="comedien-photo">
-                <div class="comedien-info">
-                    <h3>Léonore Vanier</h3>
-                    <p>Click</p> 
+                <div class="comedien-photo-container">
+                    <img src="images/comedienne.jpg" alt="Léonore Vanier" class="comedien-photo">
                 </div>
             </div>
-          <!-- Liens vers les réseaux sociaux -->
+        </section>
+        
+        <!-- Liens vers les réseaux sociaux -->
             <div class="social-links">
                 <a href="https://www.instagram.com/leonorevanier/" target="_blank">
                     <img src="icons/instagram.png" alt="Instagram">
@@ -62,45 +62,20 @@
                 </a>
             </div>
         </section>
-        
-        <!-- Modale pour afficher plus d'informations -->
-        <div id="modal" class="modal">
+       
+        <!-- MODALE -->
+        <div id="bioModal" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>span>
-                <h3>Léonore Vanier</h3>
-                <p> 
+                <span class="close">&times;</span>
+                <h2>Léonore Vanier</h2>
+                <p>
                     Ancienne ingénieure, Léonore a choisi de se consacrer pleinement à sa passion pour le théâtre. 
                     Son parcours atypique allie rigueur et créativité, lui permettant d’explorer des rôles avec intensité et sensibilité. 
                     Aujourd’hui, elle se dédie entièrement au jeu, portée par l’envie de raconter des histoires et d’émouvoir le public.
                 </p>
             </div>
         </div>
-        
-        <script>
-            // Sélection des éléments
-            document.addEventListener("DOMContentLoaded", function () {
-                var modal = document.getElementById("modal");
-                var btn = document.getElementById("openModal");
-                var closeBtn = document.querySelector(".close");
                 
-                // Afficher la modale au clic sur la photo
-                btn.addEventListener("click", function () {
-                    modal.style.display = "flex";
-                });
-                // Fermer la modale au clic sur le bouton de fermeture
-                closeBtn.addEventListener("click", function () {
-                    modal.style.display = "none";
-                });
-                // Fermer la modale au clic en dehors du contenu
-                window.addEventListener("click", function (event) {
-                    if (event.target === modal) {
-                        modal.style.display = "none";
-                    }
-                });
-            });
-                </script>
-
-
         <!-- Section Performances passées -->
         <section class="performances">
             <h1>Ses performances</h1>
@@ -125,3 +100,29 @@
     </footer>
 </body>
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sélection des éléments
+        var modal = document.getElementById("bioModal");
+        var img = document.getElementById("openModal");
+        var closeBtn = document.querySelector(".close");
+
+        // Ouvrir la modale au clic sur l'image
+        img.onclick = function() {
+            modal.style.display = "flex";
+        };
+
+        // Fermer la modale au clic sur le bouton de fermeture
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // Fermer la modale au clic en dehors du contenu
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    });
+</script>
