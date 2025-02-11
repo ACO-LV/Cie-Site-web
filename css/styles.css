@@ -279,8 +279,8 @@ button[type="submit"]:hover {
 
 .social-links a {
     display: inline-block;
-    width: 40px; /* Taille de l'icône */
-    height: 40px;
+    width: 10px; /* Taille de l'icône */
+    height: 10px;
 }
 
 .social-links img {
