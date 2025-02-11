@@ -275,21 +275,26 @@ button[type="submit"]:hover {
     margin-top: 15px;
     display: flex;
     gap: 10px; /* Espacement entre les icônes */
+    justify-content: center; /* Centre les icônes si besoin */
 }
 
+/* ----- STYLE DES BOUTONS CLIQUABLES ----- */
 .social-links a {
-    display: inline-block;
-    width: 10px; /* Taille de l'icône */
-    height: 10px;
+    display: inline-flex; /* Permet d'aligner les icônes correctement */
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Taille du bouton */
+    height: 40px;
 }
 
+/* ----- STYLE DES ICONES ----- */
 .social-links img {
-    width: 100%;
-    height: auto;
-    filter: brightness(0) invert(1); /* Met les icônes en blanc sur fond sombre */
+    width: 30px; /* Taille fixe des icônes */
+    height: auto; /* Conserve les proportions */
+    filter: brightness(0) invert(1); /* Icônes en blanc */
     transition: transform 0.2s ease-in-out;
 }
 
 .social-links img:hover {
-    transform: scale(1.1); /* Effet de zoom au survol */
+    transform: scale(1.1); /* Zoom léger au survol */
 }
