@@ -45,6 +45,40 @@
                             Son parcours atypique allie rigueur et créativité, lui permettant d’explorer des rôles avec intensité et sensibilité. 
                             Aujourd’hui, elle se dédie entièrement au jeu, portée par l’envie de raconter des histoires et d’émouvoir le public.
                     </p>
+                    <!-- Modale pour afficher plus d'informations -->
+                    <div id="modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">times;</span>span>
+                            <p>
+                        Ancienne ingénieure, Lénore a choisi de se consacrer pleinement à sa passion pour le théâtre. 
+                            Son parcours atypique allie rigueur et créativité, lui permettant d’explorer des rôles avec intensité et sensibilité. 
+                            Aujourd’hui, elle se dédie entièrement au jeu, portée par l’envie de raconter des histoires et d’émouvoir le public.
+                           </p>
+                        </div>
+                    </div>
+                    <script>
+                   // Sélection des éléments
+                   var modal = document.getElementById("modal");
+                   var btn = document.getElementById("openModal");
+                   var closeBtn = document.querySelector(".close");
+
+                  // Afficher la modale au clic sur la photo
+                  btn.onclick = function() {
+                   modal.style.display = "flex";
+                  }
+
+                 // Fermer la modale au clic sur le bouton de fermeture
+                 closeBtn.onclick = function() {
+                  modal.style.display = "none";
+                  }
+
+                // Fermer la modale au clic en dehors du contenu
+                window.onclick = function(event) {
+                 if (event.target == modal) {
+                  modal.style.display = "none";
+                 }
+                }
+    </script>
                     <!-- Liens vers les réseaux sociaux -->
                     <div class="social-links">
                         <a href="https://www.instagram.com/leonorevanier/" target="_blank">
