@@ -108,21 +108,27 @@
         var img = document.getElementById("openModal");
         var closeBtn = document.querySelector(".close");
 
-        // Ouvrir la modale au clic sur l'image
-        img.onclick = function() {
-            modal.style.display = "flex";
-        };
-
-        // Fermer la modale au clic sur le bouton de fermeture
-        closeBtn.onclick = function() {
+        // Vérifie que les éléments existent avant d'ajouter les événements
+        if (modal && img && closeBtn) {
+            // Cache la modale au chargement de la page
             modal.style.display = "none";
-        };
 
-        // Fermer la modale au clic en dehors du contenu
-        window.onclick = function(event) {
-            if (event.target == modal) {
+            // Ouvrir la modale au clic sur l'image
+            img.addEventListener("click", function() {
+                modal.style.display = "flex";
+            });
+
+            // Fermer la modale au clic sur le bouton de fermeture
+            closeBtn.addEventListener("click", function() {
                 modal.style.display = "none";
-            }
-        };
+            });
+
+            // Fermer la modale au clic en dehors du contenu
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
     });
 </script>
