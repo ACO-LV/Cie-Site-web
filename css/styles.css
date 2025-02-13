@@ -303,6 +303,7 @@ button[type="submit"]:hover {
     height: 120px;
     border-radius: 10px; /* Coins arrondis */
     object-fit: cover;
+    transition: background 0.3s ease-in-out;
 }
 
 .comedien-info {
