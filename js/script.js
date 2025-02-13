@@ -25,13 +25,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Sélection des éléments du menu responsive
     var menuToggle = document.getElementById("menuToggle");
     var navLinks = document.getElementById("navLinks");
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", function() {
-            navLinks.classList.toggle("active"); // Ouvre/ferme le menu
+            navLinks.classList.toggle("active"); // Affiche/masque le menu
         });
 
         // Fermer le menu si on clique sur un lien
@@ -40,5 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 navLinks.classList.remove("active");
             });
         });
+    } else {
+        console.error("Erreur : menuToggle ou navLinks introuvables.");
     }
 });
