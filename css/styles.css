@@ -306,6 +306,10 @@ button[type="submit"]:hover {
     transition: background 0.3s ease-in-out;
 }
 
+.comedien-photo:hover {
+    background: #444;
+}
+
 .comedien-info {
     max-width: 400px;
     text-align: left;
