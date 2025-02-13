@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
+    console.log("✅ script.js est bien chargé !");
+
     /* ----- MODALE ----- */
     var modal = document.getElementById("bioModal");
     var img = document.getElementById("openModal");
@@ -29,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var navLinks = document.getElementById("navLinks");
 
     if (menuToggle && navLinks) {
+        console.log("✅ Menu Toggle et Nav Links trouvés !");
+        
         menuToggle.addEventListener("click", function() {
             console.log("🖱 Clic détecté sur le menu !");
             navLinks.classList.toggle("active"); // Affiche/masque le menu
@@ -42,6 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     } else {
-        console.error("Erreur : menuToggle ou navLinks introuvables.");
+        console.error("❌ Erreur : menuToggle ou navLinks introuvables.");
     }
 });
