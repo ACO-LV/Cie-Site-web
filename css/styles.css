@@ -410,7 +410,6 @@ button[type="submit"]:hover {
 .social-links img {
     width: 30px; /* Taille fixe des icônes */
     height: auto; /* Conserve les proportions */
-    filter: brightness(0) invert(1); /* Icônes en blanc */
     transition: transform 0.2s ease-in-out;
 }
 
