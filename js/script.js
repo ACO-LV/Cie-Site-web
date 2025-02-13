@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (modal && img && closeBtn) {
             console.log("✅ Modale trouvée !");
-            modal.style.display = "none"; // Cache la modale au chargement
 
             img.addEventListener("click", function() {
                 modal.style.display = "flex";
