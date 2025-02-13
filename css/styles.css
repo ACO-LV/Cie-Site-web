@@ -307,8 +307,7 @@ button[type="submit"]:hover {
 }
 
 .comedien-photo:hover {
-    background: #444;
-    transform: scale(1.05); /* Légère augmentation de taille */
+    transform: scale(1.1); /* Légère augmentation de taille */
 }
 
 .comedien-info {
