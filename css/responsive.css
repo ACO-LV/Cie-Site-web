@@ -1,9 +1,7 @@
-/* ----- RESPONSIVE DESIGN ----- */
-
-/* 📌 ÉCRANS TABLETTES (768px et moins) */
+/* 📌 MENU RESPONSIVE SUR MOBILE (max 768px) */
 @media screen and (max-width: 768px) {
 
-    /* Header */
+    /* Ajustement du header */
     .header-container {
         justify-content: space-between;
         padding: 10px 20px;
@@ -11,7 +9,7 @@
 
     /* Masquer le menu normal */
     .nav-links {
-        display: none;
+        display: none; /* Caché par défaut */
         position: absolute;
         top: 70px;
         left: 0;
@@ -20,6 +18,7 @@
         text-align: center;
         padding: 10px 0;
         transition: all 0.3s ease-in-out;
+        flex-direction: column;
     }
 
     .nav-links ul {
@@ -49,91 +48,13 @@
 
     /* Affichage du menu lorsque activé */
     .nav-links.active {
-        display: block;
-    }
-}
-
-    .logo {
-        width: 50px; /* Réduction du logo */
-    }
-
-    .company-name {
-        font-size: 18px;
-    }
-
-    nav ul {
-        flex-direction: column; /* Menu en colonne */
-        text-align: center;
-        gap: 10px;
-        margin-left: 0;
-    }
-
-    nav ul li a {
-        font-size: 16px;
-        padding: 8px;
-    }
-
-    /* Hero Section */
-    .hero {
-        height: 50vh; /* Réduit la hauteur */
-    }
-
-    .hero-text {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .hero-text h1 {
-        font-size: 1.8rem;
-    }
-
-    /* Section Faits Marquants */
-    .highlight-card {
-        flex-direction: column; /* Empile image et texte */
-        text-align: center;
-    }
-
-    .highlight-card img {
-        max-width: 100%;
-    }
-
-    .highlight-info {
-        padding: 15px;
-    }
-
-    .highlight-info h3 {
-        font-size: 20px;
-    }
-
-    /* Bureau et Comédiens */
-    .bureau-container,
-    .comedien-container {
+        display: flex; 
         flex-direction: column;
-        align-items: center;
     }
 
-    .bureau-member img,
-    .comedien-photo {
-        width: 100px;
-        height: 100px;
-    }
+} /* Fin du @media (max-width: 768px) */
 
-    /* Social links */
-    .social-links {
-        flex-wrap: wrap;
-    }
-    
-    .social-links a {
-        width: 35px;
-        height: 35px;
-    }
-
-    .social-links img {
-        width: 25px;
-    }
-}
-
-/* 📌 ÉCRANS MOBILES (480px et moins) */
+/* 📌 MENU RESPONSIVE SUR MOBILE (max 480px) */
 @media screen and (max-width: 480px) {
 
     /* Ajustements généraux */
@@ -213,4 +134,4 @@
         font-size: 12px;
         padding: 15px;
     }
-}
+} /* Fin du @media (max-width: 480px) */
