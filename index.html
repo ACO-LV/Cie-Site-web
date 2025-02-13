@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cie Sensible Indocile - Accueil</title>
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Sensible Indocile</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-  <body>
-    <!-- HEADER -->
-  <header id="header-placeholder"></header>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('header-placeholder').innerHTML = data);
-  </script>
+<body>
+    <!-- Importation du header -->
+    <header id="header-placeholder"></header>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data);
+    </script>
 
-  <!-- CONTENU PRINCIPAL -->
-  <main>
-    <section class="hero">
-      <h1>Bienvenue sur le site de notre Compagnie de théâtre Sensible Indocile</h1>
-      <p>Découvrez nos prochaines représentations et l'équipe qui fait vivre la scène !</p>
-    </section>
+    <main>
+        <!-- Section Hero - Image de la troupe -->
+        <section class="hero">
+            <img src="images/troupe.jpg" alt="Photo de la troupe" class="hero-image">
+            <div class="hero-text">
+                <h1>Plongez dans l'univers de Sensible Indocile</h1>
+                <a href="presentation.html" class="btn">Découvrir la troupe</a>
+            </div>
+        </section>
 
-    <section class="news">
-      <h2>Dernières actualités</h2>
-      <p>C’est ici que vous pouvez mettre en avant les prochains spectacles, ateliers ou événements spéciaux.</p>
-      <!-- Ajoutez d'autres blocs, images, etc. -->
-    </section>
-  </main>
+        <!-- Section Faits Marquants -->
+        <section class="highlights">
+            <h2>À l'affiche</h2>
+            <div class="highlight-card">
+                <img src="images/spectacle.jpg" alt="Affiche du prochain spectacle">
+                <div class="highlight-info">
+                    <h3>Le Bain</h3>
+                    <p><strong>Lieu :</strong> Cours Florent</p>
+                    <p><strong>Dates :</strong> Automne 2025</p>
+                    <a href="spectacle.html" class="btn-secondary">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Compagnie Sensible Indocile Tous droits réservés.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sensible Indocile. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
