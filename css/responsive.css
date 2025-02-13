@@ -50,6 +50,7 @@
     .nav-links.active {
         display: flex; 
         flex-direction: column;
+        z-index: 1000;
     }
 
 } /* Fin du @media (max-width: 768px) */
