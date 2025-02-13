@@ -7,6 +7,7 @@ window.addEventListener("load", function() {
     var closeBtn = document.querySelector(".close");
 
     if (modal && img && closeBtn) {
+        console.log("✅ Modale trouvée !");
         modal.style.display = "none"; // Cache la modale au chargement
 
         img.addEventListener("click", function() {
@@ -23,7 +24,7 @@ window.addEventListener("load", function() {
             }
         });
     } else {
-        console.error("Erreur : Un ou plusieurs éléments de la modale sont introuvables.");
+        console.error("❌ Erreur : Un ou plusieurs éléments de la modale sont introuvables.");
     }
 
     /* ----- MENU RESPONSIVE ----- */
