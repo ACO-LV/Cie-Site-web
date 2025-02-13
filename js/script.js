@@ -23,3 +23,22 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Erreur : Un ou plusieurs éléments de la modale sont introuvables.");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Sélection des éléments du menu responsive
+    var menuToggle = document.getElementById("menuToggle");
+    var navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function() {
+            navLinks.classList.toggle("active"); // Ouvre/ferme le menu
+        });
+
+        // Fermer le menu si on clique sur un lien
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function() {
+                navLinks.classList.remove("active");
+            });
+        });
+    }
+});
