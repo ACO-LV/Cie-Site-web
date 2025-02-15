@@ -649,6 +649,7 @@ section.visible {
   flex-direction: column; /* Empile les cartes verticalement */
   gap: 15px;
   width: 100vw; /* Utilise toute la largeur de l'écran */
+  justify-content: center; /* Centre verticalement */
   align-items: center; /* Centre les cartes horizontalement */
 }
 
