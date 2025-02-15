@@ -365,7 +365,7 @@ footer {
   display: block;
   margin-bottom: 5px;
   color: #000;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 12px;
 }
 
@@ -642,3 +642,19 @@ section.visible {
 .btn:hover, .btn-outline:hover {
     transform: scale(1.05);
 }
+
+/* SPECTACLE - Présentation des spectacles */
+<div class="cards">
+    <div class="card red">
+        <p class="tip">Hover Me</p>
+        <p class="second-text">Lorem Ipsum</p>
+    </div>
+    <div class="card blue">
+        <p class="tip">Hover Me</p>
+        <p class="second-text">Lorem Ipsum</p>
+    </div>
+    <div class="card green">
+        <p class="tip">Hover Me</p>
+        <p class="second-text">Lorem Ipsum</p>
+    </div>
+</div>
