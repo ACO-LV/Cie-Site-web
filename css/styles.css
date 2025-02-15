@@ -410,31 +410,6 @@ footer {
     transform: scale(1.1); /* Zoom léger au survol */
 }
 
-.gallery {
-    text-align: center;
-    padding: 50px;
-}
-
-/* ----- STYLE DE LA GALLERIE ----- */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    max-width: 900px;
-    margin: auto;
-}
-
-.gallery-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.gallery-container img:hover {
-    transform: scale(1.05);
-}
-
 /* Apparition en fondu des sections */
 section {
     opacity: 0;
@@ -454,56 +429,4 @@ section.visible {
 
 .btn:hover, .btn-outline:hover {
     transform: scale(1.05);
-}
-
-/* SPECTACLE - Présentation des spectacles */
-.cards {
-  display: flex;
-  flex-direction: column; /* Empile les cartes verticalement */
-  gap: 15px;
-  width: 100%;
-  height: 900px;
-  justify-content: center; /* Centre verticalement */
-  align-items: center; /* Centre les cartes horizontalement */
-}
-
-.cards .card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 100%; /* Hauteur ajustable */
-  width: 100%; /* Utilisation de la largeur de l'écran */
-  max-width: 800px; /* Limite la largeur max */
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  transition: 400ms;
-  overflow: hidden;
-}
-
-.cards .card img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 400ms ease-in-out;
-}
-
-.cards .card:hover img {
-  filter: brightness(50%); /* Assombrit seulement l'image survolée */
-}
-
-.cards .card p {
-  position: relative;
-  z-index: 2;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.cards:hover > .card:not(:hover) {
-  filter: blur(5px); /* Floute les cartes non survolées */
 }
