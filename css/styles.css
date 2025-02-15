@@ -222,7 +222,7 @@ footer {
 
 .animated-button:hover {
   box-shadow: 0 0 0 12px transparent;
-  color: #73211F;
+  color: #8C2B28;
   border-radius: 12px;
 }
 
@@ -239,12 +239,12 @@ footer {
 }
 
 .animated-button:hover svg {
-  fill: #F5F2EB;
+  fill: #8C2B28;
 }
 
 .animated-button:active {
   scale: 0.95;
-  box-shadow: 0 0 0 4px #73211F;
+  box-shadow: 0 0 0 4px #8C2B28;
 }
 
 .animated-button:hover .circle {
