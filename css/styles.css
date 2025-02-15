@@ -119,19 +119,16 @@ footer {
 /* 4.bis PAGE D ACCUEIL  ----------------------------------------- */
 /* ----- HERO SECTION (IMAGE PRINCIPALE) ----- */
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px;
-    background: #444;
-    color: white;
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
 }
 
-.hero-image img {
-    width: 250px; /* Taille modifiable */
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-text {
