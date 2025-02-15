@@ -1,6 +1,13 @@
 :root {
-  --color-beige: #F5F2EB;
-  --color-bordeaux: #8C2B28;
-  --color-dark-bordeaux: #73211F;
+  --color-bordeaux: #8b0000;
+  --color-dark-bordeaux: #600000;
+  --color-beige: #f9f5f0;
   --text-color: #333;
+  --font-primary: 'Playfair Display', serif;
+  --border-radius: 10px;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--color-beige);
 }
