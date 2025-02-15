@@ -55,3 +55,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }, 500); // ✅ On attend 500ms après le chargement du script pour s'assurer que le header est bien injecté
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    let sections = document.querySelectorAll("section");
+
+    function reveal() {
+        sections.forEach(section => {
+            let sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < window.innerHeight - 50) {
+                section.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", reveal);
+    reveal(); // Vérifier les sections visibles dès le chargement
+});
+
