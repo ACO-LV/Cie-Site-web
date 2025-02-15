@@ -9,10 +9,6 @@
 @import url('pages/spectacles.css');
 @import url('pages/contact.css');
 
-body {
-  font-family: 'Playfair Display', serif;
-}
-
 /* 1. RESET / BASE  --------------------------------------------- */
 * {
   margin: 0;
