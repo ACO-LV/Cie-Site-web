@@ -646,24 +646,28 @@ section.visible {
 /* SPECTACLE - Présentation des spectacles */
 .cards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Met les cartes en ligne */
   gap: 15px;
+  width: 100vw; /* Utilise toute la largeur de l'écran */
+  overflow: hidden; /* Empêche les débordements */
+  justify-content: center;
 }
 
 .cards .card {
-  position: relative; /* Permet de positionner les éléments enfants */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  height: 200px; /* Augmenté pour bien afficher l'image */
-  width: 300px;
+  height: 300px; /* Ajusté pour une meilleure visibilité */
+  width: 100%; /* Chaque carte prend une largeur égale */
+  max-width: 400px; /* Limite la largeur max pour éviter l’étirement */
   border-radius: 10px;
   color: white;
   cursor: pointer;
   transition: 400ms;
-  overflow: hidden; /* Empêche l'image de dépasser */
+  overflow: hidden;
 }
 
 .cards .card img {
@@ -672,19 +676,24 @@ section.visible {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ajuste l'image pour qu'elle couvre toute la carte */
+  object-fit: cover;
   transition: 400ms ease-in-out;
 }
 
 .cards .card:hover img {
-  filter: brightness(50%); /* Assombrit l'image */
+  filter: brightness(50%); /* Assombrit seulement l'image survolée */
 }
 
 .cards .card p {
-  position: relative; /* Permet de rester au-dessus de l'image */
-  z-index: 2; /* Place le texte au-dessus de l'image */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Ajoute une ombre pour une meilleure lisibilité */
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(5px); /* Floute les cartes non survolées */
+}
+
 
 .cards:hover > .card:not(:hover) {
   filter: blur(5px);
