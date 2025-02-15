@@ -1,66 +1,28 @@
-/* Bouton principal */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  background: var(--color-bordeaux);
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease-in-out;
+
+/* ----- STYLE DES LIENS SOCIAUX ----- */
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px; /* Espacement entre les icônes */
+    justify-content: center; /* Centre les icônes si besoin */
 }
 
-.btn:hover {
-  background: var(--color-dark-bordeaux);
+/* ----- STYLE DES BOUTONS CLIQUABLES ----- */
+.social-links a {
+    display: inline-flex; /* Permet d'aligner les icônes correctement */
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Taille du bouton */
+    height: 40px;
 }
 
-/* Cartes */
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+/* ----- STYLE DES ICONES ----- */
+.social-links img {
+    width: 30px; /* Taille fixe des icônes */
+    height: auto; /* Conserve les proportions */
+    transition: transform 0.2s ease-in-out;
 }
 
-.cards .card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 300px;
-  width: 90%;
-  max-width: 800px;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: 400ms;
-}
-
-.cards .card img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 400ms ease-in-out;
-}
-
-.cards .card:hover img {
-  filter: brightness(50%);
-}
-
-.cards:hover > .card:not(:hover) {
-  filter: blur(5px);
-}
-
-/* Formulaire */
-.form-container {
-  width: 400px;
-  background: var(--color-beige);
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.social-links img:hover {
+    transform: scale(1.1); /* Zoom léger au survol */
 }
