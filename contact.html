@@ -28,26 +28,28 @@
   <!-- CONTENU PRINCIPAL -->
   <main>
     <h1>Contactez-nous</h1>
-
-    <section class="contact-section">
-      <p>Vous pouvez nous écrire pour toute question ou demande :</p>
-
-      <form 
-        action="https://formspree.io/f/votreFormID" 
-        method="POST"
-      >
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
+    <div class="form-container">
+        <p>Vous pouvez nous écrire pour toute question ou demande :</p>
+          <form 
+            action="https://formspree.io/f/votreFormID" 
+            method="POST"
+          >
+          <form class="form">
+            <div class="form-group">
+              <label for="name">Nom :</label>
+              <input type="text" name="name" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" name="email" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="textarea">Message :</label>
+              <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
+            </div>
+            <button type="submit" class="form-submit-btn">Envoyer</button>
+          </form>
+        </div>
   </main>
 
   <!-- FOOTER -->
