@@ -9,30 +9,6 @@
 @import url('pages/spectacles.css');
 @import url('pages/contact.css');
 
-/* 1. RESET / BASE  --------------------------------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Corps global */
-body {
-  font-family: sans-serif; /* Ou une police Google Fonts */
-  color: var(--text-color);
-  background-color: var(--color-beige); /* Exemple de fond crème léger */
-  line-height: 1.6;
-}
-
-/* Liens */
-a {
-  color: var(--color-bordeaux); /* Exemple d'accent bordeaux */
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
 /* 2. HEADER / NAV  --------------------------------------------- */
 /* Style du header */
 header {
