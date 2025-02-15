@@ -1,0 +1,27 @@
+.bureau-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.bureau-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.performances-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.performance-card {
+  width: 250px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
