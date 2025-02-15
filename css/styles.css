@@ -347,7 +347,7 @@ button[type="submit"]:hover {
 .form-container {
   width: 400px;
   background: linear-gradient(#F5F2EB, #F5F2EB) padding-box,
-              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+              linear-gradient(145deg, transparent 35%,#8C2B28, #73211F) border-box;
   border: 2px solid transparent;
   padding: 32px 24px;
   font-size: 14px;
@@ -428,12 +428,12 @@ button[type="submit"]:hover {
 
 .form-container .form-group input:focus {
   outline: none;
-  border-color: #e81cff;
+  border-color: #8C2B28;
 }
 
 .form-container .form-group textarea:focus {
   outline: none;
-  border-color: #e81cff;
+  border-color: #8C2B28;
 }
 
 .form-container .form-submit-btn {
@@ -456,8 +456,11 @@ button[type="submit"]:hover {
 }
 
 .form-container .form-submit-btn:hover {
-  background-color: #8C2B28;
-  border-color: #8C2B28;
+  background-color: #73211F;
+  border-color: #73211F;
+}
+.form-container .form-submit-btn:hover svg {
+  fill: #F5F2EB;
 }
 
 /* ----- SECTION MEMBRES DU BUREAU ----- */
