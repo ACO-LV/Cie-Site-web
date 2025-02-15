@@ -644,17 +644,49 @@ section.visible {
 }
 
 /* SPECTACLE - Présentation des spectacles */
-<div class="cards">
-    <div class="card red">
-        <p class="tip">Hover Me</p>
-        <p class="second-text">Lorem Ipsum</p>
-    </div>
-    <div class="card blue">
-        <p class="tip">Hover Me</p>
-        <p class="second-text">Lorem Ipsum</p>
-    </div>
-    <div class="card green">
-        <p class="tip">Hover Me</p>
-        <p class="second-text">Lorem Ipsum</p>
-    </div>
-</div>
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cards .card {
+  position: relative; /* Permet de positionner les éléments enfants */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 200px; /* Augmenté pour bien afficher l'image */
+  width: 300px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+  overflow: hidden; /* Empêche l'image de dépasser */
+}
+
+.cards .card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajuste l'image pour qu'elle couvre toute la carte */
+  transition: 400ms ease-in-out;
+}
+
+.cards .card:hover img {
+  filter: brightness(50%); /* Assombrit l'image */
+}
+
+.cards .card p {
+  position: relative; /* Permet de rester au-dessus de l'image */
+  z-index: 2; /* Place le texte au-dessus de l'image */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Ajoute une ombre pour une meilleure lisibilité */
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(5px);
+  transform: scale(0.9, 0.9);
+}
