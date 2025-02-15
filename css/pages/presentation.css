@@ -136,31 +136,3 @@
     margin: 10px 0;
     font-size: 18px;
 }
-
-/* ----- STYLE DES LIENS SOCIAUX ----- */
-.social-links {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px; /* Espacement entre les icônes */
-    justify-content: center; /* Centre les icônes si besoin */
-}
-
-/* ----- STYLE DES BOUTONS CLIQUABLES ----- */
-.social-links a {
-    display: inline-flex; /* Permet d'aligner les icônes correctement */
-    align-items: center;
-    justify-content: center;
-    width: 40px; /* Taille du bouton */
-    height: 40px;
-}
-
-/* ----- STYLE DES ICONES ----- */
-.social-links img {
-    width: 30px; /* Taille fixe des icônes */
-    height: auto; /* Conserve les proportions */
-    transition: transform 0.2s ease-in-out;
-}
-
-.social-links img:hover {
-    transform: scale(1.1); /* Zoom léger au survol */
-}
