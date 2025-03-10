@@ -93,14 +93,39 @@ document.addEventListener("DOMContentLoaded", function() {
     reveal(); // Vérifier les sections visibles dès le chargement
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.highlight-slider');
     if (slider) {
-        slider.addEventListener('wheel', function(e) {
-            // Empêche le défilement vertical par défaut
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            // Calculer la position de départ en prenant en compte la position du slider
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
             e.preventDefault();
-            // Fait défiler horizontalement en fonction du delta vertical de la souris
-            slider.scrollLeft += e.deltaY;
+            // Calculer la distance parcourue
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Multiplicateur pour ajuster la vitesse
+            slider.scrollLeft = scrollLeft - walk;
         });
     }
 });
+
