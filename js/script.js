@@ -18,7 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 navLinks.classList.toggle("active"); // Affiche/masque le menu
             });
 
+            document.addEventListener("click", function(e) {
+            // Ferme le menu uniquement si le clic n'est pas sur le menu ou sur le bouton hamburger
+            if (navLinks.classList.contains("active") && !navLinks.contains(e.target) && e.target !== menuToggle) {
+                console.log("🔒 Clic en dehors du menu, fermeture du menu.");
+                navLinks.classList.remove("active");
+            }
 
+            
             // Fermer le menu si on clique sur un lien
             navLinks.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", function() {
@@ -26,13 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     navLinks.classList.remove("active");
                 });
             });
-
-            document.addEventListener("click", function(e) {
-            // Ferme le menu uniquement si le clic n'est pas sur le menu ou sur le bouton hamburger
-            if (navLinks.classList.contains("active") && !navLinks.contains(e.target) && e.target !== menuToggle) {
-                console.log("🔒 Clic en dehors du menu, fermeture du menu.");
-                navLinks.classList.remove("active");
-            }
         });
         } else {
             console.error("❌ Erreur : menuToggle ou navLinks introuvables.");
