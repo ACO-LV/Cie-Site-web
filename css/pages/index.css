@@ -136,69 +136,60 @@
 }
 
 /* ----- SECTION FAITS MARQUANTS ----- */
-.highlights {
-    text-align: center;
-    padding: 50px 20px;
+/* Conteneur global du slider */
+.highlight-slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
-.highlights-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 10px; /* Espace entre les images, ajustable selon vos préférences */
-    padding-bottom: 10px; /* Optionnel : pour éviter que le scroll ne coince le contenu adjacent */
-    cursor: grab; /* Indique que l'on peut glisser */
+/* Le slider qui contient les images */
+.highlight-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px; /* Espace entre les images */
+  scroll-behavior: smooth;
+  
+  /* Cacher la scrollbar (optionnel) */
+  -ms-overflow-style: none;  /* IE et Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.highlight-slider::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
 }
 
-.highlight-slider.active {
-    cursor: grabbing;     /* Curseur lors du glissement */
+/* Chaque élément du slider */
+.slider-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 400px; /* Ajustez la largeur selon votre design */
+  height: auto;
 }
 
-.highlight-slider img {
-    flex: 0 0 auto;       /* Empêche l'image de se redimensionner pour occuper 100% */
-    scroll-snap-align: start;
-    max-width: 400px;     /* Fixe une largeur maximale pour chaque image (à ajuster selon votre design) */
-    height: auto;
-    object-fit: cover;
+/* Boutons de navigation */
+.slider-btn {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.highlight-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: auto;
-    background: #f9f9f9;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    flex: 0 0 auto; /* Pour que chaque carte ne se réduise pas */
-    scroll-snap-align: start;
-    width: 300px; /* Vous pouvez ajuster cette largeur selon le design */
+.slider-btn-left {
+  left: 0;
 }
 
-.highlight-card img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    object-fit: cover;
+.slider-btn-right {
+  right: 0;
 }
 
-.highlight-info {
-    padding: 20px;
-    text-align: left;
-}
-
-.highlight-info h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.highlight-info p {
-    font-size: 16px;
-    margin: 5px 0;
-}
 
 /* Bouton secondaire */
 .btn-secondary {
