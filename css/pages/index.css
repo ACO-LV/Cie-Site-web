@@ -165,6 +165,7 @@ height: 300px; /* Ajustez cette valeur selon vos besoins */
 .slider-item {
   flex: 0 0 auto;
   scroll-snap-align: start;
+  height: 100%;
 }
 
 .slider-item img {
