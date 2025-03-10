@@ -141,8 +141,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 75vw;
-  margin-left: calc(-50vw + 50%);
+  width: 75%;       /* Le slider occupe 75% de la largeur de la page */
+  margin: 0 auto;   
 }
 
 /* Le slider qui contient les images */
