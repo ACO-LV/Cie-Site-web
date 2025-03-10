@@ -92,3 +92,15 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", reveal);
     reveal(); // Vérifier les sections visibles dès le chargement
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.highlight-slider');
+    if (slider) {
+        slider.addEventListener('wheel', function(e) {
+            // Empêche le défilement vertical par défaut
+            e.preventDefault();
+            // Fait défiler horizontalement en fonction du delta vertical de la souris
+            slider.scrollLeft += e.deltaY;
+        });
+    }
+});
