@@ -27,6 +27,12 @@ header {
   margin-right: 15px; /* Espace entre le logo et le nom */
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Supprime le soulignement */
+}
+
 /* Nom de la compagnie */
 .company-name {
   font-size: 22px;
