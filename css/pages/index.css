@@ -145,8 +145,17 @@
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px; /* Ajustez l'espacement entre les cartes */
-    padding: 20px;
+    gap: 10px; /* Espace entre les images, ajustable selon vos préférences */
+    padding-bottom: 10px; /* Optionnel : pour éviter que le scroll ne coince le contenu adjacent */
+}
+
+.highlight-slider img {
+    flex: 0 0 auto; /* Les images gardent leur taille sans se réduire */
+    scroll-snap-align: start;
+    width: 100%;
+    max-width: 400px; /* Ajustez cette largeur selon le design souhaité */
+    height: auto;
+    object-fit: cover; /* Assure un bon recadrage de l'image */
 }
 
 .highlight-card {
