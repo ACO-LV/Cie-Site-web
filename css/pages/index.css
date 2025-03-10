@@ -150,13 +150,16 @@
     cursor: grab; /* Indique que l'on peut glisser */
 }
 
+.highlight-slider.active {
+    cursor: grabbing;     /* Curseur lors du glissement */
+}
+
 .highlight-slider img {
-    flex: 0 0 auto; /* Les images gardent leur taille sans se réduire */
+    flex: 0 0 auto;       /* Empêche l'image de se redimensionner pour occuper 100% */
     scroll-snap-align: start;
-    width: 100%;
-    max-width: 400px; /* Ajustez cette largeur selon le design souhaité */
+    max-width: 400px;     /* Fixe une largeur maximale pour chaque image (à ajuster selon votre design) */
     height: auto;
-    object-fit: cover; /* Assure un bon recadrage de l'image */
+    object-fit: cover;
 }
 
 .highlight-card {
