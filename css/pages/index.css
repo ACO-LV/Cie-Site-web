@@ -1,7 +1,8 @@
 /* ----- HERO SECTION (IMAGE PRINCIPALE) ----- */
 .hero {
     position: relative;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     height: 60vh;
     overflow: hidden;
 }
@@ -140,6 +141,14 @@
     padding: 50px 20px;
 }
 
+.highlights-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px; /* Ajustez l'espacement entre les cartes */
+    padding: 20px;
+}
+
 .highlight-card {
     display: flex;
     align-items: center;
@@ -151,6 +160,9 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 0 0 auto; /* Pour que chaque carte ne se réduise pas */
+    scroll-snap-align: start;
+    width: 300px; /* Vous pouvez ajuster cette largeur selon le design */
 }
 
 .highlight-card img {
