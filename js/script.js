@@ -94,38 +94,21 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.highlight-slider');
-    if (slider) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active');
-            // Calculer la position de départ en prenant en compte la position du slider
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            // Calculer la distance parcourue
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Multiplicateur pour ajuster la vitesse
-            slider.scrollLeft = scrollLeft - walk;
-        });
-    }
+  const slider = document.getElementById('highlightSlider');
+  const leftBtn = document.getElementById('sliderLeftBtn');
+  const rightBtn = document.getElementById('sliderRightBtn');
+  
+  if (slider && leftBtn && rightBtn) {
+    const scrollAmount = 400; // Doit correspondre approximativement à la largeur d'un slider-item plus l'écart
+    
+    leftBtn.addEventListener('click', function() {
+      slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    
+    rightBtn.addEventListener('click', function() {
+      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  }
 });
+
 
