@@ -1,3 +1,7 @@
+.menu-toggle {
+    display: none;
+}
+
 /* 📌 MENU RESPONSIVE SUR MOBILE (max 768px) */
 @media screen and (max-width: 768px) {
 
