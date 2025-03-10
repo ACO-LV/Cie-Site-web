@@ -139,10 +139,11 @@
 /* Conteneur global du slider */
 .highlight-slider-container {
   position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   display: flex;
   align-items: center;
-  width: 75%;       /* Le slider occupe 75% de la largeur de la page */
-  margin: 0 auto;   
+  padding: 0 50px; /* Augmentez cette valeur pour plus d'espace sur les côtés */
 }
 
 /* Le slider qui contient les images */
@@ -152,7 +153,7 @@
   scroll-snap-type: x mandatory;
   gap: 10px; /* Espace entre les images */
   scroll-behavior: smooth;
-height: 300px; /* Ajustez cette valeur selon vos besoins */
+  height: 300px; /* Ajustez cette valeur selon vos besoins */
   
   /* Cacher la scrollbar (optionnel) */
   -ms-overflow-style: none;  /* IE et Edge */
