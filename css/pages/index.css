@@ -147,6 +147,7 @@
     scroll-snap-type: x mandatory;
     gap: 10px; /* Espace entre les images, ajustable selon vos préférences */
     padding-bottom: 10px; /* Optionnel : pour éviter que le scroll ne coince le contenu adjacent */
+    cursor: grab; /* Indique que l'on peut glisser */
 }
 
 .highlight-slider img {
