@@ -33,6 +33,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     navLinks.classList.remove("active");
                 });
             });
+
+            // Gestion du clic sur le logo pour naviguer vers la page d'accueil sans fermer prématurément le menu
+            var logoLink = document.querySelector('.logo-link');
+            if (logoLink) {
+                logoLink.addEventListener("click", function(e) {
+                    e.stopPropagation(); // Empêche la propagation vers l'écouteur global
+                    console.log("Logo cliqué : navigation vers la page d'accueil.");
+                    // La navigation se fera normalement grâce à l'attribut href
+                });
+            }
+
         });
         } else {
             console.error("❌ Erreur : menuToggle ou navLinks introuvables.");
