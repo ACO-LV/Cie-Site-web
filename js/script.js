@@ -12,10 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (menuToggle && navLinks) {
             console.log("✅ Menu Toggle et Nav Links trouvés !");
             
-            menuToggle.addEventListener("click", function() {
+            menuToggle.addEventListener("click", function(e) {
+                e.stopPropagation(); // Empêche la propagation du clic
                 console.log("🖱 Clic détecté sur le menu !");
                 navLinks.classList.toggle("active"); // Affiche/masque le menu
             });
+
 
             // Fermer le menu si on clique sur un lien
             navLinks.querySelectorAll("a").forEach(link => {
@@ -24,6 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     navLinks.classList.remove("active");
                 });
             });
+
+            document.addEventListener("click", function(e) {
+            // Ferme le menu uniquement si le clic n'est pas sur le menu ou sur le bouton hamburger
+            if (navLinks.classList.contains("active") && !navLinks.contains(e.target) && e.target !== menuToggle) {
+                console.log("🔒 Clic en dehors du menu, fermeture du menu.");
+                navLinks.classList.remove("active");
+            }
+        });
         } else {
             console.error("❌ Erreur : menuToggle ou navLinks introuvables.");
         }
@@ -71,4 +81,3 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", reveal);
     reveal(); // Vérifier les sections visibles dès le chargement
 });
-
