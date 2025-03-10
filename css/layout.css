@@ -81,8 +81,8 @@ section {
 
 /* FOOTER  ---------------------------------------------------- */
 footer {
-  background-color: #000;
-  color: #FFF;
+  background-color: var(--color-beige);
+  color: var(--text-color);
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
