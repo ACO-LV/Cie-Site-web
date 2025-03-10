@@ -3,7 +3,7 @@
 /* HEADER / NAV  --------------------------------------------- */
 /* Style du header */
 header {
-  background-color: #000; /* Noir */
+  background-color: var(--color-beige); 
   padding: 5px 25px;
 }
 
