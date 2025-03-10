@@ -167,10 +167,8 @@
 }
 
 .slider-item img {
-    width: auto;
-    height: auto;
-    /* Vous pouvez aussi définir des max-width ou max-height si vous souhaitez limiter leur taille sans les déformer */
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 /* Boutons de navigation */
