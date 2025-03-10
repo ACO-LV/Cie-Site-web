@@ -42,7 +42,7 @@
     .menu-toggle {
         display: block;
         font-size: 28px;
-        color: white;
+        color: var(--text-color);
         cursor: pointer;
     }
 
