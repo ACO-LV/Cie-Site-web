@@ -6,7 +6,7 @@
 
 /* Corps global */
 body {
-  font-family: sans-serif; /* Ou une police Google Fonts */
+  font-family: var(--font-primary); /* Ou une police Google Fonts */
   color: var(--text-color);
   background-color: var(--color-beige); /* Exemple de fond crème léger */
   line-height: 1.6;
