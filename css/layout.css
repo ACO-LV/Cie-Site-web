@@ -11,7 +11,7 @@ header {
 .header-container {
   display: flex;
   align-items: center; /* Aligne verticalement le logo, le texte et la navigation */
-  height: 70px; /* Ajuster la hauteur globale du header */
+  height: 50px; /* Ajuster la hauteur globale du header */
 }
 
 /* Section contenant le logo + nom */
