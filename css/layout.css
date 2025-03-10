@@ -14,10 +14,6 @@ header {
   height: 70px; /* Ajuster la hauteur globale du header */
 }
 
-.menu-toggle {
-    display: none;
-}
-
 /* Section contenant le logo + nom */
 .logo-section {
   display: flex;
