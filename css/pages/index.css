@@ -164,8 +164,13 @@
 .slider-item {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: 400px; /* Ajustez la largeur selon votre design */
-  height: auto;
+}
+
+.slider-item img {
+    width: auto;
+    height: auto;
+    /* Vous pouvez aussi définir des max-width ou max-height si vous souhaitez limiter leur taille sans les déformer */
+    max-height: 100%;
 }
 
 /* Boutons de navigation */
