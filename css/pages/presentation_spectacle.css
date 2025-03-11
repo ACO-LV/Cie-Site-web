@@ -33,13 +33,13 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   margin: 20px 0;
-  height: 300px; /* Ajustez cette valeur selon vos besoins */
 }
 .spectacle-slider-container::-webkit-scrollbar {
   display: none;
 }
 .spectacle-slider {
   display: flex;
+  height: 300px; /* Ajustez cette valeur selon vos besoins */
   gap: 10px;
   scroll-behavior: smooth;
 }
