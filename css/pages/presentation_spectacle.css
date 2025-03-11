@@ -46,6 +46,7 @@
 .slider-item {
   flex: 0 0 auto;
   scroll-snap-align: start;
+  height: 100%;
 }
 .slider-item img {
   height: 100%;  /* Hauteur fixe pour le slider */
