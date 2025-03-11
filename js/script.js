@@ -111,4 +111,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+    const hero = document.getElementById('hero');
+    const images = [
+        'images/troupe.jpg',
+        'images/spectacle.jpg',
+        'images/spectacle1.jpg'
+        // Ajoutez ici autant d'images que souhaité
+    ];
+    let current = 0;
+    
+    // Définir la première image
+    hero.style.backgroundImage = `url('${images[0]}')`;
+    
+    function changeBackground(){
+        current = (current + 1) % images.length;
+        hero.style.backgroundImage = `url('${images[current]}')`;
+    }
+    
+    setInterval(changeBackground, 5000); // Changement toutes les 5 secondes
+});
 
