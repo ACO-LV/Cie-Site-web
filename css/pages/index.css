@@ -153,8 +153,7 @@
   scroll-snap-type: x mandatory;
   gap: 10px; /* Espace entre les images */
   scroll-behavior: smooth;
-  height: 300px; /* Ajustez cette valeur selon vos besoins */
-  
+  height: 300px; /* Ajustez cette valeur selon vos besoins */  
   /* Cacher la scrollbar (optionnel) */
   -ms-overflow-style: none;  /* IE et Edge */
   scrollbar-width: none;  /* Firefox */
@@ -174,7 +173,6 @@
     height: 100%;
     width: auto;         /* La largeur s'ajuste automatiquement pour conserver les proportions */
     object-fit: contain; /* Pour afficher l'image en entier sans la découper */
-
 }
 
 /* Boutons de navigation */
