@@ -50,12 +50,13 @@
 
 /* Contenu centré dans la section hero */
 .hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: var(--color-beige);
+  position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: var(--color-beige);
 }
 
 /* Nom de la compagnie */
@@ -194,7 +195,6 @@
 .highlight-slider-container {
   position: relative;
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
   display: flex;
   align-items: center;
   padding: 0 50px; /* Augmentez cette valeur pour plus d'espace sur les côtés */
