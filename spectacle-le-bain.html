@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Présentation du spectacle Le Bain de la Compagnie Sensible Indocile.">
+  <title>Le Bain - Spectacle | Sensible Indocile</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HEADER (chargé dynamiquement si besoin) -->
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header-placeholder').innerHTML = data);
+  </script>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main>
+    <!-- Section 1 : Affiche et infos générales -->
+    <section class="spectacle-intro">
+      <div class="affiche-info">
+        <img src="images/affichelebain.png" alt="Affiche Le Bain" class="spectacle-affiche">
+        <div class="spectacle-details">
+          <h1>Le Bain</h1>
+          <p><strong>Lieu :</strong> Cours Florent</p>
+          <p><strong>Date :</strong> Automne 2025</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 : Slider de photos -->
+    <section class="spectacle-slider-section">
+      <h2>Galerie du spectacle</h2>
+      <div class="spectacle-slider-container">
+        <div class="spectacle-slider">
+          <div class="slider-item">
+            <img src="images/spectacle1.jpg" alt="Photo 1 du spectacle Le Bain">
+          </div>
+          <div class="slider-item">
+            <img src="images/spectacle2.jpg" alt="Photo 2 du spectacle Le Bain">
+          </div>
+          <div class="slider-item">
+            <img src="images/spectacle3.jpg" alt="Photo 3 du spectacle Le Bain">
+          </div>
+          <!-- Ajoutez autant de photos que nécessaire -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 : Description du spectacle -->
+    <section class="spectacle-description">
+      <h2>Description</h2>
+      <p>
+        Une horrible femme dans une baignoire souhaite se séparer de l’une de ses deux bonnes car elle ne supporte pas l’idée d’avoir des domestiques. 
+        Une, ça passe encore, mais deux non ! Deux, c’est tout simplement trop quand on est une femme moderne ! 
+        Elle sollicite l’aide d’un homme qui n’a rien demandé, à part faire son travail, pour choisir au mieux laquelle renvoyée.
+        Mais comment faire quand cette femme en manque d’enfant console sa maternité frustrée en pure dévoration de ses « employées filles adoptives » ? Comment faire quand on est subjugué par la blancheur du corps de chacune de ses bonnes que l’on se sent investie d’une mission humaniste d’élever les plus faibles que soi ?
+        Loin d’être résignées, les deux bonnes agissent comme des fous dans un échiquier, au service étrange de leur majesté. Leur bestialité est exacerbée, leur cruelle innocence aussi lorsqu’elles découvrent cet homme qui n’a rien demandé mais qui se retrouve pris au piège de ce bain ritualisé. Les plus vulnérables vont s'en prendre à plus vulnérable pour se replonger avec délice dans le bain de la soumission.
+        Dans le huit clos d’une salle de bain et embués par ce rituel purificateur, une horrible femme dans une baignoire, une bonne qui va rester, une bonne qui va mourir et un homme qui n’a rien demandé mais qui se retrouve pris au piège se livrent à un corps-à-corps frénétique sublimé par le spectre de la servitude volontaire.
+      </p>
+    </section>
+
+    <!-- Section 4 : Crédits -->
+    <section class="spectacle-credits">
+      <h2>Crédits</h2>
+      <ul>
+        <li><strong>Réalisation :</strong> Nom du réalisateur</li>
+        <li><strong>Scénario :</strong> Nom du scénariste</li>
+        <li><strong>Casting :</strong> Liste des comédiens</li>
+        <!-- Ajoutez d'autres éléments si nécessaire -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Compagnie Sensible Indocile. Tous droits réservés.</p>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
