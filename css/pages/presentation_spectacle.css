@@ -28,8 +28,6 @@
   text-align: center;
 }
 .spectacle-slider-container {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -ms-overflow-style: none;
   scrollbar-width: none;
   margin: 20px 0;
@@ -39,6 +37,8 @@
 }
 .spectacle-slider {
   display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   height: 300px; /* Ajustez cette valeur selon vos besoins */
   gap: 10px;
   scroll-behavior: smooth;
@@ -70,11 +70,11 @@
 }
 
 .slider-btn-left {
-  left: 0;
+  left: 10px; /* Ajustez la position selon vos besoins */
 }
 
 .slider-btn-right {
-  right: 0;
+  right: 10px; /* Ajustez la position selon vos besoins */
 }
 
 /* Description */
