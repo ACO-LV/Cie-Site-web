@@ -1,0 +1,84 @@
+/* Section d'introduction du spectacle */
+.spectacle-intro {
+  padding: 40px 20px;
+  text-align: center;
+  background: #f9f5f0;
+}
+.affiche-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.spectacle-affiche {
+  width: auto;
+  max-width: 300px;  /* Ajustez selon le format portrait */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.spectacle-details h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Slider de photos */
+.spectacle-slider-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+.spectacle-slider-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 20px 0;
+}
+.spectacle-slider-container::-webkit-scrollbar {
+  display: none;
+}
+.spectacle-slider {
+  display: flex;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+.slider-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+.slider-item img {
+  height: 300px;  /* Hauteur fixe pour le slider */
+  width: auto;
+  border-radius: 10px;
+}
+
+/* Description */
+.spectacle-description {
+  padding: 40px 20px;
+  background: #fff;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.spectacle-description h2 {
+  margin-bottom: 20px;
+}
+
+/* Crédits */
+.spectacle-credits {
+  padding: 40px 20px;
+  background: #f1f1f1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+.spectacle-credits h2 {
+  margin-bottom: 20px;
+}
+.spectacle-credits ul {
+  list-style: none;
+  padding: 0;
+}
+.spectacle-credits li {
+  margin-bottom: 10px;
+}
