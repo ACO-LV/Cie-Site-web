@@ -47,9 +47,32 @@
   scroll-snap-align: start;
 }
 .slider-item img {
-  height: 300px;  /* Hauteur fixe pour le slider */
+  height: 100%;  /* Hauteur fixe pour le slider */
   width: auto;
   border-radius: 10px;
+  object-fit: contain; /* Pour afficher l'image en entier sans la découper */
+}
+
+/* Boutons de navigation */
+.slider-btn {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-btn-left {
+  left: 0;
+}
+
+.slider-btn-right {
+  right: 0;
 }
 
 /* Description */
