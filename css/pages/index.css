@@ -43,6 +43,7 @@
 .hero-text h1 {
     font-size: 2rem;
     margin-bottom: 15px;
+    color: white;
 }
 
 /* Contenu centré dans la section hero */
