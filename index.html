@@ -17,35 +17,21 @@
 </head>
 
 <body>
-    <!-- Importer le header dynamiquement -->
-    <header id="header-placeholder"></header>
-    <script>
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('header-placeholder').innerHTML = data);
-    </script>
-    
     <main>
         <!-- Section Hero - Image de la troupe -->
         <section class="hero" id="hero">
             <!-- Div d'overlay pour le filtre de transparence -->
             <div class="hero-overlay"></div>
-            <div class="hero-text">
-                <h1>Plongez dans l'univers de Sensible Indocile</h1>
-                <button class="animated-button" onclick="window.location.href='presentation.html';">
-                  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                    ></path>
-                  </svg>
-                  <span class="text">Découvrir la troupe</span>
-                  <span class="circle"></span>
-                  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                    ></path>
-                  </svg>
-                </button>
+            <div class="hero-content">
+                <h1 class="company-name">Sensible Indocile</h1>
+                <nav class="nav-links">
+                  <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="presentation.html">Présentation</a></li>
+                    <li><a href="spectacles.html">Spectacles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </nav>
             </div>
         </section>
 
