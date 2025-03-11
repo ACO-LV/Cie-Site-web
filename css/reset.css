@@ -6,6 +6,8 @@
 
 /* Corps global */
 body {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-primary); /* Ou une police Google Fonts */
   color: var(--text-color);
   background-color: var(--color-beige); /* Exemple de fond crème léger */
