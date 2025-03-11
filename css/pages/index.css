@@ -50,7 +50,7 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  color: white;
+  color: var(--color-beige);
   top: 50%;
   transform: translateY(-50%);
 }
@@ -62,7 +62,7 @@
 }
 
 /* Navigation centrée */
-.nav-links ul {
+.nav-links-index ul {
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -70,14 +70,14 @@
   gap: 20px; /* Espacement entre les onglets */
 }
 
-.nav-links a {
+.nav-links-index a {
   text-decoration: none;
   font-size: 1.2rem;
   color: white;
   transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links-index a:hover {
   color: var(--color-bordeaux);
 }
 
