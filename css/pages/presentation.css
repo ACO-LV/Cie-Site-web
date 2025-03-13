@@ -33,8 +33,9 @@
   z-index: 2;
 }
 .presentation-logo {
-  max-width: 200px;
+  max-width: 80px;
   height: auto;
+  display: block;
 }
 
 /* --- Contenu Principal --- */
