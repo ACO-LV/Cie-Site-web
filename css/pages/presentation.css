@@ -1,4 +1,4 @@
-body {
+.presentation-page {
   background: url('../../images/Alaffiche1.jpeg') no-repeat center 0px;
   background-size: cover;
   background-attachment: scroll; /* L'image défile avec le contenu */
