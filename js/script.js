@@ -141,3 +141,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  function updateParallax() {
+    const scrollPosition = window.pageYOffset;
+    document.body.style.backgroundPosition = `center ${-scrollPosition * 0.3}px`;
+  }
+  
+  // Appliquer la position correcte dès le chargement
+  
+  updateParallax();
+  if (window.location.pathname.endsWith("presentation.html")) {
+      window.addEventListener('scroll', updateParallax);
+  }
+});
+
