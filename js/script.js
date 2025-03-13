@@ -133,3 +133,11 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.location.pathname.endsWith("presentation.html")) {
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.pageYOffset;
+      document.body.style.backgroundPosition = `center ${-scrollPosition * 0.3}px`;
+    });
+  }
+});
