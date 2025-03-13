@@ -1,9 +1,9 @@
 /* ----- HERO SECTION (IMAGE PRINCIPALE) ----- */
 /* Section Hero : pleine largeur, image de fond dynamique */
 .hero {
-     position: relative;
-      top: 0;
-      left: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
     width: 100vw;
