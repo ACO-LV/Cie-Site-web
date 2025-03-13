@@ -16,6 +16,12 @@
   z-index: 1;
 }
 
+.presentation-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Logo centré en haut de l'image de fond */
 .presentation-logo-container {
   position: absolute;
