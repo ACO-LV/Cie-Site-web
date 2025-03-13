@@ -12,7 +12,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Filtre transparent, ajustez l'opacité si besoin */
+  background: rgba(0, 0, 0, 0.3); /* Filtre transparent, ajustez l'opacité si besoin */
   pointer-events: none; /* Pour que l'overlay ne bloque pas l'interaction avec le contenu */
   z-index: 1; /* Positionné derrière le contenu */
 }
