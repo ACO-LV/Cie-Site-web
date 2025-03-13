@@ -84,17 +84,16 @@ body::before {
 .cards .card p {
   position: absolute;
   top: 50%;
-  left: 50%;
-  /*bottom: 10px;
-  left: 0;
-  right: 0;*/
-  margin: 0;
-  opacity: 0; /* Texte caché par défaut */
+  left: 50%;  
+  transform: translate(-50%, -50%);
+  /*background: rgba(0, 0, 0, 0.6);*/ /* Filtre transparent sur le texte */
   color: var(--color-beige);
   font-size: 1.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour une meilleure lisibilité */
-  transition: opacity 400ms ease-in-out;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  width: 100%;
   z-index: 2;
 }
 .cards .card:hover img {
