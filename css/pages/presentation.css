@@ -29,7 +29,7 @@
   position: relative;
   top: 20px; /* Distance du haut, ajustable */
   left: 50%;
-  /*transform: translateX(-50%);*/
+  transform: translateX(-50%);
   z-index: 2;
 }
 .presentation-logo {
