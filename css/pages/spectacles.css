@@ -55,6 +55,7 @@ body::before {
 }
 
 /* SPECTACLE - Présentation des spectacles */
+/* --- Cartes des spectacles --- */
 .cards {
   display: flex;
   flex-direction: column;
@@ -63,44 +64,44 @@ body::before {
   justify-content: center;
   align-items: center;
 }
-
 .cards .card {
   position: relative;
-  display: block;  
-  text-align: center;
   width: 100%;
   max-width: 800px;
+  height: 300px; /* Format rectangulaire imposé */
   border-radius: 10px;
-  color: white;
+  overflow: hidden;
+  background: #000;
   cursor: pointer;
   transition: 400ms;
-  overflow: hidden;
-  background: #000; /* Optionnel : couleur de fond si l'image ne remplit pas totalement */
 }
-
-/* On retire le positionnement absolu pour que l'image s'affiche naturellement */
 .cards .card img {
-  display: block;
   width: 100%;
-  height: auto; /* Laisse l'image conserver son ratio d'origine */
-  object-fit: contain; /* Affiche toute l'image sans découpage */
+  height: 100%;
+  object-fit: cover; /* Remplit le rectangle */
   transition: 400ms ease-in-out;
 }
-
-/* On positionne le texte par-dessus l'image */
 .cards .card p {
   position: absolute;
   bottom: 10px;
   left: 0;
   right: 0;
-  z-index: 2;
+  margin: 0;
+  opacity: 0; /* Texte caché par défaut */
+  color: #fff;
+  font-size: 1.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour une meilleure lisibilité */
+  transition: opacity 400ms ease-in-out;
+  z-index: 2;
 }
-
 .cards .card:hover img {
-  filter: brightness(50%); /* Assombrit seulement l'image survolée */
+  filter: brightness(50%);
 }
-
+.cards .card:hover p {
+  opacity: 1;
+}
+/* Optionnel : flouter les cartes non survolées */
 .cards:hover > .card:not(:hover) {
-  filter: blur(5px); /* Floute les cartes non survolées */
+  filter: blur(5px);
 }
