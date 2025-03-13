@@ -2,6 +2,19 @@ body {
   background: url('../../images/Alaffiche1.jpeg') no-repeat center center;
   background-size: cover;
   background-attachment: scroll; /* L'image défile avec le contenu */
+  position: relative; /* Nécessaire pour positionner le pseudo-élément */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Filtre transparent, ajustez l'opacité si besoin */
+  pointer-events: none; /* Pour que l'overlay ne bloque pas l'interaction avec le contenu */
+  z-index: 1; /* Positionné derrière le contenu */
 }
 
 /* --- Section Hero --- */
@@ -13,7 +26,7 @@ body {
   height: 100vh;  /* L'image de fond occupe toute la hauteur de l'écran */
   background: transparent;
 }
-.presentation-hero-overlay {
+/*.presentation-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -21,7 +34,7 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.5); /* Filtre transparent (ajustez l'opacité si besoin) */
   z-index: 1;
-}
+}*/
 
 .presentation-hero-image {
     width: 100%;
