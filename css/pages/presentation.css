@@ -1,12 +1,13 @@
 /* --- Section Hero --- */
 .presentation-hero {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;  /* L'image de fond occupe toute la hauteur de l'écran */
   background: url('../../images/Alaffiche1.jpeg') no-repeat center center;
   background-size: cover;
+  background-attachment: scroll; /* C'est la valeur par défaut */
 }
 .presentation-hero-overlay {
   position: absolute;
