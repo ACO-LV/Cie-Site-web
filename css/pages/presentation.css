@@ -23,7 +23,7 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 30vh;  /* L'image de fond occupe toute la hauteur de l'écran */
+  height: 10vh;  /* L'image de fond occupe toute la hauteur de l'écran */
   background: transparent;
 }
 
