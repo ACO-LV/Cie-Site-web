@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   function updateParallax() {
     const scrollPosition = window.pageYOffset;
-    document.body.style.backgroundPosition = `center ${-scrollPosition * 0.3}px`;
+    document.body.style.backgroundPosition = `center ${-scrollPosition * 0.1}px`;
   }
   
   // Appliquer la position correcte dès le chargement
