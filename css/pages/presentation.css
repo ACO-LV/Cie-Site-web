@@ -31,7 +31,7 @@ body {
 
 /* Logo centré en haut de l'image de fond */
 .presentation-logo-container {
-  position: relative;
+  position: absolute;
   top: 20px; /* Distance du haut, ajustable */
   left: 50%;
   transform: translateX(-50%);
@@ -48,22 +48,26 @@ body {
   padding: 40px 20px;
   text-align: center;
   z-index: 2;
+  color : var(--color-beige);
   background: transparent;
 }
 .presentation-intro h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   z-index: 2;
+  color : var(--color-beige);
 }
 .presentation-intro p {
   font-size: 1.2rem;
   margin-bottom: 30px;
   z-index: 2;
+  color : var(--color-beige);
 }
 .presentation-intro h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   z-index: 2;
+  color : var(--color-beige);
 }
 
 /* --- Grille des membres --- */
