@@ -194,7 +194,7 @@
 /* Conteneur global du slider */
 .highlight-slider-container {
   position: relative;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 0 50px; /* Augmentez cette valeur pour plus d'espace sur les côtés */
