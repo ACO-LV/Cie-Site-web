@@ -132,15 +132,4 @@ document.addEventListener("DOMContentLoaded", function(){
     setInterval(changeBackground, 5000); // Changement toutes les 5 secondes
 });
 
-document.addEventListener('DOMContentLoaded', function(){
-  // Exécuter le code uniquement si on est sur presentation.html
-  if(window.location.pathname.endsWith("presentation.html")){
-    window.addEventListener('scroll', function(){
-      const scrollPosition = window.pageYOffset;
-      const hero = document.querySelector('.presentation-hero');
-      if(hero) {
-        hero.style.backgroundPositionY = -(scrollPosition * 0.2) + "px";
-      }
-    });
-  }
-});
+
