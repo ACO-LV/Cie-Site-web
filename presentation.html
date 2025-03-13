@@ -16,92 +16,93 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Importer le header dynamiquement -->
-    <header id="header-placeholder"></header>
-    <script>
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('header-placeholder').innerHTML = data);
-    </script>
+  <section class="presentation-hero">
+    <div class="presentation-hero-overlay"></div>
+    <div class="presentation-hero-content">
+      <!-- Logo centré, cliquable pour revenir à l'accueil -->
+      <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="Logo Compagnie Sensible Indocile" class="presentation-logo">
+      </a>
+    </div>
+  </section>
 
-    <main>
-        <!-- Section Membres du Bureau -->
-        <section class="bureau">
-            <h1>Nos fondateurs</h1>
-            <div class="bureau-container">
-                <div class="bureau-member">
-                    <img src="images/membre1.jpg" alt="Nom du membre 1">
-                    <h3>Valérie Pierson</h3>
-                    <p>Présidente</p>
-                </div>
-                <div class="bureau-member">
-                    <img src="images/membre2.jpg" alt="Nom du membre 2">
-                    <h3>Arthur Couvreur</h3>
-                    <p>Trésorier</p>
-                </div>
-            </div>
-        </section>
+  <!-- CONTENU PRINCIPAL -->
+  <main class="presentation-main">
+    <div class="presentation-intro">
+      <h1>Présentation de la Compagnie</h1>
+      <p>
+        Bienvenue sur la page de présentation de la Compagnie Sensible Indocile. Découvrez notre histoire, nos valeurs et rencontrez nos membres passionnés qui font vibrer la scène.
+      </p>
+      <h2>Membres de la compagnie</h2>
+    </div>
 
-        <!-- Section Présentation des comédiens et comédiennes -->
-        <section class="comedien">
-            <h1>À la rencontre de la troupe</h1>
-            <div class="comedien-container">
-                <div class="comedien-photo-container">
-                    <img src="images/comedienne.jpg" alt="Léonore Vanier" class="comedien-photo" id="openModal">
-                </div>
-            </div>
-        </section>
-
-        <!-- MODALE -->
-        <div id="bioModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Léonore Vanier</h2>
-                <p>
-                    Ancienne ingénieure, Léonore a choisi de se consacrer pleinement à sa passion pour le théâtre. 
-                    Son parcours atypique allie rigueur et créativité, lui permettant d’explorer des rôles avec intensité et sensibilité. 
-                    Aujourd’hui, elle se dédie entièrement au jeu, portée par l’envie de raconter des histoires et d’émouvoir le public.
-                </p>
-            </div>
+    <!-- Grille des membres -->
+    <div class="presentation-members">
+      <a href="membre1.html" class="member-card">
+        <img src="images/comedienne.jpg" alt="Léonore Vanier">
+        <div class="member-info">
+          <span class="member-name">Léonore Vanier</span>
+          <span class="member-role">Comédienne</span>
         </div>
-        
-        <!-- Liens vers les réseaux sociaux -->
-        <div class="social-links">
-            <a href="https://www.instagram.com/leonorevanier/" target="_blank">
-                <img src="icons/instagram.png" alt="Instagram">
-            </a>
-            <a href="https://www.facebook.com/people/Leonore-Vanier/61550483902767/" target="_blank">
-            <img src="icons/facebook.png" alt="Facebook">
-            </a>
-            <a href="https://www.youtube.com/@leonorevanier3433" target="_blank">
-                <img src="icons/youtube.png" alt="YouTube">
-            </a>
-            <a href="mailto:leonore.vanier@gmail.com">
-                <img src="icons/email.png" alt="Email">
-            </a>
-            <a href="https://linktr.ee/leonore.vanier" target="_blank">
-                <img src="icons/linktree.png" alt="Linktree">
-            </a>
+      </a>
+      <a href="membre2.html" class="member-card">
+        <img src="images/Adèle.jpg" alt="Adèle Thomas">
+        <div class="member-info">
+          <span class="member-name">Adèle Thomas</span>
+          <span class="member-role">Comédienne</span>
         </div>
-        </section>
-                
-        <!-- Section Performances passées -->
-        <section class="performances">
-            <h1>Ses performances</h1>
-            <div class="performances-container">
-                <div class="performance-card">
-                    <img src="images/spectacle1.jpg" alt="Spectacle 1">
-                    <h3>Le Bain</h3>
-                    <p>Brève description de la performance.</p>
-                </div>
-                <div class="performance-card">
-                    <img src="images/spectacle2.jpg" alt="Spectacle 2">
-                    <h3>Le Legs (à venir)</h3>
-                    <p>Brève description de la performance.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+      </a>
+      <a href="membre3.html" class="member-card">
+        <img src="images/Clara.jpg" alt="Clara Kermarec">
+        <div class="member-info">
+          <span class="member-name">Clara Kermarec</span>
+          <span class="member-role">Comédienne</span>
+        </div>
+      </a>
+      <a href="membre4.html" class="member-card">
+        <img src="images/Guilherme.jpg" alt="Guilherme Conde">
+        <div class="member-info">
+          <span class="member-name">Guilherme Conde</span>
+          <span class="member-role">Comédien</span>
+        </div>
+      </a>
+      <a href="membre5.html" class="member-card">
+        <img src="images/Lucia.jpg" alt="Lucia Erner">
+        <div class="member-info">
+          <span class="member-name">Lucia Erner</span>
+          <span class="member-role">Comédienne</span>
+        </div>
+      </a>
+      <a href="membre6.html" class="member-card">
+        <img src="images/Maïlys.jpg" alt="Maïlys Flambard">
+        <div class="member-info">
+          <span class="member-name">Maïlys Flambard</span>
+          <span class="member-role">Comédienne</span>
+        </div>
+      </a>
+      <a href="membre7.html" class="member-card">
+        <img src="images/Zoé.jpg" alt="Zoé Juin">
+        <div class="member-info">
+          <span class="member-name">Zoé Juin</span>
+          <span class="member-role">Comédienne</span>
+        </div>
+      </a>
+      <a href="membre8.html" class="member-card">
+        <img src="images/membre1.jpg" alt="Valérie Pierson">
+        <div class="member-info">
+          <span class="member-name">Valérie Pierson</span>
+          <span class="member-role">Autrice, Voyageuse</span>
+        </div>
+      </a>
+      <a href="membre9.html" class="member-card">
+        <img src="images/membre2.jpg" alt="Arthur Couvreur">
+        <div class="member-info">
+          <span class="member-name">Arthur Couvreur</span>
+          <span class="member-role">Musicien, Producteur</span>
+        </div>
+      </a>    
+  </main>    
+<body>
 
     <!-- Footer -->
     <footer>
