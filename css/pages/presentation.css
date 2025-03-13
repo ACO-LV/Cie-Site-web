@@ -2,50 +2,47 @@
 .presentation-hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100vh;  /* L'image de fond occupe toute la hauteur de l'écran */
   background: url('images/fond-presentation.jpg') no-repeat center center;
   background-size: cover;
 }
-
 .presentation-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);  /* Ajustez l'opacité ici */
+  background: rgba(0, 0, 0, 0.5); /* Filtre transparent (ajustez l'opacité si besoin) */
   z-index: 1;
 }
 
-.presentation-hero-content {
-  position: relative;
+/* Logo centré en haut de l'image de fond */
+.presentation-logo-container {
+  position: absolute;
+  top: 20px; /* Distance du haut, ajustable */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
-  text-align: center;
-  padding-top: 20px;
 }
-
 .presentation-logo {
   max-width: 200px;
-  /* Vous pouvez ajuster la taille du logo */
+  height: auto;
 }
 
-/* --- Contenu principal --- */
+/* --- Contenu Principal --- */
 .presentation-main {
   padding: 40px 20px;
   text-align: center;
   background: #fff;
 }
-
 .presentation-intro h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
-
 .presentation-intro p {
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
-
 .presentation-intro h2 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -59,7 +56,6 @@
   gap: 20px;
   padding: 20px;
 }
-
 .member-card {
   position: relative;
   width: 200px;
@@ -68,30 +64,32 @@
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  border: 2px solid transparent;
+  transition: border 0.3s ease-in-out;
 }
-
+.member-card:hover {
+  border: 2px solid var(--color-bordeaux); /* Optionnel, pour indiquer le survol */
+}
 .member-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-
-/* Info du membre cachée par défaut */
+/* Texte caché par défaut */
 .member-info {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6); /* Filtre transparent sur le texte */
   color: #fff;
   padding: 10px;
+  text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  text-align: center;
+  width: 100%;
 }
-
-/* Au survol, on affiche le nom, prénom et rôle */
 .member-card:hover .member-info {
   opacity: 1;
 }
