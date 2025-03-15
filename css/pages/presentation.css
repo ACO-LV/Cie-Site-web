@@ -175,6 +175,7 @@ body::before {
   object-fit: cover;
   border-radius: 5px;
   filter: grayscale(100%);  /* Appliquer le filtre noir et blanc */
+  margin: auto;
 }
 
 .modal-details {
