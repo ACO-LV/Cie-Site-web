@@ -105,7 +105,6 @@
 .btn:hover {
     background: var(--color-dark-bordeaux); /* Rouge plus foncé */
 }
-}
 
 .btn-secondary:hover {
     background: #444;
