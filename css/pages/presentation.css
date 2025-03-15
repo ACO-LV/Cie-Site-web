@@ -151,6 +151,12 @@ body::before {
   font-size: 30px;
   color: #333;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  z-index: 1100; /* Au-dessus du contenu de la modale */
+}
+
+.close:hover {
+  color: var(--color-bordeaux); /* Passe en bordeaux au survol */
 }
 
 /* Colonnes de la modale */
