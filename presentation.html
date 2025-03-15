@@ -171,6 +171,36 @@
             <span class="member-role">Musicien, Producteur</span>
           </div>
         </a>
+    <!-- Modale pour la présentation d'un membre -->
+    <div id="memberModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-columns">
+          <!-- Colonne gauche : photo (affichée deux fois pour l'effet "à gauche et à droite") -->
+          <div class="modal-photo">
+            <img id="modalMemberPhoto" src="" alt="Photo du membre">
+          </div>
+          <!-- Colonne droite : détails -->
+          <div class="modal-details">
+            <h2 id="modalMemberName"></h2>
+            <p id="modalMemberRole"><strong></strong></p>
+            <p id="modalMemberDescription"></p>
+            <p id="modalMemberInstagram">
+              <a href="#" target="_blank">
+                <img src="icons/instagram.png" alt="Instagram" class="instagram-icon">
+                <span id="modalMemberInstagramTag"></span>
+              </a>
+            </p>
+            <div class="modal-member-spectacles">
+              <h3>Spectacles</h3>
+              <div class="spectacles-list" id="modalSpectaclesList">
+                <!-- Chaque spectacle sera inséré ici -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>        
   </main>    
 
     <!-- Footer -->
