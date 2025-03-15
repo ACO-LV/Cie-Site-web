@@ -1,0 +1,42 @@
+.galerie-page {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+/* Logo centré en haut */
+.logo-container {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.logo-container img {
+  max-width: 150px; /* Ajustez la taille selon vos besoins */
+  height: auto;
+}
+
+/* Grille de la galerie */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  gap: 10px;
+  padding: 20px;
+}
+
+/* Chaque item de la galerie en format carré */
+.gallery-item {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Pour obtenir un ratio 1:1 */
+  overflow: hidden;
+}
+
+.gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pour que l'image remplisse le conteneur en conservant son ratio */
+  display: block;
+}
