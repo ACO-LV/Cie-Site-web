@@ -135,7 +135,8 @@ body::before {
 .modal-content {
   background: #fff;
   margin: auto;
-  max-width: 900px;
+  max-width: 600px;  /* Taille réduite (au lieu de 900px) */
+  width: 90%;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -157,8 +158,10 @@ body::before {
   width: 100%;
 }
 
+/* Colonne gauche : photo du membre */
 .modal-photo {
-  flex: 1;
+  flex: 0 0 200px;  /* Fixe la largeur à 200px */
+  height: 200px;      /* Fixe la hauteur à 200px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,15 +169,18 @@ body::before {
 }
 
 .modal-photo img {
-  max-width: 90%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 5px;
+  filter: grayscale(100%);  /* Appliquer le filtre noir et blanc */
 }
 
 .modal-details {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
+  color: #000; /* Texte en noir */
 }
 
 .modal-details h2 {
@@ -192,7 +198,7 @@ body::before {
   margin-right: 5px;
 }
 
-/* Spectacles dans la modale */
+/* Spectacles dans la modale (inchangé, mais vous pouvez ajuster si besoin) */
 .modal-member-spectacles {
   margin-top: 20px;
 }
