@@ -117,6 +117,109 @@ body::before {
   transition: opacity 0.3s ease-in-out;
   width: 100%;
 }
-.member-card:hover .member-info {
-  opacity: 1;
+
+/* --- Modale --- */
+.modal {
+  display: none; /* Caché par défaut */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.7);
+  padding: 40px 20px;
 }
+
+.modal-content {
+  background: #fff;
+  margin: auto;
+  max-width: 900px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Colonnes de la modale */
+.modal-columns {
+  display: flex;
+  width: 100%;
+}
+
+.modal-photo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.modal-photo img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.modal-details {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-details h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-details p {
+  margin-bottom: 10px;
+}
+
+.instagram-icon {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Spectacles dans la modale */
+.modal-member-spectacles {
+  margin-top: 20px;
+}
+
+.spectacles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.spectacles-list a {
+  display: block;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.spectacles-list a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Optionnel : survol sur une carte membre pour afficher son info déjà présent */
+.member-card:hover .member-info {
+  opacity: 0.8;
+}
+
