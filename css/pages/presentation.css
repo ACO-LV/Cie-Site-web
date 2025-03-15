@@ -141,6 +141,7 @@ body::before {
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  align-items: center; /* Ajoutez cette ligne pour centrer verticalement le contenu */
 }
 
 .close {
