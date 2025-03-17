@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8); /* Ajustez l'opacité du filtre ici */
+  background: rgba(0, 0, 0, 0.2); /* Ajustez l'opacité du filtre ici */
   pointer-events: none;
   z-index: 0;
 }
@@ -56,7 +56,7 @@
   position: relative;
   z-index: 2;
   width: 400px;
-  background: linear-gradient(var(--text-color), var(--text-color)) padding-box,
+  background: linear-gradient(var(--color-beige), var(--color-beige)) padding-box,
               linear-gradient(145deg, transparent 35%,var(--color-bordeaux), var(--color-dark-bordeaux)) border-box;
   border: 2px solid transparent;
   padding: 32px 24px;
@@ -114,7 +114,7 @@
   width: 100%;
   padding: 12px 16px;
   border-radius: 8px;
-  color: var(--color-beige);
+  color: var(--text-color);
   font-family: inherit;
   background-color: transparent;
   border: 1px solid #414141;
@@ -168,5 +168,5 @@
 .form-container .form-submit-btn:hover {
   background-color: var(--color-dark-bordeaux);
   border-color: var(--color-dark-bordeaux);
-  color: var(--color-beige);
+  color: var(--text-color);
 }
