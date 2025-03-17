@@ -52,15 +52,6 @@
   background: transparent;
 }
 
-.contact-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #fff;
-}
-
 .form-container {
   position: relative;
   z-index: 2;
