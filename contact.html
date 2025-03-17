@@ -16,14 +16,13 @@
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
-  <!-- HEADER -->
-  <header id="header-placeholder"></header>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('header-placeholder').innerHTML = data);
-  </script>
+<body class="spectacle-le-bain-page">
+  <!-- Pas de header, on place directement le logo centré en haut -->
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="images/logo.png" alt="Logo Compagnie Sensible Indocile" class="logo">
+    </a>
+  </div>
 
   <!-- CONTENU PRINCIPAL -->
   <main>
