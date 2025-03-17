@@ -7,169 +7,46 @@
   <title>Le Bain - Spectacle | Sensible Indocile</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <!-- HEADER (chargé dynamiquement si besoin) -->
-  <header id="header-placeholder"></header>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.getElementById('header-placeholder').innerHTML = data);
-  </script>
+  
+<body class="spectacle-page">
+  <!-- Pas de header, on place directement le logo centré en haut -->
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="images/logo.png" alt="Logo Compagnie Sensible Indocile" class="logo">
+    </a>
+  </div>
 
-  <!-- CONTENU PRINCIPAL -->
-  <main>
-    <!-- Section 1 : Affiche et infos générales -->
-    <section class="spectacle-intro">
-      <div class="affiche-info">
-        <img src="images/affichelebain.png" alt="Affiche Le Bain" class="spectacle-affiche">
-        <div class="spectacle-details">
-          <h1>Le Bain</h1>
-          <p><strong>Lieu :</strong> Cours Florent</p>
-          <p><strong>Date :</strong> Automne 2025</p>
-        </div>
-      </div>
+  <!-- Contenu principal -->
+  <main class="spectacle-content">
+    <!-- Section 1 : Titre de la pièce -->
+    <section class="spectacle-title">
+      <h1>Le Bain</h1>
     </section>
 
-    <!-- Section 2 : Slider de photos -->
-    <section class="spectacle-slider-section">
-      <h2>Galerie du spectacle</h2>
-      <div class="spectacle-slider-container">
-        <div class="spectacle-slider">
-          <div class="slider-item">
-            <img src="images/lebain/lebain10.jpeg" alt="Photo 1 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain11.png" alt="Photo 1 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain12.jpeg" alt="Photo 2 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain13.jpeg" alt="Photo 3 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain14.jpeg" alt="Photo 4 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain15.jpeg" alt="Photo 5 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain16.jpeg" alt="Photo 6 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain17.jpeg" alt="Photo 7 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain18.jpg" alt="Photo 8 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain19.jpg" alt="Photo 9 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain20.jpeg" alt="Photo 10 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain21.jpeg" alt="Photo 11 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain22.jpeg" alt="Photo 12 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain23.jpeg" alt="Photo 13 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain24.jpeg" alt="Photo 14 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain25.jpeg" alt="Photo 15 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain26.jpeg" alt="Photo 16 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain27.jpeg" alt="Photo 17 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain28.jpeg" alt="Photo 18 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain29.jpeg" alt="Photo 19 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain30.jpeg" alt="Photo 20 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain31.jpeg" alt="Photo 21 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain32.jpeg" alt="Photo 22 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain33.jpeg" alt="Photo 23 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain34.jpg" alt="Photo 24 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain35.jpg" alt="Photo 25 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain36.jpg" alt="Photo 26 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain37.jpeg" alt="Photo 27 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain38.jpeg" alt="Photo 28 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain39.jpeg" alt="Photo 29 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain40.jpeg" alt="Photo 30 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain41.jpeg" alt="Photo 31 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain42.jpeg" alt="Photo 32 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain43.jpeg" alt="Photo 33 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain44.jpeg" alt="Photo 34 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain45.jpeg" alt="Photo 35 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain46.jpeg" alt="Photo 36 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain47.jpeg" alt="Photo 37 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain48.jpeg" alt="Photo 38 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain49.jpeg" alt="Photo 39 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain50.jpeg" alt="Photo 40 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain51.jpeg" alt="Photo 41 du spectacle Le Bain">
-          </div>
-          <div class="slider-item">
-            <img src="images/lebain/lebain52.jpeg" alt="Photo 42 du spectacle Le Bain">
-          </div>
-        </div>
-        <button class="slider-btn slider-btn-right" id="sliderRightBtn">&#10095;</button>
-      </div>
+    <!-- Section 2 : Lieu et Date -->
+    <section class="spectacle-info">
+      <p><strong>Création </strong> Automne 2025</p>
+      <p><strong>Au </strong> Cours Florent</p>
     </section>
 
-    <!-- Section 3 : Description du spectacle -->
+    <!-- Section 3 : Crédits -->
+    <section class="spectacle-credits">
+      <h2>-- Production --</h2>
+      <ul>
+        <li>Sensible Indocile</li>
+      </ul>
+      <h2>-- Avec --</h2>
+      <ul>
+        <li><strong>Une pièce de :</strong> Léonore Vanier</li>
+        <li><strong>Mise en scène :</strong> Clara Kermarec</li>
+        <li><strong>Scénario :</strong> Léonore Vanier</li>
+        <li><strong>Casting :</strong> Guilherme Conde, Lucia Ernesi, Adèle Thomas et Léonore Vanier</li>
+        <li><strong>Régie :</strong> Maïlys Flambard</li>
+        <li><strong>Création musicale :</strong> Zoé Juin</li>
+      </ul>
+    </section>
+
+    <!-- Section 4 : Description -->
     <section class="spectacle-description">
       <h2>Description</h2>
       <p>
@@ -182,17 +59,145 @@
       </p>
     </section>
 
-    <!-- Section 4 : Crédits -->
-    <section class="spectacle-credits">
-      <h2>Crédits</h2>
-      <ul>
-        <li><strong>Une pièce de :</strong> Léonore Vanier</li>
-        <li><strong>Mise en scène :</strong> Clara Kermarec</li>
-        <li><strong>Scénario :</strong> Léonore Vanier</li>
-        <li><strong>Casting :</strong> Guilherme Conde, Lucia Ernesi, Adèle Thomas et Léonore Vanier</li>
-        <li><strong>Régie :</strong> Maïlys Flambard</li>
-        <li><strong>Création musicale :</strong> Zoé Juin</li>
-      </ul>
+    <!-- Section : Galerie de photos -->
+    <section class="spectacle-gallery">
+      <h2>Photos du spectacle</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/lebain/lebain10.jpeg" alt="Photo 1 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain11.png" alt="Photo 2 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain12.jpeg" alt="Photo 3 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain13.jpeg" alt="Photo 4 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain14.jpeg" alt="Photo 5 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain15.jpeg" alt="Photo 6 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain16.jpeg" alt="Photo 7 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain17.jpeg" alt="Photo 8 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain18.jpg" alt="Photo 9 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain19.jpg" alt="Photo 10 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain20.jpeg" alt="Photo 11 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain21.jpeg" alt="Photo 12 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain22.jpeg" alt="Photo 13 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain23.jpeg" alt="Photo 14 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain24.jpeg" alt="Photo 15 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain25.jpeg" alt="Photo 16 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain26.jpeg" alt="Photo 17 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain27.jpeg" alt="Photo 18 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain28.jpeg" alt="Photo 19 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain29.jpeg" alt="Photo 20 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain30.jpeg" alt="Photo 21 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain31.jpeg" alt="Photo 22 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain32.jpeg" alt="Photo 23 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain33.jpeg" alt="Photo 24 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain34.jpg" alt="Photo 25 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain35.jpg" alt="Photo 26 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain36.jpg" alt="Photo 27 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain37.jpeg" alt="Photo 28 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain38.jpeg" alt="Photo 29 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain39.jpeg" alt="Photo 30 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain40.jpeg" alt="Photo 31 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain41.jpeg" alt="Photo 32 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain42.jpeg" alt="Photo 33 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain43.jpeg" alt="Photo 34 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain44.jpeg" alt="Photo 35 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain45.jpeg" alt="Photo 36 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain46.jpeg" alt="Photo 37 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain47.jpeg" alt="Photo 38 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain48.jpeg" alt="Photo 39 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain49.jpeg" alt="Photo 40 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain50.jpeg" alt="Photo 41 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain51.jpeg" alt="Photo 42 du spectacle Le Bain">
+        </div>
+        <div class="gallery-item">
+          <img src="images/lebain/lebain52.jpeg" alt="Photo 43 du spectacle Le Bain">
+        </div>
+      </div>
+    </section>
+
+    <!-- Bouton de retour aux spectacles -->
+    <section class="spectacle-return">
+      <a href="spectacles.html" class="btn-return">Spectacles</a>
     </section>
   </main>
 
