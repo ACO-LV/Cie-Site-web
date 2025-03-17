@@ -43,6 +43,15 @@
 }
 
 /* Contenu principal */
+/* --- Contenu Principal --- */
+.spectacles-main {
+  padding: 20px 20px;
+  text-align: center;
+  z-index: 2;
+  color : var(--color-beige);
+  background: transparent;
+}
+
 .contact-content {
   position: relative;
   z-index: 2;
