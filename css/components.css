@@ -25,4 +25,6 @@
 
 .social-links img:hover {
     transform: scale(1.1); /* Zoom léger au survol */
+    text-decoration: none;
+    outline: none;
 }
