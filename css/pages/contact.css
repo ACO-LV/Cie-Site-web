@@ -18,17 +18,18 @@
   z-index: 0;
 }
 
-/* Logo centré en haut */
-.contact-page .logo-container {
-  position: relative;
+/* Logo centré en haut de l'image de fond */
+.contact-logo-container {
+  position: absolute;
+  top: 20px; /* Distance du haut, ajustable */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
-  text-align: center;
-  padding: 20px 0;
 }
-
-.contact-page .logo-container .logo {
-  max-width: 150px;
+.contact-logo {
+  max-width: 80px;
   height: auto;
+  display: block;
 }
 
 /* Contenu principal */
