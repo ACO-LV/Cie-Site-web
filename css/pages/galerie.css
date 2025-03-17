@@ -1,9 +1,8 @@
 .galerie-page {
-  width: 100%;
-  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
   background-color: #000;
-  position: relative; /* Nécessaire pour positionner le pseudo-élément */
-  z-index: 0;
+  background-size: cover;
 }
 
 .galerie-page::before {
@@ -13,7 +12,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0); /* Ajustez l'opacité du filtre ici */
+  background: rgba(0, 0, 0, 0.2); /* Ajustez l'opacité du filtre ici */
   pointer-events: none;
   z-index: 0;
 }
