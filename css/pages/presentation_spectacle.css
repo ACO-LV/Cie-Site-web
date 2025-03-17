@@ -18,6 +18,25 @@
   z-index: 0;
 }
 
+.spectacle-le-dahut-page {
+  position: relative;
+  min-height: 100vh;
+  background: url('../../images/afficheledahut.png') no-repeat center center;
+  background-size: cover;
+}
+
+.spectacle-le-dahut-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Ajustez l'opacité du filtre ici */
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Logo centré en haut */
 .logo-container {
   position: relative;
