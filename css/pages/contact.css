@@ -112,7 +112,7 @@
 .form-container .form-group label {
   display: block;
   margin-bottom: 5px;
-  color: var(--color-beige);
+  color: var(--text-color);
   font-weight: 600;
   font-size: 12px;
 }
