@@ -47,7 +47,7 @@
 }
 
 .hero-text h1 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     margin-bottom: 15px;
     color: white;
 }
@@ -80,7 +80,7 @@
 
 .nav-links-index a {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: white;
   transition: color 0.3s;
 }
