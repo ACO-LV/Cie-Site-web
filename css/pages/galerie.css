@@ -4,6 +4,16 @@
   background-color: #000;
 }
 
+/* --- Section Hero --- */
+.galerie-hero {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;  /* L'image de fond occupe toute la hauteur de l'écran */
+  background: transparent;
+}
+
 /* Logo centré en haut de l'image de fond */
 .galerie-logo-container {
   position: absolute;
