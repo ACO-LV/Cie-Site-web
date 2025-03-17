@@ -87,11 +87,12 @@ section {
 
 /* FOOTER  ---------------------------------------------------- */
 footer {
-  background-color: var(--color-beige);
-  color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--color-beige);
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
+  z-index: 2;
 }
 
 /* Apparition en fondu des sections */
