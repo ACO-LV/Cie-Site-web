@@ -112,4 +112,6 @@
 
 .btn-secondary:hover {
     background: #444;
+    text-decoration: none;
+    outline: none;
 }
