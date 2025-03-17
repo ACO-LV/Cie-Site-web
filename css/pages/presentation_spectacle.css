@@ -1,12 +1,12 @@
 /* Fond de page avec image et overlay transparent */
-.spectacle-lebain-page {
+.spectacle-le-bain-page {
   position: relative;
   min-height: 100vh;
   background: url('../../images/Alaffiche3.jpeg') no-repeat center center;
   background-size: cover;
 }
 
-.spectacle-lebain-page::before {
+.spectacle-le-bain-page::before {
   content: "";
   position: absolute;
   top: 0;
