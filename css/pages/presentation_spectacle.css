@@ -195,4 +195,6 @@
 .btn-return:hover {
   color: var(--color-bordeaux);
   border: 2px solid var(--color-bordeaux); /* Contour beige */
+  text-decoration: none;
+  outline: none;
 }
