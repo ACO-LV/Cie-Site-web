@@ -2,6 +2,7 @@
   width: 100%;
   overflow-x: hidden;
   background-color: #000;
+  position: relative; /* Nécessaire pour positionner le pseudo-élément */
   z-index: 0;
 }
 
