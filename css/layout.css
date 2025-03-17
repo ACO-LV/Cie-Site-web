@@ -30,6 +30,26 @@ footer {
   z-index: 3;
 }
 
+.footer-links {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: var(--color-beige); /* Utilise la couleur définie pour le beige */
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-separator {
+  color: var(--color-beige);
+}
+
 /* Apparition en fondu des sections */
 section {
     opacity: 0;
