@@ -20,7 +20,7 @@
 
 .spectacle-le-dahut-page {
   position: relative;
-  min-height: 100vh;
+  min-height: 120vh;
   background: url('../../images/afficheledahut.png') no-repeat center center;
   background-size: cover;
 }
