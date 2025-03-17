@@ -20,30 +20,37 @@ section {
 }
 
 /* FOOTER  ---------------------------------------------------- */
-footer {
-  position: relative;
-  background-color: var(--text-color);
-  color: var(--color-beige);
+footer p {
   text-align: center;
-  padding: 1rem;
   font-size: 0.9rem;
-  z-index: 3;
+  color: var(--color-beige);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap; /* Assure qu'il n'y ait pas de saut de ligne */
 }
 
 .footer-links {
-  text-align: center;
-  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .footer-links a {
-  color: var(--color-beige); /* Utilise la couleur définie pour le beige */
+  color: var(--color-beige);
   text-decoration: none;
   font-size: 0.9rem;
-  margin: 0 5px;
+  display: inline-flex;
+  align-items: center;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
+.footer-instagram-icon {
+  width: 16px;  /* Taille petite */
+  height: 16px;
+  margin-right: 3px;
+  vertical-align: middle;
 }
 
 .footer-separator {
