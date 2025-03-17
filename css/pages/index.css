@@ -87,6 +87,8 @@
 
 .nav-links-index a:hover {
   color: var(--color-bordeaux);
+  text-decoration: none;
+  outline: none;
 }
 
 /* Bouton principal */
@@ -104,6 +106,8 @@
 
 .btn:hover {
     background: var(--color-dark-bordeaux); /* Rouge plus foncé */
+    text-decoration: none;
+    outline: none;
 }
 
 .btn-secondary:hover {
