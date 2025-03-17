@@ -19,14 +19,14 @@
 }
 
 /* Logo centré en haut */
-.logo-container {
+.contact-page .logo-container {
   position: relative;
   z-index: 2;
   text-align: center;
   padding: 20px 0;
 }
 
-.logo-container .logo {
+.contact-page .logo-container .logo {
   max-width: 150px;
   height: auto;
 }
