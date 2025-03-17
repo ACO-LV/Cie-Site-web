@@ -6,12 +6,14 @@
 
 /* Logo centré en haut */
 .logo-container {
+  position: relative;
+  z-index: 2;
   text-align: center;
   padding: 20px 0;
 }
 
-.logo-container img {
-  max-width: 150px; /* Ajustez la taille selon vos besoins */
+.logo-container .logo {
+  max-width: 150px;
   height: auto;
 }
 
