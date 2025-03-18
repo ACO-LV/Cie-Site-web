@@ -34,7 +34,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.8); /* Ajustez l'opacité du filtre ici */
   pointer-events: none;
-  z-index: 1;
+  z-index: -1;
 }
 
 /* --- Contenu Principal --- */
