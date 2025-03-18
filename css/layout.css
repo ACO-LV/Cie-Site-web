@@ -58,6 +58,10 @@ footer p {
   color: var(--color-beige);
 }
 
+.footer-contact {
+  color: var(--color-beige);
+}
+
 /* Apparition en fondu des sections */
 section {
     opacity: 0;
