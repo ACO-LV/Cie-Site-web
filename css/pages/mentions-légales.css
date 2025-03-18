@@ -1,0 +1,9 @@
+.mentions-legales-page {
+  background-color: var(--color-beige); 
+}
+.mentions-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--text-color);
+}
