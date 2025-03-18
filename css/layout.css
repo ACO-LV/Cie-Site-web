@@ -25,6 +25,7 @@ footer p {
   font-size: 0.9rem;
   color: var(--color-beige);
   background-color: var(--text-color);
+  z-index: 2;
   margin: 0;
   display: flex;
   justify-content: center;
