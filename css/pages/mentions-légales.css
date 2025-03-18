@@ -17,6 +17,20 @@
   z-index: 0;
 }
 
+/* Logo centré en haut de l'image de fond */
+.mentions-logo-container {
+  position: absolute;
+  top: 20px; /* Distance du haut, ajustable */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.mentions-logo {
+  max-width: 80px;
+  height: auto;
+  display: block;
+}
+
 .mentions-content {
   position: relative;
   z-index: 2;
