@@ -15,7 +15,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5); /* Ajustez l'opacité du filtre ici */
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 /* --- Section Hero --- */
