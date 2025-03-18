@@ -15,7 +15,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.8); /* Ajustez l'opacité du filtre ici */
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 .spectacle-le-dahut-page {
@@ -92,6 +92,7 @@
 .spectacle-title h1 {
   font-size: 3rem;
   font-weight: bold;
+  z-index: 2;
 }
 
 /* Section Lieu et Date */
@@ -99,17 +100,20 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.2rem;
+  z-index: 2;
 }
 
 /* Section Crédits */
 .spectacle-credits {
   margin-bottom: 20px;
   text-align: center;
+  z-index: 2;
 }
 
 .spectacle-credits h2 {
   font-size: 1.4rem;
   margin-bottom: 10px;
+  z-index: 2;
 }
 
 .spectacle-credits ul {
