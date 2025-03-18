@@ -1,12 +1,3 @@
-.index-page main {
-  margin: 0;
-  padding: 0;
-}
-
-.index-page section {
-  margin-bottom: 0;
-}
-
 /* ----- HERO SECTION (IMAGE PRINCIPALE) ----- */
 /* Section Hero : pleine largeur, image de fond dynamique */
 .hero {
