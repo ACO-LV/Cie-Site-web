@@ -175,5 +175,5 @@
 .form-container .form-submit-btn:hover {
   background-color: var(--color-dark-bordeaux);
   border-color: var(--color-dark-bordeaux);
-  color: var(--text-color);
+  color: var(--color-beige);
 }
