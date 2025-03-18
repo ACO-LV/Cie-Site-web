@@ -1,5 +1,8 @@
 .mentions-legales-page {
-  background-color: var(--color-beige); 
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--color-beige);
+  background-size: cover;
 }
 
 .mentions-legales-page::before {
@@ -9,7 +12,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0); 
   pointer-events: none;
   z-index: 0;
 }
