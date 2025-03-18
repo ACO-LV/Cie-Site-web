@@ -57,7 +57,7 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  color: #fff;
+  color: var(--text-color);
 }
 
 /* Section Titre */
