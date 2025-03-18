@@ -2,13 +2,15 @@
 /* Section Hero : pleine largeur, image de fond dynamique */
 .hero {
     position: relative;
-    left: 50%;
+    width: 100%;
+    height: 100vh;
+    /*left: 50%;
     right: 50%;
     top: 0;
     margin-left: -50vw;
     margin-right: -50vw;
     width: 100vw;
-    height: 100vh;
+    height: 100vh;*/
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
