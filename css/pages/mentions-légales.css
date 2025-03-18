@@ -18,8 +18,9 @@
 }
 
 .mentions-content {
-  display: flex;
-  max-width: 800px;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   color: var(--text-color);
