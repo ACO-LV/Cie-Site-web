@@ -5,39 +5,43 @@
 /* 📌 MENU RESPONSIVE SUR MOBILE (max 768px) */
 @media screen and (max-width: 768px) {
 
-    /* Masquer le menu normal */
-    .nav-links {
-        display: none; /* Caché par défaut */
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: Var(--color-beige);
-        text-align: center;
-        padding: 10px 0;
-        transition: all 0.3s ease-in-out;
-        flex-direction: column;
-    }
-
-     .header-container {
+    
+.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-  }
+}
 
-  /* Masquer le menu classique */
+  
+ /* Masquer les liens vers les pages existantes par défaut */
   .nav-links {
     display: none;
     position: absolute;
-    top: 70px;
+    top: 60px; /* Ajustez si besoin */
     left: 0;
     width: 100%;
-    background: var(--text-color); /* Fond noir */
-    text-align: center;
-    padding: 10px 0;
-    transition: all 0.3s ease-in-out;
+    background: #000; /* Fond noir */
     flex-direction: column;
+    padding: 10px 0;
+  }
+
+  /* Afficher le menu quand il est actif */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Réduire la taille du titre */
+  .company-name-index {
+    font-size: 2.5rem; /* Ajustez selon vos préférences */
+  }
+
+  /* Afficher le bouton hamburger */
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
   }
 
   .nav-links ul {
@@ -54,19 +58,6 @@
     padding: 10px;
     display: block;
     color: #fff; /* Couleur sur fond noir */
-  }
-
-  /* Afficher le bouton hamburger */
-  .menu-toggle {
-    display: block;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  /* Afficher le menu lorsqu'il est actif */
-  .nav-links.active {
-    display: flex;
   }
 
     /* Modal */
