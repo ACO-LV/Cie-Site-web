@@ -19,37 +19,55 @@
         flex-direction: column;
     }
 
-    .nav-links ul {
-        flex-direction: column;
-        gap: 15px;
-    }
+     .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
 
-    .nav-links ul li {
-        display: block;
-        margin: 10px 0;
-    }
+  /* Masquer le menu classique */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--text-color); /* Fond noir */
+    text-align: center;
+    padding: 10px 0;
+    transition: all 0.3s ease-in-out;
+    flex-direction: column;
+  }
 
-    .nav-links ul li a {
-        font-size: 18px;
-        padding: 10px;
-        display: block;
-        color: var(--text-color);
-    }
+  .nav-links ul {
+    flex-direction: column;
+    gap: 15px;
+  }
 
-    /* Style du bouton menu hamburger */
-    .menu-toggle {
-        display: block;
-        font-size: 28px;
-        color: var(--text-color);
-        cursor: pointer;
-    }
+  .nav-links ul li {
+    margin: 10px 0;
+  }
 
-    /* Affichage du menu lorsque activé */
-    .nav-links.active {
-        display: flex; 
-        flex-direction: column;
-        z-index: 1000;
-    }
+  .nav-links ul li a {
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    color: #fff; /* Couleur sur fond noir */
+  }
+
+  /* Afficher le bouton hamburger */
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Afficher le menu lorsqu'il est actif */
+  .nav-links.active {
+    display: flex;
+  }
 
     /* Modal */
     .modal-content {
