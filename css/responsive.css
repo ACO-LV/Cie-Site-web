@@ -60,15 +60,21 @@
     color: #fff; /* Couleur sur fond noir */
   }
 
-    /* Modal */
-    .modal-content {
-        flex-direction: column;
-    }
-    .modal-photo,
-    .modal-details {
-        width: 100%;
-        height: auto;
-    }
+/* Modal */
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-photo,
+  .modal-details {
+    width: 100%;
+  }
+  
+  .modal-photo {
+    margin-bottom: 20px; /* Pour espacer la photo du texte */
+  }
 
     /* Footer */
     footer p {
