@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var modal = document.getElementById("bioModal");
         var img = document.getElementById("openModal");
         var closeBtn = document.querySelector(".close");
-
+       
         if (modal && img && closeBtn) {
             console.log("✅ Modale trouvée !");
 
@@ -31,6 +31,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
     }, 500); // ✅ On attend 500ms après le chargement du script pour s'assurer que le header est bien injecté
+});
+
+/* Bouton hamburger */
+document.addEventListener('DOMContentLoaded', function(){
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function(){
+      navLinks.classList.toggle('active');
+    });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
