@@ -66,6 +66,10 @@
     align-items: center;
     justify-content: center;
   }
+
+.modal-columns {
+  display: none;
+}
   
   .modal-photo,
   .modal-details {
