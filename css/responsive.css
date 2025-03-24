@@ -5,12 +5,6 @@
 /* 📌 MENU RESPONSIVE SUR MOBILE (max 768px) */
 @media screen and (max-width: 768px) {
 
-    /* Ajustement du header */
-    .header-container {
-        justify-content: space-between;
-        padding: 10px 20px;
-    }
-
     /* Masquer le menu normal */
     .nav-links {
         display: none; /* Caché par défaut */
@@ -95,31 +89,6 @@
         padding: 8px 15px;
     }
 
-    /* Section Faits Marquants */
-    .highlight-info {
-        padding: 10px;
-    }
-
-    .highlight-info h3 {
-        font-size: 18px;
-    }
-
-    .btn-secondary {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
-
-    /* Bureau et Comédiens */
-    .bureau-member img,
-    .comedien-photo {
-        width: 80px;
-        height: 80px;
-    }
-
-    .bureau-member h3 {
-        font-size: 16px;
-    }
-
     /* Social links */
     .social-links {
         gap: 8px;
@@ -135,6 +104,10 @@
     }
 
     /* Footer */
+    footer p {
+        flex-wrap: wrap;
+    }
+    
     footer {
         font-size: 12px;
         padding: 15px;
