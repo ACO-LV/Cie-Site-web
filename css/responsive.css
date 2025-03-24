@@ -76,12 +76,15 @@
     margin-bottom: 20px; /* Pour espacer la photo du texte */
   }
 
-    /* Footer */
-    footer p {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+/* Footer */
+footer p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-separator {
+    display: none;
+}
     
 } /* Fin du @media (max-width: 768px) */
 
