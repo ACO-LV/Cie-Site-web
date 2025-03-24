@@ -51,6 +51,21 @@
         z-index: 1000;
     }
 
+    /* Modal */
+    .modal-content {
+        flex-direction: column;
+    }
+    .modal-photo,
+    .modal-details {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Footer */
+    footer p {
+        flex-wrap: wrap;
+    }
+    
 } /* Fin du @media (max-width: 768px) */
 
 /* 📌 MENU RESPONSIVE SUR MOBILE (max 480px) */
@@ -101,11 +116,6 @@
 
     .social-links img {
         width: 20px;
-    }
-
-    /* Footer */
-    footer p {
-        flex-wrap: wrap;
     }
     
     footer {
