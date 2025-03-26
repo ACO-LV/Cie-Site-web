@@ -57,7 +57,7 @@
   /* Afficher le bouton hamburger sur mobile */
   .menu-toggle {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;              /* Positionné tout en haut de la page */
     right: 20px;         /* À droite */
     font-size: 28px;
