@@ -60,16 +60,19 @@
     color: #fff; /* Couleur sur fond noir */
   }
 
-/* Modal */
+ 
+/* Adaptation responsive pour la modale */
   .modal-content {
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-
-.modal-columns {
-  display: none;
-}
+  
+  .modal-columns {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   
   .modal-photo,
   .modal-details {
@@ -78,8 +81,9 @@
   }
   
   .modal-photo {
-    margin-bottom: 20px; /* Pour espacer la photo du texte */
+    margin-bottom: 20px;
   }
+  
 
 /* Footer */
 footer p {
