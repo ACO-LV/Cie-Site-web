@@ -25,9 +25,9 @@
   /* Masquer la navigation par défaut */
   .nav-links-index {
     display: none;
-    position: fixed;
-    top: 0; /* Positionné sous le header */
-    left: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100%;
     background: #000; /* Fond noir pour le menu */
     flex-direction: column;
