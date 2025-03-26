@@ -25,8 +25,8 @@
   /* Masquer la navigation par défaut */
   .nav-links-index {
     display: none;
-    position: absolute;
-    top: 60px; /* Positionné sous le header */
+    position: fixed;
+    top: 0; /* Positionné sous le header */
     left: 0;
     width: 100%;
     background: #000; /* Fond noir pour le menu */
