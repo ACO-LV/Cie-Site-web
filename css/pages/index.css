@@ -37,6 +37,10 @@
     object-fit: cover;
 }
 
+.responsive-header {
+  display: none;
+}
+
 /* Le texte se place au-dessus de l'overlay */
 .hero-text {
     position: relative;
