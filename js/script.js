@@ -35,20 +35,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* Bouton hamburger */
 document.addEventListener('DOMContentLoaded', function(){
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links-index'); // Mise à jour avec la bonne classe
+  const menuToggle = document.querySelector('.responsive-header .menu-toggle');
+  const navLinks = document.querySelector('.responsive-header .nav-links-index');
+  
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', function(){
       navLinks.classList.toggle('active');
-      // Changer l'icône : hamburger -> croix et inversement
+      // Bascule de l'icône : hamburger <=> croix
       if (navLinks.classList.contains('active')) {
-        menuToggle.innerHTML = '&times;';  // Icône "croix"
+        menuToggle.innerHTML = '&times;';  // Croix
       } else {
-        menuToggle.innerHTML = '&#9776;';  // Icône hamburger
+        menuToggle.innerHTML = '&#9776;';  // Hamburger
       }
     });
   }
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
