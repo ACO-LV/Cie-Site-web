@@ -57,9 +57,9 @@
   /* Afficher le bouton hamburger sur mobile */
   .menu-toggle {
     display: block;
-    position: fixed;
-    top: 0;              /* Positionné tout en haut de la page */
-    right: 20px;         /* À droite */
+    position: fixed !important;
+    top: 0 !important;
+    right: 20px !important;
     font-size: 28px;
     color: var(--color-beige);
     background-color: #000; /* Fond noir derrière le bouton */
