@@ -7,7 +7,7 @@
     
 .header-container {
   position: absolute;
-  top: 20px; /* Distance du haut, ajustable */
+  top: 10px; /* Distance du haut, ajustable */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -19,7 +19,7 @@
     white-space: normal; /* Permet le saut de ligne si le titre est trop long */
     margin: 0 auto;
     text-align: center;
-    padding-top: 10px;  
+    padding-top: 20px;  
   }
 
   /* Masquer la navigation par défaut */
