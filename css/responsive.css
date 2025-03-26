@@ -4,7 +4,6 @@
 
 /* 📌 MENU RESPONSIVE SUR MOBILE (max 768px) */
 @media screen and (max-width: 768px) {
-
     
 .header-container {
   position: absolute;
@@ -14,50 +13,56 @@
   z-index: 2;
 }
 
-  
- /* Masquer les liens vers les pages existantes par défaut */
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 60px; /* Ajustez si besoin */
-    left: 0;
-    width: 100%;
-    background: #000; /* Fond noir */
-    flex-direction: column;
-    padding: 10px 0;
+/* Réduire la taille du titre, autoriser le retour à la ligne et le centrer */
+  .company-name-index {
+    font-size: 2.5rem; /* Taille réduite par rapport aux 4.2rem du desktop */
+    white-space: normal; /* Permet le saut de ligne si le titre est trop long */
+    margin: 0 auto;
+    text-align: center;
   }
 
-  /* Afficher le menu quand il est actif */
-  .nav-links.active {
+  /* Masquer la navigation par défaut */
+  .nav-links-index {
+    display: none;
+    position: absolute;
+    top: 60px; /* Positionné sous le header */
+    left: 0;
+    width: 100%;
+    background: #000; /* Fond noir pour le menu */
+    flex-direction: column;
+    padding: 10px 0;
+    z-index: 99;
+  }
+
+  /* Afficher le menu lorsque la classe "active" est ajoutée */
+  .nav-links-index.active {
     display: flex;
   }
 
-  /* Réduire la taille du titre */
-  .company-name-index {
-    font-size: 2.5rem; /* Ajustez selon vos préférences */
-    margin: 0 auto;
+  .nav-links-index ul {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
   }
 
-  /* Afficher le bouton hamburger */
+  .nav-links-index ul li a {
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* Afficher le bouton hamburger sur mobile */
   .menu-toggle {
+    display: block;
     position: absolute;
-    top: 10px;   /* Ajustez la distance du haut */
-    right: 20px; /* Ajustez la distance de la droite */
+    top: 10px;   /* Ajustez selon vos besoins */
+    right: 20px; /* Positionné en haut à droite */
     font-size: 28px;
     color: #fff;
     cursor: pointer;
     z-index: 100;
-  }
-
-  .nav-links ul {
-    flex-direction: column;
-  }
-
-  .nav-links ul li a {
-    font-size: 18px;
-    padding: 10px;
-    display: block;
-    color: #fff; /* Couleur sur fond noir */
   }
 
  
@@ -86,10 +91,16 @@
   
 
 /* Footer */
+/* Assurer que le footer fait bien toute la largeur */
+  footer {
+    width: 100%;
+  }
+
 footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 .footer-separator {
     display: none;
