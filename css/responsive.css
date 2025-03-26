@@ -50,7 +50,7 @@
     font-size: 18px;
     padding: 10px;
     display: block;
-    color: #fff;
+    color: var(--color-beige);
     text-align: center;
   }
 
