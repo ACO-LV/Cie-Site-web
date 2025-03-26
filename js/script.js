@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 /* Bouton hamburger */
 document.addEventListener('DOMContentLoaded', function(){
   const menuToggle = document.querySelector('.responsive-header .menu-toggle');
-  const navLinks = document.querySelector('.responsive-header .nav-links-index');
+  const navLinks = document.querySelector('.responsive-header .nav-links-index-responsive');
   
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', function(){
