@@ -15,14 +15,15 @@
     z-index: 101;
     padding: 10px 0;
   }
+    
   /* Bouton hamburger */
   .responsive-header .menu-toggle {
     position: fixed;
     top: 0;
     right: 20px;
     font-size: 28px;
-    color: #fff;
-    background-color: transparent; /* ou gardez un fond si vous préférez */
+    color: var(--color-beige);
+    background-color: var(--text-color); /* ou gardez un fond si vous préférez */
     padding: 10px;
     cursor: pointer;
     z-index: 102;
@@ -69,7 +70,7 @@
 
 .header-container {
   position: absolute;
-  top: 10px; /* Distance du haut, ajustable */
+  top: 20px; /* Distance du haut, ajustable */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -81,7 +82,7 @@
     white-space: normal; /* Permet le saut de ligne si le titre est trop long */
     margin: 0 auto;
     text-align: center;
-    padding-top: 20px;  
+    padding-top: 10px;  
   }
  
 /* Adaptation responsive pour la modale */
