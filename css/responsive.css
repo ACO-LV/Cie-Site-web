@@ -19,6 +19,7 @@
     white-space: normal; /* Permet le saut de ligne si le titre est trop long */
     margin: 0 auto;
     text-align: center;
+    padding-top: 10px;  
   }
 
   /* Masquer la navigation par défaut */
@@ -57,10 +58,12 @@
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 10px;   /* Ajustez selon vos besoins */
-    right: 20px; /* Positionné en haut à droite */
+    top: 0;              /* Positionné tout en haut de la page */
+    right: 20px;         /* À droite */
     font-size: 28px;
-    color: #fff;
+    color: var(--color-beige);
+    background-color: #000; /* Fond noir derrière le bouton */
+    padding: 10px;
     cursor: pointer;
     z-index: 100;
   }
@@ -94,6 +97,8 @@
 /* Assurer que le footer fait bien toute la largeur */
   footer {
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
 footer p {
