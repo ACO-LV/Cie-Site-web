@@ -36,13 +36,14 @@ document.addEventListener("DOMContentLoaded", function() {
 /* Bouton hamburger */
 document.addEventListener('DOMContentLoaded', function(){
   const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const navLinks = document.querySelector('.nav-links-index'); // mise à jour de la classe
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', function(){
       navLinks.classList.toggle('active');
     });
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", function() {
     let sections = document.querySelectorAll("section");
