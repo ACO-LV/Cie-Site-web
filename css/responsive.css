@@ -4,7 +4,69 @@
 
 /* 📌 MENU RESPONSIVE SUR MOBILE (max 768px) */
 @media screen and (max-width: 768px) {
-    
+
+.responsive-header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000; /* Fond noir pour toute la zone */
+    z-index: 101;
+    padding: 10px 0;
+  }
+  /* Bouton hamburger */
+  .responsive-header .menu-toggle {
+    position: fixed;
+    top: 0;
+    right: 20px;
+    font-size: 28px;
+    color: #fff;
+    background-color: transparent; /* ou gardez un fond si vous préférez */
+    padding: 10px;
+    cursor: pointer;
+    z-index: 102;
+  }
+  
+  /* Menu de navigation responsive */
+  .responsive-header .nav-links-index-responsive {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    flex-direction: column;
+    margin: 0;
+    padding: 60px 0 10px; /* 60px pour laisser de la place au bouton */
+    z-index: 101;
+  }
+  
+  /* Affichage du menu lors de l'activation */
+  .responsive-header .nav-links-index-responsive.active {
+    display: flex;
+  }
+  
+  .responsive-header .nav-links-index-responsive ul {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .responsive-header .nav-links-index-responsive ul li a {
+    font-size: 18px;
+    padding: 15px;
+    display: block;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Masquer le menu standard sur mobile */
+  .nav-links-index {
+    display: none;
+  }
+  
+
 .header-container {
   position: absolute;
   top: 10px; /* Distance du haut, ajustable */
@@ -21,53 +83,6 @@
     text-align: center;
     padding-top: 20px;  
   }
-
-  /* Masquer la navigation par défaut */
-  .nav-links-index {
-    display: none;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100%;
-    background: #000; /* Fond noir pour le menu */
-    flex-direction: column;
-    padding: 10px 0;
-    z-index: 99;
-  }
-
-  /* Afficher le menu lorsque la classe "active" est ajoutée */
-  .nav-links-index.active {
-    display: flex;
-  }
-
-  .nav-links-index ul {
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links-index ul li a {
-    font-size: 18px;
-    padding: 10px;
-    display: block;
-    color: var(--color-beige);
-    text-align: center;
-  }
-
-  /* Afficher le bouton hamburger sur mobile */
-  .menu-toggle {
-    display: block;
-    position: fixed !important;
-    top: 0 !important;
-    right: 20px !important;
-    font-size: 28px;
-    color: var(--color-beige);
-    background-color: #000; /* Fond noir derrière le bouton */
-    padding: 10px;
-    cursor: pointer;
-    z-index: 100;
-  }
-
  
 /* Adaptation responsive pour la modale */
   .modal-content {
