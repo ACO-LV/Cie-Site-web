@@ -60,12 +60,13 @@
     color: #fff;
     text-align: center;
   }
-    /* Style pour le lien actif */
-    .responsive-header .nav-links-index a.active,
-    .responsive-header.nav-links-index-responsive a.active {
-        color: var(--color-bordeaux); /* couleur bordeau */
-    }
-  
+
+.nav-links-index-responsive a:hover {
+  color: var(--color-bordeaux);
+  text-decoration: none;
+  outline: none;
+}
+   
   /* Masquer le menu standard sur mobile */
   .nav-links-index {
     display: none;
