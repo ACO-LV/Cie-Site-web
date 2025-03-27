@@ -58,6 +58,13 @@
     color: #fff;
     text-align: center;
   }
+    /* Style pour le lien actif */
+    .responsive-header .nav-links-index a.active,
+    .responsive-header.nav-links-index-responsive a.active {
+        color: var(--color-bordeaux); /* couleur bordeau */
+        border-bottom: 2px solid var(--color-bordeaux); /* surlignage en bas, par exemple */
+        /* Vous pouvez ajuster ou ajouter d'autres propriétés de style */
+    }
   
   /* Masquer le menu standard sur mobile */
   .nav-links-index {
