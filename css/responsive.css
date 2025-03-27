@@ -16,15 +16,14 @@
   .responsive-header .menu-toggle {
     display: block; /* Ajouté pour forcer l'affichage du bouton */
     position: fixed;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 10px;  
-    /*top: 0;
-    right: 20px;*/
+    top: 0;
+    left: 50%;               /* Positionnement horizontal au centre */
+    transform: translateX(-50%);  /* Ajustement pour centrer exactement */
+    /*right: 20px;*/
     font-size: 28px;
     color: var(--color-beige);
     background-color: var(--text-color); /* ou gardez un fond si vous préférez */
-    /*padding: 10px;*/
+    padding: 10px;
     cursor: pointer;
     z-index: 102;
   }
