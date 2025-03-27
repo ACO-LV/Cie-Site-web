@@ -51,6 +51,20 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 
+/*Surlignage liens bouton hamburger*/
+document.addEventListener("DOMContentLoaded", function() {
+  const navLinks = document.querySelectorAll(".nav-links-index a, .nav-links-index-responsive a");
+  const currentUrl = window.location.href;
+  
+  navLinks.forEach(link => {
+    // Si l'URL du lien correspond exactement à l'URL actuelle,
+    // on lui ajoute la classe "active"
+    if (link.href === currentUrl) {
+      link.classList.add("active");
+    }
+  });
+});
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
