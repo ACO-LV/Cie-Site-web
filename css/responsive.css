@@ -23,8 +23,8 @@
     background-color: var(--text-color); /* ou gardez un fond si vous préférez */
     padding: 0px;
     cursor: pointer;
-    width: 30px;   /* Largeur fixe */
-    height: 30px;  /* Hauteur fixe pour obtenir un carré */
+    width: 50px;   /* Largeur fixe */
+    height: 50px;  /* Hauteur fixe pour obtenir un carré */
     z-index: 102;
   }
   
