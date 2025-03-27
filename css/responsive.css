@@ -25,7 +25,8 @@
     background-color: var(--text-color); /* ou gardez un fond si vous préférez */
     padding: 10px;
     cursor: pointer;
-    z-index: 102;
+    z-index: 10002;
+    border: 1px solid red; /* Pour débuguer, à retirer par la suite */
   }
   
   /* Menu de navigation responsive */
