@@ -63,7 +63,7 @@
     text-align: center;
   }
 
-.nav-links-index-responsive a:hover {
+.responsive-header .nav-links-index-responsive a:hover {
   color: var(--color-bordeaux);
   text-decoration: none;
   outline: none;
