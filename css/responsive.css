@@ -17,16 +17,13 @@
     display: block; /* Ajouté pour forcer l'affichage du bouton */
     position: fixed;
     top: 0;
-    left: 50%;               /* Positionnement horizontal au centre */
-    transform: translateX(-50%);  /* Ajustement pour centrer exactement */
-    /*right: 20px;*/
+    right: 20px;
     font-size: 28px;
     color: var(--color-beige);
     background-color: var(--text-color); /* ou gardez un fond si vous préférez */
     padding: 10px;
     cursor: pointer;
-    z-index: 10002;
-    border: 1px solid red; /* Pour débuguer, à retirer par la suite */
+    z-index: 102;
   }
   
   /* Menu de navigation responsive */
