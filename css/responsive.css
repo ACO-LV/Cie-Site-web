@@ -18,6 +18,7 @@
     
   /* Bouton hamburger */
   .responsive-header .menu-toggle {
+    display: block; /* Ajouté pour forcer l'affichage du bouton */
     position: fixed;
     top: 0;
     right: 20px;
