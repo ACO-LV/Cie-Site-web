@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Présentation du spectacle Le Bain de la Compagnie Sensible Indocile.">
+  <title>Le Bain - Spectacle | Sensible Indocile</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+  
+<body class="spectacle-le-dahut-page">
+  <!-- Logo centré en haut -->
+    <section class="spectacle-hero">
+        <div class="spectacle-logo-container">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.png" alt="Logo Compagnie Sensible Indocile" class="spectacle-logo">
+            </a>
+        </div>
+    </section>
+
+  <!-- Contenu principal -->
+  <main class="spectacle-main">
+    <!-- Section 1 : Titre de la pièce -->
+    <section class="spectacle-title">
+      <h1>Le Dahut</h1>
+    </section>
+
+    <!-- Section 2 : Lieu et Date -->
+    <section class="spectacle-info">
+      <p><strong>Le Dahut, premier court métrage de fiction réalisé par Léonore Vanier réalisé dans le cadre du Prix Florent Image 
+      2025 </strong></p><br>
+    </section>
+
+    <!-- Section 3 : Crédits -->
+    <section class="spectacle-credits">
+      <h2>- Avec -</h2>
+      <ul>
+        <li><strong>Martin :</strong> Guilherme Conde</li>
+        <li><strong>Romy :</strong> Juliette Ganay</li>
+        <li><strong>Tom :</strong> Colin Pugin-Bron</li>
+        <li><strong>Emma :</strong> Léonore Vanier</li>
+        <li><strong>Daniel :</strong> Adrien Genoud</li>
+        <li><strong>Muriel :</strong> Félicie Genest</li>
+      </ul><br>
+      <ul>
+        <li>Assistant à la mise en scène : Nemo Pierson</li>
+        <li>Assistant réalisateur : Guilherme Conde</li>
+        <li>Directrice de la photographie : Salomé Bossé</li>
+        <li>Ingénieur.e son : Joseph Laurent et Calypso Vanier</li>
+        <li>Régie : Arthur Couvreur</li>
+      </ul><br>
+      <h2>- Soutien -</h2>
+      <ul>
+        <li>Compagnie Sensible Indocile</li>
+      </ul><br>
+    </section>
+
+    <!-- Section : Description -->
+    <section class="spectacle-description">
+      <p>
+        Connaissez-vous le Dahut ? Cet animal semblable aux bouquetins grimpant les régions montagneuses ? Ses pattes latérales à flanc de montagne 
+        sont légèrement plus courtes que celles en aval, lui permettant une stabilité extraordinaire dans les pentes rocailleuses des régions 
+        montagneuses. 
+      </p><br>
+      <p>
+        A Dahut-Ville, petite bourgade isolée des activités de sport d’hiver des Vosges, statues, panneaux et spécialités locales, tout est créé 
+        pour faire croire, en l’existence du Dahut.
+      </p><br>
+      <p>
+        Quatre amis d’enfance partent en quête du Dahut, pris en charge par Daniel et Muriel, un couple de guides passionnés. Mais très vite, des 
+        indices troublants se multiplient : des empreintes « trop parfaites», des bruits étranges la nuit, des murmures entre le couple de guides, 
+        Emma, déterminée, prend les rênes de l’enquête et découvre la vaste supercherie autour du village. 
+      </p><br>
+      <p>
+        Dans une confrontation finale, Tom, libéré, révèle une vidéo montrant Daniel et Muriel piégeant les traces du Dahut. Les guides avouent leur 
+        escroquerie, le mythe du Dahut s’effondre mais avant de quitter le refuge, une silhouette étrange apparaît au loin sur une crête, laissant 
+        planer un doute. Le Dahut existe-t-il vraiment ?  
+      </p>
+    </section><br>
+
+    <!-- Section : Vidéo intégrée -->
+    <section class="spectacle-video">
+      <h2>Court-métrage</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/0BJgv3lmP6Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section><br>
+
+    <!-- Section : Galerie de photos -->
+    <section class="spectacle-gallery">
+      <h2>Photos du court-métrage</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/ledahut/ledahut1.jpeg" alt="Photo 1 du court-métrage Le Dahut">
+        </div>
+        <div class="gallery-item">
+          <img src="images/ledahut/ledahut2.jpeg" alt="Photo 2 du court-métrage Le Dahut">
+        </div>
+        <div class="gallery-item">
+          <img src="images/ledahut/ledahut3.jpeg" alt="Photo 3 du court-métrage Le Dahut">
+        </div>
+        <div class="gallery-item">
+          <img src="images/ledahut/ledahut4.jpeg" alt="Photo 4 du court-métrage Le Dahut">
+        </div>
+      </div>
+    </section><br>
+
+    <!-- Bouton de retour aux spectacles -->
+    <section class="spectacle-return">
+      <a href="spectacles.html" class="btn-return">Spectacles</a>
+    </section>
+  </main>
+
+ 
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
