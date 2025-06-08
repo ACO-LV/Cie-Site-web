@@ -54,9 +54,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
   </main>
 
 <!-- SDK EmailJS -->
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
   // Initialiser EmailJS avec VOTRE clé publique
   emailjs.init('C9r_QSX-YrY-xG4kZ');               // <-- Public Key
@@ -78,8 +76,12 @@ lang: fr                                    # facultatif, sinon hérite de _conf
         status.textContent = 'Merci ! Votre message a été envoyé.';
         form.reset();
       })
-      .catch(() => {
-        status.textContent = 'Erreur : votre message n’a pas pu être envoyé.';
+.catch((err) => {
+  // err est un objet { status: 400, text: "…", ... }
+  err.text.then(msg => console.error('EmailJS ⇢', msg));
+  status.textContent = 'Erreur : ' + (await err.text);
+});
+
       });
   });
 </script>
