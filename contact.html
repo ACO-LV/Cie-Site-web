@@ -53,36 +53,46 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     </div>
   </main>
 
-<!-- SDK EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<!-- SDK EmailJS v4 -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
-  // Initialiser EmailJS avec VOTRE clé publique
-  emailjs.init('C9r_QSX-YrY-xG4kZ');               // <-- Public Key
+(() => {
+  /* 1  Initialisation : remplacez par votre Public Key  */
+  emailjs.init({
+    publicKey: 'C9r_QSX-YrY-xG4kZ'
+  });
 
-  const form   = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
+  const statusEl = document.getElementById('form-status');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    // filtre honeypot
-    if (form['bot-field'].value !== "") return;
+  /* 2  Gestion soumission sans rechargement */
+  document
+    .getElementById('contact-form')
+    .addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    status.textContent = 'Envoi en cours…';
+      /* filtre honeypot */
+      if (e.target['bot-field'].value !== '') return;
 
-    emailjs.sendForm('service_ip0b182',             // <-- Service ID
-                     'template_rb6xtqg',          // <-- Template ID
-                     this)
-      .then(() => {
-        status.textContent = 'Merci ! Votre message a été envoyé.';
-        form.reset();
-      })
-      .catch(() => {
-        status.textContent = 'Erreur : le message n’a pas pu être envoyé.';
-      });
+      statusEl.textContent = 'Envoi en cours…';
 
+      try {
+        /* 3 remplacez serviceID & templateID */
+        const res = await emailjs.sendForm(
+          'service_ip0b182',      // <- Service ID
+          'template_rb6xtqg',   // <- Template ID
+          '#contact-form'       // <- sélecteur CSS du formulaire
+        );
+        console.log('SUCCESS!', res.status, res.text);
+        statusEl.textContent = 'Merci ! Votre message a été envoyé.';
+        e.target.reset();
+      } catch (err) {
+        console.error('FAILED…', err);
+        statusEl.textContent = `Erreur : ${err.text || 'envoi impossible'}`;
+      }
     });
+})();
 </script>
-
 
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>
