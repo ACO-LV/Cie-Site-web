@@ -54,7 +54,9 @@ lang: fr                                    # facultatif, sinon hérite de _conf
   </main>
 
 <!-- SDK EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
 <script>
   // Initialiser EmailJS avec VOTRE clé publique
   emailjs.init('C9r_QSX-YrY-xG4kZ');               // <-- Public Key
