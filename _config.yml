@@ -14,13 +14,21 @@ plugins:
 lang: fr
 author: "Compagnie Sensible Indocile"
 
+logo: "/images/Logo style LE BAIN.png"   # idéalement carré, ≥160 px, <150 ko
+
 # Comptes sociaux
 social:
   links:
     - https://www.instagram.com/ciesensibleindocile
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/images/Logo style LE BAIN.png"
+      lang: fr
+
 # Fichiers à ignorer lors du build
 exclude:
   - README.md
 
-logo: "/images/Logo style LE BAIN.png"   # idéalement carré, ≥160 px, <150 ko
