@@ -26,27 +26,61 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     </div>
     <div class="form-container">
         <p>Vous pouvez nous écrire pour toute question ou demande :</p>
-          <form 
-            action="https://formspree.io/f/votreFormID" 
-            method="POST"
-          >
-          <form class="form">
-            <div class="form-group">
-              <label for="name">Nom :</label>
-              <input type="text" name="name" id="name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email :</label>
-              <input type="email" name="email" id="email" required />
-            </div>
-            <div class="form-group">
-              <label for="textarea">Message :</label>
-              <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
-            </div>
-            <button type="submit" class="form-submit-btn">Envoyer</button>
-          </form>
+
+        <form id="contact-form" class="contact-form">
+          <label>Nom
+            <input type="text" name="from_name" required>
+          </label>
+        
+          <label>Email
+            <input type="email" name="from_email" required>
+          </label>
+        
+          <label>Message
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+        
+          <!-- Champ honeypot anti-bot -->
+          <input type="text" name="bot-field" style="display:none">
+        
+          <button type="submit">Envoyer</button>
+        </form>
+        
+        <!-- Zone de retour utilisateur -->
+        <p id="form-status" role="status"></p>
+
         </div>
   </main>
+
+<!-- SDK EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initialiser EmailJS avec VOTRE clé publique
+  emailjs.init('C9r_QSX-YrY-xG4kZ');               // <-- Public Key
+
+  const form   = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // filtre honeypot
+    if (form['bot-field'].value !== "") return;
+
+    status.textContent = 'Envoi en cours…';
+
+    emailjs.sendForm('service_ip0b182',             // <-- Service ID
+                     'template_rb6xtqg',          // <-- Template ID
+                     this)
+      .then(() => {
+        status.textContent = 'Merci ! Votre message a été envoyé.';
+        form.reset();
+      })
+      .catch(() => {
+        status.textContent = 'Erreur : votre message n’a pas pu être envoyé.';
+      });
+  });
+</script>
+
 
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>
