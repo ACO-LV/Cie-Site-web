@@ -1,1 +1,3 @@
-text<br>User-agent: *<br>Disallow:<br>Sitemap: https://www.lacompagniesensibleindocile.fr/sitemap.xml<br>
+User-agent: *
+Disallow:
+Sitemap: https://www.lacompagniesensibleindocile.fr/sitemap.xml<br>
