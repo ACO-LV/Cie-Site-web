@@ -14,6 +14,10 @@ plugins:
 lang: fr
 author: "Compagnie Sensible Indocile"
 
+# Comptes sociaux
+instagram:
+  publisher: "ciesensibleindocile"
+
 # Fichiers à ignorer lors du build
 exclude:
   - README.md
