@@ -15,9 +15,12 @@ lang: fr
 author: "Compagnie Sensible Indocile"
 
 # Comptes sociaux
-instagram:
-  publisher: "ciesensibleindocile"
+social:
+  links:
+    - https://www.instagram.com/ciesensibleindocile
 
 # Fichiers à ignorer lors du build
 exclude:
   - README.md
+
+logo: "/images/logo.png"   # idéalement carré, ≥160 px, <150 ko
