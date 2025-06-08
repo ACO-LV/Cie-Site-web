@@ -1,12 +1,13 @@
-```liquid
-{% raw %}{{ {
-"@context": "https://schema.org",
-"@type": "PerformingGroup",
-"name": "Compagnie Sensible Indocile",
-"url": "https://www.lacompagniesensibleindocile.fr/",
-"logo": "https://www.lacompagniesensibleindocile.fr/images/logo-512.png",
-"sameAs": [
-"https://www.facebook.com/ciesensibleindocile",
-"https://www.instagram.com/ciesensibleindocile"
-]
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PerformingGroup",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}{{ site.baseurl }}",
+  "logo": "{{ site.url }}/images/logo-512.png",
+  "sameAs": [
+    "https://www.facebook.com/ciesensibleindocile",
+    "https://www.instagram.com/ciesensibleindocile"
+  ]
 }
+</script>
