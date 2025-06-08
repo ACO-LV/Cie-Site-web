@@ -76,14 +76,11 @@ lang: fr                                    # facultatif, sinon hérite de _conf
         status.textContent = 'Merci ! Votre message a été envoyé.';
         form.reset();
       })
-.catch((err) => {
-  // err est un objet { status: 400, text: "…", ... }
-  err.text.then(msg => console.error('EmailJS ⇢', msg));
-  status.textContent = 'Erreur : ' + (await err.text);
-});
-
+      .catch(() => {
+        status.textContent = 'Erreur : le message n’a pas pu être envoyé.';
       });
-  });
+
+    });
 </script>
 
 
