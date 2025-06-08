@@ -25,7 +25,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "/images/Logo style LE BAIN.png"
+      image: "/images/spectacle.jpg"
       lang: fr
 
 # Fichiers à ignorer lors du build
