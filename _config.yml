@@ -1,0 +1,19 @@
+# --- Configuration Jekyll pour lacompagniesensibleindocile.fr ---
+
+title: "Compagnie Sensible Indocile"
+description: "Site officiel de la compagnie de théâtre Sensible Indocile."
+url: "https://www.lacompagniesensibleindocile.fr"   # domaine principal
+baseurl: ""                                          # laissez vide car le site est à la racine
+
+# Plugins approuvés par GitHub Pages
+plugins:
+  - jekyll-seo-tag     # balises SEO automatiques
+  - jekyll-sitemap     # génération /sitemap.xml
+
+# Paramètres par défaut pour jekyll-seo-tag
+lang: fr
+author: "Compagnie Sensible Indocile"
+
+# Fichiers à ignorer lors du build
+exclude:
+  - README.md
