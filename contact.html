@@ -27,23 +27,28 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     <div class="form-container">
         <p>Vous pouvez nous écrire pour toute question ou demande :</p>
 
-        <form id="contact-form" class="contact-form">
-          <label>Nom
-            <input type="text" name="from_name" required>
-          </label>
-        
-          <label>Email
-            <input type="email" name="from_email" required>
-          </label>
-        
-          <label>Message
-            <textarea name="message" rows="6" required></textarea>
-          </label>
+      <form id="contact-form" class="form">
+        <!-- ============ champs ============ -->
+        <div class="form-group">
+          <label for="cf-name">Nom</label>
+          <input  id="cf-name"   type="text"   name="from_name"  required>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-email">E-mail</label>
+          <input  id="cf-email"  type="email" name="from_email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg"  name="message" rows="6" required></textarea>
+        </div>
         
           <!-- Champ honeypot anti-bot -->
-          <input type="text" name="bot-field" style="display:none">
+        <input type="text" name="bot-field" style="display:none">
         
-          <button type="submit">Envoyer</button>
+        <button type="submit" class="form-submit-btn">Envoyer</button>
+        <p id="form-status" role="status"></p>
         </form>
         
         <!-- Zone de retour utilisateur -->
