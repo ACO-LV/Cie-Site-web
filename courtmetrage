@@ -1,0 +1,52 @@
+---
+title: "Spectacles – Compagnie Sensible Indocile"
+description: "Nos court-métrages."
+lang: fr                                    # facultatif, sinon hérite de _config.yml
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% seo %}
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="spectacles-page">>
+    <section class="spectacles-hero">
+        <div class="spectacles-logo-container">
+            <a href="index.html" class="logo-link">
+                <img src="images/Logo style LE BAIN.png" alt="Logo Compagnie Sensible Indocile" class="presentation-logo">
+            </a>
+        </div>
+    </section>
+    <main class="spectacles-main">
+        <div class="spectacles-intro">
+          <h1>Nos spectacles</h1>
+        </div>
+    <section class="cards">
+      <a href="spectacle-stpb.html">
+        <div class="card">
+          <img src="images/Affiche SOUS TA PEAU BRÛLANTE de Léonore Vanier (HD).jpg" alt="Sous ta peau brûlante">
+          <p class="tip">Sous ta peau brûlante</p>
+        </div>
+      </a>
+      <a href="spectacle-le-dahut.html">
+        <div class="card">
+          <img src="images/afficheledahut.png" alt="Le Dahut">
+          <p class="tip">Le Dahut</p>
+        </div>
+      </a>
+      <!-- Ajoutez ici d'autres cartes de spectacles -->
+    </section>
+    
+
+  </main>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+<script src="js/script.js"></script>
+{% include schema-performer.html %}
+
+</body>
+</html>
