@@ -123,3 +123,61 @@
     text-decoration: none;
     outline: none;
 }
+
+/* === POP-UP « Le Bain » ============================================ */
+.popup.hidden      { display: none; }
+.popup             {
+  position: fixed;
+  inset: 0;
+  display: flex;           /* centre horizontal / vertical */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;            /* au-dessus du header & du hero */
+  font-family: var(--font-base, "Inter", sans-serif);
+}
+
+.popup-overlay     {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(2px);
+}
+
+.popup-body        {
+  position: relative;
+  max-width: 420px;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 6px 30px rgba(0,0,0,.25);
+  animation: popupAppear .4s ease forwards;
+}
+
+.popup-body img    {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+}
+
+.popup-text        { font-size: 1rem; line-height: 1.4; color: #111; }
+
+.popup-close       {
+  position: absolute;
+  top: .5rem; right: .5rem;
+  width: 32px; height: 32px;
+  font-size: 1.5rem; line-height: 1;
+  border: none; border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: #555;
+  transition: background .2s, transform .2s;
+}
+.popup-close:hover { background: #eee; transform: rotate(90deg); }
+
+@keyframes popupAppear {
+  0%   { transform: scale(.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
