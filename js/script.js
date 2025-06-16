@@ -211,3 +211,29 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(error => console.error('Erreur lors du chargement du footer:', error));
 });
+
+/* ----- POP-UP « Le Bain » (page d'accueil) ----- */
+document.addEventListener("DOMContentLoaded", () => {
+  const popup      = document.getElementById("popup-le-bain");
+  if (!popup) return;                       // sécurité
+
+  const closeBtn   = popup.querySelector(".popup-close");
+  const overlay    = popup.querySelector(".popup-overlay");
+
+  // N’affiche le pop-up qu’une seule fois par session
+  const alreadySeen = sessionStorage.getItem("leBainPopupSeen");
+
+  if (!alreadySeen) {
+    // petite latence pour laisser le hero se charger
+    setTimeout(() => popup.classList.remove("hidden"), 800);
+  }
+
+  function closePopup () {
+    popup.classList.add("hidden");
+    sessionStorage.setItem("leBainPopupSeen", "1");
+  }
+
+  closeBtn.addEventListener("click",  closePopup);
+  overlay .addEventListener("click",  closePopup);
+});
+
