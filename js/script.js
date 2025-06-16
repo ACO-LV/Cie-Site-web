@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay    = popup.querySelector(".popup-overlay");
 
   // N’affiche le pop-up qu’une seule fois par session
-  const alreadySeen = sessionStorage.getItem("leBainPopupSeen");
+  //const alreadySeen = sessionStorage.getItem("leBainPopupSeen");
 
   if (!alreadySeen) {
     // petite latence pour laisser le hero se charger
