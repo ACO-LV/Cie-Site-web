@@ -1,0 +1,42 @@
+---
+title: "Nous soutenir"
+description: "Campagne d'adhésion."
+lang: fr                                    # facultatif, sinon hérite de _config.yml
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% seo %}
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="presentation-page">
+  <section class="presentation-hero">
+    <div class="presentation-logo-container">
+      <a href="index.html" class="logo-link">
+        <img src="images/Logo style LE BAIN.png" alt="Logo Compagnie Sensible Indocile" class="presentation-logo">
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="presentation-main">
+    <div class="presentation-intro">
+      <h1>NOUS SOUTENIR</h1>
+      <p>
+        Et si vous deveniez un.e bienfaiteur.ice indocile ? L'aventure de la jeune Compagnie Sensible Indocile démarre officiellement cette saison et nous avons besoin de VOUS ! Et si vous deveniez un.e bienfaiteur.ice indocile ?! Soutenez-nous en adhérant à notre compagnie pour notre première saison 25/26 et première exploitation de notre spectacle "LE BAIN" à Paris du 15 novembre au 4 janvier 2026 au Théâtre de la Croisée des Chemins puis au Festival OFF d'Avignon 2026 !
+      </p>
+      <h2>Nous soutenir</h2>
+    </div>
+
+
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+    <script src="js/script.js"></script>
+{% include schema-performer.html %}
+
+</body>
+</html>
