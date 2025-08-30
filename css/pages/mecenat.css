@@ -48,7 +48,7 @@ body::before {
 }
 
 /* --- Contenu Principal --- */
-mecenat-main {
+.mecenat-main {
   padding: 20px 20px;
   text-align: center;
   z-index: 2;
