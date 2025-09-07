@@ -1,0 +1,171 @@
+:root{
+  --bg:#f8f6f0;
+  --fg:#111;
+  --muted:#555;
+  --line:#dcd6cc;
+  --container:980px;
+}
+
+*{box-sizing:border-box}
+html{font-size:14px}
+body{
+  margin:0; font-family:Inter, system-ui, sans-serif;
+  background:var(--bg); color:var(--fg); line-height:1.55;
+}
+a{color:inherit; text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:var(--container); margin:auto; padding:18px}
+
+/* Header */
+.hero{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  border-bottom:1px solid var(--line); padding-bottom:12px
+}
+.brand{display:flex; flex-direction:column; gap:6px}
+.name{margin:0; font-size:38px; font-weight:800; text-transform:uppercase; letter-spacing:.5px}
+.contact-mini{font-size:12px; color:#666}
+.actions{display:flex; gap:12px; align-items:center}
+.icon{display:inline-flex; width:26px; height:26px}
+.icon svg{width:100%; height:100%}
+
+/* Lang buttons */
+.lang-btn{ background:none; border:0; padding:0 2px; cursor:pointer; font:inherit; }
+.lang-btn[aria-pressed="true"]{ text-decoration:underline; font-weight:600 }
+
+/* Sections */
+.section{padding:20px 0; border-bottom:1px solid var(--line)}
+.section h2{
+  margin:0 0 12px 0; font-size:24px; font-weight:800; text-transform:uppercase;
+}
+.section h2::after{content:""; display:block; width:60px; height:2px; background:var(--line); margin-top:8px}
+ul{list-style:none; padding:0; margin:0}
+li{margin-bottom:6px}
+
+/* KV list */
+.kv-list{display:grid}
+.kv{
+  display:grid; 
+  grid-template-columns:100px 1fr; 
+  gap:2px;
+  padding:8px 0; 
+  border-bottom:1px solid var(--line)
+}
+.kv .k{text-transform:uppercase; font-weight:700; letter-spacing:.4px; font-size:14px}
+
+/* 2 colonnes */
+.split-grid{display:grid; gap:18px}
+@media(min-width:960px){ .split-grid{ grid-template-columns:400px 1fr } }
+@media(max-width:959.98px){ .split-grid{ grid-template-columns:1fr } }
+
+/* ===================================================== */
+/* ====== GALERIE — composition par CLUSTERS =========== */
+/* Un cluster = une “ligne” de composition */
+/* .cluster        : conteneur de base
+   .cluster.split  : 1 portrait moyen + pile de 2 petites
+   .split.reverse  : pile à gauche, moyen à droite
+   .stack          : pile verticale des 2 petites
+   .tall/.medium/.small : variantes d’aspect-ratio
+*/
+
+.gallery{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+/* Base d’un cluster */
+.cluster{
+  display:grid;
+  gap:16px;
+}
+
+/* Split standard : moyen à gauche, pile à droite */
+.cluster.split{
+  grid-template-columns: 2fr 1fr;
+  align-items:stretch;
+}
+
+/* Pile verticale des 2 petites */
+.stack{
+  display:grid;
+  grid-template-rows: 1fr 1fr;
+  gap:16px;
+}
+
+/* Variante inversée : pile à gauche, moyen à droite */
+.cluster.split.reverse{
+  grid-template-columns: 1fr 2fr;
+}
+.cluster.split.reverse .stack{ order:1; }
+.cluster.split.reverse .medium{ order:2; }
+
+/* Cartes images */
+.portrait{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+}
+.portrait > img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:50% 50%;
+}
+
+/* Ratios (ajuste si besoin) */
+.portrait.tall{   aspect-ratio: 3 / 5; }  /* grande colonne */
+.portrait.medium{ aspect-ratio: 4 / 5; }  /* portrait moyen */
+.portrait.small{  aspect-ratio: 4 / 5; }  /* petites empilées */
+
+/* ===== Responsive ===== */
+@media (max-width: 719.98px){
+  /* Les splits s’empilent sur une colonne pour garder de grandes images lisibles */
+  .cluster.split,
+  .cluster.split.reverse{
+    grid-template-columns: 1fr;
+  }
+  /* La pile garde deux hauteurs équilibrées */
+  .stack{
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+/* ===================================================== */
+/* Video card */
+.video-card{ background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden }
+.thumb{ position:relative; display:block }
+.thumb::before{ content:""; display:block; padding-top:56.25% } /* 16:9 */
+.thumb img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
+.play{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  display:inline-grid; place-items:center; width:64px; height:64px;
+  border-radius:50%; background:rgba(255,255,255,.9); color:var(--fg);
+  font-size:28px; line-height:1; border:1px solid var(--line)
+}
+.video-meta{ padding:10px }
+.video-meta h3{ margin:0 0 4px; font-size:16px; font-weight:700 }
+.meta-row{ font-size:13px; color:var(--muted) }
+
+/* Lightbox */
+#lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; z-index:9999 }
+#lightbox.open{ display:flex }
+#lightbox .lb-stage{ max-width:92vw; max-height:92vh; position:relative }
+#lightbox img{ max-width:92vw; max-height:92vh; display:block }
+#lightbox .lb-close{
+  position:fixed; top:14px; right:14px; width:40px; height:40px;
+  border:none; background:rgba(255,255,255,.95); border-radius:8px;
+  font-size:24px; line-height:1; cursor:pointer; z-index:10000;
+}
+#lightbox .lb-prev, 
+#lightbox .lb-next{
+  position:fixed; top:0; bottom:0; width:40%;
+  border:none; background:transparent; color:#fff; font-size:40px; cursor:pointer; z-index:9998; padding-top:60px; box-sizing:border-box;
+}
+#lightbox .lb-prev{ left:0 }
+#lightbox .lb-next{ right:0 }
+#lightbox .lb-prev::after, #lightbox .lb-next::after{
+  position:absolute; top:50%; transform:translateY(-50%); opacity:.85
+}
+#lightbox .lb-prev::after{ content:'◀'; left:24px }
+#lightbox .lb-next::after{ content:'▶'; right:24px }
+#lightbox .lb-caption{ position:fixed; left:16px; right:16px; bottom:16px; color:#eee; text-align:center; font-size:14px }
+body.lb-open{ overflow:hidden }
