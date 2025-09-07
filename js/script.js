@@ -142,8 +142,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalMemberInstagramTag = document.getElementById('modalMemberInstagramTag');
   const modalMemberInstagramLink = document.querySelector('#modalMemberInstagram a');
   const modalSpectaclesList = document.getElementById('modalSpectaclesList');
-
-  // Fonction pour ouvrir la modale et remplir les infos
+  const memberWebsiteBlock = document.getElementById('memberWebsiteBlock');
+  const modalMemberSite = document.getElementById('modalMemberSite');
+  
+    // Fonction pour ouvrir la modale et remplir les infos
   memberCards.forEach(card => {
     card.addEventListener('click', function(e) {
       e.preventDefault();
@@ -155,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const instagram = card.getAttribute('data-instagram');
       const photo = card.getAttribute('data-photo');
       const spectaclesData = card.getAttribute('data-spectacles');
+      const siteUrl = card.getAttribute('data-site');
       let spectacles = [];
       try {
         spectacles = JSON.parse(spectaclesData);
@@ -169,7 +172,15 @@ document.addEventListener('DOMContentLoaded', function() {
       modalMemberDescription.textContent = description;
       modalMemberInstagramTag.textContent = instagram;
       modalMemberInstagramLink.href = `https://www.instagram.com/${instagram.replace('@','')}`;
-      
+      if (memberWebsiteBlock && modalMemberSite) {
+          if (siteUrl) {
+           modalMemberSite.href = siteUrl;
+           memberWebsiteBlock.style.display = '';      // visible
+          } else {
+           modalMemberSite.removeAttribute('href');
+           memberWebsiteBlock.style.display = 'none';  // caché si pas d'URL
+          }
+      }
       // Remplir la liste des spectacles
       modalSpectaclesList.innerHTML = ''; // Vider la liste
       if (spectacles.length > 0) {
