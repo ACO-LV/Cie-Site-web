@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Léonore Vanier</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles externes -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="container hero">
+    <div class="brand">
+      <h1 class="name">Léonore Vanier</h1>
+      <div class="contact-mini">Tél&nbsp;: 06 79 10 75 93 • Email&nbsp;: leonore.vanier@gmail.com • Paris, Île-de-France • 170 cm</div>
+    </div>
+    <div class="actions" aria-label="Liens rapides">
+     <button type="button" class="icon" id="download-snap" aria-label="Télécharger une capture" title="Télécharger une capture">
+       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 3h7l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="currentColor"/>
+        <path d="M13 3v5h5" stroke="currentColor"/>
+        <path d="M12 12v6" stroke="currentColor"/>
+        <path d="M9 15l3 3 3-3" stroke="currentColor"/>
+      </svg>
+    </button>
+      
+    <a class="icon" href="https://www.instagram.com/leonorevanier/?igsh=aTh5aG9tc3puZTl6&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram de Léonore Vanier">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="#111"/>
+        <circle cx="12" cy="12" r="4.2" fill="none" stroke="#111"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="#111"/>
+      </svg>
+      </a>
+      
+      <span aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="fr" aria-pressed="true">FR</button> /
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="work" class="section split">
+      <div class="split-grid">
+        <!-- Colonne gauche : Photos en premier, vidéo plus bas et plus petite -->
+        <aside class="media-rail">
+          <h2 id="photos" data-i18n="section.photos">Photos</h2>
+          <div class="gallery">
+          <!-- CLUSTER 1 : grande colonne -->
+            <div class="cluster">
+              <a class="portrait tall" href="photos/Epoque.jpg" aria-label="Epoque">
+                <img src="photos/Epoque.jpg" alt="Epoque" loading="lazy" decoding="async">
+              </a>
+            </div>
+
+          <!-- CLUSTER 2 : moyen à gauche + pile à droite -->
+            <div class="cluster split">
+              <a class="portrait medium" href="photos/jeune.jpg" aria-label="Innocence">
+                <img src="photos/jeune.jpg" alt="Innocence" loading="lazy" decoding="async">
+              </a>
+              <div class="stack">
+                <a class="portrait medium" href="photos/H%C3%A9ro%C3%AFne%20romantique.jpg" aria-label="Héroïne romantique">
+                  <img src="photos/H%C3%A9ro%C3%AFne%20romantique.jpg" alt="Héroïne romantique" loading="lazy" decoding="async">
+                </a>
+                <a class="portrait small" href="photos/malice.jpg" aria-label="Malice">
+                  <img src="photos/malice.jpg" alt="Malice" loading="lazy" decoding="async"style="object-position:50% 30%">
+                </a>
+              </div>
+            </div>
+
+        <!-- CLUSTER 3 : pile à gauche + moyen à droite -->
+          <div class="cluster split reverse">
+            <a class="portrait medium" href="photos/Fatale.jpg" aria-label="Femme fatale">
+             <img src="photos/Fatale.jpg" alt="Femme fatale" loading="lazy" decoding="async">
+            </a>
+            <div class="stack">
+              <a class="portrait small" href="photos/douceur.jpg" aria-label="Douceur">
+                <img src="photos/douceur.jpg" alt="Douceur" loading="lazy" decoding="async">
+              </a>
+              <a class="portrait small" href="photos/romantique.jpg" aria-label="Romantique">
+                <img src="photos/romantique.jpg" alt="Romantique" loading="lazy" decoding="async"style="object-position:50% 30%">
+              </a>
+            </div>
+          </div>
+            
+        <!-- CLUSTER 4 : moyen à gauche + pile à droite -->
+          <div class="cluster split">
+            <a class="portrait medium" href="photos/Puissante.jpeg" aria-label="Puissante">
+                <img src="photos/Puissante.jpeg" alt="Puissante" loading="lazy" decoding="async">
+            </a>
+            <div class="stack">
+              <a class="portrait small" href="photos/H%C3%A9ro%C3%AFne%20romantique%20%C3%A9poque.jpg" aria-label="Héroïne romantique époque">
+                <img src="photos/H%C3%A9ro%C3%AFne%20romantique%20%C3%A9poque.jpg" alt="Héroïne romantique époque" loading="lazy" decoding="async" style="object-position:50% 15%">
+              </a>
+              <a class="portrait small" href="photos/Jeune%20flic.jpg" aria-label="Jeune flic">
+                <img src="photos/Jeune%20flic.jpg" alt="Jeune flic" loading="lazy" decoding="async" style="object-position:50% 30%">
+              </a>
+             </div>
+         </div>
+
+        </div>
+        </aside>
+        
+        <!-- Colonne droite : Expériences / textes -->
+        <div class="text-rail">
+          <h2 id="bio" data-i18n="nav.bio">Bio</h2>
+          <p>"Invente, imagine, suppose. Fouille dans ton esprit. Cherches-y quelque chose d’étrange, d’insensé, d’horrible et d’inouï. Une fatalité dont on soit ébloui !" [Ruy Blas, Victor Hugo]
+          </p>
+       
+          <h2 id="casting" data-i18n="section.casting">Informations casting</h2>
+          <div class="kv-list" id="casting-list">
+            <div class="kv"><div class="k" data-i18n="casting.langues.k">Langues</div><div data-i18n="casting.langues.v">Anglais (bilingue sans accent), Espagnol (avancé), Coréen, Italien (notions), Français (maternelle)</div></div>
+            <div class="kv"><div class="k" data-i18n="casting.danses.k">Danses</div><div data-i18n="casting.danses.v">Pompons girls (compétition), Classique (très bon niveau), Modern’Jazz (bon niveau)</div></div>
+            <div class="kv"><div class="k" data-i18n="casting.musique.k">Musique</div><div data-i18n="casting.musique.v">Chant (Alto)</div></div>
+            <div class="kv"><div class="k" data-i18n="casting.sport.k">Sport</div><div data-i18n="casting.sport.v">Athlétisme (semi-marathon), Ski (très bon niveau), Natation (bon niveau), Karaté (bon niveau)</div></div>
+            <div class="kv"><div class="k" data-i18n="casting.hobbies.k">Hobbies</div><div data-i18n="casting.hobbies.v">Couture, Poterie, Modèle photo</div></div>
+            <div class="kv"><div class="k" data-i18n="casting.permis.k">Permis</div><div data-i18n="casting.permis.v">B</div></div>
+          </div>
+          <p><a href="#" class="toggle-casting" data-i18n="toggle.more">Afficher plus</a></p>
+
+          <h2 data-i18n="section.theatre" style="margin-top:16px">Théâtre</h2>
+          <ul>
+            <li><strong>2025</strong> – LE BAIN – Mise en scène Clara Kermarec – Théâtre de La Croisée des Chemins – Rôle principal - Sélection "Festival Travaux de Fin d'Etudes Cours Florent 25/26"</li>
+            <li><strong>2025</strong> – TRISTESSE ET JOIE DANS LA VIE DES GIRAFES – Mise en scène Iona Vavasseur – Rôle Judy Garland</li>
+            <li><strong>2025</strong> – LE LEGS – Mise en scène Alain de Bock – Théâtre A LA FOLIE - Rôle d'Hortense</li>
+            <li><strong>2024</strong> – LE MARIAGE DE FIGARO – Mise en scène Sophie Lecarpentier – Rôle La Comtesse</li>
+            <li><strong>2022</strong> – LA BONNE ÂME DU SE-TCHOUAN – Mise en scène Xavier Bazin – Rôle La Femme</li>
+            <li><strong>2022</strong> – RING – Mise en scène Frédérique Auger – Théâtre Clavel – Rôle La Femme</li>
+          </ul>
+
+          <h2 data-i18n="section.films" style="margin-top:16px">Cinéma – Courts métrages</h2>
+          <ul>
+            <li><strong>2025</strong> – <span data-i18n="films.item1">J’EN TROUVERAI UN AUTRE – Réal. Louis Faudais – Rôle principal (comédie) - Sélection "1 min 2 court Festival"</span></li>
+            <li><strong>2025</strong> – <span data-i18n="films.item2">LE DAHUT – Réal. Léonore Vanier – Rôle principal (comédie) - Sélection "Prix Florent Image"</span></li>
+            <li><strong>2025</strong> – <span data-i18n="films.item3">MASTERPROF – Réal. Jef Yomby – Opango – Rôle principal (comédie)</span></li>
+          </ul>
+
+          <h2 data-i18n="section.tv" style="margin-top:16px">Télévision</h2>
+          <ul>
+            <li><strong>2025</strong> – <span data-i18n="tv.item1">VINCI AUTOROUTE – Réal. Charly – Prod. Marie Gleyze & Sylvain Pouyet – Rôle principal</span></li>
+            <li><strong>2024</strong> – <span data-i18n="tv.item2">ENGIE Solutions – Réal. 714 Prod – Rôle principal</span></li>
+          </ul>
+
+          <h2 id="formations" data-i18n="section.training" style="margin-top:16px">Formations</h2>
+          <ul>
+            <li><strong>2025</strong> – <span data-i18n="training.item1">Stage « Intitation à la transe » avec Valérie De Dietrich <br>Stage Systema avec Laurent Joly <br>Atelier coaching avec Fabrice Luneau <br>Open Badge : prévenir et lutter contre les VHSS dans le cinéma</br></span></li>
+            <li><strong>2024-25</strong> – <span data-i18n="training.item2">Cours Florent : Année 3 avec Jerzy Klsyk, Sandy Boizard, Sophie Lecarpentier<br>Stage Masque avec Khadija El Mahdi) <br>Stage Improvisation avec David Garel<br>Stage casting avec Emmanuelle Bourcy</br></span></li>
+            <li><strong>2023-24</strong> – <span data-i18n="training.item3">Cours Florent : Année 2 avec Xavier Bazin</span></li>
+            <li><strong>2022-23</strong> – <span data-i18n="training.item4">Cours Florent : Année 1 avec Olivier Augrond</span></li>
+            <li><strong>2022</strong> – <span data-i18n="training.item5">Diplôme d’ingénieur, National University of Singapore</span></li>
+          </ul>
+           <h2 id="reel" style="margin-top:2px" data-i18n="section.reel">Bande démo</h2>
+          <article class="video-card">
+            <a class="thumb" href="https://youtu.be/2cULRf3Run4?si=3E7pat7Q1dvlqDCT" target="_blank" rel="noopener"
+               aria-label="Lire la bande démo" data-i18n-attr="aria-label:reel.open">
+              <img src="photos/reel-cover.jpg" alt="Bande démo — miniature locale" data-i18n-attr="alt:reel.cover" loading="lazy" decoding="async">
+              <span class="play" aria-hidden="true">▶</span>
+            </a>
+            <div class="video-meta">
+              <h3 data-i18n="section.reel">Bande démo</h3>
+              <div class="meta-row">YouTube</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+    <!-- === Lightbox markup === -->
+  <div id="lightbox" aria-hidden="true" role="dialog" aria-label="Visionneuse photos">
+    <button class="lb-close" aria-label="Fermer">×</button>
+    <button class="lb-prev" aria-label="Photo précédente" tabindex="0"></button>
+    <div class="lb-stage"><img id="lb-img" alt=""></div>
+    <button class="lb-next" aria-label="Photo suivante" tabindex="0"></button>
+    <div class="lb-caption" id="lb-caption" aria-live="polite"></div>
+  </div>
+
+  <footer class="container">
+    <small>© <span id="year"></span> Léonore Vanier</small>
+  </footer>
+  
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
