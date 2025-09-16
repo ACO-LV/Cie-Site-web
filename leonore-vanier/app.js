@@ -47,7 +47,7 @@ const I18N = {
     "tv.item2": "ENGIE Solutions – Réal. 714 Prod – Rôle principal",
 
     "training.item1": "Stage « Intitation à la transe » (Valérie De Dietrich) — Stage Systema (Laurent Joly) — Atelier coaching (Fabrice Luneau) — Open Badge : prévenir et lutter contre les VHSS dans le cinéma",
-    "training.item2": "Conservatoire à Rayonnement Régional de Cergy Pontoise avec Marc Schapira, Antoine de la Morinerie et Emmanuelle Meyssignac",
+    "training.item2": "Conservatoire à Rayonnement Régional de Cergy-Pontoise avec Marc Schapira, Antoine de la Morinerie et Emmanuelle Meyssignac",
     "training.item3": "Cours Florent : Année 3 (Jerzy Klsyk, Sandy Boizard, Sophie Lecarpentier) — Stage Masque (Khadija El Mahdi) — Stage Impro (David Garel) — Stage casting (Emmanuelle Bourcy)",
     "training.item4": "Cours Florent : Année 2 (Xavier Bazin)",
     "training.item5": "Cours Florent : Année 1 (Olivier Augrond)",
@@ -113,7 +113,7 @@ const I18N = {
     "tv.item2": "ENGIE Solutions – Dir. 714 Prod – Lead",
 
     "training.item1": "Initiation to trance (Valérie De Dietrich) — Systema (Laurent Joly) — Coaching workshop (Fabrice Luneau) — VHSS badge",
-    "training.item2": "Conservatoire à Rayonnement Régional de Cergy (Marc Schapira, Antoine de la Morinerie,Emmanuelle Meyssignac)",
+    "training.item2": "Conservatoire à Rayonnement Régional de Cergy-Pontoise(Marc Schapira, Antoine de la Morinerie,Emmanuelle Meyssignac)",
     "training.item3": "Cours Florent: Year 3 (Jerzy Klsyk, Sandy Boizard, Sophie Lecarpentier) — Mask (Khadija El Mahdi) — Improv (David Garel) — Casting (Emmanuelle Bourcy)",
     "training.item4": "Cours Florent: Year 2 (Xavier Bazin)",
     "training.item5": "Cours Florent: Year 1 (Olivier Augrond)",
