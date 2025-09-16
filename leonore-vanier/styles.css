@@ -169,3 +169,41 @@ li{margin-bottom:6px}
 #lightbox .lb-next::after{ content:'▶'; right:24px }
 #lightbox .lb-caption{ position:fixed; left:16px; right:16px; bottom:16px; color:#eee; text-align:center; font-size:14px }
 body.lb-open{ overflow:hidden }
+
+/* ===================================================== */
+/* MOBILE — photo principale en haut, texte, reste des photos en bas */
+@media (max-width: 959.98px){
+
+  /* On empile verticalement le contenu de la section */
+  .split-grid{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* On “déplie” les conteneurs pour pouvoir ordonner finement
+     (les enfants de .media-rail et de .gallery deviennent
+     des enfants directs de .split-grid) */
+  .media-rail,
+  .media-rail .gallery{
+    display: contents;
+  }
+
+  /* Ordre 1 : le titre "Photos" + la 1ʳᵉ image de la galerie (photo principale) */
+  .media-rail > h2{ order: 1; }
+  .media-rail .gallery > *:first-child{ order: 1; }
+
+  /* Ordre 2 : toute la colonne texte */
+  .text-rail{ order: 2; }
+
+  /* Ordre 3 : le reste des photos */
+  .media-rail .gallery > *:not(:first-child){ order: 3; }
+
+  /* Petits ajustements d’affichage des clusters déjà prévus pour mobile */
+  .cluster.split,
+  .cluster.split.reverse{ grid-template-columns: 1fr; }
+  .stack{ grid-template-rows: 1fr 1fr; }
+
+  /* Espacement doux entre les blocs réordonnés */
+  .split-grid > * { margin-bottom: 16px; }
+}
+
