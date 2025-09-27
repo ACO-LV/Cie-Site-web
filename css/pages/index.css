@@ -177,6 +177,22 @@
 }
 .popup-close:hover { background: #eee; transform: rotate(90deg); }
 
+.btn-reserver {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background-color: #c62828; /* rouge profond */
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reserver:hover {
+  background-color: #b71c1c; /* nuance plus sombre au hover */
+}
+
 @keyframes popupAppear {
   0%   { transform: scale(.8); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
