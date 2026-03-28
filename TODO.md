@@ -19,10 +19,10 @@
 | ~~8~~ | ~~P1~~ | ~~`theme.css:11-20`~~ | ~~Faux commentaires `#`~~ → **✅ Fait 2026-03-28** — convertis en un seul bloc `/* */` valide |
 | ~~9~~ | ~~P1~~ | ~~`galerie.html:116`~~ | ~~`</div>` orphelin~~ → **✅ Fait 2026-03-28** — supprime, les 3 photos dahut sont desormais dans `.gallery` |
 | ~~10~~ | ~~P1~~ | ~~`js/script.js:134`~~ | ~~`modal.querySelector('.close')` crash~~ → **✅ Fait 2026-03-28** — ajout guard `if (!modal) return` ligne 135 |
-| 11 | P1 | `mecenat.html` | Balise `</main>` manquante — le `<main>` ouvert ligne 24 n'est jamais ferme |
-| 12 | P1 | `agenda.html` | Balise `</main>` manquante — meme probleme |
-| 13 | P1 | `spectacle-stpb.html:61` | Typos dans la description : "semblre" → "semble", "cauchemars" → "cauchemar" |
-| 14 | P2 | `presentation.html:47` | Point-virgule parasite apres l'attribut style : `style="object-position:50% 20%";` |
+| ~~11~~ | ~~P1~~ | ~~`mecenat.html`~~ | ~~`</main>` manquante~~ → **✅ Fait 2026-03-28** — `</main>` ajouté après les gallery-items, avant le footer |
+| ~~12~~ | ~~P1~~ | ~~`agenda.html`~~ | ~~`</main>` manquante~~ → **✅ Fait 2026-03-28** — `</main>` ajouté après la section spectacle-info, avant le footer |
+| ~~13~~ | ~~P1~~ | ~~`spectacle-stpb.html:61`~~ | ~~Typos "semblre", "cauchemars"~~ → **✅ Fait 2026-03-28** — corrige en "semble" et "cauchemar" |
+| ~~14~~ | ~~P2~~ | ~~`presentation.html:47`~~ | ~~Point-virgule parasite~~ → **✅ Fait 2026-03-28** — `;` supprime + espace superflue dans `style =` corrigee |
 
 ---
 
