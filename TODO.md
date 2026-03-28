@@ -30,12 +30,12 @@
 
 | # | Prio | Fichier | Description |
 |---|------|---------|-------------|
-| 15 | P1 | `layout.css:1` | `@import` duplique de Google Fonts Playfair Display — deja importe dans `theme.css:1` |
-| 16 | P1 | `presentation.css`, `spectacles.css`, `mecenat.css`, `agenda.css` | Quatre fichiers redefinissent `body::before` avec le meme pattern d'overlay — conflits entre pages, seul le dernier charge gagne |
-| 17 | P1 | `js/script.js` | 6 listeners `DOMContentLoaded` separes — consolider en un seul avec des gardes de page |
-| 18 | P1 | `js/script.js:86-105` | Le carrousel hero (`setInterval(changeBackground, 5000)`) tourne sur TOUTES les pages — ajouter un guard `if (!hero) return` |
-| 19 | P1 | `js/script.js:108-129` | Deux handlers parallax pour `presentation.html` qui font la meme chose — doublon |
-| 20 | P1 | `js/script.js:131-214` | Code modal membre s'execute globalement — envelopper dans `if (!document.getElementById('memberModal')) return` |
+| ~~15~~ | ~~P1~~ | ~~`layout.css:1`~~ | ~~`@import` duplique~~ → **✅ Fait 2026-03-28** — `@import` Playfair Display supprime (reste dans `theme.css`) |
+| ~~16~~ | ~~P1~~ | ~~`presentation.css`, `spectacles.css`, `mecenat.css`, `agenda.css`~~ | ~~`body::before` non scope~~ → **✅ Fait 2026-03-28** — scope a `.xxx-page::before` dans chaque fichier |
+| ~~17~~ | ~~P1~~ | ~~`js/script.js`~~ | ~~9 listeners `DOMContentLoaded`~~ → **✅ Fait 2026-03-28** — consolides en 1 unique listener, variables renommees pour eviter collisions |
+| ~~18~~ | ~~P1~~ | ~~`js/script.js:86-105`~~ | ~~Carrousel hero sans guard~~ → **✅ Fait 2026-03-28** — enveloppe dans `if (hero) { ... }` |
+| ~~19~~ | ~~P1~~ | ~~`js/script.js:108-129`~~ | ~~Deux handlers parallax~~ → **✅ Fait 2026-03-28** — conserve `updateParallax` (0.1), supprime doublon (0.3), scope a presentation.html |
+| ~~20~~ | ~~P1~~ | ~~`js/script.js:131-214`~~ | ~~Code modal non guarde~~ → **✅ Fait 2026-03-28** — enveloppe dans `if (memberModal) { ... }` (inclus dans refacto #17) |
 | 21 | P2 | `index.css` + `presentation_spectacle.css` | `.btn-reserver` defini deux fois a l'identique — factoriser dans `components.css` |
 | 22 | P2 | `mecenat.html`, `agenda.html` | Reutilisent les classes `.presentation-hero`, `.presentation-main`, `.presentation-intro` au lieu de leurs propres classes definies dans leur CSS (`.mecenat-*`, `.agenda-*`) — styles non appliques |
 | 23 | P2 | `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll — flash de footer absent, pas de footer sans JS |

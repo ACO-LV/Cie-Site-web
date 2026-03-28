@@ -1,73 +1,59 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("✅ script.js est bien chargé !");
 
-    // Vérifier si `menuToggle` et `navLinks` existent après injection du header
+    /* ----- MODALE BIO (legacy, seulement si #bioModal) ----- */
     setTimeout(function() {
-        console.log("⏳ Vérification après délai...");
+        var bioModal = document.getElementById("bioModal");
+        var openModalBtn = document.getElementById("openModal");
+        var bioCloseBtn = document.querySelector(".close");
 
-        /* ----- MODALE (Chargée seulement si présente sur la page) ----- */
-        var modal = document.getElementById("bioModal");
-        var img = document.getElementById("openModal");
-        var closeBtn = document.querySelector(".close");
-       
-        if (modal && img && closeBtn) {
+        if (bioModal && openModalBtn && bioCloseBtn) {
             console.log("✅ Modale trouvée !");
 
-            img.addEventListener("click", function() {
-                modal.style.display = "flex";
+            openModalBtn.addEventListener("click", function() {
+                bioModal.style.display = "flex";
             });
 
-            closeBtn.addEventListener("click", function() {
-                modal.style.display = "none";
+            bioCloseBtn.addEventListener("click", function() {
+                bioModal.style.display = "none";
             });
 
             window.addEventListener("click", function(event) {
-                if (event.target === modal) {
-                    modal.style.display = "none";
+                if (event.target === bioModal) {
+                    bioModal.style.display = "none";
                 }
             });
         } else {
             console.log("ℹ️ Aucune modale détectée sur cette page.");
         }
+    }, 500);
 
-    }, 500); // ✅ On attend 500ms après le chargement du script pour s'assurer que le header est bien injecté
-});
+    /* ----- BOUTON HAMBURGER ----- */
+    const menuToggle = document.querySelector('.responsive-header .menu-toggle');
+    const responsiveNav = document.querySelector('.responsive-header .nav-links-index-responsive');
 
-/* Bouton hamburger */
-document.addEventListener('DOMContentLoaded', function(){
-  const menuToggle = document.querySelector('.responsive-header .menu-toggle');
-  const navLinks = document.querySelector('.responsive-header .nav-links-index-responsive');
-  
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function(){
-      navLinks.classList.toggle('active');
-      // Bascule de l'icône : hamburger <=> croix
-      if (navLinks.classList.contains('active')) {
-        menuToggle.innerHTML = '&times;';  // Croix
-      } else {
-        menuToggle.innerHTML = '&#9776;';  // Hamburger
-      }
-    });
-  }
-});
-
-/*Surlignage liens bouton hamburger*/
-document.addEventListener("DOMContentLoaded", function() {
-  const navLinks = document.querySelectorAll(".nav-links-index a, .nav-links-index-responsive a");
-  const currentUrl = window.location.href;
-  
-  navLinks.forEach(link => {
-    // Si l'URL du lien correspond exactement à l'URL actuelle,
-    // on lui ajoute la classe "active"
-    if (link.href === currentUrl) {
-      link.classList.add("active");
+    if (menuToggle && responsiveNav) {
+        menuToggle.addEventListener('click', function(){
+            responsiveNav.classList.toggle('active');
+            if (responsiveNav.classList.contains('active')) {
+                menuToggle.innerHTML = '&times;';
+            } else {
+                menuToggle.innerHTML = '&#9776;';
+            }
+        });
     }
-  });
-});
 
+    /* ----- SURLIGNAGE NAV ACTIVE ----- */
+    const allNavLinks = document.querySelectorAll(".nav-links-index a, .nav-links-index-responsive a");
+    const currentUrl = window.location.href;
 
+    allNavLinks.forEach(link => {
+        if (link.href === currentUrl) {
+            link.classList.add("active");
+        }
+    });
 
-document.addEventListener("DOMContentLoaded", function() {
+    /* ----- REVEAL SECTIONS AU SCROLL ----- */
     let sections = document.querySelectorAll("section");
 
     function reveal() {
@@ -80,172 +66,141 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     window.addEventListener("scroll", reveal);
-    reveal(); // Vérifier les sections visibles dès le chargement
-});
+    reveal();
 
-document.addEventListener("DOMContentLoaded", function(){
+    /* ----- CARROUSEL HERO (index.html uniquement) ----- */
     const hero = document.getElementById('hero');
-    const images = [
-        'images/troupe.jpg',
-        'images/spectacle.jpg',
-        'images/spectacle1.jpg'
-        // Ajoutez ici autant d'images que souhaité
-    ];
-    let current = 0;
-    
-    // Définir la première image
-    hero.style.backgroundImage = `url('${images[0]}')`;
-    
-    function changeBackground(){
-        current = (current + 1) % images.length;
-        hero.style.backgroundImage = `url('${images[current]}')`;
+    if (hero) {
+        const images = [
+            'images/troupe.jpg',
+            'images/spectacle.jpg',
+            'images/spectacle1.jpg'
+        ];
+        let current = 0;
+
+        hero.style.backgroundImage = `url('${images[0]}')`;
+
+        function changeBackground(){
+            current = (current + 1) % images.length;
+            hero.style.backgroundImage = `url('${images[current]}')`;
+        }
+
+        setInterval(changeBackground, 5000);
     }
-    
-    setInterval(changeBackground, 5000); // Changement toutes les 5 secondes
-});
 
+    /* ----- PARALLAX (presentation.html uniquement) ----- */
+    if (window.location.pathname.endsWith("presentation.html")) {
+        function updateParallax() {
+            const scrollPosition = window.pageYOffset;
+            document.body.style.backgroundPosition = `center ${-scrollPosition * 0.1}px`;
+        }
+        updateParallax();
+        window.addEventListener('scroll', updateParallax);
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.location.pathname.endsWith("presentation.html")) {
-    window.addEventListener('scroll', function() {
-      const scrollPosition = window.pageYOffset;
-      document.body.style.backgroundPosition = `center ${-scrollPosition * 0.3}px`;
-    });
-  }
-});
+    /* ----- MODALE MEMBRE (presentation.html) ----- */
+    const memberModal = document.getElementById('memberModal');
+    if (memberModal) {
+        const memberCards = document.querySelectorAll('.member-card');
+        const memberCloseBtn = memberModal.querySelector('.close');
 
-document.addEventListener('DOMContentLoaded', function() {
-  function updateParallax() {
-    const scrollPosition = window.pageYOffset;
-    document.body.style.backgroundPosition = `center ${-scrollPosition * 0.1}px`;
-  }
-  
-  // Appliquer la position correcte dès le chargement
-  
-  updateParallax();
-  if (window.location.pathname.endsWith("presentation.html")) {
-      window.addEventListener('scroll', updateParallax);
-  }
-});
+        const modalMemberPhoto = document.getElementById('modalMemberPhoto');
+        const modalMemberName = document.getElementById('modalMemberName');
+        const modalMemberRole = document.getElementById('modalMemberRole');
+        const modalMemberDescription = document.getElementById('modalMemberDescription');
+        const modalMemberInstagramTag = document.getElementById('modalMemberInstagramTag');
+        const modalMemberInstagramLink = document.querySelector('#modalMemberInstagram a');
+        const modalSpectaclesList = document.getElementById('modalSpectaclesList');
+        const memberWebsiteBlock = document.getElementById('memberWebsiteBlock');
+        const modalMemberSite = document.getElementById('modalMemberSite');
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Sélectionne toutes les member cards
-  const memberCards = document.querySelectorAll('.member-card');
-  const modal = document.getElementById('memberModal');
-  if (!modal) return;
-  const closeBtn = modal.querySelector('.close');
+        memberCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
 
-  // Champs à remplir dans la modale
-  const modalMemberPhoto = document.getElementById('modalMemberPhoto');
-  const modalMemberName = document.getElementById('modalMemberName');
-  const modalMemberRole = document.getElementById('modalMemberRole');
-  const modalMemberDescription = document.getElementById('modalMemberDescription');
-  const modalMemberInstagramTag = document.getElementById('modalMemberInstagramTag');
-  const modalMemberInstagramLink = document.querySelector('#modalMemberInstagram a');
-  const modalSpectaclesList = document.getElementById('modalSpectaclesList');
-  const memberWebsiteBlock = document.getElementById('memberWebsiteBlock');
-  const modalMemberSite = document.getElementById('modalMemberSite');
-  
-    // Fonction pour ouvrir la modale et remplir les infos
-  memberCards.forEach(card => {
-    card.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Récupérer les données depuis les attributs data-*
-      const name = card.getAttribute('data-name');
-      const role = card.getAttribute('data-role');
-      const description = card.getAttribute('data-description');
-      const instagram = card.getAttribute('data-instagram');
-      const photo = card.getAttribute('data-photo');
-      const spectaclesData = card.getAttribute('data-spectacles');
-      const siteUrl = card.getAttribute('data-site');
-      let spectacles = [];
-      try {
-        spectacles = JSON.parse(spectaclesData);
-      } catch (error) {
-        console.error('Erreur lors du parsing des spectacles', error);
-      }
-      
-      // Remplir les champs de la modale
-      modalMemberPhoto.src = photo;
-      modalMemberName.textContent = name;
-      modalMemberRole.innerHTML = `<strong>${role}</strong>`;
-      modalMemberDescription.textContent = description;
-      modalMemberInstagramTag.textContent = instagram;
-      modalMemberInstagramLink.href = `https://www.instagram.com/${instagram.replace('@','')}`;
-      if (memberWebsiteBlock && modalMemberSite) {
-          if (siteUrl) {
-           modalMemberSite.href = siteUrl;
-           memberWebsiteBlock.style.display = '';      // visible
-          } else {
-           modalMemberSite.removeAttribute('href');
-           memberWebsiteBlock.style.display = 'none';  // caché si pas d'URL
-          }
-      }
-      // Remplir la liste des spectacles
-      modalSpectaclesList.innerHTML = ''; // Vider la liste
-      if (spectacles.length > 0) {
-        spectacles.forEach(spec => {
-          const a = document.createElement('a');
-          a.href = spec.link;
-          const img = document.createElement('img');
-          img.src = spec.img;
-          img.alt = `Spectacle de ${name}`;
-          a.appendChild(img);
-          modalSpectaclesList.appendChild(a);
+                const name = card.getAttribute('data-name');
+                const role = card.getAttribute('data-role');
+                const description = card.getAttribute('data-description');
+                const instagram = card.getAttribute('data-instagram');
+                const photo = card.getAttribute('data-photo');
+                const spectaclesData = card.getAttribute('data-spectacles');
+                const siteUrl = card.getAttribute('data-site');
+                let spectacles = [];
+                try {
+                    spectacles = JSON.parse(spectaclesData);
+                } catch (error) {
+                    console.error('Erreur lors du parsing des spectacles', error);
+                }
+
+                modalMemberPhoto.src = photo;
+                modalMemberName.textContent = name;
+                modalMemberRole.innerHTML = `<strong>${role}</strong>`;
+                modalMemberDescription.textContent = description;
+                modalMemberInstagramTag.textContent = instagram;
+                modalMemberInstagramLink.href = `https://www.instagram.com/${instagram.replace('@','')}`;
+                if (memberWebsiteBlock && modalMemberSite) {
+                    if (siteUrl) {
+                        modalMemberSite.href = siteUrl;
+                        memberWebsiteBlock.style.display = '';
+                    } else {
+                        modalMemberSite.removeAttribute('href');
+                        memberWebsiteBlock.style.display = 'none';
+                    }
+                }
+                modalSpectaclesList.innerHTML = '';
+                if (spectacles.length > 0) {
+                    spectacles.forEach(spec => {
+                        const a = document.createElement('a');
+                        a.href = spec.link;
+                        const img = document.createElement('img');
+                        img.src = spec.img;
+                        img.alt = `Spectacle de ${name}`;
+                        a.appendChild(img);
+                        modalSpectaclesList.appendChild(a);
+                    });
+                }
+
+                memberModal.style.display = 'flex';
+            });
         });
-      }
-      
-      // Afficher la modale
-      modal.style.display = 'flex';
-    });
-  });
 
-  // Fermer la modale lorsqu'on clique sur le bouton de fermeture
-  closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none';
-  });
-  
-  // Fermer la modale en cliquant en dehors du contenu
-  window.addEventListener('click', function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
+        memberCloseBtn.addEventListener('click', function() {
+            memberModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === memberModal) {
+                memberModal.style.display = 'none';
+            }
+        });
     }
-  });
+
+    /* ----- FOOTER DYNAMIQUE ----- */
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Erreur lors du chargement du footer:', error));
+
+    /* ----- POP-UP « Le Bain » (index.html) ----- */
+    const popup = document.getElementById("popup-le-bain");
+    if (popup) {
+        const popupCloseBtn = popup.querySelector(".popup-close");
+        const overlay = popup.querySelector(".popup-overlay");
+
+        const alreadySeen = sessionStorage.getItem("leBainPopupSeen");
+
+        if (!alreadySeen) {
+            setTimeout(() => popup.classList.remove("hidden"), 800);
+        }
+
+        function closePopup() {
+            popup.classList.add("hidden");
+            sessionStorage.setItem("leBainPopupSeen", "1");
+        }
+
+        popupCloseBtn.addEventListener("click", closePopup);
+        overlay.addEventListener("click", closePopup);
+    }
 });
-
-// Footer dynamique
-document.addEventListener("DOMContentLoaded", function() {
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => console.error('Erreur lors du chargement du footer:', error));
-});
-
-/* ----- POP-UP « Le Bain » (page d'accueil) ----- */
-document.addEventListener("DOMContentLoaded", () => {
-  const popup      = document.getElementById("popup-le-bain");
-  if (!popup) return;                       // sécurité
-
-  const closeBtn   = popup.querySelector(".popup-close");
-  const overlay    = popup.querySelector(".popup-overlay");
-
-  // N’affiche le pop-up qu’une seule fois par session
-  const alreadySeen = sessionStorage.getItem("leBainPopupSeen");
-
-  if (!alreadySeen) {
-    // petite latence pour laisser le hero se charger
-    setTimeout(() => popup.classList.remove("hidden"), 800);
-  }
-
-  function closePopup () {
-    popup.classList.add("hidden");
-    sessionStorage.setItem("leBainPopupSeen", "1");
-  }
-
-  closeBtn.addEventListener("click",  closePopup);
-  overlay .addEventListener("click",  closePopup);
-});
-
