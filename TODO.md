@@ -14,11 +14,11 @@
 | ~~3~~ | ~~P0~~ | ~~`mecenat.html:33-34`~~ | ~~IDs `haWidget` dupliques~~ → **✅ Fait 2026-03-28** — renommes en `haWidget1` / `haWidget2` + `getElementById` mis a jour |
 | ~~4~~ | ~~P0~~ | ~~`mecenat.html:27`~~ | ~~Typo `s` parasite dans h1~~ → **✅ Fait 2026-03-28** — `s` supprime |
 | ~~5~~ | ~~P0~~ | ~~`mentions-legales.html:33`~~ | ~~Typo "Compagie Senseible Indocile"~~ → **✅ Fait 2026-03-28** — corrige en "Compagnie Sensible Indocile" |
-| 6 | P0 | `mentions-legales.html:42` | Typo : "Sensible Indocible" au lieu de "Sensible Indocile" |
-| 7 | P0 | `spectacle-le-bain.html:55` | Typo : "Colaboration" au lieu de "Collaboration" |
-| 8 | P1 | `theme.css:11-20` | Faux commentaires CSS utilisant `#` au lieu de `/* */` — `#policeappreciee`, `#'Playfair Display'`, etc. genere des erreurs de parsing CSS |
-| 9 | P1 | `galerie.html:116` | `</div>` orphelin qui casse la grille — les 3 photos du Dahut (lignes 117-125) se retrouvent hors du conteneur `.gallery` |
-| 10 | P1 | `js/script.js:134` | `modal.querySelector('.close')` crash (`TypeError: null`) sur toutes les pages sauf `presentation.html` car `#memberModal` n'existe pas — erreur console systematique |
+| ~~6~~ | ~~P0~~ | ~~`mentions-legales.html:42`~~ | ~~Typo "Sensible Indocible"~~ → **✅ Fait 2026-03-28** — corrige en "Sensible Indocile" |
+| ~~7~~ | ~~P0~~ | ~~`spectacle-le-bain.html:55`~~ | ~~Typo "Colaboration"~~ → **✅ Fait 2026-03-28** — corrige en "Collaboration" |
+| ~~8~~ | ~~P1~~ | ~~`theme.css:11-20`~~ | ~~Faux commentaires `#`~~ → **✅ Fait 2026-03-28** — convertis en un seul bloc `/* */` valide |
+| ~~9~~ | ~~P1~~ | ~~`galerie.html:116`~~ | ~~`</div>` orphelin~~ → **✅ Fait 2026-03-28** — supprime, les 3 photos dahut sont desormais dans `.gallery` |
+| ~~10~~ | ~~P1~~ | ~~`js/script.js:134`~~ | ~~`modal.querySelector('.close')` crash~~ → **✅ Fait 2026-03-28** — ajout guard `if (!modal) return` ligne 135 |
 | 11 | P1 | `mecenat.html` | Balise `</main>` manquante — le `<main>` ouvert ligne 24 n'est jamais ferme |
 | 12 | P1 | `agenda.html` | Balise `</main>` manquante — meme probleme |
 | 13 | P1 | `spectacle-stpb.html:61` | Typos dans la description : "semblre" → "semble", "cauchemars" → "cauchemar" |

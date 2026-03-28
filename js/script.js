@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Sélectionne toutes les member cards
   const memberCards = document.querySelectorAll('.member-card');
   const modal = document.getElementById('memberModal');
+  if (!modal) return;
   const closeBtn = modal.querySelector('.close');
 
   // Champs à remplir dans la modale
