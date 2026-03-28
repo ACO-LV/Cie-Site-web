@@ -31,4 +31,7 @@ defaults:
 # Fichiers à ignorer lors du build
 exclude:
   - README.md
+  - CLAUDE.md
+  - TODO.md
+  - skills/
 
