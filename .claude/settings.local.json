@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -d /c/Users/Utilisateur/Documents/\"20 - Compagnie\"/\"10 - Site web\"/WEBSITE/Cie-Site-web/*/)",
+      "Bash(ls /c/Users/Utilisateur/Documents/\"20 - Compagnie\"/\"10 - Site web\"/WEBSITE/Cie-Site-web/.claude*)"
+    ]
+  }
+}
