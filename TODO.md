@@ -36,11 +36,11 @@
 | ~~18~~ | ~~P1~~ | ~~`js/script.js:86-105`~~ | ~~Carrousel hero sans guard~~ → **✅ Fait 2026-03-28** — enveloppe dans `if (hero) { ... }` |
 | ~~19~~ | ~~P1~~ | ~~`js/script.js:108-129`~~ | ~~Deux handlers parallax~~ → **✅ Fait 2026-03-28** — conserve `updateParallax` (0.1), supprime doublon (0.3), scope a presentation.html |
 | ~~20~~ | ~~P1~~ | ~~`js/script.js:131-214`~~ | ~~Code modal non guarde~~ → **✅ Fait 2026-03-28** — enveloppe dans `if (memberModal) { ... }` (inclus dans refacto #17) |
-| 21 | P2 | `index.css` + `presentation_spectacle.css` | `.btn-reserver` defini deux fois a l'identique — factoriser dans `components.css` |
-| 22 | P2 | `mecenat.html`, `agenda.html` | Reutilisent les classes `.presentation-hero`, `.presentation-main`, `.presentation-intro` au lieu de leurs propres classes definies dans leur CSS (`.mecenat-*`, `.agenda-*`) — styles non appliques |
-| 23 | P2 | `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll — flash de footer absent, pas de footer sans JS |
-| 24 | P2 | `index.html:1-2` | Front matter vide `--- ---` — pas de `title` ni `description` explicite pour la page d'accueil (SEO faible) |
-| 25 | P2 | `leonore-vanier/` | Sous-site completement independant (son propre CSS/JS) — aucun partage de styles ou layout avec le site principal |
+| ~~21~~ | ~~P2~~ | ~~`index.css` + `presentation_spectacle.css`~~ | ~~`.btn-reserver` duplique~~ → **✅ Fait 2026-03-28** — factorise dans `components.css` avec variables CSS, supprime des 2 fichiers sources |
+| ~~22~~ | ~~P2~~ | ~~`mecenat.html`, `agenda.html`~~ | ~~Classes `.presentation-*` au lieu de `.mecenat-*`/`.agenda-*`~~ → **✅ Fait 2026-03-28** — HTML mis a jour avec les classes propres a chaque page |
+| 23 | P2 | `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll — 🔴 **BLOQUE par CLAUDE.md** qui interdit de changer la structure du footer |
+| ~~24~~ | ~~P2~~ | ~~`index.html:1-2`~~ | ~~Front matter vide~~ → **✅ Fait 2026-03-28** — ajout title, description, lang pour le SEO |
+| 25 | P2 | `leonore-vanier/` | Sous-site independant — **DIFFERE** : refacto architecturale majeure hors scope P2 |
 
 ---
 

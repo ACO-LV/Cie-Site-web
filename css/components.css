@@ -28,3 +28,20 @@
     text-decoration: none;
     outline: none;
 }
+
+/* ----- BOUTON RÉSERVER ----- */
+.btn-reserver {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background-color: var(--color-bordeaux);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reserver:hover {
+  background-color: var(--color-dark-bordeaux);
+}
