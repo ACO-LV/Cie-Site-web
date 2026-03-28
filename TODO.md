@@ -50,11 +50,11 @@
 | ~~26~~ | ~~P0~~ | ~~`spectacle-le-dahut.html:89`~~ | ~~`<iframe>` YouTube sans attribut `title`~~ → **✅ Fait 2026-03-28** — ajout `title="Court-métrage Le Dahut — Compagnie Sensible Indocile"` |
 | ~~27~~ | ~~P0~~ | ~~`spectacle-stpb.html:70`~~ | ~~`<iframe>` YouTube sans attribut `title`~~ → **✅ Fait 2026-03-28** — ajout `title="Court-métrage Sous ta peau brûlante — Compagnie Sensible Indocile"` |
 | ~~28~~ | ~~P1~~ | ~~`spectacle-le-bain.html:84-172`~~ | ~~Alt generiques "Residence TMF 1..14"~~ → **✅ Fait 2026-03-28** — 14 alts réécrits avec descriptions visuelles de chaque scène |
-| 29 | P1 | `galerie.html:26-115` | Meme alts generiques "Residence TMF 1"... sur toute la galerie |
-| 30 | P1 | `presentation.html:35-187` | Les member-cards sont des `<a href="#">` — devraient etre des `<button>` ou avoir `role="button"` |
-| 31 | P1 | `contact.html:48` | Champ honeypot (`display:none`) accessible au clavier et aux lecteurs d'ecran — ajouter `aria-hidden="true"` et `tabindex="-1"` |
-| 32 | P1 | Toutes les pages | Aucun lien skip-to-content pour la navigation au clavier |
-| 33 | P1 | Toutes les pages | Pas de `<link rel="icon">` — pas de favicon declare |
+| ~~29~~ | ~~P1~~ | ~~`galerie.html:26-115`~~ | ~~Alts generiques "Residence TMF 1"...~~ → **✅ Fait 2026-03-28** — 14 alts Le Bain + 3 alts Le Dahut réécrits avec descriptions visuelles |
+| ~~30~~ | ~~P1~~ | ~~`presentation.html:35-187`~~ | ~~`<a href="#">` sans role sur member-cards~~ → **✅ Fait 2026-03-28** — ajout `role="button"` sur les 10 member-cards |
+| ~~31~~ | ~~P1~~ | ~~`contact.html:48`~~ | ~~Honeypot accessible au clavier/lecteur d'ecran~~ → **✅ Fait 2026-03-28** — ajout `aria-hidden="true"` et `tabindex="-1"` |
+| ~~32~~ | ~~P1~~ | ~~Toutes les pages~~ | ~~Aucun skip-to-content~~ → **✅ Fait 2026-03-28** — lien `.skip-to-content` + `id="main-content"` sur 13 pages, CSS dans `components.css` + `leonore-vanier/styles.css` |
+| ~~33~~ | ~~P1~~ | ~~Toutes les pages~~ | ~~Pas de favicon~~ → **✅ Fait 2026-03-28** — `<link rel="icon">` ajouté sur 13 pages (utilise le logo PNG en attendant un favicon dédié) |
 | 34 | P2 | `index.html` | Navigation dupliquee desktop/mobile sans `aria-label` sur chaque `<nav>` pour les distinguer |
 | 35 | P2 | Toutes les pages | Pas de `<meta name="theme-color">` |
 | 36 | P2 | `spectacle-le-dahut.html:89`, `spectacle-stpb.html:70` | Attribut `frameborder="0"` deprece sur les iframes — utiliser CSS `border: none` |

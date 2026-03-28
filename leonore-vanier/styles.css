@@ -207,3 +207,7 @@ body.lb-open{ overflow:hidden }
   .split-grid > * { margin-bottom: 16px; }
 }
 
+/* ----- SKIP TO CONTENT (a11y) ----- */
+.skip-to-content{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}
+.skip-to-content:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:10px 20px;background:var(--fg);color:var(--bg);font-size:1rem;text-decoration:none;border-radius:4px;z-index:9999}
+

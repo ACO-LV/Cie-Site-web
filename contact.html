@@ -10,8 +10,10 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% seo %}
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="images/Logo style LE BAIN.png">
 </head>
 <body class="contact-page">
+  <a href="#main-content" class="skip-to-content">Aller au contenu</a>
   <section class="contact-hero">
     <div class="contact-logo-container">
       <a href="index.html" class="logo-link">
@@ -20,7 +22,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     </div>
   </section>
   <!-- CONTENU PRINCIPAL -->
-  <main class="contact-main">
+  <main id="main-content" class="contact-main">
     <div class="contact-intro">
         <h1>Contactez-nous</h1>
     </div>
@@ -45,7 +47,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
         </div>
         
           <!-- Champ honeypot anti-bot -->
-        <input type="text" name="bot-field" style="display:none">
+        <input type="text" name="bot-field" style="display:none" aria-hidden="true" tabindex="-1">
         
         <button type="submit" class="form-submit-btn">Envoyer</button>
         <p id="form-status" role="status"></p>

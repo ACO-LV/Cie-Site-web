@@ -45,3 +45,30 @@
 .btn-reserver:hover {
   background-color: var(--color-dark-bordeaux);
 }
+
+/* ----- SKIP TO CONTENT (a11y) ----- */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.skip-to-content:focus {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  background: var(--color-bordeaux);
+  color: var(--color-beige);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  z-index: 9999;
+}
