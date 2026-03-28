@@ -47,9 +47,9 @@
 
 | # | Prio | Fichier | Description |
 |---|------|---------|-------------|
-| 26 | P0 | `spectacle-le-dahut.html:89` | `<iframe>` YouTube sans attribut `title` — obligatoire WCAG |
-| 27 | P0 | `spectacle-stpb.html:70` | `<iframe>` YouTube sans attribut `title` |
-| 28 | P1 | `spectacle-le-bain.html:84-172` | Alt generiques sur 30 images : "Residence TMF 1", "Residence TMF 2"... — non descriptifs |
+| ~~26~~ | ~~P0~~ | ~~`spectacle-le-dahut.html:89`~~ | ~~`<iframe>` YouTube sans attribut `title`~~ → **✅ Fait 2026-03-28** — ajout `title="Court-métrage Le Dahut — Compagnie Sensible Indocile"` |
+| ~~27~~ | ~~P0~~ | ~~`spectacle-stpb.html:70`~~ | ~~`<iframe>` YouTube sans attribut `title`~~ → **✅ Fait 2026-03-28** — ajout `title="Court-métrage Sous ta peau brûlante — Compagnie Sensible Indocile"` |
+| ~~28~~ | ~~P1~~ | ~~`spectacle-le-bain.html:84-172`~~ | ~~Alt generiques "Residence TMF 1..14"~~ → **✅ Fait 2026-03-28** — 14 alts réécrits avec descriptions visuelles de chaque scène |
 | 29 | P1 | `galerie.html:26-115` | Meme alts generiques "Residence TMF 1"... sur toute la galerie |
 | 30 | P1 | `presentation.html:35-187` | Les member-cards sont des `<a href="#">` — devraient etre des `<button>` ou avoir `role="button"` |
 | 31 | P1 | `contact.html:48` | Champ honeypot (`display:none`) accessible au clavier et aux lecteurs d'ecran — ajouter `aria-hidden="true"` et `tabindex="-1"` |
