@@ -9,11 +9,11 @@
 
 | # | Prio | Fichier | Description |
 |---|------|---------|-------------|
-| 1 | P0 | `spectacles.html:15` | Double `>` sur la balise body : `<body class="spectacles-page">>` — caractere `>` parasite visible dans le rendu |
-| 2 | P0 | `courtmetrage.html:15` | Meme double `>` : `<body class="spectacles-page">>` |
-| 3 | P0 | `mecenat.html:33-34` | Deux iframes avec le meme `id="haWidget"` — `getElementById` ne trouve que le premier, le deuxieme iframe ne se redimensionne jamais |
-| 4 | P0 | `mecenat.html:27` | Typo dans le h1 : `s` parasite a la fin — `BIENFAITEUR.ICE INDOCILE ? s` |
-| 5 | P0 | `mentions-legales.html:33` | Typo : "Compagie Senseible Indocile" au lieu de "Compagnie Sensible Indocile" |
+| ~~1~~ | ~~P0~~ | ~~`spectacles.html:15`~~ | ~~Double `>` sur la balise body~~ → **✅ Fait 2026-03-28** — `>` parasite supprime |
+| ~~2~~ | ~~P0~~ | ~~`courtmetrage.html:15`~~ | ~~Meme double `>`~~ → **✅ Fait 2026-03-28** — `>` parasite supprime |
+| ~~3~~ | ~~P0~~ | ~~`mecenat.html:33-34`~~ | ~~IDs `haWidget` dupliques~~ → **✅ Fait 2026-03-28** — renommes en `haWidget1` / `haWidget2` + `getElementById` mis a jour |
+| ~~4~~ | ~~P0~~ | ~~`mecenat.html:27`~~ | ~~Typo `s` parasite dans h1~~ → **✅ Fait 2026-03-28** — `s` supprime |
+| ~~5~~ | ~~P0~~ | ~~`mentions-legales.html:33`~~ | ~~Typo "Compagie Senseible Indocile"~~ → **✅ Fait 2026-03-28** — corrige en "Compagnie Sensible Indocile" |
 | 6 | P0 | `mentions-legales.html:42` | Typo : "Sensible Indocible" au lieu de "Sensible Indocile" |
 | 7 | P0 | `spectacle-le-bain.html:55` | Typo : "Colaboration" au lieu de "Collaboration" |
 | 8 | P1 | `theme.css:11-20` | Faux commentaires CSS utilisant `#` au lieu de `/* */` — `#policeappreciee`, `#'Playfair Display'`, etc. genere des erreurs de parsing CSS |
