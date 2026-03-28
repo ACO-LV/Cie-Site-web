@@ -55,10 +55,10 @@
 | ~~31~~ | ~~P1~~ | ~~`contact.html:48`~~ | ~~Honeypot accessible au clavier/lecteur d'ecran~~ → **✅ Fait 2026-03-28** — ajout `aria-hidden="true"` et `tabindex="-1"` |
 | ~~32~~ | ~~P1~~ | ~~Toutes les pages~~ | ~~Aucun skip-to-content~~ → **✅ Fait 2026-03-28** — lien `.skip-to-content` + `id="main-content"` sur 13 pages, CSS dans `components.css` + `leonore-vanier/styles.css` |
 | ~~33~~ | ~~P1~~ | ~~Toutes les pages~~ | ~~Pas de favicon~~ → **✅ Fait 2026-03-28** — `<link rel="icon">` ajouté sur 13 pages (utilise le logo PNG en attendant un favicon dédié) |
-| 34 | P2 | `index.html` | Navigation dupliquee desktop/mobile sans `aria-label` sur chaque `<nav>` pour les distinguer |
-| 35 | P2 | Toutes les pages | Pas de `<meta name="theme-color">` |
-| 36 | P2 | `spectacle-le-dahut.html:89`, `spectacle-stpb.html:70` | Attribut `frameborder="0"` deprece sur les iframes — utiliser CSS `border: none` |
-| 37 | P2 | `_includes/schema-performer.html:9` | Lien Facebook dans le schema JSON-LD (`sameAs`) mais pas de page Facebook active |
+| ~~34~~ | ~~P2~~ | ~~`index.html`~~ | ~~Navs sans `aria-label`~~ → **✅ Fait 2026-03-28** — `aria-label="Menu mobile"` et `aria-label="Menu principal"` sur les 2 `<nav>` |
+| ~~35~~ | ~~P2~~ | ~~Toutes les pages~~ | ~~Pas de `theme-color`~~ → **✅ Fait 2026-03-28** — `<meta name="theme-color" content="#8b0000">` ajouté sur 13 pages |
+| ~~36~~ | ~~P2~~ | ~~`spectacle-le-dahut.html`, `spectacle-stpb.html`~~ | ~~`frameborder="0"` déprécié~~ → **✅ Fait 2026-03-28** — attribut supprimé, `border: none` ajouté dans `presentation_spectacle.css` |
+| ~~37~~ | ~~P2~~ | ~~`_includes/schema-performer.html:9`~~ | ~~Lien Facebook inactif dans `sameAs`~~ → **✅ Fait 2026-03-28** — URL Facebook supprimée, seul Instagram conservé |
 
 ---
 
