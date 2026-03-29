@@ -66,13 +66,13 @@
 
 | # | Prio | Fichier | Description |
 |---|------|---------|-------------|
-| 38 | P0 | Toutes sauf `index.html` | Aucune navigation mobile (hamburger) — seul le logo permet de revenir a l'accueil |
-| 39 | P1 | `presentation_spectacle.css:206-208` | `.gallery-grid` force 4 colonnes (`repeat(4, 1fr)`) sans media query — images minuscules sur mobile |
-| 40 | P1 | `galerie.css:53` | `.gallery` force 3 colonnes (`repeat(3, 1fr)`) sans media query responsive |
-| 41 | P1 | `mecenat.html:34` | iframe HelloAsso avec `style="width:350px"` en dur — deborde sur ecrans < 350px |
-| 42 | P1 | `responsive.css` | Seulement 2 breakpoints (768px et 480px) — aucun pour tablettes (768-1024px) |
-| 43 | P2 | `contact.css:169` | `.form-submit-btn` a `width: 40%` — texte tronque possible sur petits ecrans |
-| 44 | P2 | `index.css:77` | `.company-name-index` a `font-size: 4.2rem` en desktop sans clamp — peut deborder sur ecrans intermediaires |
+| ~~38~~ | ~~P0~~ | ~~Toutes sauf `index.html`~~ | ~~Aucune navigation mobile (hamburger)~~ → **✅ Fait 2026-03-29** — bloc `.responsive-header` ajouté sur 11 pages, CSS déplacé dans `components.css`, JS existant réutilisé |
+| ~~39~~ | ~~P1~~ | ~~`presentation_spectacle.css:206-208`~~ | ~~`.gallery-grid` force 4 colonnes~~ → **✅ Fait 2026-03-29** — media queries ajoutées : 3 col (1024px), 2 col (768px), 1 col (480px) dans `responsive.css` |
+| ~~40~~ | ~~P1~~ | ~~`galerie.css:53`~~ | ~~`.gallery` force 3 colonnes~~ → **✅ Fait 2026-03-29** — media queries ajoutées : 2 col (768px), 1 col (480px) dans `responsive.css` |
+| ~~41~~ | ~~P1~~ | ~~`mecenat.html:34`~~ | ~~iframe HelloAsso `width:350px` en dur~~ → **✅ Fait 2026-03-29** — remplacé par `width:100%;max-width:350px` |
+| ~~42~~ | ~~P1~~ | ~~`responsive.css`~~ | ~~Seulement 2 breakpoints~~ → **✅ Fait 2026-03-29** — breakpoint tablette 1024px ajouté entre 768px et desktop |
+| ~~43~~ | ~~P2~~ | ~~`contact.css:169`~~ | ~~`.form-submit-btn` width 40%~~ → **✅ Fait 2026-03-29** — override `width: 100%` ajouté au breakpoint 768px dans `responsive.css` |
+| ~~44~~ | ~~P2~~ | ~~`index.css:77`~~ | ~~`.company-name-index` font-size fixe~~ → **✅ Fait 2026-03-29** — `clamp(2.5rem, 5vw, 4.2rem)` remplace le `4.2rem` fixe |
 
 ---
 

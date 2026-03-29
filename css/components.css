@@ -46,6 +46,11 @@
   background-color: var(--color-dark-bordeaux);
 }
 
+/* ----- MENU HAMBURGER (masqué en desktop, affiché via responsive.css) ----- */
+.responsive-header {
+  display: none;
+}
+
 /* ----- SKIP TO CONTENT (a11y) ----- */
 .skip-to-content {
   position: absolute;
