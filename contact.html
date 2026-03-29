@@ -91,6 +91,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
       /* filtre honeypot */
       if (e.target['bot-field'].value !== '') return;
 
+      statusEl.className = 'form-status-sending form-status-visible';
       statusEl.textContent = 'Envoi en cours…';
 
       try {
@@ -101,11 +102,13 @@ lang: fr                                    # facultatif, sinon hérite de _conf
           '#contact-form'       // <- sélecteur CSS du formulaire
         );
         console.log('SUCCESS!', res.status, res.text);
-        statusEl.textContent = 'Merci ! Votre message a été envoyé.';
+        statusEl.className = 'form-status-success form-status-visible';
+        statusEl.textContent = '✓ Merci ! Votre message a bien été envoyé.';
         e.target.reset();
       } catch (err) {
         console.error('FAILED…', err);
-        statusEl.textContent = `Erreur : ${err.text || 'envoi impossible'}`;
+        statusEl.className = 'form-status-error form-status-visible';
+        statusEl.textContent = `✗ Erreur : ${err.text || 'envoi impossible'}`;
       }
     });
 })();

@@ -103,6 +103,10 @@
   object-fit: cover;
   display: block;
   filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+.member-card:hover img {
+  filter: grayscale(0);
 }
 /* Texte caché par défaut */
 .member-info {

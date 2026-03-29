@@ -182,3 +182,34 @@
   border-color: var(--color-dark-bordeaux);
   color: var(--color-beige);
 }
+
+/* #51 — Feedback visuel après envoi du formulaire */
+#form-status {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#form-status.form-status-visible {
+  opacity: 1;
+}
+
+#form-status.form-status-success {
+  background-color: rgba(34, 139, 34, 0.15);
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+#form-status.form-status-error {
+  background-color: rgba(139, 0, 0, 0.15);
+  color: var(--color-bordeaux);
+  border: 1px solid var(--color-bordeaux);
+}
+
+#form-status.form-status-sending {
+  color: var(--text-color);
+  font-style: italic;
+}

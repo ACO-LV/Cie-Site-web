@@ -84,7 +84,7 @@
 | ~~46~~ | ~~P1~~ | ~~`index.html:69-70`~~ | ~~Dates du pop-up "Le Bain" en dur~~ → **✅ Fait 2026-03-29** — ajout `data-end-date` sur le popup + condition JS qui supprime le popup si l'événement est passé |
 | ~~47~~ | ~~P1~~ | ~~`footer.html:3`~~ | ~~Année copyright en dur "2025"~~ → **✅ Fait 2026-03-29** — remplacement dynamique dans le `fetch()` de script.js (`footer.html` inchangé) |
 | 48 | P2 | Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour, pas intuitif pour tous les visiteurs |
-| 49 | P2 | `presentation.html` | Photos membres en niveaux de gris mais pas de retour couleur au hover — ajouter `filter: grayscale(0)` au hover pour plus d'interactivite |
-| 50 | P2 | Racine du projet | Pas de page `404.html` — GitHub Pages affichera sa page par defaut |
-| 51 | P2 | `contact.html` | Pas de feedback visuel (animation/icone) apres envoi du formulaire — juste un changement de texte |
+| ~~49~~ | ~~P2~~ | ~~`presentation.html`~~ | ~~Photos membres sans retour couleur au hover~~ → **✅ Fait 2026-03-29** — `transition: filter 0.4s` + `.member-card:hover img { filter: grayscale(0) }` dans `presentation.css` |
+| ~~50~~ | ~~P2~~ | ~~Racine du projet~~ | ~~Pas de page `404.html`~~ → **✅ Fait 2026-03-29** — `404.html` créé avec hero logo, hamburger, footer, schema-performer + `css/pages/404.css` importé dans `styles.css` |
+| ~~51~~ | ~~P2~~ | ~~`contact.html`~~ | ~~Pas de feedback visuel après envoi~~ → **✅ Fait 2026-03-29** — classes `.form-status-success/error/sending` avec fond coloré, bordure et transition opacity dans `contact.css` |
 | 52 | P2 | `index.html:62-63` | Image du pop-up "Le Bain" non optimisee (PNG) — un WebP ou JPEG reduit accelererait l'affichage |

@@ -1,0 +1,42 @@
+.error-page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--text-color);
+}
+
+.error-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  color: var(--color-beige);
+  padding: 20px;
+}
+
+.error-main h1 {
+  font-size: clamp(3rem, 10vw, 6rem);
+  margin-bottom: 10px;
+  color: var(--color-bordeaux);
+}
+
+.error-main p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--color-beige);
+}
+
+.error-main .btn-return {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid var(--color-bordeaux);
+  color: var(--color-beige);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+.error-main .btn-return:hover {
+  background-color: var(--color-bordeaux);
+}
