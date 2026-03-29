@@ -10,8 +10,25 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% seo %}
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="images/Logo style LE BAIN.png">
+    <meta name="theme-color" content="#8b0000">
 </head>
 <body class="presentation-page">
+  <a href="#main-content" class="skip-to-content">Aller au contenu</a>
+    <div class="responsive-header">
+      <div class="menu-toggle">&#9776;</div>
+      <nav class="nav-links-index-responsive" aria-label="Menu mobile">
+        <ul>
+          <li><a href="presentation.html">Présentation</a></li>
+          <li><a href="spectacles.html">Spectacles</a></li>
+          <li><a href="courtmetrage.html">Films</a></li>
+          <li><a href="mecenat.html">Mécénat</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+        </ul>
+      </nav>
+    </div>
   <section class="presentation-hero">
     <div class="presentation-logo-container">
       <a href="index.html" class="logo-link">
@@ -21,7 +38,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
   </section>
 
   <!-- CONTENU PRINCIPAL -->
-  <main class="presentation-main">
+  <main id="main-content" class="presentation-main">
     <div class="presentation-intro">
       <h1>Présentation de la Compagnie</h1>
       <p>
@@ -32,7 +49,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
 
     <!-- Grille des membres -->
     <div class="presentation-members">
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="LÉONORE VANIER"
            data-role="Comédienne"
            data-description="Léonore découvre le goût pour la lecture à travers les pièces de Molière. Ancienne ingénieure, elle s'est consacrée au théâtre pour réaliser son rêve d'enfant. Formée au Cours Florent, elle a joué dans plusieurs pièces de théâtre, à la fois classiques et contemporaines, comiques et dramatiques, et dans plusieurs court-métrages, toujours à la recherche de nouveaux univers artistiques. Léonore chante (alto), danse (modern-jazz et classique), pratique le ski, la natation et la course à pied à haut niveau. "
@@ -44,13 +61,13 @@ lang: fr                                    # facultatif, sinon hérite de _conf
               {"img": "images/afficheledahut.png", "link": "spectacle-le-dahut.html"},
               {"img": "images/spectacle2.jpg", "link": "spectacle-stpb.html"}
             ]'>
-          <img src="images/Epoque.jpg" alt="Léonore Vanier" style ="object-position:50% 20%";>
+          <img src="images/Epoque.jpg" alt="Léonore Vanier" style="object-position:50% 20%">
           <div class="member-info">
             <span class="member-name">LÉONORE VANIER</span><br>
             <span class="member-role">Comédienne</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="ADÈLE THOMAS"
            data-role="Comédienne"
            data-description="Adèle joue dans des courts-métrages depuis son adolescence. Cette rencontre avec le jeu d'acteur l'a engagée à cultiver cette passion. Elle termine une formation de trois ans au Cours Florent où elle a exploré les répertoires classique et contemporain ainsi que des pratiques comme l'improvisation, le clown, le masques. Curieuse de nombreuses formes d'art, Adèle a étudié le stylisme. Elle joue du piano et du ukulélé. Elle a pratiqué la gymnastique de compétition, l'équitation et la danse."
@@ -65,7 +82,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Comédienne</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="GUILHERME CONDE"
            data-role="Comédien"
            data-description="Guilherme découvre le théâtre en assistant à une représentation de rue, une expérience marquante. Ce qu’il cherche sur scène, c’est la connexion, le vivant, le vrai. À l’aise dans les échanges, il aime le contact humain et la richesse des rencontres. Il a joué dans plusieurs courts-métrages et explore différents univers artistiques. Il pratique aussi la guitare, qu’il aime intégrer à sa démarche créative. Il écrit des slams, guidé par une sensibilité profonde pour la poésie. Curieux, engagé, il s’investit pleinement dans chaque projet. Pour lui, la scène est un espace de liberté et de vérité."
@@ -81,7 +98,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Comédien</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="CLARA KERMAREC"
            data-role="Metteuse en scène - Comédienne"
            data-description="Franco-polonaise, Clara Kermarec se forme au Cours Florent et obtient en même temps une licence d’études théâtrales. Curieuse de découvrir plusieurs formes de théâtre, elle participe à de nombreux stages. Elle parcourt des rôles issus de divers répertoires et apparaît à l’image dans quelques courts-métrages. Danseuse classique professionnelle, elle s'est également formée en danses contemporaine, jazz, de caractère et de salon. Elle fait du chant (alto), parle polonais (bilingue), anglais (courant) et pratique l’équitation."
@@ -96,7 +113,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Metteuse en scène - Comédienne</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="MAÏLYS FLAMBARD"
            data-role="Comédienne"
            data-description="Artiste pluridisciplinaire, Maïlys se passionne d’abord pour la danse. Elle deviendra professeur de danse jazz en 2022, et suivra des formations de danse professionnel à Paris (IFPRO, PSPBB). En découvrant les pièces de Tchekhov, Naomi Wallace, et Feydeau, elle s’intéressera au théâtre en intégrant l’école des Cours Florent en 2022 et décidera de devenir comédienne. Elle porte des projets en cours de création au sein de la Cie du Banc d’à Coté et danse avec la Cie Corpus depuis 2022. Ayant un profond amour pour la lecture, l’écriture, la musique et les arts plastiques, elle écrit, compose, chante, peint et dessine. "
@@ -111,7 +128,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Comédienne</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="LUCÍA PAZ ERNER"
            data-role="Comédienne"
            data-description="Lucía nous vient du sud de la France. D’une mère péruvienne et d’un père francophone, Lucía grandit dans le sud de la France dans un environnement multiculturel. Pour remédier à sa scoliose, puis par passion, elle se prend au Yoga dès ses 13 ans et suit une formation de professeure de Yoga Vinyasa de 2019 à 2021. Parallèlement, elle a travaillé en tant qu’assistante photographe dans un studio à Antibes, se formant ainsi dans la photographie et ses techniques. Lucía a un goût pour l’art prononcé depuis l’enfance : piano, dessin, peinture, photographie, danse, sculpture, création de masques.. c’est finalement vers le théâtre qu’elle va se spécialiser. Diplômée du cours Florent (Théâtre), elle crée à partir de ces nombreuses branches un univers bien à elle."
@@ -126,7 +143,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Comédienne</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="JULIETTE GANAY"
            data-role="Comédienne"
            data-description="Juliette découvre le théâtre à l’âge de 6 ans grâce à un cours amateur de son quartier. Elle reste dans la même troupe jusqu’à ses 18 ans où elle entame une formation au cours Florent. A 21 ans, elle sort de l’école, avide de challenges, de dépassement et de rencontres. Le travail collectif et les connexions émotionnelles qui en découlent sont ce qu’elle préfère. Juliette se passionne aussi pour la gymnastique artistique, qu’elle a pratiqué pendant plus de 10 ans, le dessin et la danse contemporaine."
@@ -142,7 +159,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Comédienne</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="ZOÉ JUIN"
            data-role="Comédienne"
            data-description="Passionnée par la musique, Zoé intègre le Cours Florent musique en 2022 où elle se spécialise dans la production."
@@ -157,7 +174,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Comédienne</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="MÉLODIE MILLER"
            data-role="Autrice, Voyageuse"
            data-description="Mélodie écrit en voyageant et voyage en écrivant. Elle nous entraine au fil de ses mots vers un panel d’émotions allant du feel good au thriller psychologique."
@@ -171,7 +188,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Autrice, Voyageuse</span>
           </div>
         </a>
-        <a href="#" class="member-card"
+        <a href="#" class="member-card" role="button"
            data-name="ARTHUR COUVREUR"
            data-role="Musicien, Producteur"
            data-description="Ingénieur spécialisé en data, IA et process, Arthur a mélé sa passion pour la musique à son génie pour les maths et la data science."

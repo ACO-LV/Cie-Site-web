@@ -10,28 +10,45 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% seo %}
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="images/Logo style LE BAIN.png">
+    <meta name="theme-color" content="#8b0000">
 </head>
 <body class="mecenat-page">
-  <section class="presentation-hero">
-    <div class="presentation-logo-container">
+  <a href="#main-content" class="skip-to-content">Aller au contenu</a>
+    <div class="responsive-header">
+      <div class="menu-toggle">&#9776;</div>
+      <nav class="nav-links-index-responsive" aria-label="Menu mobile">
+        <ul>
+          <li><a href="presentation.html">Présentation</a></li>
+          <li><a href="spectacles.html">Spectacles</a></li>
+          <li><a href="courtmetrage.html">Films</a></li>
+          <li><a href="mecenat.html">Mécénat</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+        </ul>
+      </nav>
+    </div>
+  <section class="mecenat-hero">
+    <div class="mecenat-logo-container">
       <a href="index.html" class="logo-link">
-        <img src="images/Logo style LE BAIN.png" alt="Logo Compagnie Sensible Indocile" class="presentation-logo">
+        <img src="images/Logo style LE BAIN.png" alt="Logo Compagnie Sensible Indocile" class="mecenat-logo">
       </a>
     </div>
   </section>
 
   <!-- CONTENU PRINCIPAL -->
-  <main class="presentation-main">
-    <div class="presentation-intro">
-      <h1>ET SI VOUS DEVENIEZ UN.E BIENFAITEUR.ICE INDOCILE ? s</h1>
+  <main id="main-content" class="mecenat-main">
+    <div class="mecenat-intro">
+      <h1>ET SI VOUS DEVENIEZ UN.E BIENFAITEUR.ICE INDOCILE ?</h1>
       <p>
         L'aventure de la jeune Compagnie Sensible Indocile démarre officiellement cette saison et nous avons besoin de VOUS ! Soutenez-nous en adhérant à notre compagnie pour notre première saison 25/26 et première exploitation de notre spectacle "LE BAIN" à Paris du 15 novembre au 4 janvier 2026 au Théâtre de la Croisée des Chemins puis au Festival OFF d'Avignon 2026 !
       </p>
       <h2>Nous soutenir pour la saison 25/26</h2>
     </div>
       
-    <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile/widget-bouton" style="width: 100%; height: 70px; border: none;" onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
-    <iframe id="haWidget" allowtransparency="true" src="https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile/widget-vignette" style="width:350px;border:none;" onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px'; } )"></iframe>
+    <iframe id="haWidget1" allowtransparency="true" src="https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile/widget-bouton" style="width: 100%; height: 70px; border: none;" onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget1'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
+    <iframe id="haWidget2" allowtransparency="true" src="https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile/widget-vignette" style="width:100%;max-width:350px;border:none;" onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget2'); haWidgetElement.height = dataHeight + 'px'; } )"></iframe>
    
 
     
@@ -40,10 +57,9 @@ lang: fr                                    # facultatif, sinon hérite de _conf
         </div>
         <div class="gallery-item">
             <img src="images/bienfaiteur.png" alt="Quel bienfaiteur etes vous" style="width:75%; height:auto;">
-        </div> 
- 
+        </div>
+  </main>
 
-      
       <!-- FOOTER -->
 <div id="footer-placeholder"></div>
 

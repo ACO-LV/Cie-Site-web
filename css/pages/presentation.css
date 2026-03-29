@@ -5,73 +5,9 @@
   position: relative; /* Nécessaire pour positionner le pseudo-élément */
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Filtre transparent, ajustez l'opacité si besoin */
-  pointer-events: none; /* Pour que l'overlay ne bloque pas l'interaction avec le contenu */
-  z-index: -1; /* Positionné derrière le contenu */
-}
-
-/* --- Section Hero --- */
-.presentation-hero {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20vh;  /* L'image de fond occupe toute la hauteur de l'écran */
-  background: transparent;
-}
-
-.presentation-hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Logo centré en haut de l'image de fond */
-.presentation-logo-container {
-  position: absolute;
-  top: 20px; /* Distance du haut, ajustable */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-.presentation-logo {
-  max-width: 80px;
-  height: auto;
-  display: block;
-}
-
-/* --- Contenu Principal --- */
-.presentation-main {
-  padding: 20px 20px;
-  text-align: center;
-  z-index: 2;
-  color : var(--color-beige);
-  background: transparent;
-}
-.presentation-intro h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  z-index: 2;
-  color : var(--color-beige);
-}
-.presentation-intro p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  z-index: 2;
-  color : var(--color-beige);
-}
-.presentation-intro h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  z-index: 2;
-  color : var(--color-beige);
+/* [overlay] background seul — structure dans utilities.css */
+.presentation-page::before {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* --- Grille des membres --- */
@@ -103,6 +39,10 @@ body::before {
   object-fit: cover;
   display: block;
   filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+.member-card:hover img {
+  filter: grayscale(0);
 }
 /* Texte caché par défaut */
 .member-info {

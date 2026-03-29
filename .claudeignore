@@ -1,0 +1,37 @@
+# ===== Build output & caches =====
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# ===== Dependencies =====
+node_modules/
+vendor/
+Gemfile.lock
+
+# ===== Media assets (heavy, not code) =====
+images/
+icons/
+leonore-vanier/photos/
+
+# ===== Binary files =====
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.ico
+*.svg
+*.mp4
+*.webm
+*.pdf
+
+# ===== OS & editor artifacts =====
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ===== Misc =====
+TODO.md

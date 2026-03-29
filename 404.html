@@ -1,7 +1,8 @@
 ---
-title: "Spectacles – Compagnie Sensible Indocile"
-description: "Nos court-métrages."
-lang: fr                                    # facultatif, sinon hérite de _config.yml
+title: "Page introuvable – Compagnie Sensible Indocile"
+description: "La page que vous cherchez n'existe pas."
+lang: fr
+permalink: /404.html
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,8 +14,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     <link rel="icon" type="image/png" href="images/Logo style LE BAIN.png">
     <meta name="theme-color" content="#8b0000">
 </head>
-
-<body class="spectacles-page">
+<body class="error-page">
   <a href="#main-content" class="skip-to-content">Aller au contenu</a>
     <div class="responsive-header">
       <div class="menu-toggle">&#9776;</div>
@@ -30,40 +30,23 @@ lang: fr                                    # facultatif, sinon hérite de _conf
         </ul>
       </nav>
     </div>
-    <section class="spectacles-hero">
-        <div class="spectacles-logo-container">
+    <section class="error-hero">
+        <div class="presentation-logo-container">
             <a href="index.html" class="logo-link">
                 <img src="images/Logo style LE BAIN.png" alt="Logo Compagnie Sensible Indocile" class="presentation-logo">
             </a>
         </div>
     </section>
-    <main id="main-content" class="spectacles-main">
-        <div class="spectacles-intro">
-          <h1>Nos court-métrages </h1>
-        </div>
-    <section class="cards">
-      <a href="spectacle-stpb.html">
-        <div class="card">
-          <img src="images/Affiche SOUS TA PEAU BRÛLANTE de Léonore Vanier (HD).jpg" alt="Sous ta peau brûlante">
-          <p class="tip">Sous ta peau brûlante</p>
-        </div>
-      </a>
-      <a href="spectacle-le-dahut.html">
-        <div class="card">
-          <img src="images/afficheledahut.png" alt="Le Dahut">
-          <p class="tip">Le Dahut</p>
-        </div>
-      </a>
-      <!-- Ajoutez ici d'autres cartes de spectacles -->
-    </section>
-    
 
+  <main id="main-content" class="error-main">
+    <h1>404</h1>
+    <p>Cette page n'existe pas ou a été déplacée.</p>
+    <a href="index.html" class="btn-return">Retour à l'accueil</a>
   </main>
 
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>
 <script src="js/script.js"></script>
 {% include schema-performer.html %}
-
 </body>
 </html>

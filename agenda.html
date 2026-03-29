@@ -10,19 +10,36 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% seo %}
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="images/Logo style LE BAIN.png">
+    <meta name="theme-color" content="#8b0000">
 </head>
 <body class="agenda-page">
-  <section class="presentation-hero">
-    <div class="presentation-logo-container">
+  <a href="#main-content" class="skip-to-content">Aller au contenu</a>
+    <div class="responsive-header">
+      <div class="menu-toggle">&#9776;</div>
+      <nav class="nav-links-index-responsive" aria-label="Menu mobile">
+        <ul>
+          <li><a href="presentation.html">Présentation</a></li>
+          <li><a href="spectacles.html">Spectacles</a></li>
+          <li><a href="courtmetrage.html">Films</a></li>
+          <li><a href="mecenat.html">Mécénat</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+        </ul>
+      </nav>
+    </div>
+  <section class="agenda-hero">
+    <div class="agenda-logo-container">
       <a href="index.html" class="logo-link">
-        <img src="images/Logo style LE BAIN.png" alt="Logo Compagnie Sensible Indocile" class="presentation-logo">
+        <img src="images/Logo style LE BAIN.png" alt="Logo Compagnie Sensible Indocile" class="agenda-logo">
       </a>
     </div>
   </section>
 
   <!-- CONTENU PRINCIPAL -->
-  <main class="presentation-main">
-    <div class="presentation-intro">
+  <main id="main-content" class="agenda-main">
+    <div class="agenda-intro">
       <h1>AGENDA</h1>
       <h2>2025</h2>
     </div>
@@ -34,7 +51,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
       <p><strong><a href="https://www.theatrelacroiseedeschemins.com/service-page/le-bain">Théâtre de La Croisée des Chemins</a></strong> </p>
         
     </section><br>
-
+  </main>
 
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>

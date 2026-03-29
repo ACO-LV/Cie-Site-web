@@ -125,7 +125,31 @@ footer p {
     display: none;
 }
     
+  /* #39 — .gallery-grid responsive (spectacles) */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* #40 — .gallery responsive (galerie) */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* #43 — bouton formulaire plus large sur mobile */
+  .form-container .form-submit-btn {
+    width: 100%;
+  }
+
 } /* Fin du @media (max-width: 768px) */
+
+/* 📌 RESPONSIVE TABLETTE (max 1024px) — #42 */
+@media screen and (max-width: 1024px) {
+
+  /* #39 — .gallery-grid 3 colonnes sur tablette au lieu de 4 */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 /* 📌 MENU RESPONSIVE SUR MOBILE (max 480px) */
 @media screen and (max-width: 480px) {
@@ -179,5 +203,15 @@ footer p {
     
     footer {
         font-size: 12px;
+    }
+
+    /* #39 — .gallery-grid 1 colonne sur petit mobile */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* #40 — .gallery 1 colonne sur petit mobile */
+    .gallery {
+        grid-template-columns: 1fr;
     }
 } /* Fin du @media (max-width: 480px) */

@@ -28,3 +28,52 @@
     text-decoration: none;
     outline: none;
 }
+
+/* ----- BOUTON RÉSERVER ----- */
+.btn-reserver {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background-color: var(--color-bordeaux);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reserver:hover {
+  background-color: var(--color-dark-bordeaux);
+}
+
+/* ----- MENU HAMBURGER (masqué en desktop, affiché via responsive.css) ----- */
+.responsive-header {
+  display: none;
+}
+
+/* ----- SKIP TO CONTENT (a11y) ----- */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.skip-to-content:focus {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  background: var(--color-bordeaux);
+  color: var(--color-beige);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  z-index: 9999;
+}

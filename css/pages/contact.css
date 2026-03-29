@@ -6,43 +6,11 @@
   background-size: cover;
 }
 
+/* [overlay] background seul — structure dans utilities.css */
 .contact-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Ajustez l'opacité du filtre ici */
-  pointer-events: none;
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-/* --- Section Hero --- */
-.contact-hero {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20vh;  /* L'image de fond occupe toute la hauteur de l'écran */
-  background: transparent;
-}
-
-/* Logo centré en haut de l'image de fond */
-.contact-logo-container {
-  position: absolute;
-  top: 20px; /* Distance du haut, ajustable */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-.contact-logo {
-  max-width: 80px;
-  height: auto;
-  display: block;
-}
-
-/* Contenu principal */
 /* --- Contenu Principal --- */
 .contact-main {
   display: flex;
@@ -53,13 +21,6 @@
   z-index: 2;
   color : var(--text-color);
   background: transparent;
-}
-
-.contact-intro h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  z-index: 2;
-  color : var(--color-beige);
 }
 
 .form-container {
@@ -181,4 +142,35 @@
   background-color: var(--color-dark-bordeaux);
   border-color: var(--color-dark-bordeaux);
   color: var(--color-beige);
+}
+
+/* #51 — Feedback visuel après envoi du formulaire */
+#form-status {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#form-status.form-status-visible {
+  opacity: 1;
+}
+
+#form-status.form-status-success {
+  background-color: rgba(34, 139, 34, 0.15);
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+#form-status.form-status-error {
+  background-color: rgba(139, 0, 0, 0.15);
+  color: var(--color-bordeaux);
+  border: 1px solid var(--color-bordeaux);
+}
+
+#form-status.form-status-sending {
+  color: var(--text-color);
+  font-style: italic;
 }

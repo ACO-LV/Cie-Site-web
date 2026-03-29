@@ -1,0 +1,133 @@
+/* ===================================================================
+   utilities.css — Patterns CSS mutualisés
+   Importé dans styles.css après reset.css, avant les pages.
+   Aucune classe renommée — on cible les sélecteurs existants.
+   =================================================================== */
+
+/* --- Page overlay ::before (structure commune) ---
+   Chaque page conserve son propre `background` (opacité variable).
+   galerie + mentions gardent leur override `z-index: 0`.
+   ------------------------------------------------------------ */
+.presentation-page::before,
+.spectacles-page::before,
+.spectacle-le-bain-page::before,
+.spectacle-le-dahut-page::before,
+.spectacle-stpb-page::before,
+.galerie-page::before,
+.mecenat-page::before,
+.agenda-page::before,
+.contact-page::before,
+.mentions-legales-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --- Hero section (hauteur + positionnement) --- */
+.presentation-hero,
+.spectacles-hero,
+.spectacle-hero,
+.galerie-hero,
+.mecenat-hero,
+.agenda-hero,
+.contact-hero,
+.mentions-hero {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  background: transparent;
+}
+
+/* --- Logo container (centrage absolu) --- */
+.presentation-logo-container,
+.spectacles-logo-container,
+.spectacle-logo-container,
+.galerie-logo-container,
+.mecenat-logo-container,
+.agenda-logo-container,
+.contact-logo-container,
+.mentions-logo-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* --- Logo (taille) --- */
+.presentation-logo,
+.spectacles-logo,
+.spectacle-logo,
+.galerie-logo,
+.mecenat-logo,
+.agenda-logo,
+.contact-logo,
+.mentions-logo {
+  max-width: 80px;
+  height: auto;
+  display: block;
+}
+
+/* --- Main content section (layout commun) ---
+   Exclut .contact-main (flex + --text-color) et .error-main.
+   ------------------------------------------------------------ */
+.presentation-main,
+.spectacles-main,
+.spectacle-main,
+.mecenat-main,
+.agenda-main {
+  padding: 20px 20px;
+  text-align: center;
+  z-index: 2;
+  color: var(--color-beige);
+  background: transparent;
+}
+
+/* --- Intro headings (style commun) --- */
+.presentation-intro h1,
+.spectacles-intro h1,
+.mecenat-intro h1,
+.agenda-intro h1,
+.contact-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  z-index: 2;
+  color: var(--color-beige);
+}
+
+.presentation-intro p,
+.mecenat-intro p,
+.agenda-intro p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  z-index: 2;
+  color: var(--color-beige);
+}
+
+.presentation-intro h2,
+.mecenat-intro h2,
+.agenda-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  z-index: 2;
+  color: var(--color-beige);
+}
+
+/* --- Spectacle pages (structure commune) ---
+   Chaque page garde son propre background-image et min-height.
+   ------------------------------------------------------------ */
+.spectacle-le-bain-page,
+.spectacle-le-dahut-page,
+.spectacle-stpb-page {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
