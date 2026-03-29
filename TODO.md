@@ -38,6 +38,7 @@
 | ~~20~~ | ~~P1~~ | ~~`js/script.js:131-214`~~ | ~~Code modal non guarde~~ → **✅ Fait 2026-03-28** — enveloppe dans `if (memberModal) { ... }` (inclus dans refacto #17) |
 | ~~21~~ | ~~P2~~ | ~~`index.css` + `presentation_spectacle.css`~~ | ~~`.btn-reserver` duplique~~ → **✅ Fait 2026-03-28** — factorise dans `components.css` avec variables CSS, supprime des 2 fichiers sources |
 | ~~22~~ | ~~P2~~ | ~~`mecenat.html`, `agenda.html`~~ | ~~Classes `.presentation-*` au lieu de `.mecenat-*`/`.agenda-*`~~ → **✅ Fait 2026-03-28** — HTML mis a jour avec les classes propres a chaque page |
+| ~~25~~ | ~~P1~~ | ~~`css/pages/*.css`~~ | ~~Patterns hero/logo/overlay/main/intro dupliqués ~8 fichiers~~ → **✅ Fait 2026-03-29** — `css/utilities.css` créé, ~230 lignes dédupliquées, aucune classe renommée |
 | 23 | P2 | `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll — 🔴 **BLOQUE par CLAUDE.md** qui interdit de changer la structure du footer |
 | ~~24~~ | ~~P2~~ | ~~`index.html:1-2`~~ | ~~Front matter vide~~ → **✅ Fait 2026-03-28** — ajout title, description, lang pour le SEO |
 
@@ -88,3 +89,5 @@
 | ~~50~~ | ~~P2~~ | ~~Racine du projet~~ | ~~Pas de page `404.html`~~ → **✅ Fait 2026-03-29** — `404.html` créé avec hero logo, hamburger, footer, schema-performer + `css/pages/404.css` importé dans `styles.css` |
 | ~~51~~ | ~~P2~~ | ~~`contact.html`~~ | ~~Pas de feedback visuel après envoi~~ → **✅ Fait 2026-03-29** — classes `.form-status-success/error/sending` avec fond coloré, bordure et transition opacity dans `contact.css` |
 | 52 | P2 | `index.html:62-63` | Image du pop-up "Le Bain" non optimisee (PNG) — un WebP ou JPEG reduit accelererait l'affichage |
+| 53 | P2 | `presentation.css`, `mecenat.css`, `agenda.css` | Classes `.xxx-hero-image` (presentation-hero-image, mecenat-hero-image, agenda-hero-image) non utilisées dans aucun HTML — CSS mort à supprimer |
+| 54 | P2 | `presentation.css`, `spectacles.css`, `mecenat.css`, `agenda.css` | `.xxx-page` partagent `position: relative; background-size: cover; background-attachment: scroll` — mutualisation possible si background shorthand converti en longhands |
