@@ -179,7 +179,9 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('footer.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
+            var currentYear = new Date().getFullYear();
+            document.getElementById('footer-placeholder').innerHTML =
+                data.replace('2025', currentYear);
         })
         .catch(error => console.error('Erreur lors du chargement du footer:', error));
 
@@ -189,18 +191,24 @@ document.addEventListener("DOMContentLoaded", function() {
         const popupCloseBtn = popup.querySelector(".popup-close");
         const overlay = popup.querySelector(".popup-overlay");
 
-        const alreadySeen = sessionStorage.getItem("leBainPopupSeen");
+        /* #46 — ne pas afficher le popup si l'événement est terminé */
+        const endDateStr = popup.getAttribute("data-end-date");
+        if (endDateStr && new Date() > new Date(endDateStr + "T23:59:59")) {
+            popup.remove();
+        } else {
+            var alreadySeen = sessionStorage.getItem("leBainPopupSeen");
 
-        if (!alreadySeen) {
-            setTimeout(() => popup.classList.remove("hidden"), 800);
+            if (!alreadySeen) {
+                setTimeout(() => popup.classList.remove("hidden"), 800);
+            }
+
+            function closePopup() {
+                popup.classList.add("hidden");
+                sessionStorage.setItem("leBainPopupSeen", "1");
+            }
+
+            popupCloseBtn.addEventListener("click", closePopup);
+            overlay.addEventListener("click", closePopup);
         }
-
-        function closePopup() {
-            popup.classList.add("hidden");
-            sessionStorage.setItem("leBainPopupSeen", "1");
-        }
-
-        popupCloseBtn.addEventListener("click", closePopup);
-        overlay.addEventListener("click", closePopup);
     }
 });

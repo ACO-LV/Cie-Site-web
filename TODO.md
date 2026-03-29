@@ -80,9 +80,9 @@
 
 | # | Prio | Fichier | Description |
 |---|------|---------|-------------|
-| 45 | P1 | `spectacle-le-bain.html`, `galerie.html` | ~30 images chargees sans `loading="lazy"` — ajout trivial pour ameliorer le temps de chargement |
-| 46 | P1 | `index.html:69-70` | Dates du pop-up "Le Bain" en dur ("15 novembre 2025 au 4 janvier 2026") — perimees, le pop-up s'affiche encore pour un evenement termine |
-| 47 | P1 | `footer.html:3` | Annee copyright en dur "2025" — devrait etre dynamique via JS ou Liquid (`{{ site.time | date: '%Y' }}`) |
+| ~~45~~ | ~~P1~~ | ~~`spectacle-le-bain.html`, `galerie.html`~~ | ~~~30 images sans `loading="lazy"`~~ → **✅ Fait 2026-03-29** — `loading="lazy"` ajouté sur 30 images (le-bain) et 33 images (galerie), logos hero non touchés |
+| ~~46~~ | ~~P1~~ | ~~`index.html:69-70`~~ | ~~Dates du pop-up "Le Bain" en dur~~ → **✅ Fait 2026-03-29** — ajout `data-end-date` sur le popup + condition JS qui supprime le popup si l'événement est passé |
+| ~~47~~ | ~~P1~~ | ~~`footer.html:3`~~ | ~~Année copyright en dur "2025"~~ → **✅ Fait 2026-03-29** — remplacement dynamique dans le `fetch()` de script.js (`footer.html` inchangé) |
 | 48 | P2 | Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour, pas intuitif pour tous les visiteurs |
 | 49 | P2 | `presentation.html` | Photos membres en niveaux de gris mais pas de retour couleur au hover — ajouter `filter: grayscale(0)` au hover pour plus d'interactivite |
 | 50 | P2 | Racine du projet | Pas de page `404.html` — GitHub Pages affichera sa page par defaut |
