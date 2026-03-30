@@ -8,83 +8,83 @@
 ## 🔴 P0 — Bugs bloquants
 <!-- Casse en prod ou risque de regression immediate -->
 
-- [ ] `404.html:33-36` | Hero utilise `presentation-logo-container` + `presentation-logo` au lieu de classes 404 | `.error-hero` absente du selecteur hero `utilities.css` → logo mal positionne (parent statique + enfant absolu)
+- [ ] **#55** `404.html:33-36` | Hero utilise `presentation-logo-container` + `presentation-logo` au lieu de classes 404 | `.error-hero` absente du selecteur hero `utilities.css` → logo mal positionne (parent statique + enfant absolu)
   > 👨‍💻 Creer `.error-hero`, `.error-logo-container`, `.error-logo` ET les ajouter dans les 3 selecteurs groupes de `utilities.css`. Ne pas corriger une seule classe sans les 3.
 
-- [ ] `contact.html:35` | Logo utilise `presentation-logo` au lieu de `contact-logo` | Fonctionne par accident (meme selecteur CSS groupe) — casse si `presentation-logo` est refactore
+- [ ] **#56** `contact.html:35` | Logo utilise `presentation-logo` au lieu de `contact-logo` | Fonctionne par accident (meme selecteur CSS groupe) — casse si `presentation-logo` est refactore
   > 👨‍💻 `contact-logo` existe deja dans `utilities.css` : simple remplacement de classe.
 
-- [ ] `spectacles.html:36` + `courtmetrage.html:36` | Logo utilise `presentation-logo` au lieu de `spectacles-logo` | Meme couplage accidentel que contact.html
+- [ ] **#57** `spectacles.html:36` + `courtmetrage.html:36` | Logo utilise `presentation-logo` au lieu de `spectacles-logo` | Meme couplage accidentel que contact.html
 
-- [ ] `courtmetrage.html:1` | Front matter `title: "Spectacles"` au lieu de "Films" ou "Court-metrages" | Le `{% seo %}` genere un `<title>` et `og:title` incorrects en prod
+- [ ] **#58** `courtmetrage.html:1` | Front matter `title: "Spectacles"` au lieu de "Films" ou "Court-metrages" | Le `{% seo %}` genere un `<title>` et `og:title` incorrects en prod
   > 👨‍💻 Simple correction de texte dans le front matter YAML.
 
-- [ ] `courtmetrage.html:17` | `body class="spectacles-page"` partage le background/overlay de spectacles.html | Tout changement CSS sur `.spectacles-page` impacte courtmetrage — creer `.courtmetrage-page` + `css/pages/courtmetrage.css`
+- [ ] **#59** `courtmetrage.html:17` | `body class="spectacles-page"` partage le background/overlay de spectacles.html | Tout changement CSS sur `.spectacles-page` impacte courtmetrage — creer `.courtmetrage-page` + `css/pages/courtmetrage.css`
   > 👨‍💻 Changement en cascade : creer le CSS, l'importer dans `styles.css`, ajouter les selecteurs dans `utilities.css` (overlay, hero, background, main). Voir section dependances.
 
-- [ ] `mecenat.html:56,59` | Styles inline `style="width:75%; height:auto;"` | Violation CLAUDE.md (seul `object-position` autorise en inline) — deplacer dans `mecenat.css`
+- [ ] **#60** `mecenat.html:56,59` | Styles inline `style="width:75%; height:auto;"` | Violation CLAUDE.md (seul `object-position` autorise en inline) — deplacer dans `mecenat.css`
   > 👨‍💻 Creer `.mecenat-gallery-img { width: 75%; height: auto; }` dans `mecenat.css`.
 
-- [ ] 5 liens `target="_blank"` sans `rel="noopener"` | `spectacle-le-bain.html:56`, `footer.html:10`, `presentation.html:220`, `index.html:81`, `agenda.html:51` | Risque securite `window.opener` + fuite perf
+- [ ] **#61** 5 liens `target="_blank"` sans `rel="noopener"` | `spectacle-le-bain.html:56`, `footer.html:10`, `presentation.html:220`, `index.html:81`, `agenda.html:51` | Risque securite `window.opener` + fuite perf
 
 ---
 
 ## 🟠 P1 — Degradations visibles
 <!-- Visible utilisateur, UX mesurably degradee -->
 
-- [ ] Toutes pages | `<div class="menu-toggle">` devrait etre `<button>` | Non focusable clavier, pas de `role="button"`, pas d'`aria-label`, pas d'`aria-expanded` — inaccessible
+- [ ] **#62** Toutes pages | `<div class="menu-toggle">` devrait etre `<button>` | Non focusable clavier, pas de `role="button"`, pas d'`aria-label`, pas d'`aria-expanded` — inaccessible
   > 👨‍💻 Remplacer dans les 15 fichiers HTML en meme temps. Ajouter reset CSS pour `<button>` dans `components.css`. Mettre a jour `script.js` pour toggler `aria-expanded`.
 
-- [ ] `presentation.html:206-243` | Modale membre dans `<main>` sans focus trap | Pas de gestion Escape, scroll body non bloque, focus non piege
+- [ ] **#63** `presentation.html:206-243` | Modale membre dans `<main>` sans focus trap | Pas de gestion Escape, scroll body non bloque, focus non piege
   > 👨‍💻 Deplacer le markup avant `</body>`. Ajouter `keydown Escape` + focus trap dans `script.js`.
 
-- [ ] 7+ fichiers CSS | Couleurs hardcodees hors `theme.css` | `#000` (responsive.css, spectacles.css, galerie.css), `#fff` (presentation.css, index.css), `#414141` (contact.css), `#2e7d32` (contact.css), `#444` (index.css), `#f0f0f0` / `#ccc` (presentation.css)
+- [ ] **#64** 7+ fichiers CSS | Couleurs hardcodees hors `theme.css` | `#000` (responsive.css, spectacles.css, galerie.css), `#fff` (presentation.css, index.css), `#414141` (contact.css), `#2e7d32` (contact.css), `#444` (index.css), `#f0f0f0` / `#ccc` (presentation.css)
   > 👨‍💻 Creer les variables manquantes dans `theme.css` (`--color-black`, `--color-white`, `--color-border`, `--color-success`) AVANT de remplacer. Prioriser `responsive.css` (impact global).
 
-- [ ] `layout.css:11` | `font-family: 'Playfair Display'` hardcode | Creer `--font-heading` dans `theme.css`
+- [ ] **#65** `layout.css:11` | `font-family: 'Playfair Display'` hardcode | Creer `--font-heading` dans `theme.css`
 
-- [ ] `agenda.html:44-53` | Contenu perime (dates 2025) | Mettre a jour avec les dates actuelles ou afficher un message "dates a venir"
+- [ ] **#66** `agenda.html:44-53` | Contenu perime (dates 2025) | Mettre a jour avec les dates actuelles ou afficher un message "dates a venir"
 
-- [ ] `index.html:60-85` | Popup "Le Bain" avec `data-end-date="2026-01-04"` — date depassee | Le JS supprime le popup mais le HTML mort reste — nettoyer ou mettre a jour
+- [ ] **#67** `index.html:60-85` | Popup "Le Bain" avec `data-end-date="2026-01-04"` — date depassee | Le JS supprime le popup mais le HTML mort reste — nettoyer ou mettre a jour
 
-- [ ] `spectacle-le-dahut.html:114-126` | 4 images galerie sans `loading="lazy"` | Contrairement aux autres galeries qui l'utilisent
+- [ ] **#68** `spectacle-le-dahut.html:114-126` | 4 images galerie sans `loading="lazy"` | Contrairement aux autres galeries qui l'utilisent
 
 ---
 
 ## 🟡 P2 — Dette technique
 <!-- Maintenabilite, accessibilite non bloquante, CSS orphelin -->
 
-- [ ] CSS mort dans `index.css:34-57` | `.hero-image`, `.hero-text`, `.hero-text h1` — classes absentes du HTML
-- [ ] CSS mort dans `presentation_spectacle.css:38-45` | `.spectacle-content` — classe absente du HTML
-- [ ] CSS mort dans `galerie.css:15-18` | `.galerie-gallery` — non utilise (le HTML utilise `.gallery`)
-- [ ] CSS mort dans `index.css:117-121` | `.btn-secondary:hover` — classe absente du HTML
-- [ ] `presentation_spectacle.css` | `z-index: 2` sur 6 elements sans `position` explicite (`.spectacle-title`, `.spectacle-info`, etc.) — sans effet
+- [ ] **#69** CSS mort dans `index.css:34-57` | `.hero-image`, `.hero-text`, `.hero-text h1` — classes absentes du HTML
+- [ ] **#70** CSS mort dans `presentation_spectacle.css:38-45` | `.spectacle-content` — classe absente du HTML
+- [ ] **#71** CSS mort dans `galerie.css:15-18` | `.galerie-gallery` — non utilise (le HTML utilise `.gallery`)
+- [ ] **#72** CSS mort dans `index.css:117-121` | `.btn-secondary:hover` — classe absente du HTML
+- [ ] **#73** `presentation_spectacle.css` | `z-index: 2` sur 6 elements sans `position` explicite (`.spectacle-title`, `.spectacle-info`, etc.) — sans effet
   > 👨‍💻 Verifier si l'overlay `::before` recouvre ces elements. Si oui, ajouter `position: relative`. Sinon, supprimer le `z-index`.
 
-- [ ] `.gallery-item` defini en doublon | `galerie.css:29-34` ET `presentation_spectacle.css:154-159` — memes proprietes | Mutualiser dans `utilities.css`
-- [ ] `<br>` pour espacement | ~30 occurrences dans 6 pages | Utiliser `margin-bottom` CSS. Commencer par `spectacle-le-bain.html` (le plus visible)
-- [ ] SEO : descriptions front matter trop courtes | 7 pages avec < 30 caracteres | Viser 120-160 caracteres
+- [ ] **#74** `.gallery-item` defini en doublon | `galerie.css:29-34` ET `presentation_spectacle.css:154-159` — memes proprietes | Mutualiser dans `utilities.css`
+- [ ] **#75** `<br>` pour espacement | ~30 occurrences dans 6 pages | Utiliser `margin-bottom` CSS. Commencer par `spectacle-le-bain.html` (le plus visible)
+- [ ] **#76** SEO : descriptions front matter trop courtes | 7 pages avec < 30 caracteres | Viser 120-160 caracteres
   > 👨‍💻 Exemple spectacles : "Decouvrez les spectacles de la Compagnie Sensible Indocile : Le Bain, actuellement au Theatre de la Croisee des Chemins a Paris."
 
-- [ ] `agenda.html:46` | `<section class="spectacle-info">` — classe d'un autre contexte | Creer `.agenda-info` avec CSS dedie
-- [ ] `index.html` + `presentation.html` | Pas de focus trap ni Escape sur le popup / modale
-- [ ] `presentation.html:220` | `<a href="#" target="_blank">` — si JS echoue, ouvre un onglet vide
-- [ ] `footer.html:3` | Copyright "2025" hardcode, remplace par JS | Si JS echoue, affiche 2025
-- [ ] `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll | 🔴 BLOQUE par CLAUDE.md (interdit de changer la structure du footer)
-- [ ] #48 | Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour
-- [ ] #52 | `index.html` | Image popup PNG non optimisee — un WebP/JPEG reduit accelererait l'affichage
+- [ ] **#77** `agenda.html:46` | `<section class="spectacle-info">` — classe d'un autre contexte | Creer `.agenda-info` avec CSS dedie
+- [ ] **#78** `index.html` + `presentation.html` | Pas de focus trap ni Escape sur le popup / modale
+- [ ] **#79** `presentation.html:220` | `<a href="#" target="_blank">` — si JS echoue, ouvre un onglet vide
+- [ ] **#80** `footer.html:3` | Copyright "2025" hardcode, remplace par JS | Si JS echoue, affiche 2025
+- [ ] **#81** `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll | 🔴 BLOQUE par CLAUDE.md (interdit de changer la structure du footer)
+- [ ] **#82** Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour
+- [ ] **#83** `index.html` | Image popup PNG non optimisee — un WebP/JPEG reduit accelererait l'affichage
 
 ---
 
 ## 🟢 P3 — Ameliorations
 <!-- Ni urgent ni bloquant -->
 
-- [ ] `spectacles.html` | Pas de `<h2>` — saut de `<h1>` au contenu cartes | Structure heading incomplete
-- [ ] `presentation.html:125` | Espace avant `=` dans `style ="object-position:..."` | Cosmétique, incohérent avec les autres occurrences
-- [ ] Images PNG galerie | `lebain/*.png` probablement lourdes vs WebP | Compresser avec squoosh/imagemin avant commit
-- [ ] `index.css:132` | `var(--font-base, "Inter", sans-serif)` — `--font-base` non defini dans `theme.css` | Le fallback fonctionne mais c'est incoherent
-- [ ] `_config.yml:17` | Espace dans le nom de fichier logo `"Logo style LE BAIN.png"` | Fonctionne mais fragile avec certains outils
-- [ ] `leonore-vanier/` | Utilise `html2pdf.js` CDN — dependance externe non approuvee par CLAUDE.md | A valider (page hors pattern)
+- [ ] **#84** `spectacles.html` | Pas de `<h2>` — saut de `<h1>` au contenu cartes | Structure heading incomplete
+- [ ] **#85** `presentation.html:125` | Espace avant `=` dans `style ="object-position:..."` | Cosmétique, incohérent avec les autres occurrences
+- [ ] **#86** Images PNG galerie | `lebain/*.png` probablement lourdes vs WebP | Compresser avec squoosh/imagemin avant commit
+- [ ] **#87** `index.css:132` | `var(--font-base, "Inter", sans-serif)` — `--font-base` non defini dans `theme.css` | Le fallback fonctionne mais c'est incoherent
+- [ ] **#88** `_config.yml:17` | Espace dans le nom de fichier logo `"Logo style LE BAIN.png"` | Fonctionne mais fragile avec certains outils
+- [ ] **#89** `leonore-vanier/` | Utilise `html2pdf.js` CDN — dependance externe non approuvee par CLAUDE.md | A valider (page hors pattern)
 
 ---
 
