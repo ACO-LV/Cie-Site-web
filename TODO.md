@@ -89,5 +89,5 @@
 | ~~50~~ | ~~P2~~ | ~~Racine du projet~~ | ~~Pas de page `404.html`~~ → **✅ Fait 2026-03-29** — `404.html` créé avec hero logo, hamburger, footer, schema-performer + `css/pages/404.css` importé dans `styles.css` |
 | ~~51~~ | ~~P2~~ | ~~`contact.html`~~ | ~~Pas de feedback visuel après envoi~~ → **✅ Fait 2026-03-29** — classes `.form-status-success/error/sending` avec fond coloré, bordure et transition opacity dans `contact.css` |
 | 52 | P2 | `index.html:62-63` | Image du pop-up "Le Bain" non optimisee (PNG) — un WebP ou JPEG reduit accelererait l'affichage |
-| 53 | P2 | `presentation.css`, `mecenat.css`, `agenda.css` | Classes `.xxx-hero-image` (presentation-hero-image, mecenat-hero-image, agenda-hero-image) non utilisées dans aucun HTML — CSS mort à supprimer |
-| 54 | P2 | `presentation.css`, `spectacles.css`, `mecenat.css`, `agenda.css` | `.xxx-page` partagent `position: relative; background-size: cover; background-attachment: scroll` — mutualisation possible si background shorthand converti en longhands |
+| ~~53~~ | ~~P2~~ | ~~`presentation.css`, `mecenat.css`, `agenda.css`~~ | ~~Classes `.xxx-hero-image` CSS mort~~ → **✅ Fait 2026-03-30** — déjà supprimé lors du refactoring #25, aucune occurrence restante confirmée par grep |
+| ~~54~~ | ~~P2~~ | ~~`presentation.css`, `spectacles.css`, `mecenat.css`, `agenda.css`~~ | ~~`.xxx-page` background shorthand dupliqué~~ → **✅ Fait 2026-03-30** — shorthand converti en `background-image` longhand, propriétés communes mutualisées dans `utilities.css` |

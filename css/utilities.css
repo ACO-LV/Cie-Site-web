@@ -120,6 +120,20 @@
   color: var(--color-beige);
 }
 
+/* --- Pages avec fond d'image scrollable (#54) ---
+   Chaque page garde uniquement son background-image.
+   ------------------------------------------------------------ */
+.presentation-page,
+.spectacles-page,
+.mecenat-page,
+.agenda-page {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
 /* --- Spectacle pages (structure commune) ---
    Chaque page garde son propre background-image et min-height.
    ------------------------------------------------------------ */
