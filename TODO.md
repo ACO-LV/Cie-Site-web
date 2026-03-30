@@ -137,10 +137,10 @@
 ## 📎 Dependances entre taches
 <!-- Taches qui doivent etre faites dans un ordre precis -->
 
-- Creer `.courtmetrage-page` + `courtmetrage.css` + imports AVANT de modifier `.spectacles-page` dans `spectacles.css` — les deux pages partagent la meme body class
-- Corriger les 4 classes logo (`presentation-logo` → classe correcte) dans spectacles, courtmetrage, contact, 404 EN MEME TEMPS pour eviter un etat intermediaire incoherent
-- Ajouter `.error-hero` + `.error-logo-container` + `.error-logo` dans `utilities.css` AVANT de changer les classes dans `404.html` — sinon le hero perd toute hauteur
-- Remplacer `<div class="menu-toggle">` par `<button>` dans les 15 fichiers HTML EN MEME TEMPS — un oubli creerait une incoherence de comportement
-- Creer les variables de couleur dans `theme.css` AVANT de remplacer les couleurs hardcodees dans les autres CSS
-- Mutualiser `.gallery-item` dans `utilities.css` AVANT de supprimer le doublon de `galerie.css` ou `presentation_spectacle.css`
-- Decouple `courtmetrage.html` de `spectacles-page` AVANT de toucher aux descriptions SEO des deux pages (sinon confusion sur quelle page a quel title)
+- Faire **#59** (`.courtmetrage-page` + `courtmetrage.css`) AVANT de modifier `.spectacles-page` dans `spectacles.css` — les deux pages partagent la meme body class
+- Faire **#56 + #57** (classes logo) dans spectacles, courtmetrage, contact, 404 EN MEME TEMPS pour eviter un etat intermediaire incoherent
+- Faire **#55** (`.error-hero` dans `utilities.css`) AVANT de changer les classes dans `404.html` — sinon le hero perd toute hauteur
+- Faire **#62** (`<button>` menu-toggle) dans les 15 fichiers HTML EN MEME TEMPS — un oubli creerait une incoherence
+- Faire **#64** (variables couleur `theme.css`) AVANT de remplacer les couleurs hardcodees dans les autres CSS
+- Faire **#74** (mutualiser `.gallery-item`) AVANT de supprimer le doublon de `galerie.css` ou `presentation_spectacle.css`
+- Faire **#59** (decoupler courtmetrage) AVANT **#76** (descriptions SEO) — sinon confusion sur quelle page a quel title
