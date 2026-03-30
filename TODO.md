@@ -8,16 +8,10 @@
 ## 🔴 P0 — Bugs bloquants
 <!-- Casse en prod ou risque de regression immediate -->
 
-- [ ] **#55** `404.html:33-36` | Hero utilise `presentation-logo-container` + `presentation-logo` au lieu de classes 404 | `.error-hero` absente du selecteur hero `utilities.css` → logo mal positionne (parent statique + enfant absolu)
-  > 👨‍💻 Creer `.error-hero`, `.error-logo-container`, `.error-logo` ET les ajouter dans les 3 selecteurs groupes de `utilities.css`. Ne pas corriger une seule classe sans les 3.
-
-- [ ] **#56** `contact.html:35` | Logo utilise `presentation-logo` au lieu de `contact-logo` | Fonctionne par accident (meme selecteur CSS groupe) — casse si `presentation-logo` est refactore
-  > 👨‍💻 `contact-logo` existe deja dans `utilities.css` : simple remplacement de classe.
-
-- [ ] **#57** `spectacles.html:36` + `courtmetrage.html:36` | Logo utilise `presentation-logo` au lieu de `spectacles-logo` | Meme couplage accidentel que contact.html
-
-- [ ] **#58** `courtmetrage.html:1` | Front matter `title: "Spectacles"` au lieu de "Films" ou "Court-metrages" | Le `{% seo %}` genere un `<title>` et `og:title` incorrects en prod
-  > 👨‍💻 Simple correction de texte dans le front matter YAML.
+- [x] **#55** ~~`404.html:33-36` | Hero utilise `presentation-logo-container` + `presentation-logo`~~ → corrigé
+- [x] **#56** ~~`contact.html:35` | Logo utilise `presentation-logo`~~ → corrigé
+- [x] **#57** ~~`spectacles.html:36` + `courtmetrage.html:36` | Logo utilise `presentation-logo`~~ → corrigé
+- [x] **#58** ~~`courtmetrage.html:1` | Front matter `title: "Spectacles"`~~ → corrigé
 
 - [ ] **#59** `courtmetrage.html:17` | `body class="spectacles-page"` partage le background/overlay de spectacles.html | Tout changement CSS sur `.spectacles-page` impacte courtmetrage — creer `.courtmetrage-page` + `css/pages/courtmetrage.css`
   > 👨‍💻 Changement en cascade : creer le CSS, l'importer dans `styles.css`, ajouter les selecteurs dans `utilities.css` (overlay, hero, background, main). Voir section dependances.
@@ -131,6 +125,10 @@
 - 2026-03-29 | `spectacle-le-bain.html` + `galerie.html` | `loading="lazy"` sur 63 images
 - 2026-03-29 | `utilities.css` | Patterns hero/logo/overlay/main/intro mutualises (~230 lignes dedupl.)
 - 2026-03-30 | CSS | `.xxx-hero-image` mort supprime + `.xxx-page` background shorthand decoupe en longhand + mutualise dans `utilities.css`
+- 2026-03-30 | #55 | `404.html` : classes `presentation-logo-container` / `presentation-logo` → `error-logo-container` / `error-logo` + `.error-hero` / `.error-logo-container` / `.error-logo` ajoutes dans `utilities.css`
+- 2026-03-30 | #56 | `contact.html` : `presentation-logo` → `contact-logo`
+- 2026-03-30 | #57 | `spectacles.html` + `courtmetrage.html` : `presentation-logo` → `spectacles-logo`
+- 2026-03-30 | #58 | `courtmetrage.html` : front matter title "Spectacles" → "Films"
 
 ---
 
