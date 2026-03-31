@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-03-30
+> Derniere mise a jour : 2026-03-31
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -13,13 +13,9 @@
 - [x] **#57** ~~`spectacles.html:36` + `courtmetrage.html:36` | Logo utilise `presentation-logo`~~ → corrigé
 - [x] **#58** ~~`courtmetrage.html:1` | Front matter `title: "Spectacles"`~~ → corrigé
 
-- [ ] **#59** `courtmetrage.html:17` | `body class="spectacles-page"` partage le background/overlay de spectacles.html | Tout changement CSS sur `.spectacles-page` impacte courtmetrage — creer `.courtmetrage-page` + `css/pages/courtmetrage.css`
-  > 👨‍💻 Changement en cascade : creer le CSS, l'importer dans `styles.css`, ajouter les selecteurs dans `utilities.css` (overlay, hero, background, main). Voir section dependances.
-
-- [ ] **#60** `mecenat.html:56,59` | Styles inline `style="width:75%; height:auto;"` | Violation CLAUDE.md (seul `object-position` autorise en inline) — deplacer dans `mecenat.css`
-  > 👨‍💻 Creer `.mecenat-gallery-img { width: 75%; height: auto; }` dans `mecenat.css`.
-
-- [ ] **#61** 5 liens `target="_blank"` sans `rel="noopener"` | `spectacle-le-bain.html:56`, `footer.html:10`, `presentation.html:220`, `index.html:81`, `agenda.html:51` | Risque securite `window.opener` + fuite perf
+- [x] **#59** ~~`courtmetrage.html:17` | `body class="spectacles-page"`~~ → découplé : `.courtmetrage-page` + `courtmetrage.css` créé + 7 sélecteurs ajoutés dans `utilities.css`
+- [x] **#60** ~~`mecenat.html:56,59` | Styles inline~~ → remplacés par `.mecenat-gallery-img` dans `mecenat.css`
+- [x] **#61** ~~4 liens `target="_blank"` sans `rel="noopener"`~~ → corrigé (`agenda.html:51` n'avait pas de `target="_blank"`)
 
 ---
 
@@ -129,16 +125,19 @@
 - 2026-03-30 | #56 | `contact.html` : `presentation-logo` → `contact-logo`
 - 2026-03-30 | #57 | `spectacles.html` + `courtmetrage.html` : `presentation-logo` → `spectacles-logo`
 - 2026-03-30 | #58 | `courtmetrage.html` : front matter title "Spectacles" → "Films"
+- 2026-03-31 | #59 | `courtmetrage.html` découplé de `spectacles-page` → `.courtmetrage-page` + `css/pages/courtmetrage.css` + 7 sélecteurs `utilities.css` + `@import` dans `styles.css`
+- 2026-03-31 | #60 | `mecenat.html` : styles inline `width:75%` → classe `.mecenat-gallery-img` dans `mecenat.css`
+- 2026-03-31 | #61 | `rel="noopener"` ajouté sur 4 liens `target="_blank"` (footer, spectacle-le-bain, presentation, index)
 
 ---
 
 ## 📎 Dependances entre taches
 <!-- Taches qui doivent etre faites dans un ordre precis -->
 
-- Faire **#59** (`.courtmetrage-page` + `courtmetrage.css`) AVANT de modifier `.spectacles-page` dans `spectacles.css` — les deux pages partagent la meme body class
-- Faire **#56 + #57** (classes logo) dans spectacles, courtmetrage, contact, 404 EN MEME TEMPS pour eviter un etat intermediaire incoherent
-- Faire **#55** (`.error-hero` dans `utilities.css`) AVANT de changer les classes dans `404.html` — sinon le hero perd toute hauteur
+- ~~Faire **#59** (`.courtmetrage-page` + `courtmetrage.css`) AVANT `.spectacles-page`~~ ✅ fait
+- ~~Faire **#56 + #57** (classes logo) EN MEME TEMPS~~ ✅ fait
+- ~~Faire **#55** (`.error-hero` dans `utilities.css`) AVANT `404.html`~~ ✅ fait
 - Faire **#62** (`<button>` menu-toggle) dans les 15 fichiers HTML EN MEME TEMPS — un oubli creerait une incoherence
 - Faire **#64** (variables couleur `theme.css`) AVANT de remplacer les couleurs hardcodees dans les autres CSS
 - Faire **#74** (mutualiser `.gallery-item`) AVANT de supprimer le doublon de `galerie.css` ou `presentation_spectacle.css`
-- Faire **#59** (decoupler courtmetrage) AVANT **#76** (descriptions SEO) — sinon confusion sur quelle page a quel title
+- ~~Faire **#59** (decoupler courtmetrage) AVANT **#76** (descriptions SEO)~~ ✅ fait

@@ -17,7 +17,8 @@
 .mecenat-page::before,
 .agenda-page::before,
 .contact-page::before,
-.mentions-legales-page::before {
+.mentions-legales-page::before,
+.courtmetrage-page::before {
   content: "";
   position: absolute;
   top: 0;
@@ -37,7 +38,8 @@
 .agenda-hero,
 .contact-hero,
 .mentions-hero,
-.error-hero {
+.error-hero,
+.courtmetrage-hero {
   position: relative;
   top: 0;
   left: 0;
@@ -55,7 +57,8 @@
 .agenda-logo-container,
 .contact-logo-container,
 .mentions-logo-container,
-.error-logo-container {
+.error-logo-container,
+.courtmetrage-logo-container {
   position: absolute;
   top: 20px;
   left: 50%;
@@ -72,7 +75,8 @@
 .agenda-logo,
 .contact-logo,
 .mentions-logo,
-.error-logo {
+.error-logo,
+.courtmetrage-logo {
   max-width: 80px;
   height: auto;
   display: block;
@@ -83,6 +87,7 @@
    ------------------------------------------------------------ */
 .presentation-main,
 .spectacles-main,
+.courtmetrage-main,
 .spectacle-main,
 .mecenat-main,
 .agenda-main {
@@ -96,6 +101,7 @@
 /* --- Intro headings (style commun) --- */
 .presentation-intro h1,
 .spectacles-intro h1,
+.courtmetrage-intro h1,
 .mecenat-intro h1,
 .agenda-intro h1,
 .contact-intro h1 {
@@ -128,6 +134,7 @@
    ------------------------------------------------------------ */
 .presentation-page,
 .spectacles-page,
+.courtmetrage-page,
 .mecenat-page,
 .agenda-page {
   position: relative;
