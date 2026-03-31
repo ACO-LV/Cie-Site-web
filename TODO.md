@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-03-31
+> Derniere mise a jour : 2026-03-31 (v2 — #62-#65)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -22,16 +22,13 @@
 ## 🟠 P1 — Degradations visibles
 <!-- Visible utilisateur, UX mesurably degradee -->
 
-- [ ] **#62** Toutes pages | `<div class="menu-toggle">` devrait etre `<button>` | Non focusable clavier, pas de `role="button"`, pas d'`aria-label`, pas d'`aria-expanded` — inaccessible
-  > 👨‍💻 Remplacer dans les 15 fichiers HTML en meme temps. Ajouter reset CSS pour `<button>` dans `components.css`. Mettre a jour `script.js` pour toggler `aria-expanded`.
+- [x] **#62** ~~Toutes pages | `<div class="menu-toggle">` devrait etre `<button>`~~ → corrigé : 13 HTML `<button>` + reset CSS `components.css` + `aria-expanded`/`aria-label` toggle dans `script.js` + `focus-visible`
 
-- [ ] **#63** `presentation.html:206-243` | Modale membre dans `<main>` sans focus trap | Pas de gestion Escape, scroll body non bloque, focus non piege
-  > 👨‍💻 Deplacer le markup avant `</body>`. Ajouter `keydown Escape` + focus trap dans `script.js`.
+- [x] **#63** ~~`presentation.html:206-243` | Modale membre dans `<main>` sans focus trap~~ → corrigé : modale déplacée hors `<main>`, `<span class="close">` → `<button>`, focus trap + Escape + scroll lock + `role="dialog"` + `aria-modal` dans `script.js`
 
-- [ ] **#64** 7+ fichiers CSS | Couleurs hardcodees hors `theme.css` | `#000` (responsive.css, spectacles.css, galerie.css), `#fff` (presentation.css, index.css), `#414141` (contact.css), `#2e7d32` (contact.css), `#444` (index.css), `#f0f0f0` / `#ccc` (presentation.css)
-  > 👨‍💻 Creer les variables manquantes dans `theme.css` (`--color-black`, `--color-white`, `--color-border`, `--color-success`) AVANT de remplacer. Prioriser `responsive.css` (impact global).
+- [x] **#64** ~~7+ fichiers CSS | Couleurs hardcodees hors `theme.css`~~ → corrigé : 6 variables créées dans `theme.css` (`--color-black/white/gray-dark/border/bg-light/success`), 24 remplacements dans responsive.css, spectacles.css, galerie.css, presentation.css, contact.css, index.css, components.css
 
-- [ ] **#65** `layout.css:11` | `font-family: 'Playfair Display'` hardcode | Creer `--font-heading` dans `theme.css`
+- [x] **#65** ~~`layout.css:11` | `font-family: 'Playfair Display'` hardcode~~ → corrigé : `--font-heading` créé dans `theme.css`, remplacé dans `layout.css`
 
 - [ ] **#66** `agenda.html:44-53` | Contenu perime (dates 2025) | Mettre a jour avec les dates actuelles ou afficher un message "dates a venir"
 
@@ -57,7 +54,8 @@
   > 👨‍💻 Exemple spectacles : "Decouvrez les spectacles de la Compagnie Sensible Indocile : Le Bain, actuellement au Theatre de la Croisee des Chemins a Paris."
 
 - [ ] **#77** `agenda.html:46` | `<section class="spectacle-info">` — classe d'un autre contexte | Creer `.agenda-info` avec CSS dedie
-- [ ] **#78** `index.html` + `presentation.html` | Pas de focus trap ni Escape sur le popup / modale
+- [ ] **#78** `index.html` | Pas de focus trap ni Escape sur le popup (presentation.html corrigé par #63)
+- [ ] **#90** `index.css:161,171,174` | Couleurs popup hardcodées (`#111`, `#555`, `#eee`) hors `theme.css` | Restant de #64 (popup spécifique)
 - [ ] **#79** `presentation.html:220` | `<a href="#" target="_blank">` — si JS echoue, ouvre un onglet vide
 - [ ] **#80** `footer.html:3` | Copyright "2025" hardcode, remplace par JS | Si JS echoue, affiche 2025
 - [ ] **#81** `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll | 🔴 BLOQUE par CLAUDE.md (interdit de changer la structure du footer)
@@ -128,6 +126,10 @@
 - 2026-03-31 | #59 | `courtmetrage.html` découplé de `spectacles-page` → `.courtmetrage-page` + `css/pages/courtmetrage.css` + 7 sélecteurs `utilities.css` + `@import` dans `styles.css`
 - 2026-03-31 | #60 | `mecenat.html` : styles inline `width:75%` → classe `.mecenat-gallery-img` dans `mecenat.css`
 - 2026-03-31 | #61 | `rel="noopener"` ajouté sur 4 liens `target="_blank"` (footer, spectacle-le-bain, presentation, index)
+- 2026-03-31 | #62 | 13 HTML : `<div class="menu-toggle">` → `<button>` + `aria-expanded` + `aria-label` + reset CSS `components.css` + `focus-visible` + toggle JS `script.js`
+- 2026-03-31 | #63 | `presentation.html` : modale déplacée hors `<main>`, `<span class="close">` → `<button>`, focus trap + Escape + scroll lock + `role="dialog"` + `aria-modal` dans `script.js`
+- 2026-03-31 | #64 | `theme.css` : 6 variables couleur créées + 24 remplacements dans 7 fichiers CSS (responsive, spectacles, galerie, presentation, contact, index, components)
+- 2026-03-31 | #65 | `theme.css` : `--font-heading` créé + `layout.css` : `font-family` remplacé par `var(--font-heading)`
 
 ---
 
@@ -137,7 +139,7 @@
 - ~~Faire **#59** (`.courtmetrage-page` + `courtmetrage.css`) AVANT `.spectacles-page`~~ ✅ fait
 - ~~Faire **#56 + #57** (classes logo) EN MEME TEMPS~~ ✅ fait
 - ~~Faire **#55** (`.error-hero` dans `utilities.css`) AVANT `404.html`~~ ✅ fait
-- Faire **#62** (`<button>` menu-toggle) dans les 15 fichiers HTML EN MEME TEMPS — un oubli creerait une incoherence
-- Faire **#64** (variables couleur `theme.css`) AVANT de remplacer les couleurs hardcodees dans les autres CSS
+- ~~Faire **#62** (`<button>` menu-toggle) dans les 13 fichiers HTML EN MEME TEMPS~~ ✅ fait
+- ~~Faire **#64** (variables couleur `theme.css`) AVANT de remplacer les couleurs hardcodees~~ ✅ fait
 - Faire **#74** (mutualiser `.gallery-item`) AVANT de supprimer le doublon de `galerie.css` ou `presentation_spectacle.css`
 - ~~Faire **#59** (decoupler courtmetrage) AVANT **#76** (descriptions SEO)~~ ✅ fait

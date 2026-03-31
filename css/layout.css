@@ -8,7 +8,7 @@ main {
 /* Titres principaux */
 main h1 {
   font-size: 2rem;
-  font-family: 'Playfair Display'; 
+  font-family: var(--font-heading);
   margin-bottom: 1rem;
 }
 

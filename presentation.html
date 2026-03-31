@@ -16,7 +16,7 @@ lang: fr                                    # facultatif, sinon hérite de _conf
 <body class="presentation-page">
   <a href="#main-content" class="skip-to-content">Aller au contenu</a>
     <div class="responsive-header">
-      <div class="menu-toggle">&#9776;</div>
+      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
       <nav class="nav-links-index-responsive" aria-label="Menu mobile">
         <ul>
           <li><a href="presentation.html">Présentation</a></li>
@@ -202,46 +202,43 @@ lang: fr                                    # facultatif, sinon hérite de _conf
             <span class="member-role">Musicien, Producteur</span>
           </div>
         </a>
-    <!-- Modale pour la présentation d'un membre -->
-    <div id="memberModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="modal-columns">
-          <!-- Colonne gauche : photo (affichée deux fois pour l'effet "à gauche et à droite") -->
-          <div class="modal-photo">
-            <img id="modalMemberPhoto" src="" alt="Photo du membre">
-          </div>
-          <!-- Colonne droite : détails -->
-          <div class="modal-details">
-            <h2 id="modalMemberName"></h2>
-            <p id="modalMemberRole"><strong></strong></p>
-            <p id="modalMemberDescription"></p>
-            <p id="modalMemberInstagram">
-              <a href="#" target="_blank" rel="noopener">
-                <img src="icons/instagram.png" alt="Instagram" class="instagram-icon">
-                <span id="modalMemberInstagramTag"></span>
-              </a>
-            </p>
-            <div class="member-website" id="memberWebsiteBlock" style="display:none;">
-                <a id="modalMemberSite"
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary">
-                    Voir le site de la comédienne
-                </a>
-             </div>
-            <div class="modal-member-spectacles">
-              <h3>À l'affiche de</h3>
-              <div class="spectacles-list" id="modalSpectaclesList">
-                <!-- Chaque spectacle sera inséré ici -->
-              </div>
-            </div>
-          </div>
+  </main>
+
+<!-- Modale membre (#63 — déplacée hors de <main> pour focus trap) -->
+<div id="memberModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalMemberName">
+  <div class="modal-content">
+    <button class="close" aria-label="Fermer">&times;</button>
+    <div class="modal-columns">
+      <div class="modal-photo">
+        <img id="modalMemberPhoto" src="" alt="Photo du membre">
+      </div>
+      <div class="modal-details">
+        <h2 id="modalMemberName"></h2>
+        <p id="modalMemberRole"><strong></strong></p>
+        <p id="modalMemberDescription"></p>
+        <p id="modalMemberInstagram">
+          <a href="#" target="_blank" rel="noopener">
+            <img src="icons/instagram.png" alt="Instagram" class="instagram-icon">
+            <span id="modalMemberInstagramTag"></span>
+          </a>
+        </p>
+        <div class="member-website" id="memberWebsiteBlock" style="display:none;">
+          <a id="modalMemberSite"
+             href="#"
+             target="_blank"
+             rel="noopener"
+             class="btn btn-primary">
+             Voir le site de la comédienne
+          </a>
+        </div>
+        <div class="modal-member-spectacles">
+          <h3>À l'affiche de</h3>
+          <div class="spectacles-list" id="modalSpectaclesList"></div>
         </div>
       </div>
-    </div>        
-  </main>    
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>

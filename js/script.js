@@ -35,11 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (menuToggle && responsiveNav) {
         menuToggle.addEventListener('click', function(){
             responsiveNav.classList.toggle('active');
-            if (responsiveNav.classList.contains('active')) {
-                menuToggle.innerHTML = '&times;';
-            } else {
-                menuToggle.innerHTML = '&#9776;';
-            }
+            const isOpen = responsiveNav.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            menuToggle.innerHTML = isOpen ? '&times;' : '&#9776;';
         });
     }
 
@@ -98,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.addEventListener('scroll', updateParallax);
     }
 
-    /* ----- MODALE MEMBRE (presentation.html) ----- */
+    /* ----- MODALE MEMBRE (presentation.html) — #63 focus trap + Escape + scroll lock ----- */
     const memberModal = document.getElementById('memberModal');
     if (memberModal) {
         const memberCards = document.querySelectorAll('.member-card');
@@ -113,6 +112,49 @@ document.addEventListener("DOMContentLoaded", function() {
         const modalSpectaclesList = document.getElementById('modalSpectaclesList');
         const memberWebsiteBlock = document.getElementById('memberWebsiteBlock');
         const modalMemberSite = document.getElementById('modalMemberSite');
+
+        let previouslyFocused = null;
+
+        function openMemberModal() {
+            previouslyFocused = document.activeElement;
+            memberModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            memberCloseBtn.focus();
+            document.addEventListener('keydown', memberModalKeyHandler);
+        }
+
+        function closeMemberModal() {
+            memberModal.style.display = 'none';
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', memberModalKeyHandler);
+            if (previouslyFocused) previouslyFocused.focus();
+        }
+
+        function memberModalKeyHandler(e) {
+            if (e.key === 'Escape') {
+                closeMemberModal();
+                return;
+            }
+            if (e.key === 'Tab') {
+                const focusable = memberModal.querySelectorAll(
+                    'button, a[href], [tabindex]:not([tabindex="-1"])'
+                );
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+        }
 
         memberCards.forEach(card => {
             card.addEventListener('click', function(e) {
@@ -160,17 +202,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     });
                 }
 
-                memberModal.style.display = 'flex';
+                openMemberModal();
             });
         });
 
-        memberCloseBtn.addEventListener('click', function() {
-            memberModal.style.display = 'none';
-        });
+        memberCloseBtn.addEventListener('click', closeMemberModal);
 
         window.addEventListener('click', function(e) {
             if (e.target === memberModal) {
-                memberModal.style.display = 'none';
+                closeMemberModal();
             }
         });
     }

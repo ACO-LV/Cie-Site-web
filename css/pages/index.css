@@ -45,7 +45,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: var(--color-white);
     padding: 20px;
     border-radius: 8px;
 }
@@ -53,7 +53,7 @@
 .hero-text h1 {
     font-size: 4.2rem;
     margin-bottom: 15px;
-    color: white;
+    color: var(--color-white);
 }
 
 /* Contenu centré dans la section hero */
@@ -85,7 +85,7 @@
 .nav-links-index a {
   text-decoration: none;
   font-size: 1.6rem;
-  color: white;
+  color: var(--color-white);
   transition: color 0.3s;
 }
 
@@ -101,7 +101,7 @@
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
-    color: white;
+    color: var(--color-white);
     background: var(--color-bordeaux); /* Rouge bordeaux */
     text-decoration: none;
     border-radius: 5px;
@@ -115,7 +115,7 @@
 }
 
 .btn-secondary:hover {
-    background: #444;
+    background: var(--color-gray-dark);
     text-decoration: none;
     outline: none;
 }
@@ -144,7 +144,7 @@
   max-width: 420px;
   padding: 1.5rem;
   border-radius: 1rem;
-  background: #fff;
+  background: var(--color-white);
   text-align: center;
   box-shadow: 0 6px 30px rgba(0,0,0,.25);
   animation: popupAppear .4s ease forwards;

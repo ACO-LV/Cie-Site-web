@@ -35,7 +35,7 @@
   margin-top: 15px;
   padding: 12px 20px;
   background-color: var(--color-bordeaux);
-  color: white;
+  color: var(--color-white);
   font-weight: bold;
   text-decoration: none;
   border-radius: 6px;
@@ -49,6 +49,20 @@
 /* ----- MENU HAMBURGER (masqué en desktop, affiché via responsive.css) ----- */
 .responsive-header {
   display: none;
+}
+
+/* Reset <button> pour le menu-toggle (#62) */
+.menu-toggle {
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-beige);
+  outline-offset: 2px;
 }
 
 /* ----- SKIP TO CONTENT (a11y) ----- */

@@ -1,7 +1,7 @@
 .galerie-page {
   position: relative;
   min-height: 100vh;
-  background-color: #000;
+  background-color: var(--color-black);
   background-size: cover;
 }
 
