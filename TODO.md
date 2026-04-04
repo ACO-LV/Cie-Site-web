@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-04 (v3 — #66-#68)
+> Derniere mise a jour : 2026-04-04 (v4 — #69-#73)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -41,12 +41,15 @@
 ## 🟡 P2 — Dette technique
 <!-- Maintenabilite, accessibilite non bloquante, CSS orphelin -->
 
-- [ ] **#69** CSS mort dans `index.css:34-57` | `.hero-image`, `.hero-text`, `.hero-text h1` — classes absentes du HTML
-- [ ] **#70** CSS mort dans `presentation_spectacle.css:38-45` | `.spectacle-content` — classe absente du HTML
-- [ ] **#71** CSS mort dans `galerie.css:15-18` | `.galerie-gallery` — non utilise (le HTML utilise `.gallery`)
-- [ ] **#72** CSS mort dans `index.css:117-121` | `.btn-secondary:hover` — classe absente du HTML
-- [ ] **#73** `presentation_spectacle.css` | `z-index: 2` sur 6 elements sans `position` explicite (`.spectacle-title`, `.spectacle-info`, etc.) — sans effet
-  > 👨‍💻 Verifier si l'overlay `::before` recouvre ces elements. Si oui, ajouter `position: relative`. Sinon, supprimer le `z-index`.
+- [x] **#69** ~~CSS mort dans `index.css:34-57` | `.hero-image`, `.hero-text`, `.hero-text h1`~~ → supprimé (+ `.hero-text` dans `responsive.css:176-183`)
+
+- [x] **#70** ~~CSS mort dans `presentation_spectacle.css:38-45` | `.spectacle-content`~~ → supprimé
+
+- [x] **#71** ~~CSS mort dans `galerie.css:15-18` | `.galerie-gallery`~~ → supprimé
+
+- [x] **#72** ~~CSS mort dans `index.css:117-121` | `.btn-secondary:hover`~~ → supprimé
+
+- [x] **#73** ~~`presentation_spectacle.css` | `z-index: 2` sur 8 éléments sans `position` explicite~~ → supprimé (`::before` overlay a `z-index: -1` dans `utilities.css`, donc jamais au-dessus du contenu)
 
 - [ ] **#74** `.gallery-item` defini en doublon | `galerie.css:29-34` ET `presentation_spectacle.css:154-159` — memes proprietes | Mutualiser dans `utilities.css`
 - [ ] **#75** `<br>` pour espacement | ~30 occurrences dans 6 pages | Utiliser `margin-bottom` CSS. Commencer par `spectacle-le-bain.html` (le plus visible)
@@ -133,6 +136,11 @@
 - 2026-04-04 | #66 | `agenda.html` : contenu périmé (dates 2025) remplacé par message remerciement + annonce Avignon 2026, lien vers `mecenat.html`
 - 2026-04-04 | #67 | `index.html` : popup Le Bain remplacé par annonce Avignon 2026, image/bouton supprimés, `data-end-date` → `2026-08-01`, lien vers `mecenat.html`
 - 2026-04-04 | #68 | `spectacle-le-dahut.html` : `loading="lazy"` ajouté sur 4 images galerie
+- 2026-04-04 | #69 | `index.css` : `.hero-image`, `.hero-text`, `.hero-text h1` supprimés + `responsive.css` : `.hero-text` responsive supprimé
+- 2026-04-04 | #70 | `presentation_spectacle.css` : `.spectacle-content` supprimé
+- 2026-04-04 | #71 | `galerie.css` : `.galerie-gallery` supprimé
+- 2026-04-04 | #72 | `index.css` : `.btn-secondary:hover` supprimé
+- 2026-04-04 | #73 | `presentation_spectacle.css` : `z-index: 2` supprimé de 8 sélecteurs sans `position` (overlay `::before` à `z-index: -1`, donc inutile)
 
 ---
 

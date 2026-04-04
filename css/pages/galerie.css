@@ -11,12 +11,6 @@
   z-index: 0;
 }
 
-/* Section Galerie */
-.galerie-gallery {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
 /* Grille de la galerie */
 .gallery {
   display: grid;

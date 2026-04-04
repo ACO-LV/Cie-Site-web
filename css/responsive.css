@@ -173,15 +173,6 @@ footer p {
         height: 100vh;
     }
 
-    .hero-text {
-        width: 95%;
-        padding: 10px;
-    }
-
-    .hero-text h1 {
-        font-size: 1.5rem;
-    }
-
     .btn {
         font-size: 16px;
         padding: 8px 15px;

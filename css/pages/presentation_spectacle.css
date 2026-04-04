@@ -34,27 +34,15 @@
 }
 
 
-/* Contenu principal */
-.spectacle-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  color: var(--text-color);
-}
-
 /* Section Titre */
 .spectacle-title {
   text-align: center;
   margin-bottom: 20px;
-  z-index: 2;
 }
 
 .spectacle-title h1 {
   font-size: 3rem;
   font-weight: bold;
-  z-index: 2;
 }
 
 /* Section Lieu et Date */
@@ -62,20 +50,17 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.2rem;
-  z-index: 2;
 }
 
 /* Section Crédits */
 .spectacle-credits {
   margin-bottom: 20px;
   text-align: center;
-  z-index: 2;
 }
 
 .spectacle-credits h2 {
   font-size: 1.4rem;
   margin-bottom: 10px;
-  z-index: 2;
 }
 
 .spectacle-credits ul {
@@ -92,7 +77,6 @@
 .spectacle-description {
   margin-bottom: 20px;
   text-align: left;
-  z-index: 2;
 }
 
 .spectacle-description h2 {
@@ -137,7 +121,6 @@
 .spectacle-gallery {
   margin-bottom: 20px;
   text-align: center;
-  z-index: 2;
 }
 
 .spectacle-gallery h2 {
@@ -171,7 +154,6 @@
 .spectacle-return {
   text-align: center;
   margin: 20px 0;
-  z-index: 2;
 }
 
 .btn-return {
