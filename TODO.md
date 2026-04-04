@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-03-31 (v2 — #62-#65)
+> Derniere mise a jour : 2026-04-04 (v3 — #66-#68)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -30,20 +30,11 @@
 
 - [x] **#65** ~~`layout.css:11` | `font-family: 'Playfair Display'` hardcode~~ → corrigé : `--font-heading` créé dans `theme.css`, remplacé dans `layout.css`
 
-- [ ] **#66** `agenda.html:44-53` | Contenu perime (dates 2025) | Mettre a jour avec le message suivant : 
-"Un immense merci d’être venu voir LE BAIN au Théâtre la Croisée des Chemins !
-Votre présence, vos retours et votre énergie nous ont vraiment portés — alors simplement : MERCI !
+- [x] **#66** ~~`agenda.html:44-53` | Contenu perime (dates 2025)~~ → corrigé : `<h2>2025</h2>` supprimé, contenu remplacé par message remerciement + annonce Avignon 2026, lien `mecenat.html` sur « ici »
 
-Une très belle suite se prépare : nous rejouerons LE BAIN au Festival OFF d’Avignon 2026.
-C’est une étape très importante pour le spectacle… et un vrai défi logistique et financier (transport, hébergement, location/technique, communication, etc.). Pour y aller, nous avons besoin de soutien : ici [mettre lien vers la page mécénat sur le mot ici].
-"
+- [x] **#67** ~~`index.html:60-85` | Popup "Le Bain" avec `data-end-date="2026-01-04"` — date depassee~~ → corrigé : contenu remplacé par annonce Avignon 2026, image + bouton réservation supprimés, `data-end-date` mis à `2026-08-01`, lien `mecenat.html` sur « ici »
 
-- [ ] **#67** `index.html:60-85` | Popup "Le Bain" avec `data-end-date="2026-01-04"` — date depassee | A remplacer par un pop-up avec le message suivant : 
-"Une très belle suite se prépare : nous rejouerons LE BAIN au Festival OFF d’Avignon 2026.
-C’est une étape très importante pour le spectacle… et un vrai défi logistique et financier (transport, hébergement, location/technique, communication, etc.). Pour y aller, nous avons besoin de soutien : ici [mettre lien vers la page mécénat sur le mot ici].
-"
-
-- [ ] **#68** `spectacle-le-dahut.html:114-126` | 4 images galerie sans `loading="lazy"` | Contrairement aux autres galeries qui l'utilisent
+- [x] **#68** ~~`spectacle-le-dahut.html:114-126` | 4 images galerie sans `loading="lazy"`~~ → corrigé : `loading="lazy"` ajouté sur les 4 `<img>` de la galerie
 
 ---
 
@@ -60,7 +51,7 @@ C’est une étape très importante pour le spectacle… et un vrai défi logist
 - [ ] **#74** `.gallery-item` defini en doublon | `galerie.css:29-34` ET `presentation_spectacle.css:154-159` — memes proprietes | Mutualiser dans `utilities.css`
 - [ ] **#75** `<br>` pour espacement | ~30 occurrences dans 6 pages | Utiliser `margin-bottom` CSS. Commencer par `spectacle-le-bain.html` (le plus visible)
 - [ ] **#76** SEO : descriptions front matter trop courtes | 7 pages avec < 30 caracteres | Viser 120-160 caracteres
-  > 👨‍💻 Exemple spectacles : "Decouvrez les spectacles de la Compagnie Sensible Indocile : Le Bain, actuellement au Theatre de la Croisee des Chemins a Paris."
+  > 👨‍💻 Exemple spectacles : "Decouvrez les spectacles de la Compagnie Sensible Indocile : Le Bain, joué au Festival d'Avignon 2026 à La Factory !"
 
 - [ ] **#77** `agenda.html:46` | `<section class="spectacle-info">` — classe d'un autre contexte | Creer `.agenda-info` avec CSS dedie
 - [ ] **#78** `index.html` | Pas de focus trap ni Escape sur le popup (presentation.html corrigé par #63)
@@ -139,6 +130,9 @@ C’est une étape très importante pour le spectacle… et un vrai défi logist
 - 2026-03-31 | #63 | `presentation.html` : modale déplacée hors `<main>`, `<span class="close">` → `<button>`, focus trap + Escape + scroll lock + `role="dialog"` + `aria-modal` dans `script.js`
 - 2026-03-31 | #64 | `theme.css` : 6 variables couleur créées + 24 remplacements dans 7 fichiers CSS (responsive, spectacles, galerie, presentation, contact, index, components)
 - 2026-03-31 | #65 | `theme.css` : `--font-heading` créé + `layout.css` : `font-family` remplacé par `var(--font-heading)`
+- 2026-04-04 | #66 | `agenda.html` : contenu périmé (dates 2025) remplacé par message remerciement + annonce Avignon 2026, lien vers `mecenat.html`
+- 2026-04-04 | #67 | `index.html` : popup Le Bain remplacé par annonce Avignon 2026, image/bouton supprimés, `data-end-date` → `2026-08-01`, lien vers `mecenat.html`
+- 2026-04-04 | #68 | `spectacle-le-dahut.html` : `loading="lazy"` ajouté sur 4 images galerie
 
 ---
 
