@@ -30,9 +30,18 @@
 
 - [x] **#65** ~~`layout.css:11` | `font-family: 'Playfair Display'` hardcode~~ → corrigé : `--font-heading` créé dans `theme.css`, remplacé dans `layout.css`
 
-- [ ] **#66** `agenda.html:44-53` | Contenu perime (dates 2025) | Mettre a jour avec les dates actuelles ou afficher un message "dates a venir"
+- [ ] **#66** `agenda.html:44-53` | Contenu perime (dates 2025) | Mettre a jour avec le message suivant : 
+"Un immense merci d’être venu voir LE BAIN au Théâtre la Croisée des Chemins !
+Votre présence, vos retours et votre énergie nous ont vraiment portés — alors simplement : MERCI !
 
-- [ ] **#67** `index.html:60-85` | Popup "Le Bain" avec `data-end-date="2026-01-04"` — date depassee | Le JS supprime le popup mais le HTML mort reste — nettoyer ou mettre a jour
+Une très belle suite se prépare : nous rejouerons LE BAIN au Festival OFF d’Avignon 2026.
+C’est une étape très importante pour le spectacle… et un vrai défi logistique et financier (transport, hébergement, location/technique, communication, etc.). Pour y aller, nous avons besoin de soutien : ici [mettre lien vers la page mécénat sur le mot ici].
+"
+
+- [ ] **#67** `index.html:60-85` | Popup "Le Bain" avec `data-end-date="2026-01-04"` — date depassee | A remplacer par un pop-up avec le message suivant : 
+"Une très belle suite se prépare : nous rejouerons LE BAIN au Festival OFF d’Avignon 2026.
+C’est une étape très importante pour le spectacle… et un vrai défi logistique et financier (transport, hébergement, location/technique, communication, etc.). Pour y aller, nous avons besoin de soutien : ici [mettre lien vers la page mécénat sur le mot ici].
+"
 
 - [ ] **#68** `spectacle-le-dahut.html:114-126` | 4 images galerie sans `loading="lazy"` | Contrairement aux autres galeries qui l'utilisent
 
