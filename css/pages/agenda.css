@@ -7,3 +7,10 @@
 .agenda-page::before {
   background: rgba(0, 0, 0, 0.5);
 }
+
+/* #77 — classe dédiée agenda (remplace .spectacle-info hors contexte) */
+.agenda-info {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}

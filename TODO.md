@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-04 (v4 — #69-#73)
+> Derniere mise a jour : 2026-04-05 (v5 — #74-#78)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -51,13 +51,12 @@
 
 - [x] **#73** ~~`presentation_spectacle.css` | `z-index: 2` sur 8 éléments sans `position` explicite~~ → supprimé (`::before` overlay a `z-index: -1` dans `utilities.css`, donc jamais au-dessus du contenu)
 
-- [ ] **#74** `.gallery-item` defini en doublon | `galerie.css:29-34` ET `presentation_spectacle.css:154-159` — memes proprietes | Mutualiser dans `utilities.css`
-- [ ] **#75** `<br>` pour espacement | ~30 occurrences dans 6 pages | Utiliser `margin-bottom` CSS. Commencer par `spectacle-le-bain.html` (le plus visible)
-- [ ] **#76** SEO : descriptions front matter trop courtes | 7 pages avec < 30 caracteres | Viser 120-160 caracteres
-  > 👨‍💻 Exemple spectacles : "Decouvrez les spectacles de la Compagnie Sensible Indocile : Le Bain, joué au Festival d'Avignon 2026 à La Factory !"
-
-- [ ] **#77** `agenda.html:46` | `<section class="spectacle-info">` — classe d'un autre contexte | Creer `.agenda-info` avec CSS dedie
-- [ ] **#78** `index.html` | Pas de focus trap ni Escape sur le popup (presentation.html corrigé par #63)
+- [x] **#74** ~~`.gallery-item` defini en doublon~~ → mutualisé dans `utilities.css`, doublons remplacés par commentaires dans `galerie.css` et `presentation_spectacle.css`
+- [x] **#75** ~~`<br>` pour espacement~~ → 29 `<br>` supprimés dans 4 pages (le-bain, le-dahut, stpb, agenda). CSS : `margin-bottom: 1em` sur `.spectacle-description p`, `margin-bottom: 15px` sur `.spectacle-credits ul`
+  > 🟡 Restant : `presentation.html` (10 `<br>` = line breaks nom/rôle dans member-cards) et `mentions-légales.html` (6 `<br>` = formatage adresse) — ce sont des `<br>` de contenu, pas d'espacement
+- [x] **#76** ~~SEO : descriptions front matter trop courtes~~ → 10 pages reécrites (120-160 caractères), seules `index.html` (déjà OK), `404.html` et `mentions-légales.html` non touchées
+- [x] **#77** ~~`agenda.html:46` | `<section class="spectacle-info">`~~ → renommé `.agenda-info` + CSS dédié dans `agenda.css`
+- [x] **#78** ~~`index.html` | Pas de focus trap ni Escape sur le popup~~ → `openPopup()`/`closePopup()`/`popupKeyHandler()` ajoutés dans `script.js` (pattern identique à #63 modale membre)
 - [ ] **#90** `index.css:161,171,174` | Couleurs popup hardcodées (`#111`, `#555`, `#eee`) hors `theme.css` | Restant de #64 (popup spécifique)
 - [ ] **#79** `presentation.html:220` | `<a href="#" target="_blank">` — si JS echoue, ouvre un onglet vide
 - [ ] **#80** `footer.html:3` | Copyright "2025" hardcode, remplace par JS | Si JS echoue, affiche 2025
@@ -141,6 +140,11 @@
 - 2026-04-04 | #71 | `galerie.css` : `.galerie-gallery` supprimé
 - 2026-04-04 | #72 | `index.css` : `.btn-secondary:hover` supprimé
 - 2026-04-04 | #73 | `presentation_spectacle.css` : `z-index: 2` supprimé de 8 sélecteurs sans `position` (overlay `::before` à `z-index: -1`, donc inutile)
+- 2026-04-05 | #74 | `.gallery-item` + `.gallery-item img` mutualisés dans `utilities.css`, doublons supprimés de `galerie.css` et `presentation_spectacle.css`
+- 2026-04-05 | #75 | 29 `<br>` d'espacement supprimés dans `spectacle-le-bain.html` (10), `spectacle-le-dahut.html` (10), `spectacle-stpb.html` (8), `agenda.html` (1). CSS ajouté : `.spectacle-description p { margin-bottom: 1em }` + `.spectacle-credits ul { margin-bottom: 15px }`
+- 2026-04-05 | #76 | Descriptions SEO reécrites (120-160 chars) dans 10 pages : presentation, spectacles, spectacle-le-bain, spectacle-le-dahut, spectacle-stpb, courtmetrage, mecenat, contact, galerie, agenda
+- 2026-04-05 | #77 | `agenda.html` : `.spectacle-info` → `.agenda-info` + `.agenda-info` CSS créé dans `agenda.css`
+- 2026-04-05 | #78 | `script.js` : popup index.html — focus trap, Escape, scroll lock, restauration focus (pattern #63)
 
 ---
 
@@ -152,5 +156,5 @@
 - ~~Faire **#55** (`.error-hero` dans `utilities.css`) AVANT `404.html`~~ ✅ fait
 - ~~Faire **#62** (`<button>` menu-toggle) dans les 13 fichiers HTML EN MEME TEMPS~~ ✅ fait
 - ~~Faire **#64** (variables couleur `theme.css`) AVANT de remplacer les couleurs hardcodees~~ ✅ fait
-- Faire **#74** (mutualiser `.gallery-item`) AVANT de supprimer le doublon de `galerie.css` ou `presentation_spectacle.css`
+- ~~Faire **#74** (mutualiser `.gallery-item`) AVANT de supprimer le doublon~~ ✅ fait
 - ~~Faire **#59** (decoupler courtmetrage) AVANT **#76** (descriptions SEO)~~ ✅ fait

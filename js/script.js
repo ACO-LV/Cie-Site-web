@@ -225,11 +225,12 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Erreur lors du chargement du footer:', error));
 
-    /* ----- POP-UP « Le Bain » (index.html) ----- */
+    /* ----- POP-UP « Le Bain » (index.html) — #78 focus trap + Escape + scroll lock ----- */
     const popup = document.getElementById("popup-le-bain");
     if (popup) {
         const popupCloseBtn = popup.querySelector(".popup-close");
         const overlay = popup.querySelector(".popup-overlay");
+        let popupPreviouslyFocused = null;
 
         /* #46 — ne pas afficher le popup si l'événement est terminé */
         const endDateStr = popup.getAttribute("data-end-date");
@@ -239,12 +240,49 @@ document.addEventListener("DOMContentLoaded", function() {
             var alreadySeen = sessionStorage.getItem("leBainPopupSeen");
 
             if (!alreadySeen) {
-                setTimeout(() => popup.classList.remove("hidden"), 800);
+                setTimeout(function() { openPopup(); }, 800);
+            }
+
+            function openPopup() {
+                popupPreviouslyFocused = document.activeElement;
+                popup.classList.remove("hidden");
+                document.body.style.overflow = 'hidden';
+                popupCloseBtn.focus();
+                document.addEventListener('keydown', popupKeyHandler);
             }
 
             function closePopup() {
                 popup.classList.add("hidden");
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', popupKeyHandler);
                 sessionStorage.setItem("leBainPopupSeen", "1");
+                if (popupPreviouslyFocused) popupPreviouslyFocused.focus();
+            }
+
+            function popupKeyHandler(e) {
+                if (e.key === 'Escape') {
+                    closePopup();
+                    return;
+                }
+                if (e.key === 'Tab') {
+                    var focusable = popup.querySelectorAll(
+                        'button, a[href], [tabindex]:not([tabindex="-1"])'
+                    );
+                    if (focusable.length === 0) return;
+                    var first = focusable[0];
+                    var last = focusable[focusable.length - 1];
+                    if (e.shiftKey) {
+                        if (document.activeElement === first) {
+                            e.preventDefault();
+                            last.focus();
+                        }
+                    } else {
+                        if (document.activeElement === last) {
+                            e.preventDefault();
+                            first.focus();
+                        }
+                    }
+                }
             }
 
             popupCloseBtn.addEventListener("click", closePopup);
