@@ -127,7 +127,7 @@
   margin-bottom: 1rem;
 }
 
-.popup-text        { font-size: 1rem; line-height: 1.4; color: #111; }
+.popup-text        { font-size: 1rem; line-height: 1.4; color: var(--text-color); }
 
 .popup-close       {
   position: absolute;
@@ -137,10 +137,10 @@
   border: none; border-radius: 50%;
   background: transparent;
   cursor: pointer;
-  color: #555;
+  color: var(--color-gray-dark);
   transition: background .2s, transform .2s;
 }
-.popup-close:hover { background: #eee; transform: rotate(90deg); }
+.popup-close:hover { background: var(--color-bg-light); transform: rotate(90deg); }
 
 @keyframes popupAppear {
   0%   { transform: scale(.8); opacity: 0; }

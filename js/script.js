@@ -180,6 +180,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 modalMemberDescription.textContent = description;
                 modalMemberInstagramTag.textContent = instagram;
                 modalMemberInstagramLink.href = `https://www.instagram.com/${instagram.replace('@','')}`;
+                modalMemberInstagramLink.target = '_blank';
+                modalMemberInstagramLink.rel = 'noopener';
                 if (memberWebsiteBlock && modalMemberSite) {
                     if (siteUrl) {
                         modalMemberSite.href = siteUrl;
@@ -219,9 +221,9 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('footer.html')
         .then(response => response.text())
         .then(data => {
-            var currentYear = new Date().getFullYear();
-            document.getElementById('footer-placeholder').innerHTML =
-                data.replace('2025', currentYear);
+            document.getElementById('footer-placeholder').innerHTML = data;
+            var yearEl = document.querySelector('.copyright-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
         })
         .catch(error => console.error('Erreur lors du chargement du footer:', error));
 

@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-05 (v5 — #74-#78)
+> Derniere mise a jour : 2026-04-05 (v6 — #79, #80, #90)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -57,9 +57,9 @@
 - [x] **#76** ~~SEO : descriptions front matter trop courtes~~ → 10 pages reécrites (120-160 caractères), seules `index.html` (déjà OK), `404.html` et `mentions-légales.html` non touchées
 - [x] **#77** ~~`agenda.html:46` | `<section class="spectacle-info">`~~ → renommé `.agenda-info` + CSS dédié dans `agenda.css`
 - [x] **#78** ~~`index.html` | Pas de focus trap ni Escape sur le popup~~ → `openPopup()`/`closePopup()`/`popupKeyHandler()` ajoutés dans `script.js` (pattern identique à #63 modale membre)
-- [ ] **#90** `index.css:161,171,174` | Couleurs popup hardcodées (`#111`, `#555`, `#eee`) hors `theme.css` | Restant de #64 (popup spécifique)
-- [ ] **#79** `presentation.html:220` | `<a href="#" target="_blank">` — si JS echoue, ouvre un onglet vide
-- [ ] **#80** `footer.html:3` | Copyright "2025" hardcode, remplace par JS | Si JS echoue, affiche 2025
+- [x] **#90** ~~`index.css` | Couleurs popup hardcodées (`#111`, `#555`, `#eee`) hors `theme.css`~~ → remplacées par `var(--text-color)`, `var(--color-gray-dark)`, `var(--color-bg-light)`
+- [x] **#79** ~~`presentation.html:220` | `<a href="#" target="_blank">` — si JS echoue, ouvre un onglet vide~~ → `target="_blank"` + `rel="noopener"` supprimés du HTML, ajoutés dynamiquement via JS dans `script.js`
+- [x] **#80** ~~`footer.html:3` | Copyright "2025" hardcode~~ → année dans `<span class="copyright-year">2026</span>`, mise à jour DOM dans `script.js` (plus de string replace fragile)
 - [ ] **#81** `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll | 🔴 BLOQUE par CLAUDE.md (interdit de changer la structure du footer)
 - [ ] **#82** Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour
 - [ ] **#83** `index.html` | Image popup PNG non optimisee — un WebP/JPEG reduit accelererait l'affichage
@@ -145,6 +145,9 @@
 - 2026-04-05 | #76 | Descriptions SEO reécrites (120-160 chars) dans 10 pages : presentation, spectacles, spectacle-le-bain, spectacle-le-dahut, spectacle-stpb, courtmetrage, mecenat, contact, galerie, agenda
 - 2026-04-05 | #77 | `agenda.html` : `.spectacle-info` → `.agenda-info` + `.agenda-info` CSS créé dans `agenda.css`
 - 2026-04-05 | #78 | `script.js` : popup index.html — focus trap, Escape, scroll lock, restauration focus (pattern #63)
+- 2026-04-05 | #90 | `index.css` : couleurs popup `#111`, `#555`, `#eee` remplacées par `var(--text-color)`, `var(--color-gray-dark)`, `var(--color-bg-light)`
+- 2026-04-05 | #79 | `presentation.html` + `script.js` : `target="_blank"` + `rel="noopener"` supprimés du HTML modale Instagram, ajoutés dynamiquement en JS
+- 2026-04-05 | #80 | `footer.html` + `script.js` : année copyright `2025` → `<span class="copyright-year">2026</span>` + mise à jour DOM (plus de string replace)
 
 ---
 
