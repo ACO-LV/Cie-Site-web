@@ -14,7 +14,7 @@ plugins:
 lang: fr
 author: "Compagnie Sensible Indocile"
 
-logo: "/images/Logo style LE BAIN.png"   # idéalement carré, ≥160 px, <150 ko
+logo: "/images/logo-le-bain.png"   # idéalement carré, ≥160 px, <150 ko
 
 # Comptes sociaux
 social:

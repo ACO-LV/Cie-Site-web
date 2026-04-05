@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-05 (v7 — #84, #85, #86)
+> Derniere mise a jour : 2026-04-05 (v8 — #87, #88)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -72,8 +72,8 @@
 - [x] **#84** ~~`spectacles.html` | Pas de `<h2>` — saut de `<h1>` au contenu cartes~~ → `<h2>À l'affiche</h2>` ajouté dans `<section class="cards">`
 - [x] **#85** ~~`presentation.html:125,140,156` | Espace avant `=` dans `style ="object-position:..."`~~ → 3 occurrences corrigées (`style ="` → `style="`)
 - [ ] **#86** Images PNG galerie | `lebain/*.png` : 17 fichiers, **72.9 MB** total (moy. 4.4 MB), top 3 > 8 MB | ⏸ Nécessite outil externe (squoosh.dev recommandé) — CLAUDE.md interdit dépendances non approuvées
-- [ ] **#87** `index.css:132` | `var(--font-base, "Inter", sans-serif)` — `--font-base` non defini dans `theme.css` | Le fallback fonctionne mais c'est incoherent
-- [ ] **#88** `_config.yml:17` | Espace dans le nom de fichier logo `"Logo style LE BAIN.png"` | Fonctionne mais fragile avec certains outils
+- [x] **#87** ~~`index.css:101` | `var(--font-base, "Inter", sans-serif)` — `--font-base` non défini~~ → `--font-base: "Inter", sans-serif` ajouté dans `theme.css`
+- [x] **#88** ~~`_config.yml:17` | Espace dans le nom de fichier logo `"Logo style LE BAIN.png"`~~ → fichier renommé `logo-le-bain.png` + 28 références mises à jour dans 16 fichiers (⚠️ `_config.yml` modifié)
 - [ ] **#89** `leonore-vanier/` | Utilise `html2pdf.js` CDN — dependance externe non approuvee par CLAUDE.md | A valider (page hors pattern)
 
 ---
@@ -151,6 +151,8 @@
 - 2026-04-05 | #84 | `spectacles.html` : `<h2>À l'affiche</h2>` ajouté dans `<section class="cards">` — heading hierarchy h1→h2 complétée
 - 2026-04-05 | #85 | `presentation.html` : 3× `style ="` → `style="` (lignes 125, 140, 156) — cohérence attributs HTML
 - 2026-04-05 | #86 | Analyse : 17 PNG dans `lebain/`, 72.9 MB total — nécessite compression manuelle (squoosh.dev), non exécutable par Claude (CLAUDE.md)
+- 2026-04-05 | #87 | `theme.css` : `--font-base: "Inter", sans-serif` défini — cohérence avec `var(--font-base)` dans `index.css`
+- 2026-04-05 | #88 | `images/Logo style LE BAIN.png` → `images/logo-le-bain.png` + 28 refs dans 16 fichiers (`_config.yml`, `schema-performer.html`, 13 HTML, `leonore-vanier/index.html`)
 
 ---
 
