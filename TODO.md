@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-05 (v6 — #79, #80, #90)
+> Derniere mise a jour : 2026-04-05 (v7 — #84, #85, #86)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -69,9 +69,9 @@
 ## 🟢 P3 — Ameliorations
 <!-- Ni urgent ni bloquant -->
 
-- [ ] **#84** `spectacles.html` | Pas de `<h2>` — saut de `<h1>` au contenu cartes | Structure heading incomplete
-- [ ] **#85** `presentation.html:125` | Espace avant `=` dans `style ="object-position:..."` | Cosmétique, incohérent avec les autres occurrences
-- [ ] **#86** Images PNG galerie | `lebain/*.png` probablement lourdes vs WebP | Compresser avec squoosh/imagemin avant commit
+- [x] **#84** ~~`spectacles.html` | Pas de `<h2>` — saut de `<h1>` au contenu cartes~~ → `<h2>À l'affiche</h2>` ajouté dans `<section class="cards">`
+- [x] **#85** ~~`presentation.html:125,140,156` | Espace avant `=` dans `style ="object-position:..."`~~ → 3 occurrences corrigées (`style ="` → `style="`)
+- [ ] **#86** Images PNG galerie | `lebain/*.png` : 17 fichiers, **72.9 MB** total (moy. 4.4 MB), top 3 > 8 MB | ⏸ Nécessite outil externe (squoosh.dev recommandé) — CLAUDE.md interdit dépendances non approuvées
 - [ ] **#87** `index.css:132` | `var(--font-base, "Inter", sans-serif)` — `--font-base` non defini dans `theme.css` | Le fallback fonctionne mais c'est incoherent
 - [ ] **#88** `_config.yml:17` | Espace dans le nom de fichier logo `"Logo style LE BAIN.png"` | Fonctionne mais fragile avec certains outils
 - [ ] **#89** `leonore-vanier/` | Utilise `html2pdf.js` CDN — dependance externe non approuvee par CLAUDE.md | A valider (page hors pattern)
@@ -148,6 +148,9 @@
 - 2026-04-05 | #90 | `index.css` : couleurs popup `#111`, `#555`, `#eee` remplacées par `var(--text-color)`, `var(--color-gray-dark)`, `var(--color-bg-light)`
 - 2026-04-05 | #79 | `presentation.html` + `script.js` : `target="_blank"` + `rel="noopener"` supprimés du HTML modale Instagram, ajoutés dynamiquement en JS
 - 2026-04-05 | #80 | `footer.html` + `script.js` : année copyright `2025` → `<span class="copyright-year">2026</span>` + mise à jour DOM (plus de string replace)
+- 2026-04-05 | #84 | `spectacles.html` : `<h2>À l'affiche</h2>` ajouté dans `<section class="cards">` — heading hierarchy h1→h2 complétée
+- 2026-04-05 | #85 | `presentation.html` : 3× `style ="` → `style="` (lignes 125, 140, 156) — cohérence attributs HTML
+- 2026-04-05 | #86 | Analyse : 17 PNG dans `lebain/`, 72.9 MB total — nécessite compression manuelle (squoosh.dev), non exécutable par Claude (CLAUDE.md)
 
 ---
 
