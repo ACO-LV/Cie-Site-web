@@ -1,8 +1,6 @@
+/* #54 — structure partagée dans utilities.css */
 .spectacles-page {
-  background: url('../../images/Alaffiche5.jpeg') no-repeat center 0px;
-  background-size: cover;
-  background-attachment: scroll; /* L'image défile avec le contenu */
-  position: relative; /* Nécessaire pour positionner le pseudo-élément */
+  background-image: url('../../images/Alaffiche5.jpeg');
 }
 /* [overlay] background seul — structure dans utilities.css */
 .spectacles-page::before {
@@ -26,7 +24,7 @@
   height: 300px; /* Format rectangulaire imposé */
   border-radius: 10px;
   overflow: hidden;
-  background: #000;
+  background: var(--color-black);
   cursor: pointer;
   transition: 400ms;
 }

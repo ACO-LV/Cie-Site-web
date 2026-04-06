@@ -1,8 +1,6 @@
+/* #54 — structure partagée dans utilities.css */
 .mecenat-page {
-  background: url('../../images/lebain/lebain11.png') no-repeat center 0px;
-  background-size: cover;
-  background-attachment: scroll; /* L'image défile avec le contenu */
-  position: relative; /* Nécessaire pour positionner le pseudo-élément */
+  background-image: url('../../images/lebain/lebain11.png');
 }
 
 /* [overlay] background seul — structure dans utilities.css */
@@ -10,4 +8,7 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-
+.mecenat-gallery-img {
+  width: 75%;
+  height: auto;
+}

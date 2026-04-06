@@ -34,27 +34,15 @@
 }
 
 
-/* Contenu principal */
-.spectacle-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  color: var(--text-color);
-}
-
 /* Section Titre */
 .spectacle-title {
   text-align: center;
   margin-bottom: 20px;
-  z-index: 2;
 }
 
 .spectacle-title h1 {
   font-size: 3rem;
   font-weight: bold;
-  z-index: 2;
 }
 
 /* Section Lieu et Date */
@@ -62,25 +50,23 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.2rem;
-  z-index: 2;
 }
 
 /* Section Crédits */
 .spectacle-credits {
   margin-bottom: 20px;
   text-align: center;
-  z-index: 2;
 }
 
 .spectacle-credits h2 {
   font-size: 1.4rem;
   margin-bottom: 10px;
-  z-index: 2;
 }
 
 .spectacle-credits ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 15px; /* #75 — remplace <br> d'espacement */
 }
 
 .spectacle-credits li {
@@ -92,8 +78,8 @@
 .spectacle-description {
   margin-bottom: 20px;
   text-align: left;
-  z-index: 2;
 }
+
 
 .spectacle-description h2 {
   font-size: 2rem;
@@ -103,6 +89,7 @@
 .spectacle-description p {
   font-size: 1rem;
   line-height: 1.6;
+  margin-bottom: 1em; /* #75 — remplace <br> d'espacement */
 }
 
 /* Section Vidéo */
@@ -137,7 +124,6 @@
 .spectacle-gallery {
   margin-bottom: 20px;
   text-align: center;
-  z-index: 2;
 }
 
 .spectacle-gallery h2 {
@@ -151,27 +137,12 @@
   gap: 10px;
 }
 
-.gallery-item {
-  position: relative;
-  width: 100%;
-  padding-top: 100%; /* Format carré */
-  overflow: hidden;
-}
-
-.gallery-item img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* .gallery-item + .gallery-item img mutualisés dans utilities.css (#74) */
 
 /* Bouton de retour */
 .spectacle-return {
   text-align: center;
   margin: 20px 0;
-  z-index: 2;
 }
 
 .btn-return {

@@ -17,7 +17,8 @@
 .mecenat-page::before,
 .agenda-page::before,
 .contact-page::before,
-.mentions-legales-page::before {
+.mentions-legales-page::before,
+.courtmetrage-page::before {
   content: "";
   position: absolute;
   top: 0;
@@ -36,7 +37,9 @@
 .mecenat-hero,
 .agenda-hero,
 .contact-hero,
-.mentions-hero {
+.mentions-hero,
+.error-hero,
+.courtmetrage-hero {
   position: relative;
   top: 0;
   left: 0;
@@ -53,7 +56,9 @@
 .mecenat-logo-container,
 .agenda-logo-container,
 .contact-logo-container,
-.mentions-logo-container {
+.mentions-logo-container,
+.error-logo-container,
+.courtmetrage-logo-container {
   position: absolute;
   top: 20px;
   left: 50%;
@@ -69,7 +74,9 @@
 .mecenat-logo,
 .agenda-logo,
 .contact-logo,
-.mentions-logo {
+.mentions-logo,
+.error-logo,
+.courtmetrage-logo {
   max-width: 80px;
   height: auto;
   display: block;
@@ -80,6 +87,7 @@
    ------------------------------------------------------------ */
 .presentation-main,
 .spectacles-main,
+.courtmetrage-main,
 .spectacle-main,
 .mecenat-main,
 .agenda-main {
@@ -93,6 +101,7 @@
 /* --- Intro headings (style commun) --- */
 .presentation-intro h1,
 .spectacles-intro h1,
+.courtmetrage-intro h1,
 .mecenat-intro h1,
 .agenda-intro h1,
 .contact-intro h1 {
@@ -120,6 +129,21 @@
   color: var(--color-beige);
 }
 
+/* --- Pages avec fond d'image scrollable (#54) ---
+   Chaque page garde uniquement son background-image.
+   ------------------------------------------------------------ */
+.presentation-page,
+.spectacles-page,
+.courtmetrage-page,
+.mecenat-page,
+.agenda-page {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
 /* --- Spectacle pages (structure commune) ---
    Chaque page garde son propre background-image et min-height.
    ------------------------------------------------------------ */
@@ -130,4 +154,24 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+
+/* --- Gallery item (format carré, mutualisé #74) ---
+   Utilisé par galerie.html, spectacle-le-bain, le-dahut, stpb, mecenat.
+   ------------------------------------------------------------ */
+.gallery-item {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }

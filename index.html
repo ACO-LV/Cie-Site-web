@@ -10,7 +10,7 @@ lang: fr
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="images/Logo style LE BAIN.png">
+  <link rel="icon" type="image/png" href="images/logo-le-bain.png">
   <meta name="theme-color" content="#8b0000">
   {% seo %}
 </head>
@@ -19,7 +19,7 @@ lang: fr
   <a href="#hero" class="skip-to-content">Aller au contenu</a>
     <!-- Bouton hamburger -->  
       <div class="responsive-header">
-        <div class="menu-toggle">&#9776;</div>
+        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
         <nav class="nav-links-index-responsive" aria-label="Menu mobile">
           <ul>
             <li><a href="presentation.html">Présentation</a></li>
@@ -56,31 +56,28 @@ lang: fr
         </div>
     </section>
 
-<!-- POP-UP « Le Bain » -->
+<!-- POP-UP « Le Bain — Avignon 2026 » -->
 <div id="popup-le-bain" class="popup hidden" role="dialog"
      aria-modal="true" aria-labelledby="popup-le-bain-title"
-     data-end-date="2026-01-04">
+     data-end-date="2026-08-01">
   <div class="popup-overlay"></div>
 
   <div class="popup-body">
     <button class="popup-close" aria-label="Fermer la fenêtre">&times;</button>
 
-    <a href="spectacle-le-bain.html" class="popup-img-link">
-      <img src="images/affichelebain.png"
-           alt="Affiche du spectacle : Le Bain">
-    </a>
-
-    <p id="popup-le-bain-title" class="popup-text">
-      <strong>LE BAIN</strong> est programmé au
-      <em>Théâtre de la Croisée des Chemins</em><br>
-      <strong>du 15 novembre 2025 au 4 janvier 2026</strong><br>
-      tous les samedis et dimanches à 19 h.
+    <!-- #91: popup restructuré — titre dédié + paragraphes séparés + bouton CTA -->
+    <p id="popup-le-bain-title" class="popup-title">
+      Nous rejouerons <strong>LE BAIN</strong> au Festival OFF d'Avignon 2026 !
     </p>
-
-    <!-- Bouton de réservation -->
-    <a href="https://www.theatrelacroiseedeschemins.com/programmation/bain" target="_blank" class="btn-reserver">
-      Réserve ta place
-    </a>
+    <p class="popup-text">
+      C'est une étape très importante pour le spectacle et un vrai défi
+      logistique et financier (transport, hébergement, location/technique,
+      communication, etc.).
+    </p>
+    <p class="popup-text">
+      Pour y aller, nous avons besoin de soutien.
+    </p>
+    <a href="mecenat.html" class="btn popup-btn">Nous soutenir</a>
   </div>
 </div>
 

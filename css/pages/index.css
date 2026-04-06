@@ -31,31 +31,6 @@
     z-index: 0;
 }
 
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Le texte se place au-dessus de l'overlay */
-.hero-text {
-    position: relative;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.hero-text h1 {
-    font-size: 4.2rem;
-    margin-bottom: 15px;
-    color: white;
-}
-
 /* Contenu centré dans la section hero */
 .hero-content {
   position: absolute;
@@ -85,7 +60,7 @@
 .nav-links-index a {
   text-decoration: none;
   font-size: 1.6rem;
-  color: white;
+  color: var(--color-white);
   transition: color 0.3s;
 }
 
@@ -101,7 +76,7 @@
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
-    color: white;
+    color: var(--color-white);
     background: var(--color-bordeaux); /* Rouge bordeaux */
     text-decoration: none;
     border-radius: 5px;
@@ -110,12 +85,6 @@
 
 .btn:hover {
     background: var(--color-dark-bordeaux); /* Rouge plus foncé */
-    text-decoration: none;
-    outline: none;
-}
-
-.btn-secondary:hover {
-    background: #444;
     text-decoration: none;
     outline: none;
 }
@@ -143,8 +112,9 @@
   position: relative;
   max-width: 420px;
   padding: 1.5rem;
+  padding-top: 2rem;            /* #91: espace pour éviter chevauchement avec .popup-close */
   border-radius: 1rem;
-  background: #fff;
+  background: var(--color-white);
   text-align: center;
   box-shadow: 0 6px 30px rgba(0,0,0,.25);
   animation: popupAppear .4s ease forwards;
@@ -158,7 +128,11 @@
   margin-bottom: 1rem;
 }
 
-.popup-text        { font-size: 1rem; line-height: 1.4; color: #111; }
+/* #91: titre popup dédié */
+.popup-title       { font-size: 1.15rem; font-weight: 700; margin-bottom: .75rem; color: var(--text-color); }
+.popup-text        { font-size: 1rem; line-height: 1.4; color: var(--text-color); }
+/* #91: bouton CTA popup */
+.popup-btn         { display: inline-block; margin-top: 1rem; }
 
 .popup-close       {
   position: absolute;
@@ -168,10 +142,10 @@
   border: none; border-radius: 50%;
   background: transparent;
   cursor: pointer;
-  color: #555;
+  color: var(--color-gray-dark);
   transition: background .2s, transform .2s;
 }
-.popup-close:hover { background: #eee; transform: rotate(90deg); }
+.popup-close:hover { background: var(--color-bg-light); transform: rotate(90deg); }
 
 @keyframes popupAppear {
   0%   { transform: scale(.8); opacity: 0; }

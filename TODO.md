@@ -1,93 +1,240 @@
-# TODO — Audit front-end du site Compagnie Sensible Indocile
-
-> Audit du 28 mars 2026 — branche `Refacto-Arthur`
-> Priorités : **P0** = bloquant/visible, **P1** = important, **P2** = nice-to-have
-
----
-
-## 1. Bugs & regressions
-
-| # | Prio | Fichier | Description |
-|---|------|---------|-------------|
-| ~~1~~ | ~~P0~~ | ~~`spectacles.html:15`~~ | ~~Double `>` sur la balise body~~ → **✅ Fait 2026-03-28** — `>` parasite supprime |
-| ~~2~~ | ~~P0~~ | ~~`courtmetrage.html:15`~~ | ~~Meme double `>`~~ → **✅ Fait 2026-03-28** — `>` parasite supprime |
-| ~~3~~ | ~~P0~~ | ~~`mecenat.html:33-34`~~ | ~~IDs `haWidget` dupliques~~ → **✅ Fait 2026-03-28** — renommes en `haWidget1` / `haWidget2` + `getElementById` mis a jour |
-| ~~4~~ | ~~P0~~ | ~~`mecenat.html:27`~~ | ~~Typo `s` parasite dans h1~~ → **✅ Fait 2026-03-28** — `s` supprime |
-| ~~5~~ | ~~P0~~ | ~~`mentions-legales.html:33`~~ | ~~Typo "Compagie Senseible Indocile"~~ → **✅ Fait 2026-03-28** — corrige en "Compagnie Sensible Indocile" |
-| ~~6~~ | ~~P0~~ | ~~`mentions-legales.html:42`~~ | ~~Typo "Sensible Indocible"~~ → **✅ Fait 2026-03-28** — corrige en "Sensible Indocile" |
-| ~~7~~ | ~~P0~~ | ~~`spectacle-le-bain.html:55`~~ | ~~Typo "Colaboration"~~ → **✅ Fait 2026-03-28** — corrige en "Collaboration" |
-| ~~8~~ | ~~P1~~ | ~~`theme.css:11-20`~~ | ~~Faux commentaires `#`~~ → **✅ Fait 2026-03-28** — convertis en un seul bloc `/* */` valide |
-| ~~9~~ | ~~P1~~ | ~~`galerie.html:116`~~ | ~~`</div>` orphelin~~ → **✅ Fait 2026-03-28** — supprime, les 3 photos dahut sont desormais dans `.gallery` |
-| ~~10~~ | ~~P1~~ | ~~`js/script.js:134`~~ | ~~`modal.querySelector('.close')` crash~~ → **✅ Fait 2026-03-28** — ajout guard `if (!modal) return` ligne 135 |
-| ~~11~~ | ~~P1~~ | ~~`mecenat.html`~~ | ~~`</main>` manquante~~ → **✅ Fait 2026-03-28** — `</main>` ajouté après les gallery-items, avant le footer |
-| ~~12~~ | ~~P1~~ | ~~`agenda.html`~~ | ~~`</main>` manquante~~ → **✅ Fait 2026-03-28** — `</main>` ajouté après la section spectacle-info, avant le footer |
-| ~~13~~ | ~~P1~~ | ~~`spectacle-stpb.html:61`~~ | ~~Typos "semblre", "cauchemars"~~ → **✅ Fait 2026-03-28** — corrige en "semble" et "cauchemar" |
-| ~~14~~ | ~~P2~~ | ~~`presentation.html:47`~~ | ~~Point-virgule parasite~~ → **✅ Fait 2026-03-28** — `;` supprime + espace superflue dans `style =` corrigee |
+# TODO — Compagnie Sensible Indocile
+> Derniere mise a jour : 2026-04-06 (v9 — audit exhaustif)
+> Reviewer : senior SW engineer
+> Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
 ---
 
-## 2. Refacto & dette technique
+## 🔴 P0 — Bugs bloquants
+<!-- Casse en prod ou risque de regression immediate -->
 
-| # | Prio | Fichier | Description |
-|---|------|---------|-------------|
-| ~~15~~ | ~~P1~~ | ~~`layout.css:1`~~ | ~~`@import` duplique~~ → **✅ Fait 2026-03-28** — `@import` Playfair Display supprime (reste dans `theme.css`) |
-| ~~16~~ | ~~P1~~ | ~~`presentation.css`, `spectacles.css`, `mecenat.css`, `agenda.css`~~ | ~~`body::before` non scope~~ → **✅ Fait 2026-03-28** — scope a `.xxx-page::before` dans chaque fichier |
-| ~~17~~ | ~~P1~~ | ~~`js/script.js`~~ | ~~9 listeners `DOMContentLoaded`~~ → **✅ Fait 2026-03-28** — consolides en 1 unique listener, variables renommees pour eviter collisions |
-| ~~18~~ | ~~P1~~ | ~~`js/script.js:86-105`~~ | ~~Carrousel hero sans guard~~ → **✅ Fait 2026-03-28** — enveloppe dans `if (hero) { ... }` |
-| ~~19~~ | ~~P1~~ | ~~`js/script.js:108-129`~~ | ~~Deux handlers parallax~~ → **✅ Fait 2026-03-28** — conserve `updateParallax` (0.1), supprime doublon (0.3), scope a presentation.html |
-| ~~20~~ | ~~P1~~ | ~~`js/script.js:131-214`~~ | ~~Code modal non guarde~~ → **✅ Fait 2026-03-28** — enveloppe dans `if (memberModal) { ... }` (inclus dans refacto #17) |
-| ~~21~~ | ~~P2~~ | ~~`index.css` + `presentation_spectacle.css`~~ | ~~`.btn-reserver` duplique~~ → **✅ Fait 2026-03-28** — factorise dans `components.css` avec variables CSS, supprime des 2 fichiers sources |
-| ~~22~~ | ~~P2~~ | ~~`mecenat.html`, `agenda.html`~~ | ~~Classes `.presentation-*` au lieu de `.mecenat-*`/`.agenda-*`~~ → **✅ Fait 2026-03-28** — HTML mis a jour avec les classes propres a chaque page |
-| ~~25~~ | ~~P1~~ | ~~`css/pages/*.css`~~ | ~~Patterns hero/logo/overlay/main/intro dupliqués ~8 fichiers~~ → **✅ Fait 2026-03-29** — `css/utilities.css` créé, ~230 lignes dédupliquées, aucune classe renommée |
-| 23 | P2 | `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll — 🔴 **BLOQUE par CLAUDE.md** qui interdit de changer la structure du footer |
-| ~~24~~ | ~~P2~~ | ~~`index.html:1-2`~~ | ~~Front matter vide~~ → **✅ Fait 2026-03-28** — ajout title, description, lang pour le SEO |
+- [x] **#91** ~~`index.html:59-79` | Popup "Le Bain — Avignon 2026" : texte deborde sur la croix de fermeture, lien "ici" trop discret et inaccessible~~ → corrigé : `.popup-body` padding-top 2rem, texte restructuré avec `.popup-title` + 2× `.popup-text`, lien "ici" remplacé par `<a class="btn popup-btn">Nous soutenir</a>`, CSS ajouté dans `index.css`
 
----
+- [ ] **#92** `css/pages/index.css:112` | Popup deborde a 320px (`max-width: 420px` sans contrainte viewport) | Changer `.popup-body { max-width: 420px; }` en `max-width: min(420px, calc(100vw - 2rem));`
+  > 👨‍💻 Sans ce fix, sur mobile < 420px la croix de fermeture sort de l'ecran. C'est un bloquant car l'utilisateur ne peut pas fermer le popup (Escape fonctionne mais n'est pas decouvert).
 
-## 3. Accessibilite & SEO
+- [x] **#55** ~~`404.html:33-36` | Hero utilise `presentation-logo-container` + `presentation-logo`~~ → corrigé
+- [x] **#56** ~~`contact.html:35` | Logo utilise `presentation-logo`~~ → corrigé
+- [x] **#57** ~~`spectacles.html:36` + `courtmetrage.html:36` | Logo utilise `presentation-logo`~~ → corrigé
+- [x] **#58** ~~`courtmetrage.html:1` | Front matter `title: "Spectacles"`~~ → corrigé
 
-| # | Prio | Fichier | Description |
-|---|------|---------|-------------|
-| ~~26~~ | ~~P0~~ | ~~`spectacle-le-dahut.html:89`~~ | ~~`<iframe>` YouTube sans attribut `title`~~ → **✅ Fait 2026-03-28** — ajout `title="Court-métrage Le Dahut — Compagnie Sensible Indocile"` |
-| ~~27~~ | ~~P0~~ | ~~`spectacle-stpb.html:70`~~ | ~~`<iframe>` YouTube sans attribut `title`~~ → **✅ Fait 2026-03-28** — ajout `title="Court-métrage Sous ta peau brûlante — Compagnie Sensible Indocile"` |
-| ~~28~~ | ~~P1~~ | ~~`spectacle-le-bain.html:84-172`~~ | ~~Alt generiques "Residence TMF 1..14"~~ → **✅ Fait 2026-03-28** — 14 alts réécrits avec descriptions visuelles de chaque scène |
-| ~~29~~ | ~~P1~~ | ~~`galerie.html:26-115`~~ | ~~Alts generiques "Residence TMF 1"...~~ → **✅ Fait 2026-03-28** — 14 alts Le Bain + 3 alts Le Dahut réécrits avec descriptions visuelles |
-| ~~30~~ | ~~P1~~ | ~~`presentation.html:35-187`~~ | ~~`<a href="#">` sans role sur member-cards~~ → **✅ Fait 2026-03-28** — ajout `role="button"` sur les 10 member-cards |
-| ~~31~~ | ~~P1~~ | ~~`contact.html:48`~~ | ~~Honeypot accessible au clavier/lecteur d'ecran~~ → **✅ Fait 2026-03-28** — ajout `aria-hidden="true"` et `tabindex="-1"` |
-| ~~32~~ | ~~P1~~ | ~~Toutes les pages~~ | ~~Aucun skip-to-content~~ → **✅ Fait 2026-03-28** — lien `.skip-to-content` + `id="main-content"` sur 13 pages, CSS dans `components.css` + `leonore-vanier/styles.css` |
-| ~~33~~ | ~~P1~~ | ~~Toutes les pages~~ | ~~Pas de favicon~~ → **✅ Fait 2026-03-28** — `<link rel="icon">` ajouté sur 13 pages (utilise le logo PNG en attendant un favicon dédié) |
-| ~~34~~ | ~~P2~~ | ~~`index.html`~~ | ~~Navs sans `aria-label`~~ → **✅ Fait 2026-03-28** — `aria-label="Menu mobile"` et `aria-label="Menu principal"` sur les 2 `<nav>` |
-| ~~35~~ | ~~P2~~ | ~~Toutes les pages~~ | ~~Pas de `theme-color`~~ → **✅ Fait 2026-03-28** — `<meta name="theme-color" content="#8b0000">` ajouté sur 13 pages |
-| ~~36~~ | ~~P2~~ | ~~`spectacle-le-dahut.html`, `spectacle-stpb.html`~~ | ~~`frameborder="0"` déprécié~~ → **✅ Fait 2026-03-28** — attribut supprimé, `border: none` ajouté dans `presentation_spectacle.css` |
-| ~~37~~ | ~~P2~~ | ~~`_includes/schema-performer.html:9`~~ | ~~Lien Facebook inactif dans `sameAs`~~ → **✅ Fait 2026-03-28** — URL Facebook supprimée, seul Instagram conservé |
+- [x] **#59** ~~`courtmetrage.html:17` | `body class="spectacles-page"`~~ → découplé : `.courtmetrage-page` + `courtmetrage.css` créé + 7 sélecteurs ajoutés dans `utilities.css`
+- [x] **#60** ~~`mecenat.html:56,59` | Styles inline~~ → remplacés par `.mecenat-gallery-img` dans `mecenat.css`
+- [x] **#61** ~~4 liens `target="_blank"` sans `rel="noopener"`~~ → corrigé (`agenda.html:51` n'avait pas de `target="_blank"`)
 
 ---
 
-## 4. Responsive
+## 🟠 P1 — Degradations visibles
+<!-- Visible utilisateur, UX mesurably degradee -->
 
-| # | Prio | Fichier | Description |
-|---|------|---------|-------------|
-| ~~38~~ | ~~P0~~ | ~~Toutes sauf `index.html`~~ | ~~Aucune navigation mobile (hamburger)~~ → **✅ Fait 2026-03-29** — bloc `.responsive-header` ajouté sur 11 pages, CSS déplacé dans `components.css`, JS existant réutilisé |
-| ~~39~~ | ~~P1~~ | ~~`presentation_spectacle.css:206-208`~~ | ~~`.gallery-grid` force 4 colonnes~~ → **✅ Fait 2026-03-29** — media queries ajoutées : 3 col (1024px), 2 col (768px), 1 col (480px) dans `responsive.css` |
-| ~~40~~ | ~~P1~~ | ~~`galerie.css:53`~~ | ~~`.gallery` force 3 colonnes~~ → **✅ Fait 2026-03-29** — media queries ajoutées : 2 col (768px), 1 col (480px) dans `responsive.css` |
-| ~~41~~ | ~~P1~~ | ~~`mecenat.html:34`~~ | ~~iframe HelloAsso `width:350px` en dur~~ → **✅ Fait 2026-03-29** — remplacé par `width:100%;max-width:350px` |
-| ~~42~~ | ~~P1~~ | ~~`responsive.css`~~ | ~~Seulement 2 breakpoints~~ → **✅ Fait 2026-03-29** — breakpoint tablette 1024px ajouté entre 768px et desktop |
-| ~~43~~ | ~~P2~~ | ~~`contact.css:169`~~ | ~~`.form-submit-btn` width 40%~~ → **✅ Fait 2026-03-29** — override `width: 100%` ajouté au breakpoint 768px dans `responsive.css` |
-| ~~44~~ | ~~P2~~ | ~~`index.css:77`~~ | ~~`.company-name-index` font-size fixe~~ → **✅ Fait 2026-03-29** — `clamp(2.5rem, 5vw, 4.2rem)` remplace le `4.2rem` fixe |
+- [x] **#93** ~~`agenda.html:45-49` | Lien "ici" trop faible + texte a ajuster~~ → corrigé : texte restructuré avec `.agenda-highlight` + paragraphes séparés, lien "ici" remplacé par `<a class="btn">Nous soutenir</a>`, CSS ajouté dans `agenda.css` (cohérent avec popup #91)
+
+- [ ] **#94** `mecenat.html:55-60` + `mecenat.css:11-13` | Images infographiques (adhesion.png, bienfaiteur.png) croppees en carre | `.mecenat-gallery-img` (specificite 0,1,0) est ecrasee par `.gallery-item img` de utilities.css (specificite 0,1,1). Les infographies sont tronquees et perdent de l'information. Correctif : dans mecenat.html, remplacer `<div class="gallery-item">` par `<div class="mecenat-infographic">` pour ces 2 images, et ajouter dans mecenat.css :
+  ```css
+  .mecenat-infographic { text-align: center; margin: 20px 0; }
+  .mecenat-infographic img { width: 75%; height: auto; max-width: 600px; }
+  ```
+  > 👨‍💻 Ne PAS modifier `.gallery-item` dans utilities.css — il est utilise par galerie.html, spectacle-le-bain.html, le-dahut.html et stpb.html. La correction doit etre locale a mecenat. Le #60 a cree `.mecenat-gallery-img` mais n'a pas resolu le probleme de specificite.
+
+- [ ] **#95** `images/` | 175 MB d'images total, dont 20+ PNG > 1 MB (pic : lebain/20.png 8.6 MB, lebain/18.png 8.2 MB, lebain/17.png 8.1 MB) | Convertir les PNG photos en JPEG ou WebP. Priorite : 14 fichiers `lebain/*.png` totalisant ~70 MB. Puis les affiches (`affichelebain.png` 3.6 MB, `afficheledahut.png` 5.7 MB). Mettre a jour les chemins dans galerie.html, spectacle-le-bain.html et mecenat.html si les extensions changent.
+  > 👨‍💻 C'est la premiere chose que Google PageSpeed signalera. Un visiteur mobile en 3G telecharge 175 MB. Utiliser squoosh.dev ou cwebp (pas d'outil npm par CLAUDE.md). Attention : les memes images sont referencees dans DEUX pages (galerie.html ET spectacle-le-bain.html) — mettre a jour les deux.
+
+- [ ] **#96** `leonore-vanier/index.html:72,87` | Attributs HTML colles : `decoding="async"style="object-position:..."` (espace manquant avant `style=`) | Ajouter un espace : `decoding="async" style="object-position:..."`. 2 occurrences.
+  > 👨‍💻 Certains parseurs HTML ignorent le second attribut quand il est colle au precedent. Risque : `object-position` ne s'applique pas et les photos sont mal cadrees.
+
+- [x] **#62** ~~Toutes pages | `<div class="menu-toggle">` devrait etre `<button>`~~ → corrigé : 13 HTML `<button>` + reset CSS `components.css` + `aria-expanded`/`aria-label` toggle dans `script.js` + `focus-visible`
+
+- [x] **#63** ~~`presentation.html:206-243` | Modale membre dans `<main>` sans focus trap~~ → corrigé : modale déplacée hors `<main>`, `<span class="close">` → `<button>`, focus trap + Escape + scroll lock + `role="dialog"` + `aria-modal` dans `script.js`
+
+- [x] **#64** ~~7+ fichiers CSS | Couleurs hardcodees hors `theme.css`~~ → corrigé : 6 variables créées dans `theme.css` (`--color-black/white/gray-dark/border/bg-light/success`), 24 remplacements dans responsive.css, spectacles.css, galerie.css, presentation.css, contact.css, index.css, components.css
+
+- [x] **#65** ~~`layout.css:11` | `font-family: 'Playfair Display'` hardcode~~ → corrigé : `--font-heading` créé dans `theme.css`, remplacé dans `layout.css`
+
+- [x] **#66** ~~`agenda.html:44-53` | Contenu perime (dates 2025)~~ → corrigé : `<h2>2025</h2>` supprimé, contenu remplacé par message remerciement + annonce Avignon 2026, lien `mecenat.html` sur « ici »
+
+- [x] **#67** ~~`index.html:60-85` | Popup "Le Bain" avec `data-end-date="2026-01-04"` — date depassee~~ → corrigé : contenu remplacé par annonce Avignon 2026, image + bouton réservation supprimés, `data-end-date` mis à `2026-08-01`, lien `mecenat.html` sur « ici »
+
+- [x] **#68** ~~`spectacle-le-dahut.html:114-126` | 4 images galerie sans `loading="lazy"`~~ → corrigé : `loading="lazy"` ajouté sur les 4 `<img>` de la galerie
 
 ---
 
-## 5. Ameliorations UX a faible cout
+## 🟡 P2 — Dette technique
+<!-- Maintenabilite, accessibilite non bloquante, CSS orphelin -->
 
-| # | Prio | Fichier | Description |
-|---|------|---------|-------------|
-| ~~45~~ | ~~P1~~ | ~~`spectacle-le-bain.html`, `galerie.html`~~ | ~~~30 images sans `loading="lazy"`~~ → **✅ Fait 2026-03-29** — `loading="lazy"` ajouté sur 30 images (le-bain) et 33 images (galerie), logos hero non touchés |
-| ~~46~~ | ~~P1~~ | ~~`index.html:69-70`~~ | ~~Dates du pop-up "Le Bain" en dur~~ → **✅ Fait 2026-03-29** — ajout `data-end-date` sur le popup + condition JS qui supprime le popup si l'événement est passé |
-| ~~47~~ | ~~P1~~ | ~~`footer.html:3`~~ | ~~Année copyright en dur "2025"~~ → **✅ Fait 2026-03-29** — remplacement dynamique dans le `fetch()` de script.js (`footer.html` inchangé) |
-| 48 | P2 | Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour, pas intuitif pour tous les visiteurs |
-| ~~49~~ | ~~P2~~ | ~~`presentation.html`~~ | ~~Photos membres sans retour couleur au hover~~ → **✅ Fait 2026-03-29** — `transition: filter 0.4s` + `.member-card:hover img { filter: grayscale(0) }` dans `presentation.css` |
-| ~~50~~ | ~~P2~~ | ~~Racine du projet~~ | ~~Pas de page `404.html`~~ → **✅ Fait 2026-03-29** — `404.html` créé avec hero logo, hamburger, footer, schema-performer + `css/pages/404.css` importé dans `styles.css` |
-| ~~51~~ | ~~P2~~ | ~~`contact.html`~~ | ~~Pas de feedback visuel après envoi~~ → **✅ Fait 2026-03-29** — classes `.form-status-success/error/sending` avec fond coloré, bordure et transition opacity dans `contact.css` |
-| 52 | P2 | `index.html:62-63` | Image du pop-up "Le Bain" non optimisee (PNG) — un WebP ou JPEG reduit accelererait l'affichage |
-| 53 | P2 | `presentation.css`, `mecenat.css`, `agenda.css` | Classes `.xxx-hero-image` (presentation-hero-image, mecenat-hero-image, agenda-hero-image) non utilisées dans aucun HTML — CSS mort à supprimer |
-| 54 | P2 | `presentation.css`, `spectacles.css`, `mecenat.css`, `agenda.css` | `.xxx-page` partagent `position: relative; background-size: cover; background-attachment: scroll` — mutualisation possible si background shorthand converti en longhands |
+- [x] **#69** ~~CSS mort dans `index.css:34-57` | `.hero-image`, `.hero-text`, `.hero-text h1`~~ → supprimé (+ `.hero-text` dans `responsive.css:176-183`)
+
+- [x] **#70** ~~CSS mort dans `presentation_spectacle.css:38-45` | `.spectacle-content`~~ → supprimé
+
+- [x] **#71** ~~CSS mort dans `galerie.css:15-18` | `.galerie-gallery`~~ → supprimé
+
+- [x] **#72** ~~CSS mort dans `index.css:117-121` | `.btn-secondary:hover`~~ → supprimé
+
+- [x] **#73** ~~`presentation_spectacle.css` | `z-index: 2` sur 8 éléments sans `position` explicite~~ → supprimé (`::before` overlay a `z-index: -1` dans `utilities.css`, donc jamais au-dessus du contenu)
+
+- [x] **#74** ~~`.gallery-item` defini en doublon~~ → mutualisé dans `utilities.css`, doublons remplacés par commentaires dans `galerie.css` et `presentation_spectacle.css`
+- [x] **#75** ~~`<br>` pour espacement~~ → 29 `<br>` supprimés dans 4 pages (le-bain, le-dahut, stpb, agenda). CSS : `margin-bottom: 1em` sur `.spectacle-description p`, `margin-bottom: 15px` sur `.spectacle-credits ul`
+  > 🟡 Restant : `presentation.html` (10 `<br>` = line breaks nom/rôle dans member-cards) et `mentions-légales.html` (6 `<br>` = formatage adresse) — ce sont des `<br>` de contenu, pas d'espacement
+- [x] **#76** ~~SEO : descriptions front matter trop courtes~~ → 10 pages reécrites (120-160 caractères), seules `index.html` (déjà OK), `404.html` et `mentions-légales.html` non touchées
+- [x] **#77** ~~`agenda.html:46` | `<section class="spectacle-info">`~~ → renommé `.agenda-info` + CSS dédié dans `agenda.css`
+- [x] **#78** ~~`index.html` | Pas de focus trap ni Escape sur le popup~~ → `openPopup()`/`closePopup()`/`popupKeyHandler()` ajoutés dans `script.js` (pattern identique à #63 modale membre)
+- [x] **#90** ~~`index.css` | Couleurs popup hardcodées (`#111`, `#555`, `#eee`) hors `theme.css`~~ → remplacées par `var(--text-color)`, `var(--color-gray-dark)`, `var(--color-bg-light)`
+- [x] **#79** ~~`presentation.html:220` | `<a href="#" target="_blank">` — si JS echoue, ouvre un onglet vide~~ → `target="_blank"` + `rel="noopener"` supprimés du HTML, ajoutés dynamiquement via JS dans `script.js`
+- [x] **#80** ~~`footer.html:3` | Copyright "2025" hardcode~~ → année dans `<span class="copyright-year">2026</span>`, mise à jour DOM dans `script.js` (plus de string replace fragile)
+- [ ] **#81** `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll | 🔴 BLOQUE par CLAUDE.md (interdit de changer la structure du footer)
+- [ ] **#82** Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour
+- ~~[ ] **#83** `index.html` | Image popup PNG non optimisee~~ → PERIME : l'image a ete supprimee du popup (#67)
+
+- [ ] **#97** `js/script.js:5-29` | Code mort : bloc bioModal / openModal / `.close` legacy | Supprimer le `setTimeout` + les references a `#bioModal`, `#openModal`. Ces IDs n'existent dans aucun HTML. Le `document.querySelector(".close")` pourrait entrer en conflit avec le bouton `.close` de la modale membre sur presentation.html (meme si le guard `if (bioModal && ...)` protege, c'est du bruit).
+  > 👨‍💻 Supprimer ce bloc AVANT tout refactoring du script.js. Le guard protege mais le `setTimeout(500)` retarde inutilement la detection.
+
+- [ ] **#98** `css/components.css:1-30` | CSS orphelin : `.social-links`, `.social-links a`, `.social-links img`, `.social-links img:hover` | Aucun HTML n'utilise ces classes (confirme par grep). Supprimer les ~30 lignes.
+
+- [ ] **#99** `css/responsive.css:163-168` | CSS orphelin : `.logo` et `.company-name` dans le media 480px | Aucun HTML n'utilise ces classes (confirme par grep). Les classes reelles sont `.spectacles-logo`, `.presentation-logo`, etc. et `.company-name-index`. Supprimer les 6 lignes.
+
+- [x] **#100** ~~`index.html:76` + `agenda.html:49` | Accessibilite WCAG 2.4.4 : liens avec texte "ici"~~ → résolu automatiquement par **#91** + **#93** (liens "ici" remplacés par boutons "Nous soutenir")
+
+- [ ] **#101** `css/` (sauf components.css) | Accessibilite : pas de style `:focus-visible` sur les liens de navigation et liens generaux | Seul `.menu-toggle` a un `:focus-visible`. Ajouter dans `components.css` : `a:focus-visible { outline: 2px solid var(--color-bordeaux); outline-offset: 2px; }`. Tester sur les navs desktop et mobile, les liens footer, et les liens dans le contenu.
+  > 👨‍💻 Ne PAS utiliser `:focus` seul — cela montre un outline au clic souris aussi. `:focus-visible` cible uniquement la navigation clavier.
+
+- [ ] **#102** `index.html` | Pas de landmark `<main>` — seule page sans | Ajouter `<main id="main-content">` autour du popup ou entre le hero et le footer. Le `skip-to-content` pointe vers `#hero` ce qui est acceptable, mais un `<main>` ameliore la navigation par lecteur d'ecran.
+
+- [ ] **#103** `mentions-legales.html:45,51,62` | `<br>` utilises pour l'espacement vertical entre sections (ex: `</section><br>`) | Ce ne sont PAS des `<br>` de contenu (contrairement a ce que note #75) — ce sont des `<br>` entre les `<section>` et `<p>`. Remplacer par `margin-bottom` CSS sur `.mentions-info` ou ses enfants.
+  > 👨‍💻 Le #75 avait classe ces `<br>` comme "contenu" mais `</section><br>` est clairement de l'espacement. Corriger l'evaluation.
+
+- [ ] **#104** `courtmetrage.html` | Pas de `<h2>` dans la section `.cards` — incohérent avec `spectacles.html` qui a `<h2>À l'affiche</h2>` (ajoute en #84) | Ajouter `<h2>Nos films</h2>` ou `<h2>A l'affiche</h2>` dans `<section class="cards">`.
+
+- [ ] **#105** `leonore-vanier/index.html:152,154` | Balises `</br>` invalides (HTML void element, pas de fermeture) | Remplacer les 4 occurrences de `</br>` par `<br>`.
+
+- [ ] **#106** `leonore-vanier/index.html:152` | Typo "Intitation" | Corriger en "Initiation".
+
+- [ ] **#107** `leonore-vanier/index.html:154` | Parenthese orpheline : "Khadija El Mahdi)" — `)` en trop | Supprimer la parenthese.
+
+- [ ] **#108** `css/theme.css:1` | Google Fonts charge via `@import url()` en CSS — render-blocking | Deplacer dans le `<head>` HTML avec `<link rel="preconnect">` + `<link rel="stylesheet">`. Alternative : accepter en dette assumee (faible trafic).
+
+- [ ] **#109** `spectacle-stpb.html:96` | Image affiche sans `loading="lazy"` | Ajouter `loading="lazy"` sur le `<img>`.
+
+---
+
+## 🟢 P3 — Ameliorations
+<!-- Ni urgent ni bloquant -->
+
+- [x] **#84** ~~`spectacles.html` | Pas de `<h2>` — saut de `<h1>` au contenu cartes~~ → `<h2>À l'affiche</h2>` ajouté dans `<section class="cards">`
+- [x] **#85** ~~`presentation.html:125,140,156` | Espace avant `=` dans `style ="object-position:..."`~~ → 3 occurrences corrigées (`style ="` → `style="`)
+- [ ] **#86** Images PNG galerie | `lebain/*.png` : 17 fichiers, **72.9 MB** total (moy. 4.4 MB), top 3 > 8 MB. Total images/ : **175 MB** | ⏸ Nécessite outil externe (squoosh.dev recommandé) — CLAUDE.md interdit dépendances non approuvées. Voir aussi **#95** (P1).
+- [x] **#87** ~~`index.css:101` | `var(--font-base, "Inter", sans-serif)` — `--font-base` non défini~~ → `--font-base: "Inter", sans-serif` ajouté dans `theme.css`
+- [x] **#88** ~~`_config.yml:17` | Espace dans le nom de fichier logo `"Logo style LE BAIN.png"`~~ → fichier renommé `logo-le-bain.png` + 28 références mises à jour dans 16 fichiers (⚠️ `_config.yml` modifié)
+- [ ] **#89** `leonore-vanier/` | Utilise `html2pdf.js` CDN — dependance externe non approuvee par CLAUDE.md | A valider (page hors pattern)
+
+- [ ] **#110** `galerie.html` + `spectacle-le-bain.html` | Alt textes trop courts sur certaines images : "Guilherme", "Clara", "Mailys", "Affiche spectacle" | Enrichir avec description visuelle ("Portrait de Guilherme en scene", "Portrait de Clara en coulisses", etc.)
+
+- [ ] **#111** `presentation.html` | `<a href="#">` sur les 10 member-cards — scroll-to-top si JS echoue | Deja mitige par `e.preventDefault()` dans le JS + `role="button"`. Amelioration : remplacer les `<a>` par des `<button>` styles comme des cartes, ou utiliser `href="javascript:void(0)"`.
+  > 👨‍💻 Faible priorite car le JS est charge sur toutes les pages et le fallback sans JS est extremement rare. Mais c'est un pattern a11y plus propre.
+
+- [ ] **#112** `spectacles.html:46-51` + `courtmetrage.html:45-56` | `<a>` encapsulant `<div class="card">` — le lien tire son nom accessible du alt de l'image seul | Ajouter `aria-label="Voir le spectacle Le Bain"` (etc.) pour plus de clarte aux lecteurs d'ecran.
+
+- [ ] **#113** `leonore-vanier/index.html` | Pas de front matter Jekyll, pas de `{% seo %}` | Si la page doit etre indexee par Google, ajouter front matter + `{% seo %}`. Sinon, documenter que c'est un mini-site standalone volontairement hors Jekyll.
+
+---
+
+## 🔒 Dette assumee
+<!-- Problemes connus, volontairement non traites, avec justification -->
+
+- `leonore-vanier/` | Page autonome avec son propre CSS/JS, hors pattern Jekyll | ⏸ Portfolio independant, volontairement decouple. Couleurs hardcodees et CDN specifiques a cette page.
+- `index.html` | Pas de hero-logo ni body class (structure differente) | ⏸ Page d'accueil a structure unique (carrousel hero + nav integree). Ne pas forcer le pattern pages internes.
+- `mecenat.html:50-51` | Iframes HelloAsso avec `onload` inline contenant du JS | ⏸ Impose par le widget HelloAsso — pas de controle sur le code d'integration.
+- `contact.html:79` | Cle publique EmailJS en clair dans le HTML | ⏸ Cle *publique* (pas secrete) — fonctionnement normal d'EmailJS cote client.
+- `footer.html` | Charge via `fetch()` au lieu de `{% include %}` | ⏸ CLAUDE.md interdit de modifier la structure du footer.
+- `css/styles.css` | Chaine de 17 `@import` sequentiels | ⏸ Accepte : pas de bundler dans le stack (CLAUDE.md). Le gain de maintenabilite prime. Revisiter si le trafic augmente.
+- Overlays `rgba()` hardcodes par page | Chaque page a un taux d'opacite different (0.2 a 0.8) | ⏸ Pas candidat a une variable CSS unique — la valeur est intentionnellement differente par page.
+- `#83` PERIME | Image popup supprimee dans #67 — la tache n'a plus d'objet.
+
+---
+
+## ✅ Fait
+<!-- Taches terminees, archivees ici avec date et auteur -->
+
+- 2026-03-28 | `spectacles.html` + `courtmetrage.html` | Double `>` dans `<body>` corrige
+- 2026-03-28 | `mecenat.html` | IDs `haWidget` dupliques → renommes `haWidget1` / `haWidget2`
+- 2026-03-28 | `mecenat.html` | Typo `s` parasite dans h1 supprime
+- 2026-03-28 | `mentions-legales.html` | Typos "Compagie Senseible" et "Indocible" corrigees
+- 2026-03-28 | `spectacle-le-bain.html` | Typo "Colaboration" corrigee
+- 2026-03-28 | `theme.css` | Faux commentaires `#` convertis en `/* */`
+- 2026-03-28 | `galerie.html` | `</div>` orphelin supprime
+- 2026-03-28 | `js/script.js` | Guard `if (!modal)` + consolidation 9 listeners → 1 + guard carrousel + suppression doublon parallax
+- 2026-03-28 | `mecenat.html` + `agenda.html` | `</main>` manquantes ajoutees
+- 2026-03-28 | `spectacle-stpb.html` | Typos "semblre", "cauchemars" corrigees
+- 2026-03-28 | `presentation.html` | Point-virgule parasite + `style =` espace corrigee + `role="button"` sur 10 member-cards
+- 2026-03-28 | `layout.css` | `@import` Playfair Display duplique supprime
+- 2026-03-28 | CSS | `body::before` scope a `.xxx-page::before`
+- 2026-03-28 | SEO/A11y | iframes YouTube `title` ajoute, 47 alts reecrits, skip-to-content 13 pages, favicons, theme-color, `aria-label` navs
+- 2026-03-28 | `contact.html` | Honeypot `aria-hidden` + `tabindex="-1"`
+- 2026-03-28 | `index.html` | Front matter title/description/lang ajoute
+- 2026-03-28 | `_includes/schema-performer.html` | URL Facebook inactive supprimee
+- 2026-03-28 | `spectacle-le-dahut/stpb` | `frameborder="0"` deprecie supprime
+- 2026-03-28 | `components.css` | `.btn-reserver` factorise (supprime de index.css + presentation_spectacle.css)
+- 2026-03-28 | `mecenat.html` + `agenda.html` | Classes `.presentation-*` remplacees par `.mecenat-*` / `.agenda-*`
+- 2026-03-29 | 11 pages | Hamburger responsive ajoute + media queries gallery-grid/gallery + iframe HelloAsso responsive + breakpoint tablette 1024px
+- 2026-03-29 | `index.css` | `.company-name-index` font-size `clamp()`
+- 2026-03-29 | `contact.css` | `.form-submit-btn` responsive + feedback visuel envoi
+- 2026-03-29 | `presentation.css` | Grayscale hover membres
+- 2026-03-29 | `404.html` + `css/pages/404.css` | Page 404 creee
+- 2026-03-29 | `index.html` | Popup `data-end-date` + condition JS
+- 2026-03-29 | `spectacle-le-bain.html` + `galerie.html` | `loading="lazy"` sur 63 images
+- 2026-03-29 | `utilities.css` | Patterns hero/logo/overlay/main/intro mutualises (~230 lignes dedupl.)
+- 2026-03-30 | CSS | `.xxx-hero-image` mort supprime + `.xxx-page` background shorthand decoupe en longhand + mutualise dans `utilities.css`
+- 2026-03-30 | #55 | `404.html` : classes `presentation-logo-container` / `presentation-logo` → `error-logo-container` / `error-logo` + `.error-hero` / `.error-logo-container` / `.error-logo` ajoutes dans `utilities.css`
+- 2026-03-30 | #56 | `contact.html` : `presentation-logo` → `contact-logo`
+- 2026-03-30 | #57 | `spectacles.html` + `courtmetrage.html` : `presentation-logo` → `spectacles-logo`
+- 2026-03-30 | #58 | `courtmetrage.html` : front matter title "Spectacles" → "Films"
+- 2026-03-31 | #59 | `courtmetrage.html` découplé de `spectacles-page` → `.courtmetrage-page` + `css/pages/courtmetrage.css` + 7 sélecteurs `utilities.css` + `@import` dans `styles.css`
+- 2026-03-31 | #60 | `mecenat.html` : styles inline `width:75%` → classe `.mecenat-gallery-img` dans `mecenat.css`
+- 2026-03-31 | #61 | `rel="noopener"` ajouté sur 4 liens `target="_blank"` (footer, spectacle-le-bain, presentation, index)
+- 2026-03-31 | #62 | 13 HTML : `<div class="menu-toggle">` → `<button>` + `aria-expanded` + `aria-label` + reset CSS `components.css` + `focus-visible` + toggle JS `script.js`
+- 2026-03-31 | #63 | `presentation.html` : modale déplacée hors `<main>`, `<span class="close">` → `<button>`, focus trap + Escape + scroll lock + `role="dialog"` + `aria-modal` dans `script.js`
+- 2026-03-31 | #64 | `theme.css` : 6 variables couleur créées + 24 remplacements dans 7 fichiers CSS (responsive, spectacles, galerie, presentation, contact, index, components)
+- 2026-03-31 | #65 | `theme.css` : `--font-heading` créé + `layout.css` : `font-family` remplacé par `var(--font-heading)`
+- 2026-04-04 | #66 | `agenda.html` : contenu périmé (dates 2025) remplacé par message remerciement + annonce Avignon 2026, lien vers `mecenat.html`
+- 2026-04-04 | #67 | `index.html` : popup Le Bain remplacé par annonce Avignon 2026, image/bouton supprimés, `data-end-date` → `2026-08-01`, lien vers `mecenat.html`
+- 2026-04-04 | #68 | `spectacle-le-dahut.html` : `loading="lazy"` ajouté sur 4 images galerie
+- 2026-04-04 | #69 | `index.css` : `.hero-image`, `.hero-text`, `.hero-text h1` supprimés + `responsive.css` : `.hero-text` responsive supprimé
+- 2026-04-04 | #70 | `presentation_spectacle.css` : `.spectacle-content` supprimé
+- 2026-04-04 | #71 | `galerie.css` : `.galerie-gallery` supprimé
+- 2026-04-04 | #72 | `index.css` : `.btn-secondary:hover` supprimé
+- 2026-04-04 | #73 | `presentation_spectacle.css` : `z-index: 2` supprimé de 8 sélecteurs sans `position` (overlay `::before` à `z-index: -1`, donc inutile)
+- 2026-04-05 | #74 | `.gallery-item` + `.gallery-item img` mutualisés dans `utilities.css`, doublons supprimés de `galerie.css` et `presentation_spectacle.css`
+- 2026-04-05 | #75 | 29 `<br>` d'espacement supprimés dans `spectacle-le-bain.html` (10), `spectacle-le-dahut.html` (10), `spectacle-stpb.html` (8), `agenda.html` (1). CSS ajouté : `.spectacle-description p { margin-bottom: 1em }` + `.spectacle-credits ul { margin-bottom: 15px }`
+- 2026-04-05 | #76 | Descriptions SEO reécrites (120-160 chars) dans 10 pages : presentation, spectacles, spectacle-le-bain, spectacle-le-dahut, spectacle-stpb, courtmetrage, mecenat, contact, galerie, agenda
+- 2026-04-05 | #77 | `agenda.html` : `.spectacle-info` → `.agenda-info` + `.agenda-info` CSS créé dans `agenda.css`
+- 2026-04-05 | #78 | `script.js` : popup index.html — focus trap, Escape, scroll lock, restauration focus (pattern #63)
+- 2026-04-05 | #90 | `index.css` : couleurs popup `#111`, `#555`, `#eee` remplacées par `var(--text-color)`, `var(--color-gray-dark)`, `var(--color-bg-light)`
+- 2026-04-05 | #79 | `presentation.html` + `script.js` : `target="_blank"` + `rel="noopener"` supprimés du HTML modale Instagram, ajoutés dynamiquement en JS
+- 2026-04-05 | #80 | `footer.html` + `script.js` : année copyright `2025` → `<span class="copyright-year">2026</span>` + mise à jour DOM (plus de string replace)
+- 2026-04-05 | #84 | `spectacles.html` : `<h2>À l'affiche</h2>` ajouté dans `<section class="cards">` — heading hierarchy h1→h2 complétée
+- 2026-04-05 | #85 | `presentation.html` : 3× `style ="` → `style="` (lignes 125, 140, 156) — cohérence attributs HTML
+- 2026-04-05 | #86 | Analyse : 17 PNG dans `lebain/`, 72.9 MB total — nécessite compression manuelle (squoosh.dev), non exécutable par Claude (CLAUDE.md)
+- 2026-04-05 | #87 | `theme.css` : `--font-base: "Inter", sans-serif` défini — cohérence avec `var(--font-base)` dans `index.css`
+- 2026-04-05 | #88 | `images/Logo style LE BAIN.png` → `images/logo-le-bain.png` + 28 refs dans 16 fichiers (`_config.yml`, `schema-performer.html`, 13 HTML, `leonore-vanier/index.html`)
+
+---
+
+## 📎 Dependances entre taches
+<!-- Taches qui doivent etre faites dans un ordre precis -->
+
+### Actives
+- Faire **#91** (popup index) ET **#93** (texte agenda) EN MEME TEMPS — le message Avignon 2026 doit etre coherent entre les deux pages. Le style du bouton "Nous soutenir" doit etre identique.
+- **#100** (a11y liens "ici") est AUTOMATIQUEMENT resolu par **#91** + **#93** — ne pas traiter separement.
+- Faire **#92** (popup responsive 320px) EN MEME TEMPS que **#91** — meme fichier CSS, meme contexte.
+- Faire **#94** (mecenat gallery specificite) AVANT tout refactoring de `utilities.css` — la correction doit rester locale a `mecenat.html`.
+- Faire **#97** (supprimer bioModal code mort) AVANT tout refactoring de `script.js` — eliminer le bruit d'abord.
+- Faire **#95** (optimisation images) AVANT deploiement — 175 MB est inacceptable. Si les extensions changent (.png → .webp), mettre a jour les chemins dans galerie.html ET spectacle-le-bain.html (images referencees dans les deux).
+- **#108** (fonts @import → `<link>`) est independant mais se fait bien APRES decision sur la chaine @import (dette assumee).
+- **#105**, **#106**, **#107** (leonore-vanier HTML/typos) peuvent etre corriges ensemble dans un seul commit.
+
+### Terminees
+- ~~Faire **#59** (`.courtmetrage-page` + `courtmetrage.css`) AVANT `.spectacles-page`~~ ✅ fait
+- ~~Faire **#56 + #57** (classes logo) EN MEME TEMPS~~ ✅ fait
+- ~~Faire **#55** (`.error-hero` dans `utilities.css`) AVANT `404.html`~~ ✅ fait
+- ~~Faire **#62** (`<button>` menu-toggle) dans les 13 fichiers HTML EN MEME TEMPS~~ ✅ fait
+- ~~Faire **#64** (variables couleur `theme.css`) AVANT de remplacer les couleurs hardcodees~~ ✅ fait
+- ~~Faire **#74** (mutualiser `.gallery-item`) AVANT de supprimer le doublon~~ ✅ fait
+- ~~Faire **#59** (decoupler courtmetrage) AVANT **#76** (descriptions SEO)~~ ✅ fait

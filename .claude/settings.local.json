@@ -3,7 +3,10 @@
     "allow": [
       "Bash(ls -d /c/Users/Utilisateur/Documents/\"20 - Compagnie\"/\"10 - Site web\"/WEBSITE/Cie-Site-web/*/)",
       "Bash(ls /c/Users/Utilisateur/Documents/\"20 - Compagnie\"/\"10 - Site web\"/WEBSITE/Cie-Site-web/.claude*)",
-      "Bash(grep -n \"seo\" *.html)"
+      "Bash(grep -n \"seo\" *.html)",
+      "Bash(ls -la images/lebain/*.png)",
+      "Read(//c/Users/Utilisateur/Documents/20 - Compagnie/10 - Site web/WEBSITE/Cie-Site-web/{total += $5; count++} END {printf \"Files: %d, Total: %.1f MB, Avg: %.0f KB/n\", count, total/1024/1024, total/count/**)",
+      "Bash(ls -lhS images/lebain/*.png)"
     ]
   }
 }

@@ -1,0 +1,9 @@
+/* #59 — structure partagée dans utilities.css */
+.courtmetrage-page {
+  background-image: url('../../images/Alaffiche5.jpeg');
+}
+
+/* [overlay] background seul — structure dans utilities.css */
+.courtmetrage-page::before {
+  background: rgba(0, 0, 0, 0.6);
+}

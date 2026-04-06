@@ -1,11 +1,28 @@
+/* #54 — structure partagée dans utilities.css */
 .agenda-page {
-  background: url('../../images/lebain/lebain34.jpg') no-repeat center 0px;
-  background-size: cover;
-  background-attachment: scroll; /* L'image défile avec le contenu */
-  position: relative; /* Nécessaire pour positionner le pseudo-élément */
+  background-image: url('../../images/lebain/lebain34.jpg');
 }
 
 /* [overlay] background seul — structure dans utilities.css */
 .agenda-page::before {
   background: rgba(0, 0, 0, 0.5);
+}
+
+/* #77 — classe dédiée agenda (remplace .spectacle-info hors contexte) */
+.agenda-info {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* #93: mise en avant annonce Avignon */
+.agenda-highlight {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+}
+
+/* #93: bouton CTA dans la section agenda */
+.agenda-info .btn {
+  margin-top: 1rem;
 }

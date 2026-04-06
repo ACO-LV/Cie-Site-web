@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #000; /* Fond noir pour toute la zone */
+    background: var(--color-black); /* Fond noir pour toute la zone */
     z-index: 101;
     padding: 0px 0;
   }
@@ -37,7 +37,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #000;
+    background: var(--color-black);
     flex-direction: column;
     margin: 0;
     padding: 60px 0 10px; /* 60px pour laisser de la place au bouton */
@@ -59,7 +59,7 @@
     font-size: 18px;
     padding: 15px;
     display: block;
-    color: #fff;
+    color: var(--color-white);
     text-align: center;
   }
 
@@ -171,15 +171,6 @@ footer p {
     /* Hero Section */
     .hero {
         height: 100vh;
-    }
-
-    .hero-text {
-        width: 95%;
-        padding: 10px;
-    }
-
-    .hero-text h1 {
-        font-size: 1.5rem;
     }
 
     .btn {

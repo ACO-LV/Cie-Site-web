@@ -4,8 +4,16 @@
   --color-bordeaux: #8b0000;
   --color-dark-bordeaux: #600000;
   --color-beige: #f9f5f0;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray-dark: #414141;
+  --color-border: #ccc;
+  --color-bg-light: #f0f0f0;
+  --color-success: #2e7d32;
   --text-color: #333;
   --font-primary: 'Nanum Myeongjo', serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-base: "Inter", sans-serif;
   --border-radius: 10px;
 }
 /* Polices appréciées :
