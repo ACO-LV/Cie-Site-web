@@ -8,23 +8,7 @@
 ## 🔴 P0 — Bugs bloquants
 <!-- Casse en prod ou risque de regression immediate -->
 
-- [ ] **#91** `index.html:59-79` | Popup "Le Bain — Avignon 2026" : texte deborde sur la croix de fermeture, lien "ici" trop discret et inaccessible, message a revoir | Restructurer `.popup-body` : ajouter `padding-top: 2rem` pour eviter le chevauchement avec `.popup-close`. Remplacer le lien inline "ici" par un `<a href="mecenat.html" class="btn popup-btn">Nous soutenir</a>` style. Nouveau texte :
-  ```html
-  <p id="popup-le-bain-title" class="popup-title">
-    Nous rejouerons <strong>LE BAIN</strong> au Festival OFF d'Avignon 2026 !
-  </p>
-  <p class="popup-text">
-    C'est une etape tres importante pour le spectacle et un vrai defi
-    logistique et financier (transport, hebergement, location/technique,
-    communication, etc.).
-  </p>
-  <p class="popup-text">
-    Pour y aller, nous avons besoin de soutien.
-  </p>
-  <a href="mecenat.html" class="btn popup-btn">Nous soutenir</a>
-  ```
-  CSS a ajouter dans `index.css` : `.popup-title { font-size: 1.15rem; font-weight: 700; margin-bottom: .75rem; }` et `.popup-btn { display: inline-block; margin-top: 1rem; }`.
-  > 👨‍💻 Le popup est gere par JS dans script.js (lignes 230-293) avec focus trap + Escape. Modifier uniquement le HTML du popup-body et ajouter du CSS — ne PAS toucher au JS. Le bouton `.btn` est deja stylise dans `index.css`.
+- [x] **#91** ~~`index.html:59-79` | Popup "Le Bain — Avignon 2026" : texte deborde sur la croix de fermeture, lien "ici" trop discret et inaccessible~~ → corrigé : `.popup-body` padding-top 2rem, texte restructuré avec `.popup-title` + 2× `.popup-text`, lien "ici" remplacé par `<a class="btn popup-btn">Nous soutenir</a>`, CSS ajouté dans `index.css`
 
 - [ ] **#92** `css/pages/index.css:112` | Popup deborde a 320px (`max-width: 420px` sans contrainte viewport) | Changer `.popup-body { max-width: 420px; }` en `max-width: min(420px, calc(100vw - 2rem));`
   > 👨‍💻 Sans ce fix, sur mobile < 420px la croix de fermeture sort de l'ecran. C'est un bloquant car l'utilisateur ne peut pas fermer le popup (Escape fonctionne mais n'est pas decouvert).
@@ -43,25 +27,7 @@
 ## 🟠 P1 — Degradations visibles
 <!-- Visible utilisateur, UX mesurably degradee -->
 
-- [ ] **#93** `agenda.html:45-49` | Lien "ici" trop faible + texte a ajuster | Remplacer `<a href="mecenat.html">ici</a>` par un `<a href="mecenat.html" class="btn">Nous soutenir</a>`. Accentuer visuellement "nous rejouerons LE BAIN au Festival OFF d'Avignon 2026." (ajouter classe `.agenda-highlight` avec font-size ou font-weight superieurs). Ajouter un `<p>` separe avant "Pour y aller, nous avons besoin de soutien". Ajouter un saut de ligne (nouveau `<p>`) apres "MERCI !". Structure cible :
-  ```html
-  <section class="agenda-info">
-    <p>Un immense merci d'etre venu voir <strong>LE BAIN</strong> au
-    Theatre la Croisee des Chemins !</p>
-    <p>Votre presence, vos retours et votre energie nous ont vraiment
-    portes — alors simplement : <strong>MERCI !</strong></p>
-
-    <p class="agenda-highlight">Nous rejouerons <strong>LE BAIN</strong>
-    au Festival OFF d'Avignon 2026.</p>
-    <p>C'est une etape tres importante pour le spectacle... et un vrai
-    defi logistique et financier (transport, hebergement,
-    location/technique, communication, etc.).</p>
-    <p>Pour y aller, nous avons besoin de soutien.</p>
-    <a href="mecenat.html" class="btn">Nous soutenir</a>
-  </section>
-  ```
-  CSS a ajouter dans `agenda.css` : `.agenda-highlight { font-size: 1.4rem; font-weight: 700; margin: 1.5rem 0; }` et `.agenda-info .btn { margin-top: 1rem; }`.
-  > 👨‍💻 Garder la coherence du message avec le popup index.html (#91). Les deux doivent vehiculer le meme message principal. Corriger les deux en meme temps.
+- [x] **#93** ~~`agenda.html:45-49` | Lien "ici" trop faible + texte a ajuster~~ → corrigé : texte restructuré avec `.agenda-highlight` + paragraphes séparés, lien "ici" remplacé par `<a class="btn">Nous soutenir</a>`, CSS ajouté dans `agenda.css` (cohérent avec popup #91)
 
 - [ ] **#94** `mecenat.html:55-60` + `mecenat.css:11-13` | Images infographiques (adhesion.png, bienfaiteur.png) croppees en carre | `.mecenat-gallery-img` (specificite 0,1,0) est ecrasee par `.gallery-item img` de utilities.css (specificite 0,1,1). Les infographies sont tronquees et perdent de l'information. Correctif : dans mecenat.html, remplacer `<div class="gallery-item">` par `<div class="mecenat-infographic">` pour ces 2 images, et ajouter dans mecenat.css :
   ```css
@@ -125,7 +91,7 @@
 
 - [ ] **#99** `css/responsive.css:163-168` | CSS orphelin : `.logo` et `.company-name` dans le media 480px | Aucun HTML n'utilise ces classes (confirme par grep). Les classes reelles sont `.spectacles-logo`, `.presentation-logo`, etc. et `.company-name-index`. Supprimer les 6 lignes.
 
-- [ ] **#100** `index.html:76` + `agenda.html:49` | Accessibilite WCAG 2.4.4 : liens avec texte "ici" — pas de contexte de destination | ⚠️ Resolu automatiquement par **#91** + **#93** (remplacement par bouton "Nous soutenir"). Ne pas traiter separement.
+- [x] **#100** ~~`index.html:76` + `agenda.html:49` | Accessibilite WCAG 2.4.4 : liens avec texte "ici"~~ → résolu automatiquement par **#91** + **#93** (liens "ici" remplacés par boutons "Nous soutenir")
 
 - [ ] **#101** `css/` (sauf components.css) | Accessibilite : pas de style `:focus-visible` sur les liens de navigation et liens generaux | Seul `.menu-toggle` a un `:focus-visible`. Ajouter dans `components.css` : `a:focus-visible { outline: 2px solid var(--color-bordeaux); outline-offset: 2px; }`. Tester sur les navs desktop et mobile, les liens footer, et les liens dans le contenu.
   > 👨‍💻 Ne PAS utiliser `:focus` seul — cela montre un outline au clic souris aussi. `:focus-visible` cible uniquement la navigation clavier.

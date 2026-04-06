@@ -112,6 +112,7 @@
   position: relative;
   max-width: 420px;
   padding: 1.5rem;
+  padding-top: 2rem;            /* #91: espace pour éviter chevauchement avec .popup-close */
   border-radius: 1rem;
   background: var(--color-white);
   text-align: center;
@@ -127,7 +128,11 @@
   margin-bottom: 1rem;
 }
 
+/* #91: titre popup dédié */
+.popup-title       { font-size: 1.15rem; font-weight: 700; margin-bottom: .75rem; color: var(--text-color); }
 .popup-text        { font-size: 1rem; line-height: 1.4; color: var(--text-color); }
+/* #91: bouton CTA popup */
+.popup-btn         { display: inline-block; margin-top: 1rem; }
 
 .popup-close       {
   position: absolute;
