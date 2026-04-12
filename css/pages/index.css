@@ -110,7 +110,7 @@
 
 .popup-body        {
   position: relative;
-  max-width: 420px;
+  max-width: min(420px, calc(100vw - 2rem)); /* #92: évite le débordement à 320px */
   padding: 1.5rem;
   padding-top: 2rem;            /* #91: espace pour éviter chevauchement avec .popup-close */
   border-radius: 1rem;

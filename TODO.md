@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-12 (v14 — #119 #120 #121 #122 implémentés)
+> Derniere mise a jour : 2026-04-12 (v15 — #92 #97 #109 implémentés)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -10,8 +10,7 @@
 
 - [x] **#91** ~~`index.html:59-79` | Popup "Le Bain — Avignon 2026" : texte deborde sur la croix de fermeture, lien "ici" trop discret et inaccessible~~ → corrigé : `.popup-body` padding-top 2rem, texte restructuré avec `.popup-title` + 2× `.popup-text`, lien "ici" remplacé par `<a class="btn popup-btn">Nous soutenir</a>`, CSS ajouté dans `index.css`
 
-- [ ] **#92** `css/pages/index.css:112` | Popup deborde a 320px (`max-width: 420px` sans contrainte viewport) | Changer `.popup-body { max-width: 420px; }` en `max-width: min(420px, calc(100vw - 2rem));`
-  > 👨‍💻 Sans ce fix, sur mobile < 420px la croix de fermeture sort de l'ecran. C'est un bloquant car l'utilisateur ne peut pas fermer le popup (Escape fonctionne mais n'est pas decouvert).
+- [x] **#92** ~~`css/pages/index.css:112` | Popup deborde a 320px (`max-width: 420px` sans contrainte viewport)~~ → `max-width: min(420px, calc(100vw - 2rem))` — à 320px donne 288px avec 1rem de marge de chaque côté
 
 ---
 
@@ -20,7 +19,7 @@
 
 - [x] **#93** ~~`agenda.html:45-49` | Lien "ici" trop faible + texte a ajuster~~ → corrigé : texte restructuré avec `.agenda-highlight` + paragraphes séparés, lien "ici" remplacé par `<a class="btn">Nous soutenir</a>`, CSS ajouté dans `agenda.css` (cohérent avec popup #91)
 
-- [ ] **#94** `mecenat.html:55-60` + `mecenat.css:11-13` | Images infographiques (adhesion.png, bienfaiteur.png) croppees en carre | `.mecenat-gallery-img` (specificite 0,1,0) est ecrasee par `.gallery-item img` de utilities.css (specificite 0,1,1). Les infographies sont tronquees et perdent de l'information. Correctif : dans mecenat.html, remplacer `<div class="gallery-item">` par `<div class="mecenat-infographic">` pour ces 2 images, et ajouter dans mecenat.css :
+- [Obsolète] **#94** `mecenat.html:55-60` + `mecenat.css:11-13` | Images infographiques (adhesion.png, bienfaiteur.png) croppees en carre | `.mecenat-gallery-img` (specificite 0,1,0) est ecrasee par `.gallery-item img` de utilities.css (specificite 0,1,1). Les infographies sont tronquees et perdent de l'information. Correctif : dans mecenat.html, remplacer `<div class="gallery-item">` par `<div class="mecenat-infographic">` pour ces 2 images, et ajouter dans mecenat.css :
   ```css
   .mecenat-infographic { text-align: center; margin: 20px 0; }
   .mecenat-infographic img { width: 75%; height: auto; max-width: 600px; }
@@ -45,8 +44,7 @@
 - [ ] **#81** `footer.html` | Charge via `fetch()` JS et non via `{% include %}` Jekyll | 🔴 BLOQUE par CLAUDE.md (interdit de changer la structure du footer)
 - [ ] **#82** Toutes sauf `index.html` | Pas de breadcrumb ou lien "Accueil" visible — seul le logo sert de retour
 
-- [ ] **#97** `js/script.js:5-29` | Code mort : bloc bioModal / openModal / `.close` legacy | Supprimer le `setTimeout` + les references a `#bioModal`, `#openModal`. Ces IDs n'existent dans aucun HTML. Le `document.querySelector(".close")` pourrait entrer en conflit avec le bouton `.close` de la modale membre sur presentation.html (meme si le guard `if (bioModal && ...)` protege, c'est du bruit).
-  > 👨‍💻 Supprimer ce bloc AVANT tout refactoring du script.js. Le guard protege mais le `setTimeout(500)` retarde inutilement la detection.
+- [x] **#97** ~~`js/script.js:5-29` | Code mort : bloc bioModal / openModal / `.close` legacy~~ → 25 lignes supprimées (`setTimeout` + guards + 3 event listeners). `#bioModal`/`#openModal` absents de tout HTML, risque de conflit `.close` éliminé
 
 - [ ] **#98** `css/components.css:1-30` | CSS orphelin : `.social-links`, `.social-links a`, `.social-links img`, `.social-links img:hover` | Aucun HTML n'utilise ces classes (confirme par grep). Supprimer les ~30 lignes.
 
@@ -70,7 +68,7 @@
 
 - [ ] **#108** `css/theme.css:1` | Google Fonts charge via `@import url()` en CSS — render-blocking | Deplacer dans le `<head>` HTML avec `<link rel="preconnect">` + `<link rel="stylesheet">`. Alternative : accepter en dette assumee (faible trafic).
 
-- [ ] **#109** `spectacle-stpb.html:96` | Image affiche sans `loading="lazy"` | Ajouter `loading="lazy"` sur le `<img>`.
+- [x] **#109** ~~`spectacle-stpb.html:96` | Image affiche sans `loading="lazy"`~~ → `loading="lazy"` ajouté sur l'`<img>` affiche
 
 - [ ] **#118** `css/pages/mecenat.css` | Vérifier hover `.btn-reserver` dans le contexte mecenat | Confirmer visuellement que `scale(1.05)` (layout.css) + `--color-dark-bordeaux` (components.css) est satisfaisant sur fond sombre. Si insuffisant : ajouter override local `translateY(-2px)`.
 
@@ -191,6 +189,9 @@
 - 2026-04-12 | #120 | `index.html:58-61` + `index.css:171-200` : bloc CTA hero ajouté — `.btn` (Soutenir → mecenat) + `.btn-outline` (Découvrir LE BAIN → spectacle-le-bain), `transition` inclut `transform` pour respecter `layout.css`
 - 2026-04-12 | #121 | `css/responsive.css` : breakpoints CTA 768px (column, 260px) + 480px (pleine largeur, 280px max) insérés dans les blocs @media existants
 - 2026-04-12 | #122 | `index.css:206-215` : `@keyframes heroFadeIn` + animation delay 0.2s (subtitle) / 0.5s (CTA). Éléments existants non animés (conflit opacity section). `prefers-reduced-motion` géré.
+- 2026-04-12 | #92 | `index.css:113` : `.popup-body { max-width: min(420px, calc(100vw - 2rem)) }` — popup dans le viewport à 320px (288px avec 1rem de marge de chaque côté)
+- 2026-04-12 | #97 | `script.js` : bloc bioModal legacy supprimé (25 lignes) — `#bioModal`/`#openModal` absents de tout HTML, risque `.close` presentation.html éliminé
+- 2026-04-12 | #109 | `spectacle-stpb.html:96` : `loading="lazy"` ajouté sur l'affiche du court-métrage
 
 ---
 
