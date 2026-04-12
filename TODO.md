@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-12 (v15 — #92 #97 #109 implémentés)
+> Derniere mise a jour : 2026-04-12 (v16 — analyse maquette Lovable spectacle-le-bain, #123-#126)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -32,6 +32,15 @@
 
 - [ ] **#96** `leonore-vanier/index.html:72,87` | Attributs HTML colles : `decoding="async"style="object-position:..."` (espace manquant avant `style=`) | Ajouter un espace : `decoding="async" style="object-position:..."`. 2 occurrences.
   > 👨‍💻 Certains parseurs HTML ignorent le second attribut quand il est colle au precedent. Risque : `object-position` ne s'applique pas et les photos sont mal cadrees.
+
+- [ ] **#123** `spectacle-le-bain.html:78-94` + `presentation_spectacle.css` | Synopsis : transformer le premier `<p><strong>` en `<blockquote>`, ajouter CSS `.spectacle-description blockquote` (border-left bordeaux, italic, padding-left)
+  > 👨‍💻 Changement sémantique (c'est une réplique de la pièce) + visuel. Ne PAS toucher les autres `<p>`. `.spectacle-description p` conserve son `margin-bottom: 1em` du #75.
+
+- [ ] **#124** `spectacle-le-bain.html` + `presentation_spectacle.css` | Section livre : créer `<section class="spectacle-book">` entre `.spectacle-description` et `.spectacle-gallery`. HTML : flex container (image couverture + texte + CTA `.btn`). CSS : `.spectacle-book-container` (flex, gap), `.spectacle-book-image` (200px, border-radius, box-shadow), `.spectacle-book-text`, `.spectacle-book-genre` (uppercase, letter-spacing). Lien Amazon : `https://www.amazon.fr/BAIN-pi%C3%A8ce-th%C3%A9%C3%A2tre-contemporaine-absurde/dp/B0G1HZQBQG`
+  > 👨‍💻 Réutiliser `.btn` pour le CTA — ne PAS créer un nouveau style de bouton. Image couverture doit être locale (voir **#125**). Le `<section>` hérite du scroll-reveal (layout.css + script.js).
+
+- [ ] **#125** `images/lebain/` | Sauvegarder la couverture du livre localement (`livre-le-bain.jpg` ou `.webp`). Action manuelle — télécharger ou scanner.
+  > 👨‍💻 Ne PAS hotlinker l'image Amazon CDN — URL instable + dépendance externe (CLAUDE.md). Optimiser le poids (< 100 KB).
 
 - [x] **#119** ~~`index.html` + `css/pages/index.css` | Sous-titre "Compagnie de théâtre"~~ → `<p class="company-subtitle">` ajouté dans `.header-container`, CSS dans `index.css:158-167` (`font-size: 0.95rem`, `letter-spacing: 0.35em`, `text-transform: uppercase`, `var(--color-beige)`, `margin-top: -2rem`)
 - [x] **#120** ~~`index.html` + `css/pages/index.css` | Bloc CTA hero 2 boutons~~ → `<div class="hero-cta">` avec `.btn` (mecenat) + `.btn-outline` (spectacle-le-bain) ajouté dans `.header-container`. `.hero-cta` et `.btn-outline` définis dans `index.css:171-200`
@@ -72,6 +81,9 @@
 
 - [ ] **#118** `css/pages/mecenat.css` | Vérifier hover `.btn-reserver` dans le contexte mecenat | Confirmer visuellement que `scale(1.05)` (layout.css) + `--color-dark-bordeaux` (components.css) est satisfaisant sur fond sombre. Si insuffisant : ajouter override local `translateY(-2px)`.
 
+- [ ] **#126** `css/responsive.css` | Breakpoints section livre spectacle-le-bain : 768px (flex-direction: column, image centrée 160px, texte centré) + 480px (image 130px, font réduit)
+  > 👨‍💻 Insérer dans les blocs @media existants (CLAUDE.md). Même pattern que #121 (hero CTA).
+
 - [x] **#121** ~~`css/responsive.css` | Breakpoints hero CTA 768px + 480px~~ → `.hero-cta` column + 260px à 768px, pleine largeur 280px max à 480px, `.company-subtitle` réduit à 480px. Insertions dans les blocs `@media` existants (CLAUDE.md).
 - [x] **#122** ~~`css/pages/index.css` | Fade-in échelonné hero~~ → `@keyframes heroFadeIn` défini dans `index.css:206-209`. Animés uniquement : `.company-subtitle` (delay 0.2s) + `.hero-cta` (delay 0.5s). Éléments existants (h1, nav) non animés — bénéficient déjà du fade-in de la `<section>` via JS. `prefers-reduced-motion` ajouté (`index.css:212-215`).
 
@@ -109,6 +121,9 @@
 - `mecenat.html` refonte #114 | Inline `style="width: 33%"` sur `.progress-bar` | ⏸ Donnée dynamique, pas design — même pattern que `object-position`. Valeur à mettre à jour manuellement au fil de la cagnotte.
 - `index.html` refonte #119-#120 | Gradient rouge-orange sur CTA primaire (maquette Lovable) | ⏸ Couleurs hors palette — `var(--color-bordeaux)` utilisé à la place. Si contraste insuffisant après test visuel, ajouter `--color-accent` dans theme.css.
 - `index.html` refonte #120 | Emoji ❤️ dans bouton "Soutenir" (maquette Lovable) | ⏸ Rendu variable selon OS/navigateur — texte seul retenu. Alternative : icône SVG inline si souhaité.
+- `spectacle-le-bain.html` refonte #124 | Fond violacé section livre `rgba(30,15,50,0.6)` (maquette Lovable) | ⏸ Couleur hors palette monochrome — garder fond transparent. Différenciation visuelle assurée par le layout flex.
+- `spectacle-le-bain.html` refonte #124 | Emoji 📕 dans bouton "Acheter le livre" (maquette Lovable) | ⏸ Rendu variable selon OS/navigateur — texte seul retenu (cohérent avec décision #120).
+- `spectacle-le-bain.html` refonte #123 | Guillemets français « » dans le blockquote (maquette Lovable) | ⏸ Décision de contenu, pas de design. Laisser au choix de l'autrice.
 
 ---
 
@@ -199,11 +214,13 @@
 <!-- Taches qui doivent etre faites dans un ordre precis -->
 
 ### Actives
-- Faire **#92** (popup responsive 320px) — meme fichier CSS que #91, contexte identique. Idéalement dans le même commit que **#121** (même fichier `responsive.css`).
+- ~~Faire **#92** (popup responsive 320px) — même fichier CSS que #91~~ ✅ fait
+- **#125** (image couverture locale) AVANT **#124** (section livre HTML) — l'image doit exister en local avant référencement.
+- **#123** + **#124** + **#126** — refonte spectacle-le-bain. #123 (blockquote) indépendant de #124 (livre). #126 (responsive) après #124.
 - ~~**#119** + **#120** + **#121** + **#122** — index.html refonte CTA~~ ✅ fait
 - ~~**#114** + **#115** + **#116** + **#117** — refonte mecenat~~ ✅ fait
 - **#118** indépendant — à faire après déploiement sur la base d'un test visuel.
-- Faire **#97** (supprimer bioModal code mort) AVANT tout refactoring de `script.js` — eliminer le bruit d'abord.
+- ~~Faire **#97** (supprimer bioModal code mort) AVANT tout refactoring de `script.js`~~ ✅ fait
 - Faire **#95** (optimisation images) AVANT deploiement — 175 MB est inacceptable. Si les extensions changent (.png → .webp), mettre a jour les chemins dans galerie.html ET spectacle-le-bain.html (images referencees dans les deux).
 - **#108** (fonts @import → `<link>`) est independant mais se fait bien APRES decision sur la chaine @import (dette assumee).
 - **#105**, **#106**, **#107** (leonore-vanier HTML/typos) peuvent etre corriges ensemble dans un seul commit.
