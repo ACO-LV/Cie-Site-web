@@ -151,3 +151,65 @@
   0%   { transform: scale(.8); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
+
+/* === SOUS-TITRE HERO =========================================== */
+/* #119: "Compagnie de théâtre" sous .company-name-index
+   #122: animation d'entrée (délai 0.2s — après h1 déjà visible) */
+.company-subtitle {
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-beige);
+  margin-top: -2rem;   /* compense partiellement le margin-bottom: 40px du h1 */
+  margin-bottom: 2rem;
+  font-family: var(--font-primary);
+  animation: heroFadeIn 0.6s ease 0.2s both;
+}
+
+/* === CTA HERO ================================================== */
+/* #120: wrapper des 2 boutons — centré, flex horizontal */
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  /* #122: fade-in décalé après la nav */
+  animation: heroFadeIn 0.7s ease 0.5s both;
+}
+
+/* #120: bouton secondaire outline
+   Note: inclut transform pour ne pas effacer layout.css (.btn-outline { transition: transform }) */
+.btn-outline {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-white);
+  background: transparent;
+  border: 2px solid var(--color-white);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-outline:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  text-decoration: none;
+  outline: none;
+}
+
+/* === ANIMATIONS HERO (éléments NOUVEAUX uniquement) ============ */
+/* #122: keyframe partagé — ne s'applique qu'aux nouveaux éléments
+   Raison: évite l'opacité multiplicative avec section { opacity:0 } de layout.css
+   Les éléments existants (h1, nav) bénéficient déjà du fade-in de la <section> via JS */
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* #122: accessibilité — désactive si l'utilisateur préfère moins de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  .company-subtitle,
+  .hero-cta { animation: none; }
+}

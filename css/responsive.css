@@ -151,6 +151,20 @@ footer p {
     font-size: 1.1rem;
   }
 
+  /* #121 — index : CTA hero empilés verticalement sur mobile */
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-cta .btn,
+  .hero-cta .btn-outline {
+    width: 260px;
+    text-align: center;
+  }
+
 } /* Fin du @media (max-width: 768px) */
 
 /* 📌 RESPONSIVE TABLETTE (max 1024px) — #42 */
@@ -224,5 +238,18 @@ footer p {
 
     .progress-label {
         font-size: 0.9rem;
+    }
+
+    /* #121 — index : CTA pleine largeur sur petit mobile */
+    .hero-cta .btn,
+    .hero-cta .btn-outline {
+        width: 100%;
+        max-width: 280px;
+        font-size: 16px;
+    }
+
+    .company-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 0.25em;
     }
 } /* Fin du @media (max-width: 480px) */

@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-12 (v13 — analyse maquette Lovable index.html, #119-#122 ajoutés)
+> Derniere mise a jour : 2026-04-12 (v14 — #119 #120 #121 #122 implémentés)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -34,12 +34,8 @@
 - [ ] **#96** `leonore-vanier/index.html:72,87` | Attributs HTML colles : `decoding="async"style="object-position:..."` (espace manquant avant `style=`) | Ajouter un espace : `decoding="async" style="object-position:..."`. 2 occurrences.
   > 👨‍💻 Certains parseurs HTML ignorent le second attribut quand il est colle au precedent. Risque : `object-position` ne s'applique pas et les photos sont mal cadrees.
 
-- [ ] **#119** `index.html` + `css/pages/index.css` | Ajouter sous-titre "Compagnie de théâtre" dans le hero | `<p class="company-subtitle">` après le `<h1 class="company-name-index">` dans `.header-container` + styles : `font-size: 1rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-beige); opacity: 0.85; margin-top: -1.5rem; margin-bottom: 2rem; font-family: var(--font-primary);`
-  > 👨‍💻 Couleur via `var(--color-beige)` + opacity — jamais de couleur hardcodée (CLAUDE.md)
-
-- [ ] **#120** `index.html` + `css/pages/index.css` | Ajouter bloc CTA hero (2 boutons) | `<div class="hero-cta">` après `</nav>`, à l'intérieur de `.header-container`. CTA 1 : `<a href="mecenat.html" class="btn">Soutenir la compagnie</a>`. CTA 2 : `<a href="spectacle-le-bain.html" class="btn-outline">Découvrir LE BAIN</a>`. CSS : `.hero-cta { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; }` + `.btn-outline { display: inline-block; padding: 10px 20px; font-size: 18px; font-weight: bold; color: var(--color-white); background: transparent; border: 2px solid var(--color-white); border-radius: 5px; text-decoration: none; transition: background 0.3s, color 0.3s; }` + `.btn-outline:hover { background: var(--color-white); color: var(--color-black); }`
-  > 👨‍💻 Le bloc CTA DOIT être dans `.header-container` (lui-même dans `.hero-content` positionné en `absolute`). Hors de ce wrapper = masqué derrière l'overlay ou mal centré.
-  > 👨‍💻 `.btn-outline` complète les transitions déjà définies dans `layout.css:77-83` — ne pas redéfinir `transform: scale(1.05)`, il est hérité.
+- [x] **#119** ~~`index.html` + `css/pages/index.css` | Sous-titre "Compagnie de théâtre"~~ → `<p class="company-subtitle">` ajouté dans `.header-container`, CSS dans `index.css:158-167` (`font-size: 0.95rem`, `letter-spacing: 0.35em`, `text-transform: uppercase`, `var(--color-beige)`, `margin-top: -2rem`)
+- [x] **#120** ~~`index.html` + `css/pages/index.css` | Bloc CTA hero 2 boutons~~ → `<div class="hero-cta">` avec `.btn` (mecenat) + `.btn-outline` (spectacle-le-bain) ajouté dans `.header-container`. `.hero-cta` et `.btn-outline` définis dans `index.css:171-200`
 
 ---
 
@@ -78,13 +74,8 @@
 
 - [ ] **#118** `css/pages/mecenat.css` | Vérifier hover `.btn-reserver` dans le contexte mecenat | Confirmer visuellement que `scale(1.05)` (layout.css) + `--color-dark-bordeaux` (components.css) est satisfaisant sur fond sombre. Si insuffisant : ajouter override local `translateY(-2px)`.
 
-- [ ] **#121** `css/responsive.css` | Breakpoints hero CTA (index.html) pour 768px et 480px | Dans le bloc `@media (max-width: 768px)` existant : `.hero-cta { flex-direction: column; align-items: center; gap: 0.8rem; }` + `.hero-cta .btn, .hero-cta .btn-outline { width: 260px; text-align: center; }`. Dans le bloc `@media (max-width: 480px)` existant : `.hero-cta .btn, .hero-cta .btn-outline { width: 100%; max-width: 280px; font-size: 16px; }` + `.company-subtitle { font-size: 0.85rem; letter-spacing: 0.2em; }`
-  > 👨‍💻 Insérer dans les blocs `@media` EXISTANTS — ne pas créer de nouveau bloc (CLAUDE.md)
-
-- [ ] **#122** `css/pages/index.css` | Fade-in échelonné sur les éléments du hero au chargement | `@keyframes heroFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }` + animation 0.8s sur `.company-name-index` et `.company-subtitle` + delay 0.3s sur `.nav-links-index` + delay 0.6s sur `.hero-cta`
-  > 👨‍💻 Les éléments avec `animation-delay` doivent avoir `opacity: 0` initial, sinon flash visible avant le fade-in.
-  > 👨‍💻 Pas de conflit avec scroll-reveal JS — celui-ci cible `<section>`, pas les enfants du hero.
-  > 👨‍💻 Ajouter `@media (prefers-reduced-motion: reduce)` pour désactiver l'animation (accessibilité).
+- [x] **#121** ~~`css/responsive.css` | Breakpoints hero CTA 768px + 480px~~ → `.hero-cta` column + 260px à 768px, pleine largeur 280px max à 480px, `.company-subtitle` réduit à 480px. Insertions dans les blocs `@media` existants (CLAUDE.md).
+- [x] **#122** ~~`css/pages/index.css` | Fade-in échelonné hero~~ → `@keyframes heroFadeIn` défini dans `index.css:206-209`. Animés uniquement : `.company-subtitle` (delay 0.2s) + `.hero-cta` (delay 0.5s). Éléments existants (h1, nav) non animés — bénéficient déjà du fade-in de la `<section>` via JS. `prefers-reduced-motion` ajouté (`index.css:212-215`).
 
 ---
 
@@ -196,6 +187,10 @@
 - 2026-04-12 | #115 | `css/pages/mecenat.css` : `.cagnotte-card`, `.fiscalite-card`, `.progress-*`, `.adhesion-tiers`, `.tier-card`, `.tier-highlight`, `.tier-price`, `.adhesion-widget`. Override `.mecenat-main { max-width: 1100px }`. Supprimé `.mecenat-gallery-img`
 - 2026-04-12 | #116 | `css/responsive.css` : breakpoints 768px + 480px mecenat ajoutés dans les blocs @media existants
 - 2026-04-12 | #117 | `mecenat.html:3` : description front matter mise à jour (143 chars, cagnotte + paliers Avignon 2026)
+- 2026-04-12 | #119 | `index.html:44` + `index.css:158-167` : sous-titre "Compagnie de théâtre" ajouté sous le h1 (`.company-subtitle`, uppercase, `var(--color-beige)`, `letter-spacing: 0.35em`)
+- 2026-04-12 | #120 | `index.html:58-61` + `index.css:171-200` : bloc CTA hero ajouté — `.btn` (Soutenir → mecenat) + `.btn-outline` (Découvrir LE BAIN → spectacle-le-bain), `transition` inclut `transform` pour respecter `layout.css`
+- 2026-04-12 | #121 | `css/responsive.css` : breakpoints CTA 768px (column, 260px) + 480px (pleine largeur, 280px max) insérés dans les blocs @media existants
+- 2026-04-12 | #122 | `index.css:206-215` : `@keyframes heroFadeIn` + animation delay 0.2s (subtitle) / 0.5s (CTA). Éléments existants non animés (conflit opacity section). `prefers-reduced-motion` géré.
 
 ---
 
@@ -204,9 +199,7 @@
 
 ### Actives
 - Faire **#92** (popup responsive 320px) — meme fichier CSS que #91, contexte identique. Idéalement dans le même commit que **#121** (même fichier `responsive.css`).
-- **#119** + **#120** — même fichiers (`index.html` + `index.css`), faire ensemble dans un seul commit.
-- **#121** dépend de **#119** + **#120** — les classes `.hero-cta`, `.btn-outline`, `.company-subtitle` doivent exister avant d'ajouter leurs breakpoints.
-- **#122** (fade-in) peut être fait en même temps que **#119** + **#120** ou juste après.
+- ~~**#119** + **#120** + **#121** + **#122** — index.html refonte CTA~~ ✅ fait
 - ~~**#114** + **#115** + **#116** + **#117** — refonte mecenat~~ ✅ fait
 - **#118** indépendant — à faire après déploiement sur la base d'un test visuel.
 - Faire **#97** (supprimer bioModal code mort) AVANT tout refactoring de `script.js` — eliminer le bruit d'abord.
