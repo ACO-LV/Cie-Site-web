@@ -1,6 +1,6 @@
 ---
 title: "Nous soutenir"
-description: "Soutenez la Compagnie Sensible Indocile dans sa campagne pour le Festival OFF d'Avignon 2026. Adhésion, don et mécénat pour le spectacle Le Bain."
+description: "Soutenez la Compagnie Sensible Indocile pour le Festival OFF d'Avignon 2026 — cagnotte, adhésion et paliers de mécénat pour le spectacle Le Bain."
 lang: fr                                    # facultatif, sinon hérite de _config.yml
 ---
 <!DOCTYPE html>
@@ -37,27 +37,112 @@ lang: fr                                    # facultatif, sinon hérite de _conf
     </div>
   </section>
 
-  <!-- CONTENU PRINCIPAL -->
+  <!-- CONTENU PRINCIPAL — #114 : refonte cagnotte + adhésion -->
   <main id="main-content" class="mecenat-main">
-    <div class="mecenat-intro">
-      <h1>ET SI VOUS DEVENIEZ UN.E BIENFAITEUR.ICE INDOCILE ?</h1>
-      <p>
-        L'aventure de la jeune Compagnie Sensible Indocile démarre officiellement cette saison et nous avons besoin de VOUS ! Soutenez-nous en adhérant à notre compagnie pour notre première saison 25/26 et première exploitation de notre spectacle "LE BAIN" à Paris du 15 novembre au 4 janvier 2026 au Théâtre de la Croisée des Chemins puis au Festival OFF d'Avignon 2026 !
-      </p>
-      <h2>Nous soutenir pour la saison 25/26</h2>
-    </div>
-      
-    <iframe id="haWidget1" allowtransparency="true" src="https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile/widget-bouton" style="width: 100%; height: 70px; border: none;" onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget1'); haWidgetElement.height = dataHeight + 'px'; } )" ></iframe>
-    <iframe id="haWidget2" allowtransparency="true" src="https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile/widget-vignette" style="width:100%;max-width:350px;border:none;" onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget2'); haWidgetElement.height = dataHeight + 'px'; } )"></iframe>
-   
 
-    
-        <div class="gallery-item">
-            <img src="images/adhesion.png" alt="Campagne adhésion" class="mecenat-gallery-img">
+    <!-- Partie 1 : Cagnotte Avignon 2026 -->
+    <div class="mecenat-intro">
+      <h1>MERCI !</h1>
+      <p>
+        Un immense merci d'être venu·e voir <strong>LE BAIN</strong> au Théâtre la Croisée des Chemins !
+        Votre présence, vos retours et votre énergie nous ont vraiment portés — alors simplement : <strong>MERCI&nbsp;!</strong>
+      </p>
+
+      <h2>Prochaine étape : le Festival OFF d'Avignon 2026</h2>
+      <p>
+        Une très belle suite se prépare : nous rejouerons <strong>LE BAIN</strong> au <strong>Festival OFF d'Avignon 2026</strong>.
+        C'est une étape très importante pour le spectacle et un vrai défi logistique et financier
+        (transport, hébergement, location, technique, communication, etc.).
+      </p>
+      <p><strong>Pour y aller, nous avons besoin de votre soutien.</strong></p>
+
+      <div class="cagnotte-card">
+        <h3>Nous avons lancé une cagnotte</h3>
+        <div class="progress-container">
+          <!-- #114 dette assumée : style inline pour donnée dynamique, voir 🔒 -->
+          <div class="progress-bar" style="width: 33%"></div>
         </div>
-        <div class="gallery-item">
-            <img src="images/bienfaiteur.png" alt="Quel bienfaiteur etes vous" class="mecenat-gallery-img">
+        <p class="progress-label"><strong>33 %</strong> de l'objectif atteint — objectif : <strong>10 000 €</strong></p>
+        <p class="progress-sub">Chaque contribution, même petite, compte énormément.</p>
+        <a href="https://www.helloasso.com/associations/compagnie-sensible-indocile/collectes/soutenir-le-bain"
+           class="btn-reserver"
+           target="_blank"
+           rel="noopener noreferrer">Contribuer à la cagnotte</a>
+      </div>
+
+      <div class="fiscalite-card">
+        <h3>Bonne nouvelle : réduction d'impôt</h3>
+        <p>
+          Notre structure est reconnue <strong>d'intérêt général</strong>.
+          Vos dons peuvent ouvrir droit à une <strong>réduction d'impôt</strong>
+          (un reçu fiscal vous sera envoyé, selon la réglementation en vigueur).
+        </p>
+        <p class="fiscalite-exemple">
+          <strong>Exemple :</strong> un don de <strong>20 €</strong> peut vous revenir
+          à environ <strong>6 €</strong> après réduction d'impôt.
+        </p>
+      </div>
+    </div>
+
+    <!-- Partie 2 : Adhésion — #114 : tier cards texte remplacent adhesion.png / bienfaiteur.png -->
+    <section class="adhesion-section">
+      <h2>Devenez un·e bienfaiteur·ice indocile !</h2>
+      <p>
+        L'aventure de la jeune Compagnie Sensible Indocile démarre officiellement cette saison.
+        Soutenez-nous en adhérant pour la saison 25/26 !
+      </p>
+
+      <div class="adhesion-tiers">
+        <div class="tier-card">
+          <h3>Ami·e Indocile</h3>
+          <p class="tier-price">30 € pour 1 an</p>
+          <ul>
+            <li>Votre nom sur notre site</li>
+            <li>Inscription à la lettre d'information privée</li>
+          </ul>
         </div>
+
+        <div class="tier-card">
+          <h3>Bienfaiteur·ice Indocile</h3>
+          <p class="tier-price">150 € pour 1 an</p>
+          <ul>
+            <li>Votre nom sur notre site</li>
+            <li>Inscription à la lettre d'information privée</li>
+            <li>Une place offerte pour le spectacle en cours et sa répétition</li>
+            <li>Édition dédicacée du spectacle en cours</li>
+          </ul>
+        </div>
+
+        <div class="tier-card tier-highlight">
+          <h3>Grand·e mécène Indocile</h3>
+          <p class="tier-price">500 € pour 1 an</p>
+          <ul>
+            <li>Votre nom sur notre site</li>
+            <li>Inscription à la lettre d'information privée</li>
+            <li>Deux places offertes pour le spectacle en cours et sa répétition</li>
+            <li>Édition dédicacée du spectacle en cours</li>
+            <li>Affiche A3 du spectacle en cours</li>
+          </ul>
+        </div>
+
+        <div class="tier-card tier-highlight">
+          <h3>Mécène d'exception</h3>
+          <p class="tier-price">1 000 € pour 1 an</p>
+          <ul>
+            <li>Avantages du Grand·e mécène Indocile</li>
+            <li>Rencontre privilégiée avec les artistes (verre, déjeuner, etc.)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="adhesion-widget">
+        <iframe id="haWidget1" allowtransparency="true"
+          src="https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile/widget-bouton"
+          style="width: 100%; height: 70px; border: none;"
+          onload="window.addEventListener( 'message', e => { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget1'); haWidgetElement.height = dataHeight + 'px'; } )"></iframe>
+      </div>
+    </section>
+
   </main>
 
       <!-- FOOTER -->

@@ -140,6 +140,17 @@ footer p {
     width: 100%;
   }
 
+  /* #116 — mecenat : cards pleine largeur, padding réduit */
+  .cagnotte-card,
+  .fiscalite-card {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+
+  .tier-price {
+    font-size: 1.1rem;
+  }
+
 } /* Fin du @media (max-width: 768px) */
 
 /* 📌 RESPONSIVE TABLETTE (max 1024px) — #42 */
@@ -204,5 +215,14 @@ footer p {
     /* #40 — .gallery 1 colonne sur petit mobile */
     .gallery {
         grid-template-columns: 1fr;
+    }
+
+    /* #116 — mecenat 480px : grid et progress ajustés */
+    .adhesion-tiers {
+        gap: 1rem;
+    }
+
+    .progress-label {
+        font-size: 0.9rem;
     }
 } /* Fin du @media (max-width: 480px) */

@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-12 (v11 — #114-#118 ajoutés, analyse maquette Lovable mecenat)
+> Derniere mise a jour : 2026-04-12 (v12 — #114 #115 #116 #117 implémentés, #94 obsolète)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -33,15 +33,6 @@
 
 - [ ] **#96** `leonore-vanier/index.html:72,87` | Attributs HTML colles : `decoding="async"style="object-position:..."` (espace manquant avant `style=`) | Ajouter un espace : `decoding="async" style="object-position:..."`. 2 occurrences.
   > 👨‍💻 Certains parseurs HTML ignorent le second attribut quand il est colle au precedent. Risque : `object-position` ne s'applique pas et les photos sont mal cadrees.
-
-- [ ] **#114** `mecenat.html` | Refonte contenu `<main>` — cagnotte Avignon 2026 + tier cards adhésion | Remplacer : ancien intro, iframe haWidget2, 2× `.gallery-item` (adhesion.png, bienfaiteur.png). Ajouter dans `.mecenat-intro` : h1 "MERCI !", texte remerciement, h2 "Prochaine étape : Avignon 2026", `.cagnotte-card` (progress bar + bouton CTA), `.fiscalite-card`. Ajouter `<section class="adhesion-section">` : h2 + 4 `.tier-card` + `.adhesion-widget` (haWidget1).
-  > 👨‍💻 Réutiliser `.btn-reserver` pour le CTA cagnotte — lien vers `collectes/soutenir-le-bain` (≠ iframes adhesions). `<section>` pour l'adhésion → scroll-reveal JS automatique (script.js:56). Heading hierarchy : h1→h2→h3 propre.
-
-- [ ] **#115** `css/pages/mecenat.css` | Créer styles refonte + supprimer `.mecenat-gallery-img` | Ajouter : `.cagnotte-card`, `.fiscalite-card`, `.fiscalite-exemple`, `.progress-container`, `.progress-bar`, `.progress-label`, `.progress-sub`, `.adhesion-section`, `.adhesion-tiers` (grid auto-fit minmax(240px,1fr)), `.tier-card`, `.tier-card.tier-highlight`, `.tier-price`, `.tier-card li::before`, `.adhesion-widget`, override `.mecenat-main { max-width: 1100px }` + `.mecenat-intro { max-width: 800px; margin: 0 auto }`. Supprimer `.mecenat-gallery-img` (orphelin).
-  > 👨‍💻 Couleurs via `var(--color-*)` uniquement (CLAUDE.md). Fonds/bordures cards en `rgba(255,255,255,0.08/0.12)` — pattern overlay page-spécifique, voir 🔒 dette. `border-radius` via `var(--border-radius)`.
-
-- [ ] **#116** `css/responsive.css` | Breakpoints mecenat 768px + 480px dans les blocs @media existants | 768px : `.cagnotte-card, .fiscalite-card { padding: 1.5rem 1rem }`, `.tier-price { font-size: 1.2rem }`. 480px : `.adhesion-tiers { gap: 1rem }`, `.progress-label { font-size: 0.9rem }`.
-  > 👨‍💻 Ajouter dans les blocs @media EXISTANTS — ne PAS créer de nouveaux blocs séparés (CLAUDE.md).
 
 ---
 
@@ -77,8 +68,6 @@
 - [ ] **#108** `css/theme.css:1` | Google Fonts charge via `@import url()` en CSS — render-blocking | Deplacer dans le `<head>` HTML avec `<link rel="preconnect">` + `<link rel="stylesheet">`. Alternative : accepter en dette assumee (faible trafic).
 
 - [ ] **#109** `spectacle-stpb.html:96` | Image affiche sans `loading="lazy"` | Ajouter `loading="lazy"` sur le `<img>`.
-
-- [ ] **#117** `mecenat.html:2-3` | Mettre à jour la description front matter | Refléter le nouveau contenu : cagnotte Avignon 2026 + paliers d'adhésion (120-160 chars).
 
 - [ ] **#118** `css/pages/mecenat.css` | Vérifier hover `.btn-reserver` dans le contexte mecenat | Confirmer visuellement que `scale(1.05)` (layout.css) + `--color-dark-bordeaux` (components.css) est satisfaisant sur fond sombre. Si insuffisant : ajouter override local `translateY(-2px)`.
 
@@ -185,6 +174,11 @@
 - 2026-04-12 | #93 | `agenda.html` + `agenda.css` : texte restructuré avec `.agenda-highlight`, paragraphes séparés, lien "ici" remplacé par bouton "Nous soutenir" (cohérent avec #91)
 - 2026-04-12 | #100 | Résolu automatiquement par #91 + #93 — liens "ici" remplacés par boutons "Nous soutenir" (WCAG 2.4.4)
 - 2026-04-12 | #83 | PÉRIMÉ — image popup supprimée dans #67, tâche sans objet
+- 2026-04-12 | #94 | PÉRIMÉ — images adhesion.png/bienfaiteur.png supprimées par #114, bug spécificité disparu
+- 2026-04-12 | #114 | `mecenat.html` : refonte `<main>` — h1 MERCI, cagnotte card + barre de progression, fiscalité card, 4 tier cards adhésion. Supprimé : haWidget2, 2× .gallery-item images
+- 2026-04-12 | #115 | `css/pages/mecenat.css` : `.cagnotte-card`, `.fiscalite-card`, `.progress-*`, `.adhesion-tiers`, `.tier-card`, `.tier-highlight`, `.tier-price`, `.adhesion-widget`. Override `.mecenat-main { max-width: 1100px }`. Supprimé `.mecenat-gallery-img`
+- 2026-04-12 | #116 | `css/responsive.css` : breakpoints 768px + 480px mecenat ajoutés dans les blocs @media existants
+- 2026-04-12 | #117 | `mecenat.html:3` : description front matter mise à jour (143 chars, cagnotte + paliers Avignon 2026)
 
 ---
 
@@ -193,9 +187,7 @@
 
 ### Actives
 - Faire **#92** (popup responsive 320px) — meme fichier CSS que #91, contexte identique.
-- ~~Faire **#94** (mecenat gallery specificite) AVANT tout refactoring de `utilities.css`~~ → **OBSOLÈTE après #114** — images supprimées.
-- Faire **#114** + **#115** + **#116** + **#117** EN MÊME TEMPS — un seul commit cohérent (HTML + CSS couplés). mecenat.css déjà importé dans styles.css, aucun ajout nécessaire.
-- **#94** à fermer lors du merge de **#114** (marquer obsolète en ✅ Fait).
+- ~~**#114** + **#115** + **#116** + **#117** — refonte mecenat~~ ✅ fait
 - **#118** indépendant — à faire après déploiement sur la base d'un test visuel.
 - Faire **#97** (supprimer bioModal code mort) AVANT tout refactoring de `script.js` — eliminer le bruit d'abord.
 - Faire **#95** (optimisation images) AVANT deploiement — 175 MB est inacceptable. Si les extensions changent (.png → .webp), mettre a jour les chemins dans galerie.html ET spectacle-le-bain.html (images referencees dans les deux).
