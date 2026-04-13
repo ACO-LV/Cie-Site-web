@@ -76,9 +76,10 @@ lang: fr                                    # facultatif, sinon hérite de _conf
 
     <!-- Section : Description -->
     <section class="spectacle-description">
-      <p>
-        <strong>"Divine, vos mains sont magnifiques. Bien plus belles que les miennes, et pourtant je ne travaille pas".</strong>
-      </p>
+      <!-- #123: réplique de la pièce → blockquote sémantique -->
+      <blockquote>
+        "Divine, vos mains sont magnifiques. Bien plus belles que les miennes, et pourtant je ne travaille pas".
+      </blockquote>
         <p>
        Une femme dans une baignoire souhaite se séparer de l’une de ses deux bonnes car elle ne supporte pas l’idée d’avoir des domestiques. Une, ça passe encore, mais deux, non. Deux, c’est tout simplement trop ! 
       </p>
@@ -91,6 +92,24 @@ lang: fr                                    # facultatif, sinon hérite de _conf
       <p>
         <strong>Les plus vulnérables vont s'en prendre à plus vulnérable pour se replonger avec délice dans le bain de la soumission.</strong>
       </p>
+    </section>
+
+    <!-- #124: Section livre — image locale requise (#125 action manuelle) -->
+    <section class="spectacle-book">
+      <div class="spectacle-book-container">
+        <img src="images/lebain/livre-le-bain.jpg"
+             alt="Couverture du livre Le Bain, pièce de théâtre de Léonore Vanier"
+             class="spectacle-book-image"
+             loading="lazy">
+        <div class="spectacle-book-text">
+          <p class="spectacle-book-genre">Pièce de théâtre publiée</p>
+          <h2>Le Bain — disponible en livre</h2>
+          <p>La pièce <strong>Le Bain</strong>, écrite par Léonore Vanier,
+             est désormais disponible à la lecture.</p>
+          <a href="https://www.amazon.fr/BAIN-pi%C3%A8ce-th%C3%A2tre-contemporaine-absurde/dp/B0G1HZQBQG"
+             target="_blank" rel="noopener" class="btn">Commander sur Amazon</a>
+        </div>
+      </div>
     </section>
 
     <!-- Section : Galerie de photos -->

@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-12 (v16 — analyse maquette Lovable spectacle-le-bain, #123-#126)
+> Derniere mise a jour : 2026-04-13 (v17 — #123 #124 #126 corrigés, #125 action manuelle en attente)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -33,14 +33,12 @@
 - [ ] **#96** `leonore-vanier/index.html:72,87` | Attributs HTML colles : `decoding="async"style="object-position:..."` (espace manquant avant `style=`) | Ajouter un espace : `decoding="async" style="object-position:..."`. 2 occurrences.
   > 👨‍💻 Certains parseurs HTML ignorent le second attribut quand il est colle au precedent. Risque : `object-position` ne s'applique pas et les photos sont mal cadrees.
 
-- [ ] **#123** `spectacle-le-bain.html:78-94` + `presentation_spectacle.css` | Synopsis : transformer le premier `<p><strong>` en `<blockquote>`, ajouter CSS `.spectacle-description blockquote` (border-left bordeaux, italic, padding-left)
-  > 👨‍💻 Changement sémantique (c'est une réplique de la pièce) + visuel. Ne PAS toucher les autres `<p>`. `.spectacle-description p` conserve son `margin-bottom: 1em` du #75.
+- [x] **#123** ~~`spectacle-le-bain.html:78-94` + `presentation_spectacle.css` | Synopsis blockquote~~ → `<p><strong>` remplacé par `<blockquote>`, CSS `.spectacle-description blockquote` ajouté : `border-left: 3px solid var(--color-bordeaux)`, `font-style: italic`, `padding-left: 1.25rem`
 
-- [ ] **#124** `spectacle-le-bain.html` + `presentation_spectacle.css` | Section livre : créer `<section class="spectacle-book">` entre `.spectacle-description` et `.spectacle-gallery`. HTML : flex container (image couverture + texte + CTA `.btn`). CSS : `.spectacle-book-container` (flex, gap), `.spectacle-book-image` (200px, border-radius, box-shadow), `.spectacle-book-text`, `.spectacle-book-genre` (uppercase, letter-spacing). Lien Amazon : `https://www.amazon.fr/BAIN-pi%C3%A8ce-th%C3%A9%C3%A2tre-contemporaine-absurde/dp/B0G1HZQBQG`
-  > 👨‍💻 Réutiliser `.btn` pour le CTA — ne PAS créer un nouveau style de bouton. Image couverture doit être locale (voir **#125**). Le `<section>` hérite du scroll-reveal (layout.css + script.js).
+- [x] **#124** ~~`spectacle-le-bain.html` + `presentation_spectacle.css` | Section livre~~ → `<section class="spectacle-book">` insérée entre description et galerie. Flex container, `.spectacle-book-image` (200px, border-radius, box-shadow), `.spectacle-book-genre` (uppercase, letter-spacing 0.12em, opacity 0.7), `.btn` Amazon. 🟡 Image `livre-le-bain.jpg` absente → voir **#125**
 
-- [ ] **#125** `images/lebain/` | Sauvegarder la couverture du livre localement (`livre-le-bain.jpg` ou `.webp`). Action manuelle — télécharger ou scanner.
-  > 👨‍💻 Ne PAS hotlinker l'image Amazon CDN — URL instable + dépendance externe (CLAUDE.md). Optimiser le poids (< 100 KB).
+- [ ] **#125** `images/lebain/` | Sauvegarder la couverture du livre localement (`livre-le-bain.jpg` ou `.webp`). **Action manuelle** — télécharger depuis Amazon ou scanner.
+  > 👨‍💻 Ne PAS hotlinker l'image Amazon CDN — URL instable + dépendance externe (CLAUDE.md). Optimiser le poids (< 100 KB). Référencée dans `spectacle-le-bain.html` via `images/lebain/livre-le-bain.jpg`.
 
 - [x] **#119** ~~`index.html` + `css/pages/index.css` | Sous-titre "Compagnie de théâtre"~~ → `<p class="company-subtitle">` ajouté dans `.header-container`, CSS dans `index.css:158-167` (`font-size: 0.95rem`, `letter-spacing: 0.35em`, `text-transform: uppercase`, `var(--color-beige)`, `margin-top: -2rem`)
 - [x] **#120** ~~`index.html` + `css/pages/index.css` | Bloc CTA hero 2 boutons~~ → `<div class="hero-cta">` avec `.btn` (mecenat) + `.btn-outline` (spectacle-le-bain) ajouté dans `.header-container`. `.hero-cta` et `.btn-outline` définis dans `index.css:171-200`
@@ -81,8 +79,7 @@
 
 - [ ] **#118** `css/pages/mecenat.css` | Vérifier hover `.btn-reserver` dans le contexte mecenat | Confirmer visuellement que `scale(1.05)` (layout.css) + `--color-dark-bordeaux` (components.css) est satisfaisant sur fond sombre. Si insuffisant : ajouter override local `translateY(-2px)`.
 
-- [ ] **#126** `css/responsive.css` | Breakpoints section livre spectacle-le-bain : 768px (flex-direction: column, image centrée 160px, texte centré) + 480px (image 130px, font réduit)
-  > 👨‍💻 Insérer dans les blocs @media existants (CLAUDE.md). Même pattern que #121 (hero CTA).
+- [x] **#126** ~~`css/responsive.css` | Breakpoints section livre spectacle-le-bain~~ → 768px : `flex-direction: column`, image `160px`, `text-align: center`. 480px : image `130px`, h2 `1.3rem`. Insertions dans les blocs `@media` existants.
 
 - [x] **#121** ~~`css/responsive.css` | Breakpoints hero CTA 768px + 480px~~ → `.hero-cta` column + 260px à 768px, pleine largeur 280px max à 480px, `.company-subtitle` réduit à 480px. Insertions dans les blocs `@media` existants (CLAUDE.md).
 - [x] **#122** ~~`css/pages/index.css` | Fade-in échelonné hero~~ → `@keyframes heroFadeIn` défini dans `index.css:206-209`. Animés uniquement : `.company-subtitle` (delay 0.2s) + `.hero-cta` (delay 0.5s). Éléments existants (h1, nav) non animés — bénéficient déjà du fade-in de la `<section>` via JS. `prefers-reduced-motion` ajouté (`index.css:212-215`).
@@ -195,6 +192,9 @@
 - 2026-04-12 | #93 | `agenda.html` + `agenda.css` : texte restructuré avec `.agenda-highlight`, paragraphes séparés, lien "ici" remplacé par bouton "Nous soutenir" (cohérent avec #91)
 - 2026-04-12 | #100 | Résolu automatiquement par #91 + #93 — liens "ici" remplacés par boutons "Nous soutenir" (WCAG 2.4.4)
 - 2026-04-12 | #83 | PÉRIMÉ — image popup supprimée dans #67, tâche sans objet
+- 2026-04-13 | #123 | `spectacle-le-bain.html` : `<p><strong>` réplique → `<blockquote>`, CSS border-left bordeaux + italic dans `presentation_spectacle.css`
+- 2026-04-13 | #124 | `spectacle-le-bain.html` : `<section class="spectacle-book">` insérée (flex container, image 200px, `.btn` Amazon), CSS dans `presentation_spectacle.css`. 🟡 Image `livre-le-bain.jpg` requise (#125)
+- 2026-04-13 | #126 | `responsive.css` : breakpoints 768px (col, 160px, centré) + 480px (130px, h2 1.3rem) insérés dans blocs @media existants
 - 2026-04-12 | #94 | PÉRIMÉ — images adhesion.png/bienfaiteur.png supprimées par #114, bug spécificité disparu
 - 2026-04-12 | #114 | `mecenat.html` : refonte `<main>` — h1 MERCI, cagnotte card + barre de progression, fiscalité card, 4 tier cards adhésion. Supprimé : haWidget2, 2× .gallery-item images
 - 2026-04-12 | #115 | `css/pages/mecenat.css` : `.cagnotte-card`, `.fiscalite-card`, `.progress-*`, `.adhesion-tiers`, `.tier-card`, `.tier-highlight`, `.tier-price`, `.adhesion-widget`. Override `.mecenat-main { max-width: 1100px }`. Supprimé `.mecenat-gallery-img`

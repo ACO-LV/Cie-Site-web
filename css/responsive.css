@@ -165,6 +165,20 @@ footer p {
     text-align: center;
   }
 
+  /* #126 — spectacle-book : colonne, image et texte centrés */
+  .spectacle-book-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spectacle-book-image {
+    width: 160px;
+  }
+
+  .spectacle-book-text {
+    text-align: center;
+  }
+
 } /* Fin du @media (max-width: 768px) */
 
 /* 📌 RESPONSIVE TABLETTE (max 1024px) — #42 */
@@ -251,5 +265,14 @@ footer p {
     .company-subtitle {
         font-size: 0.8rem;
         letter-spacing: 0.25em;
+    }
+
+    /* #126 — spectacle-book 480px : image réduite */
+    .spectacle-book-image {
+        width: 130px;
+    }
+
+    .spectacle-book-text h2 {
+        font-size: 1.3rem;
     }
 } /* Fin du @media (max-width: 480px) */
