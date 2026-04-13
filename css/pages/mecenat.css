@@ -8,7 +8,158 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.mecenat-gallery-img {
-  width: 75%;
-  height: auto;
+/* #115 — Override max-width pour grid 4 colonnes (layout.css fixe main à 800px) */
+.mecenat-main {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Contenir la section cagnotte dans 800px */
+.mecenat-intro {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Card cagnotte --- */
+.cagnotte-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.cagnotte-card h3 {
+  margin-top: 0;
+  color: var(--color-beige);
+  font-size: 1.3rem;
+}
+
+/* --- Barre de progression --- */
+.progress-container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  height: 22px;
+  overflow: hidden;
+  margin: 1rem 0 0.5rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--color-bordeaux);
+  border-radius: 20px;
+  transition: width 0.6s ease;
+}
+
+.progress-label {
+  font-size: 1rem;
+  margin: 0.3rem 0 0.2rem;
+  color: var(--color-beige);
+}
+
+.progress-sub {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+  color: var(--color-beige);
+}
+
+/* --- Card fiscalité --- */
+.fiscalite-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.fiscalite-card h3 {
+  margin-top: 0;
+  color: var(--color-beige);
+  font-size: 1.2rem;
+}
+
+.fiscalite-exemple {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--color-bordeaux);
+  padding: 0.8rem 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 0.8rem;
+  color: var(--color-beige);
+}
+
+/* --- Section adhésion --- */
+.adhesion-section {
+  margin: 3rem auto 2rem;
+  padding: 0 1rem;
+}
+
+/* --- Grid de paliers --- */
+.adhesion-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* --- Tier card --- */
+.tier-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.tier-card h3 {
+  margin-top: 0;
+  color: var(--color-beige);
+  font-size: 1.15rem;
+}
+
+/* #118 — vérifier visuellement le contraste de --color-bordeaux (#8b0000) sur fond sombre */
+.tier-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-bordeaux);
+  margin: 0.3rem 0 1rem;
+}
+
+/* Tier mis en avant — rgba(139,0,0,...) dérivé de --color-bordeaux, voir 🔒 dette */
+.tier-card.tier-highlight {
+  border-color: var(--color-bordeaux);
+  background: rgba(139, 0, 0, 0.12);
+}
+
+.tier-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tier-card li {
+  padding: 0.3rem 0 0.3rem 1.4rem;
+  position: relative;
+  color: var(--color-beige);
+  font-size: 0.95rem;
+}
+
+.tier-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-bordeaux);
+  font-weight: 700;
+}
+
+/* --- Widget HelloAsso --- */
+.adhesion-widget {
+  margin: 2rem auto;
+  max-width: 400px;
 }

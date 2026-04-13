@@ -1,33 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("✅ script.js est bien chargé !");
 
-    /* ----- MODALE BIO (legacy, seulement si #bioModal) ----- */
-    setTimeout(function() {
-        var bioModal = document.getElementById("bioModal");
-        var openModalBtn = document.getElementById("openModal");
-        var bioCloseBtn = document.querySelector(".close");
-
-        if (bioModal && openModalBtn && bioCloseBtn) {
-            console.log("✅ Modale trouvée !");
-
-            openModalBtn.addEventListener("click", function() {
-                bioModal.style.display = "flex";
-            });
-
-            bioCloseBtn.addEventListener("click", function() {
-                bioModal.style.display = "none";
-            });
-
-            window.addEventListener("click", function(event) {
-                if (event.target === bioModal) {
-                    bioModal.style.display = "none";
-                }
-            });
-        } else {
-            console.log("ℹ️ Aucune modale détectée sur cette page.");
-        }
-    }, 500);
-
     /* ----- BOUTON HAMBURGER ----- */
     const menuToggle = document.querySelector('.responsive-header .menu-toggle');
     const responsiveNav = document.querySelector('.responsive-header .nav-links-index-responsive');

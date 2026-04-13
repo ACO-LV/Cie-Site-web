@@ -92,6 +92,59 @@
   margin-bottom: 1em; /* #75 — remplace <br> d'espacement */
 }
 
+/* #123: réplique de la pièce — citation sémantique */
+.spectacle-description blockquote {
+  border-left: 3px solid var(--color-bordeaux);
+  font-style: italic;
+  padding-left: 1.25rem;
+  margin: 0 0 1em 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* #124: Section livre */
+.spectacle-book {
+  margin-bottom: 40px;
+}
+
+.spectacle-book-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  text-align: left;
+}
+
+.spectacle-book-image {
+  width: 200px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+}
+
+.spectacle-book-text h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.spectacle-book-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.spectacle-book-genre {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.spectacle-book-text .btn {
+  margin-top: 0.5rem;
+}
+
 /* Section Vidéo */
 .spectacle-video {
   text-align: center;

@@ -140,6 +140,45 @@ footer p {
     width: 100%;
   }
 
+  /* #116 — mecenat : cards pleine largeur, padding réduit */
+  .cagnotte-card,
+  .fiscalite-card {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+
+  .tier-price {
+    font-size: 1.1rem;
+  }
+
+  /* #121 — index : CTA hero empilés verticalement sur mobile */
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-cta .btn,
+  .hero-cta .btn-outline {
+    width: 260px;
+    text-align: center;
+  }
+
+  /* #126 — spectacle-book : colonne, image et texte centrés */
+  .spectacle-book-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spectacle-book-image {
+    width: 160px;
+  }
+
+  .spectacle-book-text {
+    text-align: center;
+  }
+
 } /* Fin du @media (max-width: 768px) */
 
 /* 📌 RESPONSIVE TABLETTE (max 1024px) — #42 */
@@ -159,15 +198,6 @@ footer p {
         font-size: 14px;
     }
 
-    /* Header */
-    .logo {
-        width: 40px;
-    }
-
-    .company-name {
-        font-size: 16px;
-    }
-
     /* Hero Section */
     .hero {
         height: 100vh;
@@ -178,20 +208,6 @@ footer p {
         padding: 8px 15px;
     }
 
-    /* Social links */
-    .social-links {
-        gap: 8px;
-    }
-
-    .social-links a {
-        width: 30px;
-        height: 30px;
-    }
-
-    .social-links img {
-        width: 20px;
-    }
-    
     footer {
         font-size: 12px;
     }
@@ -204,5 +220,36 @@ footer p {
     /* #40 — .gallery 1 colonne sur petit mobile */
     .gallery {
         grid-template-columns: 1fr;
+    }
+
+    /* #116 — mecenat 480px : grid et progress ajustés */
+    .adhesion-tiers {
+        gap: 1rem;
+    }
+
+    .progress-label {
+        font-size: 0.9rem;
+    }
+
+    /* #121 — index : CTA pleine largeur sur petit mobile */
+    .hero-cta .btn,
+    .hero-cta .btn-outline {
+        width: 100%;
+        max-width: 280px;
+        font-size: 16px;
+    }
+
+    .company-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 0.25em;
+    }
+
+    /* #126 — spectacle-book 480px : image réduite */
+    .spectacle-book-image {
+        width: 130px;
+    }
+
+    .spectacle-book-text h2 {
+        font-size: 1.3rem;
     }
 } /* Fin du @media (max-width: 480px) */
