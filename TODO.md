@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-13 (v18 — #98 #99 CSS orphelin supprimé, #125 action manuelle en attente)
+> Derniere mise a jour : 2026-04-13 (v19 — #125 image fournie, à déposer manuellement)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -37,8 +37,7 @@
 
 - [x] **#124** ~~`spectacle-le-bain.html` + `presentation_spectacle.css` | Section livre~~ → `<section class="spectacle-book">` insérée entre description et galerie. Flex container, `.spectacle-book-image` (200px, border-radius, box-shadow), `.spectacle-book-genre` (uppercase, letter-spacing 0.12em, opacity 0.7), `.btn` Amazon. 🟡 Image `livre-le-bain.jpg` absente → voir **#125**
 
-- [ ] **#125** `images/lebain/` | Sauvegarder la couverture du livre localement (`livre-le-bain.jpg` ou `.webp`). **Action manuelle** — télécharger depuis Amazon ou scanner.
-  > 👨‍💻 Ne PAS hotlinker l'image Amazon CDN — URL instable + dépendance externe (CLAUDE.md). Optimiser le poids (< 100 KB). Référencée dans `spectacle-le-bain.html` via `images/lebain/livre-le-bain.jpg`.
+- [EN COURS] **#125** `images/lebain/livre-le-bain.jpg` | Image fournie (couverture confirmée). **Action manuelle restante** : copier le fichier dans `images/lebain/livre-le-bain.jpg` (< 100 KB recommandé). Le HTML `spectacle-le-bain.html:100` est déjà câblé.
 
 - [x] **#119** ~~`index.html` + `css/pages/index.css` | Sous-titre "Compagnie de théâtre"~~ → `<p class="company-subtitle">` ajouté dans `.header-container`, CSS dans `index.css:158-167` (`font-size: 0.95rem`, `letter-spacing: 0.35em`, `text-transform: uppercase`, `var(--color-beige)`, `margin-top: -2rem`)
 - [x] **#120** ~~`index.html` + `css/pages/index.css` | Bloc CTA hero 2 boutons~~ → `<div class="hero-cta">` avec `.btn` (mecenat) + `.btn-outline` (spectacle-le-bain) ajouté dans `.header-container`. `.hero-cta` et `.btn-outline` définis dans `index.css:171-200`
