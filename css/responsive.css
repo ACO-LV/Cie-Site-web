@@ -198,15 +198,6 @@ footer p {
         font-size: 14px;
     }
 
-    /* Header */
-    .logo {
-        width: 40px;
-    }
-
-    .company-name {
-        font-size: 16px;
-    }
-
     /* Hero Section */
     .hero {
         height: 100vh;
@@ -217,20 +208,6 @@ footer p {
         padding: 8px 15px;
     }
 
-    /* Social links */
-    .social-links {
-        gap: 8px;
-    }
-
-    .social-links a {
-        width: 30px;
-        height: 30px;
-    }
-
-    .social-links img {
-        width: 20px;
-    }
-    
     footer {
         font-size: 12px;
     }

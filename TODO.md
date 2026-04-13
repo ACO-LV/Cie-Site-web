@@ -1,5 +1,5 @@
 # TODO — Compagnie Sensible Indocile
-> Derniere mise a jour : 2026-04-13 (v17 — #123 #124 #126 corrigés, #125 action manuelle en attente)
+> Derniere mise a jour : 2026-04-13 (v18 — #98 #99 CSS orphelin supprimé, #125 action manuelle en attente)
 > Reviewer : senior SW engineer
 > Stack : Jekyll + GitHub Pages · CSS modulaire · JS vanilla
 
@@ -53,9 +53,9 @@
 
 - [x] **#97** ~~`js/script.js:5-29` | Code mort : bloc bioModal / openModal / `.close` legacy~~ → 25 lignes supprimées (`setTimeout` + guards + 3 event listeners). `#bioModal`/`#openModal` absents de tout HTML, risque de conflit `.close` éliminé
 
-- [ ] **#98** `css/components.css:1-30` | CSS orphelin : `.social-links`, `.social-links a`, `.social-links img`, `.social-links img:hover` | Aucun HTML n'utilise ces classes (confirme par grep). Supprimer les ~30 lignes.
+- [x] **#98** ~~`css/components.css:1-30` | CSS orphelin : `.social-links`, `.social-links a`, `.social-links img`, `.social-links img:hover`~~ → 30 lignes supprimées de `components.css`. Les règles `.social-links` orphelines dans `responsive.css` 480px (~12 lignes) supprimées dans le même commit.
 
-- [ ] **#99** `css/responsive.css:163-168` | CSS orphelin : `.logo` et `.company-name` dans le media 480px | Aucun HTML n'utilise ces classes (confirme par grep). Les classes reelles sont `.spectacles-logo`, `.presentation-logo`, etc. et `.company-name-index`. Supprimer les 6 lignes.
+- [x] **#99** ~~`css/responsive.css:163-168` | CSS orphelin : `.logo` et `.company-name` dans le media 480px~~ → 8 lignes (`.logo` + `.company-name` + commentaire `/* Header */`) supprimées du bloc `@media (max-width: 480px)`. Les vraies classes sont `.spectacles-logo`, `.presentation-logo`, etc. et `.company-name-index`.
 
 - [ ] **#101** `css/` (sauf components.css) | Accessibilite : pas de style `:focus-visible` sur les liens de navigation et liens generaux | Seul `.menu-toggle` a un `:focus-visible`. Ajouter dans `components.css` : `a:focus-visible { outline: 2px solid var(--color-bordeaux); outline-offset: 2px; }`. Tester sur les navs desktop et mobile, les liens footer, et les liens dans le contenu.
   > 👨‍💻 Ne PAS utiliser `:focus` seul — cela montre un outline au clic souris aussi. `:focus-visible` cible uniquement la navigation clavier.
@@ -204,6 +204,8 @@
 - 2026-04-12 | #120 | `index.html:58-61` + `index.css:171-200` : bloc CTA hero ajouté — `.btn` (Soutenir → mecenat) + `.btn-outline` (Découvrir LE BAIN → spectacle-le-bain), `transition` inclut `transform` pour respecter `layout.css`
 - 2026-04-12 | #121 | `css/responsive.css` : breakpoints CTA 768px (column, 260px) + 480px (pleine largeur, 280px max) insérés dans les blocs @media existants
 - 2026-04-12 | #122 | `index.css:206-215` : `@keyframes heroFadeIn` + animation delay 0.2s (subtitle) / 0.5s (CTA). Éléments existants non animés (conflit opacity section). `prefers-reduced-motion` géré.
+- 2026-04-13 | #98 | `css/components.css` + `css/responsive.css` : `.social-links` × 4 règles supprimées de components.css, `.social-links` × 3 règles supprimées du bloc 480px de responsive.css — 0 occurrence HTML (grep confirmé)
+- 2026-04-13 | #99 | `css/responsive.css` : `.logo` + `.company-name` supprimés du bloc 480px (6 lignes) — classes fantômes, les vraies classes sont `.spectacles-logo`, `.company-name-index`, etc.
 - 2026-04-12 | #92 | `index.css:113` : `.popup-body { max-width: min(420px, calc(100vw - 2rem)) }` — popup dans le viewport à 320px (288px avec 1rem de marge de chaque côté)
 - 2026-04-12 | #97 | `script.js` : bloc bioModal legacy supprimé (25 lignes) — `#bioModal`/`#openModal` absents de tout HTML, risque `.close` presentation.html éliminé
 - 2026-04-12 | #109 | `spectacle-stpb.html:96` : `loading="lazy"` ajouté sur l'affiche du court-métrage
