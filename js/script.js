@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (memberWebsiteBlock && modalMemberSite) {
                     if (siteUrl) {
                         modalMemberSite.href = siteUrl;
+                        modalMemberSite.textContent = card.getAttribute('data-site-label') || 'Voir le site de la comédienne';
                         memberWebsiteBlock.style.display = '';
                     } else {
                         modalMemberSite.removeAttribute('href');
