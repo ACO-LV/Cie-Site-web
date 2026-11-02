@@ -2,7 +2,7 @@
 
 title: "Compagnie Sensible Indocile"
 description: "Site officiel de la compagnie de théâtre Sensible Indocile."
-url: "https://www.lacompagniesensibleindocile.fr"   # domaine principal
+url: "https://lacompagniesensibleindocile.fr"       # domaine principal (sans www)
 baseurl: ""                                          # laissez vide car le site est à la racine
 
 # Plugins approuvés par GitHub Pages
@@ -27,6 +27,15 @@ defaults:
     values:
       image: "/images/spectacle.jpg"
       lang: fr
+  # Fragment et fichier de vérification Google : hors du sitemap
+  - scope:
+      path: "footer.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "googled69f7f47794e93f2.html"
+    values:
+      sitemap: false
 
 # Fichiers à ignorer lors du build
 exclude:
