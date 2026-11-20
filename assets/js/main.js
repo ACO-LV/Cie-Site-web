@@ -173,7 +173,7 @@
 
   function renderFab() {
     if (body.dataset.section === "mecenat") return "";
-    return '<a class="support-fab" href="' + ROOT + 'mecenat/">' + ICONS.heart + "<span>" + esc(UI.supportShort) + "</span></a>";
+    return '<a class="support-fab" href="' + S.helloasso + '" target="_blank" rel="noopener noreferrer">' + ICONS.heart + "<span>" + esc(UI.supportShort) + '</span><span class="sr-only"> ' + esc(UI.newTab) + "</span></a>";
   }
 
   function initMenu() {
@@ -438,11 +438,13 @@
         "<span>" + esc(UI.listenNow) .replace("▶ ", "") + '</span><span class="sr-only"> : ' + esc(it.title) + " — " + esc(it.listen.label) + " " + esc(UI.newTab) + "</span></a></p>";
     } else {
       action =
-        '<form class="notify" data-title="' + esc(it.title) + '" novalidate>' +
-        '<label for="n-' + it.slug + '">' + esc(UI.notifyTitle) + "</label>" +
+        '<div class="notify">' +
+        '<button type="button" class="btn btn--small notify__open" aria-expanded="false" aria-controls="nf-' + it.slug + '">' + esc(UI.notifyTitle) + "</button>" +
+        '<form class="notify__form" id="nf-' + it.slug + '" data-title="' + esc(it.title) + '" hidden novalidate>' +
+        '<label class="sr-only" for="n-' + it.slug + '">' + esc(UI.notifyEmail) + "</label>" +
         '<div class="notify__row"><input type="email" id="n-' + it.slug + '" name="email" placeholder="' + esc(UI.notifyEmail) + '" autocomplete="email" required>' +
         '<button type="submit" class="btn btn--small">' + esc(UI.notifyBtn) + "</button></div>" +
-        '<p class="notify__status" role="status"></p></form>';
+        '<p class="notify__status" role="status"></p></form></div>';
     }
     return (
       '<article class="audio-card reveal" id="' + it.slug + '">' + cover +
@@ -502,7 +504,17 @@
       });
       return sdk;
     }
-    document.querySelectorAll(".notify").forEach(function (f) {
+    // Le bouton « Me prévenir de la sortie » déplie le champ e-mail.
+    document.querySelectorAll(".notify__open").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var form = document.getElementById(b.getAttribute("aria-controls"));
+        var open = form.hidden;
+        form.hidden = !open;
+        b.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) form.querySelector("input").focus();
+      });
+    });
+    document.querySelectorAll(".notify__form").forEach(function (f) {
       f.addEventListener("submit", function (e) {
         e.preventDefault();
         var st = f.querySelector(".notify__status");
@@ -541,7 +553,7 @@
       '<div class="hero__content"><h1 id="home-title" class="hero__title">' + esc(S.name) + "</h1>" +
       '<p class="hero__sub">' + esc(S.baseline) + "</p>" +
       '<nav class="hero__nav" aria-label="' + esc(UI.mainNav) + '"><ul>' + navLinks("", "") + "</ul></nav>" +
-      '<p class="hero__cta"><a class="btn" href="' + ROOT + 'mecenat/">' + esc(UI.support) + '</a><a class="btn btn--ghost" href="' + projectUrl(byId("le-bain")) + '">' + esc(UI.discoverBain) + "</a></p>" +
+      '<p class="hero__cta"><a class="btn" href="' + S.helloasso + '" target="_blank" rel="noopener noreferrer">' + esc(UI.support) + '<span class="sr-only"> ' + esc(UI.newTab) + '</span></a><a class="btn btn--ghost" href="' + projectUrl(byId("le-bain")) + '">' + esc(UI.discoverBain) + "</a></p>" +
       '<p class="hero__soon" id="hero-soon" hidden></p></div></section>' +
       '<section class="container home-projects" id="projets" aria-labelledby="projets-title"><h2 id="projets-title" class="section-title">' + esc(UI.ourProjects) + "</h2>" + mosaic() + "</section>"
     );

@@ -25,6 +25,7 @@ window.SITE = {
 
   /* 2. NAVIGATION ET LIBELLÉS ---------------------------------------------- */
   email: "ciesensibleindocile@gmail.com",
+  helloasso: "https://www.helloasso.com/associations/compagnie-sensible-indocile/adhesions/devenez-un-e-bienfaiteur-ice-indocile",
   nav: [
     { id: "a-propos", label: "À propos", path: "a-propos/" },
     { id: "spectacles", label: "Spectacles", path: "spectacles/" },
@@ -66,8 +67,8 @@ window.SITE = {
     textBy: "Texte de",
     genre: "Genre",
     series: "Série",
-    eightProductions: "Les huit productions",
-    support: "Soutenir la compagnie",
+    eightProductions: "Les neuf productions",
+    support: "Devenez mécène",
     discoverBain: "Découvrir LE BAIN",
     ourProjects: "Nos projets",
     footerRights: "Tous droits réservés",
@@ -84,7 +85,7 @@ window.SITE = {
     seeProject: "Voir le projet",
     upcoming: "Prochainement",
     toAgenda: "Voir l'agenda",
-    supportShort: "Soutenir",
+    supportShort: "Devenez mécène",
     contactTitle2: "Envie d'en savoir plus ? Une question ? Un projet ?",
     contactLine: "Contactez-nous à",
     copyMail: "Copier l'adresse",
@@ -242,7 +243,7 @@ window.SITE = {
       format: "Livres audio · 2026",
       role: "Productrice · Directrice artistique",
       description:
-        "Huit productions de livres audio : prospection, coordination des enregistrements, direction artistique, narration et livraison.",
+        "Neuf productions de livres audio : prospection, coordination des enregistrements, direction artistique, narration et livraison.",
       tile: {
         ratio: "16 / 9",
         images: [
@@ -266,11 +267,11 @@ window.SITE = {
           }
         ]
       },
-      tagline: "Huit histoires à écouter, de la romance au thriller.",
+      tagline: "Neuf histoires à écouter, de la romance au thriller.",
       voice: {
         title: "La voix de Léonore",
         text: [
-          "Léonore Vanier prête sa voix aux huit livres audio produits par la compagnie.",
+          "Léonore Vanier prête sa voix aux neuf livres audio produits par la compagnie.",
           "Quatre d'entre eux sont une collaboration mère-fille avec sa mère, l'autrice Mélodie Miller : La Mariée de la fosse, Les disparues de la crypte, L'enfant du canal et Un chum pour Noël."
         ],
         links: [
@@ -280,7 +281,7 @@ window.SITE = {
       },
       intro: [
         "Développement et structuration d’une nouvelle activité de production de livres audio en 2026, de la prospection commerciale à la livraison des productions.",
-        "Huit productions : six thrillers, dont une trilogie, et deux romances."
+        "Neuf productions : six thrillers, dont une trilogie, deux romances et un cosy mystery."
       ],
       activity: {
         title: "Du manuscrit à la livraison finale",
@@ -293,7 +294,7 @@ window.SITE = {
           { title: "Livraison", text: "Coordination de la postproduction, contrôle qualité et remise des fichiers finalisés." }
         ],
         stats: [
-          { value: "8 contrats", label: "signés" },
+          { value: "9 contrats", label: "signés" },
           { value: "10 000 €", label: "de chiffre d’affaires généré par l’activité" }
         ],
         note: null
@@ -385,6 +386,29 @@ window.SITE = {
                 w: 800,
                 h: 800,
                 alt: "Couverture de Un chum pour Noël, de Mélodie Miller."
+              },
+              listen: null
+            }
+          ]
+        },
+        {
+          id: "cosy",
+          label: "Cosy mystery",
+          title: "Penny McBride",
+          note: "Une enquête victorienne de Lewis Martin.",
+          items: [
+            {
+              slug: "un-penny-pour-la-reine",
+              title: "Un penny pour la reine",
+              author: "Lewis Martin",
+              genre: "Cosy mystery",
+              series: "Penny McBride, tome 1",
+              status: "En cours de production",
+              cover: {
+                src: "assets/img/audio/un-penny-pour-la-reine.webp",
+                w: 326,
+                h: 522,
+                alt: "Couverture de Un penny pour la reine, de Lewis Martin (Penny McBride, tome 1) : illustration rose et jaune aux ornements victoriens, avec un chien, une couronne et des silhouettes."
               },
               listen: null
             }

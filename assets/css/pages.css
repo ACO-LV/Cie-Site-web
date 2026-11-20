@@ -206,3 +206,8 @@ dialog.lightbox::backdrop { background: rgba(7, 6, 43, 0.9); }
 .hero .loop-video { z-index: 0; }
 .hero__veil { z-index: 1; }
 .hero__content { z-index: 2; }
+
+/* « Me prévenir de la sortie » : bouton qui déplie le champ e-mail */
+.notify__form { margin-top: 0.7rem; }
+.notify__form[hidden] { display: none; }
+html[data-theme] .notify__open[aria-expanded="true"] { background: transparent; color: var(--accent); border-color: var(--accent); }
