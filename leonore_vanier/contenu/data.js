@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  CONTENU DU SITE (FRANÇAIS) — le seul fichier à modifier pour changer les textes.
+ *  CONTENU DU SITE (FRANÇAIS) — le fichier à modifier pour changer les textes (voir README.md).
  *  La version anglaise est dans data.en.js (mêmes clés ; seuls les textes diffèrent).
  * ============================================================================
  *  Sommaire (cherchez le titre en MAJUSCULES) :
@@ -16,8 +16,8 @@
  *  Règles :
  *  - Une valeur `null` ou une liste vide = information à fournir : le site affiche
  *    « À compléter » tant que showTodos vaut true.
- *  - Ne jamais inventer d’information : mettre `null` et l’ajouter à AMELIORATIONS.md.
- *  - Les chemins d’images sont relatifs à la racine du site.
+ *  - Ne jamais inventer d’information : mettre `null` et le signaler dans la liste des visuels et chiffres à fournir.
+ *  - Les chemins de médias sont relatifs au dossier leonore_vanier/ (ex. contenu/photos/adam/adam-1.webp).
  *  - Une image se déclare avec src, w, h (dimensions réelles) et alt (description).
  *  - tile.loop : boucle vidéo muette (MP4 sans son) jouée au survol de la vignette.
  */
@@ -40,11 +40,11 @@ window.SITE = {
     label: "Production Company",
     since: 2024,
     url: "https://lacompagniesensibleindocile.fr/", // lien du logo
-    full: { src: "assets/img/brand/logo-sensible-indocile.webp", w: 640, h: 833, alt: "Sensible Indocile — Production Company" },
-    mark: { src: "assets/img/brand/logo-mark.webp", w: 160, h: 299, alt: "Sensible Indocile — Production Company" },
+    full: { src: "contenu/photos/brand/logo-sensible-indocile.webp", w: 640, h: 833, alt: "Sensible Indocile — Production Company" },
+    mark: { src: "contenu/photos/brand/logo-mark.webp", w: 160, h: 299, alt: "Sensible Indocile — Production Company" },
     // Versions pour fond sombre (mode sombre). `null` : le logo d’origine est posé sur une pastille claire.
-    fullDark: { src: "assets/img/brand/logo-sensible-indocile-sombre.webp", w: 640, h: 835, alt: "Sensible Indocile — Production Company" },
-    markDark: { src: "assets/img/brand/logo-mark-sombre.webp", w: 160, h: 299, alt: "Sensible Indocile — Production Company" }
+    fullDark: { src: "contenu/photos/brand/logo-sensible-indocile-sombre.webp", w: 640, h: 835, alt: "Sensible Indocile — Production Company" },
+    markDark: { src: "contenu/photos/brand/logo-mark-sombre.webp", w: 160, h: 299, alt: "Sensible Indocile — Production Company" }
   },
 
   /* 3. NAVIGATION, RUBRIQUES ET LIBELLÉS D’INTERFACE ---------------------- */
@@ -125,7 +125,8 @@ window.SITE = {
     genre: "Genre",
     series: "Série",
     coverMissing: "Couverture à fournir",
-    eightProductions: "Les huit productions",
+    productionsTitle: "Les neuf productions",
+    audioGenres: "Genres",
     portraits: "Portraits",
     representation: "Représentation",
     viewPage: "Voir la page",
@@ -169,10 +170,10 @@ window.SITE = {
       tile: {
         ratio: "16 / 9",
         focus: "50% 40%",
-        loop: "assets/video/le-controle-sanitaire.mp4",
+        loop: "contenu/video/le-controle-sanitaire.mp4",
         images: [
           {
-            src: "assets/img/le-controle-sanitaire/hd-1.webp",
+            src: "contenu/photos/le-controle-sanitaire/hd-1.webp",
             w: 1600,
             h: 900,
             alt: "Le Contrôle sanitaire : deux femmes face à face dans une chambre, l’une rejetant ses cheveux en arrière."
@@ -182,16 +183,16 @@ window.SITE = {
       hero: {
         type: "youtube",
         id: "SmhharGafCE",
-        loop: "assets/video/le-controle-sanitaire.mp4", // animée au survol
+        loop: "contenu/video/le-controle-sanitaire.mp4", // animée au survol
         title: "Le Contrôle sanitaire, court-métrage",
         poster: {
-          src: "assets/img/le-controle-sanitaire/hd-1.webp",
+          src: "contenu/photos/le-controle-sanitaire/hd-1.webp",
           w: 1600,
           h: 900,
           alt: "Le Contrôle sanitaire : deux femmes face à face dans une chambre, l’une rejetant ses cheveux en arrière."
         }
       },
-      stats: [{ value: "33 000 vues", label: "sur YouTube (octobre 2026)" }],
+      stats: [{ value: "35 000 vues", label: "sur YouTube (octobre 2026)" }],
       awards: [
         {
           label: "Mention spéciale",
@@ -207,37 +208,37 @@ window.SITE = {
       ],
       gallery: [
         {
-          src: "assets/img/le-controle-sanitaire/hd-7.webp",
+          src: "contenu/photos/le-controle-sanitaire/hd-7.webp",
           w: 1600,
           h: 900,
           alt: "Le Contrôle sanitaire : deux jeunes femmes de profil, face à face dans une chambre ; l’une pose la main sur le menton de l’autre, bouche ouverte."
         },
         {
-          src: "assets/img/le-controle-sanitaire/hd-2.webp",
+          src: "contenu/photos/le-controle-sanitaire/hd-2.webp",
           w: 1600,
           h: 900,
           alt: "Le Contrôle sanitaire : portrait d’une jeune femme brune en peignoir bleu, l’air inquiet, dans une chambre."
         },
         {
-          src: "assets/img/le-controle-sanitaire/hd-3.webp",
+          src: "contenu/photos/le-controle-sanitaire/hd-3.webp",
           w: 1600,
           h: 900,
           alt: "Le Contrôle sanitaire : portrait d’une jeune femme aux cheveux courts, bouche entrouverte, guirlande lumineuse en arrière-plan."
         },
         {
-          src: "assets/img/le-controle-sanitaire/hd-4.webp",
+          src: "contenu/photos/le-controle-sanitaire/hd-4.webp",
           w: 1600,
           h: 900,
           alt: "Le Contrôle sanitaire : deux jeunes femmes rieuses se prennent dans les bras."
         },
         {
-          src: "assets/img/le-controle-sanitaire/hd-5.webp",
+          src: "contenu/photos/le-controle-sanitaire/hd-5.webp",
           w: 1600,
           h: 900,
           alt: "Le Contrôle sanitaire : une jeune femme en peignoir bleu, saisie en plein mouvement, regarde hors champ."
         },
         {
-          src: "assets/img/le-controle-sanitaire/hd-6.webp",
+          src: "contenu/photos/le-controle-sanitaire/hd-6.webp",
           w: 1600,
           h: 900,
           alt: "Le Contrôle sanitaire : gros plan sur des objets posés sur un livre, vus du dessus."
@@ -259,84 +260,6 @@ window.SITE = {
       links: [{ label: "Voir le film sur YouTube", url: "https://www.youtube.com/watch?v=SmhharGafCE" }]
     },
 
-    /* ---- ADAM ---- */
-    {
-      id: "adam",
-      category: "fiction",
-      slug: "adam",
-      title: "ADAM",
-      format: "Mini-série · produite par FeatureProd",
-      role: "Chargée de production · Assistante réalisatrice",
-      description:
-        "ADAM, mini-série réalisée par Hadrien Fière et produite par FeatureProd. Léonore Vanier y est chargée de production et assistante réalisatrice.",
-      synopsis: "Quand Adam apprend qu’il va devenir père, tous ses repères changent. Perdu entre loyauté pour sa nouvelle famille et sa famille d’origine, il se questionne sur son futur rôle de père.",
-      method: "Production : dépouillement, plan de travail, casting, repérages · Assistanat : feuilles de service, contraintes acteurs, lieux et techniques, suivi des rushes.",
-      status: "Projet en cours",
-      tile: {
-        ratio: "16 / 9",
-        focus: "50% 50%",
-        images: [
-          {
-            src: "assets/img/adam/adam-2-169.webp",
-            w: 1011,
-            h: 569,
-            alt: "Image d’ADAM : un homme en long manteau vert se tient dans une rue la nuit, image floue en mouvement."
-          }
-        ]
-      },
-      hero: {
-        type: "image",
-        image: {
-          src: "assets/img/adam/adam-2-169.webp",
-          w: 1011,
-          h: 569,
-          alt: "Image d’ADAM : un homme en long manteau vert se tient dans une rue la nuit, image floue en mouvement."
-        }
-      },
-      stats: [],
-      awards: [],
-      gallery: [
-        {
-          src: "assets/img/adam/adam-2.webp",
-          w: 900,
-          h: 1600,
-          alt: "Image d’ADAM : visage de profil presque entièrement dans l’ombre, lumière rasante sur le nez et les lèvres.",
-          caption: "Photo : FeatureProd"
-        },
-        {
-          src: "assets/img/adam/adam-3.webp",
-          w: 1014,
-          h: 1464,
-          alt: "Image d’ADAM : une main saisit une pelote d’épingles aux têtes colorées.",
-          caption: "Photo : @bidounini"
-        },
-        {
-          src: "assets/img/adam/adam-4.webp",
-          w: 900,
-          h: 1600,
-          alt: "Image d’ADAM : un jeune homme en chemise grise, de profil au premier plan ; une femme floue se tient dans l’embrasure d’une porte.",
-          caption: "Photo : FeatureProd"
-        }
-      ],
-      galleryFirst: {
-        src: "assets/img/adam/adam-1.webp",
-        w: 900,
-        h: 1600,
-        alt: "Image d’ADAM : gros plan sur le profil d’un jeune homme barbu, visage éclairé par une lumière chaude.",
-        caption: "Photo : FeatureProd"
-      },
-      credits: [
-        { label: "Format", value: "Mini-série" },
-        { label: "Réalisation", value: "Hadrien Fière" },
-        { label: "Production", value: "FeatureProd" },
-        { label: "Statut", value: "En cours · sortie prévue fin 2026" },
-        { label: "Mon rôle", value: "Chargée de production · Assistante réalisatrice" },
-        { label: "Photos", value: "@bidounini · FeatureProd" },
-        { label: "Distribution et équipe", value: null, todo: "crédits d’équipe autorisés à la publication" }
-      ],
-      links: []
-    },
-
     /* ---- Matriochka (hors mosaïque : visible dans la rubrique Fiction ; retirer mosaic: false pour l’afficher partout) ---- */
     {
       id: "matriochka",
@@ -349,7 +272,7 @@ window.SITE = {
       description:
         "Matriochka, court-métrage de fiction (2026, 7 min) réalisé par Marianne Font dans le cadre du concours Klach ! du Festival Paris Court Devant. Léonore Vanier en est la directrice de production.",
       synopsis: "Le film explore les liens entre transmission, mémoire et héritage féminin à travers une atmosphère intime et mystérieuse, où les espaces naturels (parcs, forêts, bois, etc.) occupent une place centrale. Ils deviennent un espace de passage, de mémoire et de transformation.",
-      method: "Direction de production : budget de production, lien avec les équipes réalisation, image et régie · Autorisations : tournage en forêts et espaces naturels, droit à l’image.",
+      method: "Autorisation de lieux de tournage ; Budget et arbitrage ; Cadrage et coordination avec l’équipe technique : régie, image et réalisation ; Cession de droits à l’image, à la voix et à l’interprétation ; Assurances ; Dossier de production ; Contacts avec les élus locaux.",
       methodNote: "Concours Klach !, qui promeut la visibilité des personnes en situation de handicap : le premier rôle est confié à une personne en situation de handicap. Chaque film est conçu, tourné et monté en un mois.",
       status: "Production : novembre 2026",
       tile: {
@@ -357,7 +280,7 @@ window.SITE = {
         focus: "50% 50%",
         images: [
           {
-            src: "assets/img/matriochka/moodboard.webp",
+            src: "contenu/photos/matriochka/moodboard.webp",
             w: 682,
             h: 1024,
             alt: "Planche d’inspiration de Matriochka : collage d’images de films et de portraits de femmes, de parcs et de forêts, avec au centre le titre « Matriocka Mood Board »."
@@ -367,17 +290,17 @@ window.SITE = {
       hero: {
         type: "image",
         image: {
-          src: "assets/img/matriochka/moodboard.webp",
+          src: "contenu/photos/matriochka/moodboard.webp",
           w: 682,
           h: 1024,
           alt: "Planche d’inspiration de Matriochka : collage d’images de films et de portraits de femmes, de parcs et de forêts, avec au centre le titre « Matriocka Mood Board »."
         }
       },
       stats: [
-        { value: "3 k€", label: "de budget de production" },
-        { value: "14 personnes", label: "dans l’équipe" },
-        { value: "2 jours", label: "de tournage en milieu naturel" },
-        { value: "1 mois", label: "de l’écriture au montage final" }
+        { value: "16", label: "comédiens et techniciens" },
+        { value: "2 jours", label: "de tournage" },
+        { value: "1 mois", label: "entre l’écriture et la diffusion" },
+        { value: "< 10 k€", label: "de budget (challenge)" }
       ],
       awards: [],
       gallery: [],
@@ -405,6 +328,84 @@ window.SITE = {
       links: []
     },
 
+    /* ---- ADAM ---- */
+    {
+      id: "adam",
+      category: "fiction",
+      slug: "adam",
+      title: "ADAM",
+      format: "Mini-série · produite par FeatureProd",
+      role: "Chargée de production · Assistante réalisatrice",
+      description:
+        "ADAM, mini-série réalisée par Hadrien Fière et produite par FeatureProd. Léonore Vanier y est chargée de production et assistante réalisatrice.",
+      synopsis: "Quand Adam apprend qu’il va devenir père, tous ses repères changent. Perdu entre loyauté pour sa nouvelle famille et sa famille d’origine, il se questionne sur son futur rôle de père.",
+      method: "Production : dépouillement, plan de travail, casting, repérages · Assistanat : feuilles de service, contraintes acteurs, lieux et techniques, suivi des rushes.",
+      status: "Projet en cours",
+      tile: {
+        ratio: "16 / 9",
+        focus: "50% 50%",
+        images: [
+          {
+            src: "contenu/photos/adam/adam-2-169.webp",
+            w: 1011,
+            h: 569,
+            alt: "Image d’ADAM : un homme en long manteau vert se tient dans une rue la nuit, image floue en mouvement."
+          }
+        ]
+      },
+      hero: {
+        type: "image",
+        image: {
+          src: "contenu/photos/adam/adam-2-169.webp",
+          w: 1011,
+          h: 569,
+          alt: "Image d’ADAM : un homme en long manteau vert se tient dans une rue la nuit, image floue en mouvement."
+        }
+      },
+      stats: [],
+      awards: [],
+      gallery: [
+        {
+          src: "contenu/photos/adam/adam-2.webp",
+          w: 900,
+          h: 1600,
+          alt: "Image d’ADAM : visage de profil presque entièrement dans l’ombre, lumière rasante sur le nez et les lèvres.",
+          caption: "Photo : FeatureProd"
+        },
+        {
+          src: "contenu/photos/adam/adam-3.webp",
+          w: 1014,
+          h: 1464,
+          alt: "Image d’ADAM : une main saisit une pelote d’épingles aux têtes colorées.",
+          caption: "Photo : @bidounini"
+        },
+        {
+          src: "contenu/photos/adam/adam-4.webp",
+          w: 900,
+          h: 1600,
+          alt: "Image d’ADAM : un jeune homme en chemise grise, de profil au premier plan ; une femme floue se tient dans l’embrasure d’une porte.",
+          caption: "Photo : FeatureProd"
+        }
+      ],
+      galleryFirst: {
+        src: "contenu/photos/adam/adam-1.webp",
+        w: 900,
+        h: 1600,
+        alt: "Image d’ADAM : gros plan sur le profil d’un jeune homme barbu, visage éclairé par une lumière chaude.",
+        caption: "Photo : FeatureProd"
+      },
+      credits: [
+        { label: "Format", value: "Mini-série" },
+        { label: "Réalisation", value: "Hadrien Fière" },
+        { label: "Production", value: "FeatureProd" },
+        { label: "Statut", value: "En cours · sortie prévue fin 2026" },
+        { label: "Mon rôle", value: "Chargée de production · Assistante réalisatrice" },
+        { label: "Photos", value: "@bidounini · FeatureProd" },
+        { label: "Distribution et équipe", value: null, todo: "crédits d’équipe autorisés à la publication" }
+      ],
+      links: []
+    },
+
     /* ---- Sous ta peau brûlante ---- */
     {
       id: "sous-ta-peau-brulante",
@@ -421,10 +422,10 @@ window.SITE = {
       tile: {
         ratio: "16 / 9",
         focus: "50% 40%",
-        loop: "assets/video/sous-ta-peau-brulante.mp4",
+        loop: "contenu/video/sous-ta-peau-brulante.mp4",
         images: [
           {
-            src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
+            src: "contenu/photos/sous-ta-peau-brulante/photogramme-1.webp",
             w: 1600,
             h: 900,
             alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
@@ -434,10 +435,10 @@ window.SITE = {
       hero: {
         type: "youtube",
         id: "jm_t5PYLE94",
-        loop: "assets/video/sous-ta-peau-brulante.mp4",
+        loop: "contenu/video/sous-ta-peau-brulante.mp4",
         title: "Sous ta peau brûlante, court-métrage",
         poster: {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
+          src: "contenu/photos/sous-ta-peau-brulante/photogramme-1.webp",
           w: 1600,
           h: 900,
           alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
@@ -447,25 +448,25 @@ window.SITE = {
       awards: [{ label: "Sélection festival", detail: "1 min 2 court", source: null }],
       gallery: [
         {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
+          src: "contenu/photos/sous-ta-peau-brulante/photogramme-1.webp",
           w: 1600,
           h: 900,
           alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
         },
         {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-2.webp",
+          src: "contenu/photos/sous-ta-peau-brulante/photogramme-2.webp",
           w: 1600,
           h: 900,
           alt: "Sous ta peau brûlante : deux silhouettes enlacées sur un fond violet, un bras levé."
         },
         {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-3.webp",
+          src: "contenu/photos/sous-ta-peau-brulante/photogramme-3.webp",
           w: 1600,
           h: 900,
           alt: "Sous ta peau brûlante : gros plan sur le visage d’un jeune homme de profil, une main posée sur son épaule."
         },
         {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-4.webp",
+          src: "contenu/photos/sous-ta-peau-brulante/photogramme-4.webp",
           w: 1600,
           h: 900,
           alt: "Sous ta peau brûlante : deux hommes enlacés, l’un le visage tourné vers le haut."
@@ -502,10 +503,10 @@ window.SITE = {
       tile: {
         ratio: "16 / 9",
         focus: "50% 50%",
-        loop: "assets/video/le-bain.mp4",
+        loop: "contenu/video/le-bain.mp4",
         images: [
           {
-            src: "assets/img/le-bain/scene-mouvement.webp",
+            src: "contenu/photos/le-bain/scene-mouvement.webp",
             w: 1600,
             h: 1067,
             alt: "Scène du BAIN : silhouette en mouvement flou sous une lumière bleue."
@@ -515,10 +516,10 @@ window.SITE = {
       hero: {
         type: "youtube",
         id: "aE0wtUnpz-Y",
-        loop: "assets/video/le-bain.mp4",
+        loop: "contenu/video/le-bain.mp4",
         title: "LE BAIN, teaser",
         poster: {
-          src: "assets/img/le-bain/scene-mouvement.webp",
+          src: "contenu/photos/le-bain/scene-mouvement.webp",
           w: 1600,
           h: 1067,
           alt: "Scène du BAIN : silhouette en mouvement flou sous une lumière bleue."
@@ -541,7 +542,7 @@ window.SITE = {
       },
       pressImage: {
         image: {
-          src: "assets/img/le-bain/image1.webp",
+          src: "contenu/photos/le-bain/image1.webp",
           w: 915,
           h: 902,
           alt: "Coupure de presse : « Au festival off d’Avignon, Léonore Vanier se jette dans Le (grand) Bain », article avec la photo de Léonore Vanier tenant un livret."
@@ -550,49 +551,49 @@ window.SITE = {
       },
       gallery: [
         {
-          src: "assets/img/le-bain/scene-baignoire.webp",
+          src: "contenu/photos/le-bain/scene-baignoire.webp",
           w: 1536,
           h: 1075,
           alt: "Scène du BAIN : une femme dans une baignoire blanche entre deux autres, sur un plateau sombre éclairé de bleu.",
           caption: "Photo : Arthur Couvreur"
         },
         {
-          src: "assets/img/le-bain/divine.webp",
+          src: "contenu/photos/le-bain/divine.webp",
           w: 1600,
           h: 1067,
           alt: "Scène du BAIN : une comédienne en chemise blanche tient un papier sous une lumière violette.",
           caption: "Photo : Marcus Boury"
         },
         {
-          src: "assets/img/le-bain/scene-pied.webp",
+          src: "contenu/photos/le-bain/scene-pied.webp",
           w: 1600,
           h: 1067,
           alt: "Scène du BAIN : une comédienne sourit dans une baignoire blanche, les jambes en l’air.",
           caption: "Photo : Matthieu Le Jeune"
         },
         {
-          src: "assets/img/le-bain/grace.webp",
+          src: "contenu/photos/le-bain/grace.webp",
           w: 1200,
           h: 1800,
           alt: "Scène du BAIN : une comédienne assise au sol près d’une bougie, sur un plateau éclairé de bleu et de violet.",
           caption: "Photo : Marcus Boury"
         },
         {
-          src: "assets/img/le-bain/debut.webp",
+          src: "contenu/photos/le-bain/debut.webp",
           w: 1600,
           h: 1067,
           alt: "Scène du BAIN : un drap blanc dressé en pyramide dans le noir, une main levée, des bougies allumées.",
           caption: "Photo : Marcus Boury"
         },
         {
-          src: "assets/img/le-bain/lebain1.webp",
+          src: "contenu/photos/le-bain/lebain1.webp",
           w: 1200,
           h: 1600,
           alt: "Le Bain : visage d’une comédienne mouillé, sous une lumière bleutée.",
           caption: "Photo : Léonore Vanier"
         },
         {
-          src: "assets/img/le-bain/lebain2.webp",
+          src: "contenu/photos/le-bain/lebain2.webp",
           w: 1200,
           h: 1600,
           alt: "Le Bain : visage d’une comédienne sous l’eau, cheveux flottants, lumière bleue et rose.",
@@ -619,6 +620,42 @@ window.SITE = {
       ]
     },
 
+    /* ---- Merci Maman (hors mosaïque : visible dans la rubrique Spectacles vivants ; retirer mosaic: false pour l’afficher partout) ---- */
+    {
+      id: "merci-maman",
+      category: "spectacles-vivants",
+      slug: "merci-maman",
+      mosaic: false,
+      title: "Merci Maman",
+      format: "Théâtre · Drame contemporain",
+      role: "Chargée de production · Assistante metteuse en scène",
+      description:
+        "Merci Maman, drame contemporain écrit par Dominique Vigna et mis en scène par Sophie Lecarpentier. Léonore Vanier y est chargée de production et assistante metteuse en scène.",
+      synopsis: null,
+      method: "Dossier de production : note d’intention, budgets prévisionnels, besoins techniques, artistiques et administratifs, moodboard, casting, planning de production et de répétitions, notes aux comédiens · Présentation aux élus locaux (Direction culturelle de Levallois).",
+      status: "Projet en cours",
+      tile: {
+        ratio: "16 / 9",
+        focus: "50% 50%",
+        placeholder: "Visuel à venir",
+        images: []
+      },
+      hero: { type: "todo", ratio: "16 / 9", label: "Visuel à fournir" },
+      stats: [],
+      awards: [],
+      gallery: [],
+      credits: [
+        { label: "Texte", value: "Dominique Vigna" },
+        { label: "Genre", value: "Drame contemporain" },
+        { label: "Théâtre", value: "Privé" },
+        { label: "Mise en scène", value: "Sophie Lecarpentier" },
+        { label: "Administration", value: "Bruno" },
+        { label: "Collaboration", value: "Cie Eulalie", url: "https://www.compagnieeulalie.com/" },
+        { label: "Soutiens", value: "SACD" }
+      ],
+      links: []
+    },
+
     /* ---- Life on Xenia ---- */
     {
       id: "life-on-xenia",
@@ -637,7 +674,7 @@ window.SITE = {
         focus: "50% 50%",
         images: [
           {
-            src: "assets/img/life-on-xenia/foret-vignette.webp",
+            src: "contenu/photos/life-on-xenia/foret-vignette.webp",
             w: 1280,
             h: 720,
             alt: "Life on Xenia : une forêt luxuriante traversée de rayons de soleil."
@@ -647,12 +684,12 @@ window.SITE = {
       hero: {
         type: "tiktok",
         id: "7693246234198396192",
-        loop: "assets/video/life_on_xenia.mp4",
+        loop: "contenu/video/life_on_xenia.mp4",
         url: "https://www.tiktok.com/@lifeonxenia/video/7693246234198396192",
         title: "Life on Xenia, extrait sur TikTok",
         ratio: "9 / 16",
         poster: {
-          src: "assets/img/life-on-xenia/video-poster.webp",
+          src: "contenu/photos/life-on-xenia/video-poster.webp",
           w: 720,
           h: 1280,
           alt: "Image de Life on Xenia : une femme appuyée contre un homme à l’oreille pointue, dans une forêt la nuit."
@@ -667,42 +704,42 @@ window.SITE = {
       awards: [],
       gallery: [
         {
-          src: "assets/img/life-on-xenia/lya.webp",
+          src: "contenu/photos/life-on-xenia/lya.webp",
           w: 1600,
           h: 893,
           alt: "Planche de personnage : Lya, de face, de dos et en gros plan.",
           caption: "Planche de personnage : Lya"
         },
         {
-          src: "assets/img/life-on-xenia/raafa.webp",
+          src: "contenu/photos/life-on-xenia/raafa.webp",
           w: 1600,
           h: 893,
           alt: "Planche de personnage : Raafa, de face, de dos et en gros plan.",
           caption: "Planche de personnage : Raafa"
         },
         {
-          src: "assets/img/life-on-xenia/foret.webp",
+          src: "contenu/photos/life-on-xenia/foret.webp",
           w: 1600,
           h: 893,
           alt: "Planche de décors : six variantes d’une forêt lumineuse traversée de rayons de soleil.",
           caption: "Décors : la forêt de Xenia"
         },
         {
-          src: "assets/img/life-on-xenia/civilisation-ancienne.webp",
+          src: "contenu/photos/life-on-xenia/civilisation-ancienne.webp",
           w: 1600,
           h: 893,
           alt: "Planche de décors : vaisseau d’une civilisation ancienne recouvert de lianes dans la jungle.",
           caption: "Décors : la civilisation ancienne"
         },
         {
-          src: "assets/img/life-on-xenia/astroport.webp",
+          src: "contenu/photos/life-on-xenia/astroport.webp",
           w: 1600,
           h: 893,
           alt: "Planche de décors : astroport, vaisseaux et ville industrielle sous une lumière orangée.",
           caption: "Décors : l’astroport"
         },
         {
-          src: "assets/img/life-on-xenia/planches-continuite.webp",
+          src: "contenu/photos/life-on-xenia/planches-continuite.webp",
           w: 800,
           h: 446,
           alt: "Planches de continuité en six cases : trois personnages dans une forêt lumineuse, avec indications de dialogue et de durée.",
@@ -733,24 +770,24 @@ window.SITE = {
       format: "Livres audio · 2026",
       role: "Productrice · Directrice artistique",
       description:
-        "Huit productions de livres audio : prospection, coordination des enregistrements, direction artistique, narration et livraison.",
+        "Neuf productions de livres audio : prospection, coordination des enregistrements, direction artistique, narration et livraison.",
       tile: {
         ratio: "16 / 9",
         images: [
           {
-            src: "assets/img/audio/les-disparues-de-la-crypte.webp",
+            src: "contenu/photos/audio/les-disparues-de-la-crypte.webp",
             w: 800,
             h: 800,
             alt: "Couverture du livre audio Les disparues de la crypte, de Mélodie Miller."
           },
           {
-            src: "assets/img/audio/la-mariee-de-la-fosse.webp",
+            src: "contenu/photos/audio/la-mariee-de-la-fosse.webp",
             w: 447,
             h: 434,
             alt: "Couverture du livre audio La Mariée de la fosse, de Mélodie Miller."
           },
           {
-            src: "assets/img/audio/au-coeur-du-yukon.webp",
+            src: "contenu/photos/audio/au-coeur-du-yukon.webp",
             w: 436,
             h: 434,
             alt: "Couverture du livre audio Au cœur du Yukon, de Sophie Camus Hoguet."
@@ -759,7 +796,7 @@ window.SITE = {
       },
       intro: [
         "Développement et structuration d’une nouvelle activité de production de livres audio en 2026, de la prospection commerciale à la livraison des productions.",
-        "Huit productions : six thrillers, dont une trilogie, et deux romances."
+        "Neuf productions : six thrillers, dont une trilogie, deux romances et un cosy mystery."
       ],
       activity: {
         title: "Du manuscrit à la livraison finale",
@@ -772,7 +809,7 @@ window.SITE = {
           { title: "Livraison", text: "Coordination de la postproduction, contrôle qualité et remise des fichiers finalisés." }
         ],
         stats: [
-          { value: "8 contrats", label: "signés" },
+          { value: "9 contrats", label: "signés" },
           { value: "10 000 €", label: "de chiffre d’affaires généré par l’activité" }
         ],
         note: null
@@ -794,7 +831,7 @@ window.SITE = {
               genre: "Thriller",
               series: "Les enquêtes d’Anna Blanchard & Julien Vautrin, tome 1",
               cover: {
-                src: "assets/img/audio/la-mariee-de-la-fosse.webp",
+                src: "contenu/photos/audio/la-mariee-de-la-fosse.webp",
                 w: 447,
                 h: 434,
                 alt: "Couverture de La Mariée de la fosse, de Mélodie Miller : une jeune mariée flotte dans l’eau verte d’un bassin."
@@ -811,7 +848,7 @@ window.SITE = {
               genre: "Thriller",
               series: "Les enquêtes d’Anna Blanchard & Julien Vautrin, tome 2",
               cover: {
-                src: "assets/img/audio/les-disparues-de-la-crypte.webp",
+                src: "contenu/photos/audio/les-disparues-de-la-crypte.webp",
                 w: 800,
                 h: 800,
                 alt: "Couverture de Les disparues de la crypte, de Mélodie Miller : une fillette court dans une crypte sombre."
@@ -826,7 +863,7 @@ window.SITE = {
               series: "Les enquêtes d’Anna Blanchard & Julien Vautrin, tome 3",
               status: "En cours de production",
               cover: {
-                src: "assets/img/audio/l-enfant-du-canal.webp",
+                src: "contenu/photos/audio/l-enfant-du-canal.webp",
                 w: 900,
                 h: 900,
                 alt: "Couverture de L’enfant du canal, de Mélodie Miller : une péniche éclairée glisse sur un canal de nuit, un ours en peluche abandonné au bord de l’eau."
@@ -846,7 +883,7 @@ window.SITE = {
               author: "Sophie Camus Hoguet",
               genre: "Romance",
               cover: {
-                src: "assets/img/audio/au-coeur-du-yukon.webp",
+                src: "contenu/photos/audio/au-coeur-du-yukon.webp",
                 w: 436,
                 h: 434,
                 alt: "Couverture de Au cœur du Yukon, de Sophie Camus Hoguet : une femme et son chien husky dans un paysage enneigé."
@@ -860,11 +897,28 @@ window.SITE = {
               genre: "Romance",
               series: "Comédie romantique de Noël au Québec",
               cover: {
-                src: "assets/img/audio/un-chum-pour-noel.webp",
+                src: "contenu/photos/audio/un-chum-pour-noel.webp",
                 w: 800,
                 h: 800,
                 alt: "Couverture de Un chum pour Noël, de Mélodie Miller."
               },
+              listen: null
+            }
+          ]
+        },
+        {
+          id: "cosy-mystery",
+          label: "Cosy mystery",
+          title: "Cosy mystery",
+          items: [
+            {
+              slug: "un-penny-pour-la-reine",
+              title: "Un penny pour la reine",
+              author: "Lewis Martin",
+              genre: "Cosy mystery",
+              series: "Penny McBride, tome 1",
+              status: "En cours de production",
+              cover: null,
               listen: null
             }
           ]
@@ -882,7 +936,7 @@ window.SITE = {
               genre: "Thriller",
               series: "Trilogie Quand les murs tremblent, tome 1",
               cover: {
-                src: "assets/img/audio/quand-les-murs-tremblent.webp",
+                src: "contenu/photos/audio/quand-les-murs-tremblent.webp",
                 w: 800,
                 h: 800,
                 alt: "Couverture de Quand les murs tremblent, de Victoire Sentenac."
@@ -896,7 +950,7 @@ window.SITE = {
               genre: "Thriller",
               series: "Trilogie Quand les murs tremblent, tome 2",
               cover: {
-                src: "assets/img/audio/sur-les-chemins-du-doute.webp",
+                src: "contenu/photos/audio/sur-les-chemins-du-doute.webp",
                 w: 800,
                 h: 800,
                 alt: "Couverture de Sur les chemins du doute, de Victoire Sentenac."
@@ -910,7 +964,7 @@ window.SITE = {
               genre: "Thriller",
               series: "Trilogie Quand les murs tremblent, tome 3",
               cover: {
-                src: "assets/img/audio/envers-et-contre-tout.webp",
+                src: "contenu/photos/audio/envers-et-contre-tout.webp",
                 w: 800,
                 h: 800,
                 alt: "Couverture de Envers et contre tout, de Victoire Sentenac."
@@ -945,7 +999,7 @@ window.SITE = {
     ],
     linkLabel: "Découvrir mon parcours",
     photo: {
-      src: "assets/img/a-propos/leonore-tournage.webp",
+      src: "contenu/photos/a-propos/leonore-tournage.webp",
       w: 1600,
       h: 900,
       alt: "Vue de dos, la productrice cadre son image avec un appareil photo en extérieur.",
@@ -957,7 +1011,7 @@ window.SITE = {
   about: {
     statement: "Relier intention artistique, organisation de production et coordination des équipes.",
     photo: {
-      src: "assets/img/a-propos/leonore-tournage.webp",
+      src: "contenu/photos/a-propos/leonore-tournage.webp",
       w: 1600,
       h: 900,
       alt: "Vue de dos, la productrice cadre son image avec un appareil photo en extérieur.",
@@ -1074,17 +1128,17 @@ window.SITE = {
       { label: "Postproduction", proof: "Le Contrôle sanitaire : montage, étalonnage, mixage", project: "le-controle-sanitaire" },
       { label: "Livraison", proof: "Audio : contrôle qualité et remise des fichiers finalisés", project: "productions-audio" },
       { label: "Vidéo IA", proof: "Life on Xenia : 30 épisodes verticaux générés en IA", project: "life-on-xenia" },
-      { label: "Audio", proof: "8 productions de livres audio", project: "productions-audio" },
+      { label: "Audio", proof: "9 productions de livres audio", project: "productions-audio" },
       { label: "Spectacle vivant", proof: "LE BAIN : plus de 30 représentations à Paris et Avignon", project: "le-bain" }
     ],
     /* Preuves concrètes : uniquement des éléments vérifiés (7 blocs, sur 2 lignes au plus). */
     proofsTitle: "Preuves concrètes",
     proofs: [
-      { icon: "film", value: "Courts-métrages", text: "Le Contrôle sanitaire (33 000 vues), Sous ta peau brûlante", project: "le-controle-sanitaire" },
+      { icon: "film", value: "Courts-métrages", text: "Le Contrôle sanitaire (35 000 vues), Sous ta peau brûlante", project: "le-controle-sanitaire" },
       { icon: "series", value: "Mini-série", text: "ADAM, produite par FeatureProd", project: "adam" },
       { icon: "euro", value: "45 k€ · 13 · 30+", text: "LE BAIN : budget, personnes, représentations", project: "le-bain" },
       { icon: "phone", value: "30 épisodes", text: "Life on Xenia, fiction verticale en IA", project: "life-on-xenia" },
-      { icon: "headphones", value: "8 productions", text: "Livres audio : 6 thrillers, 2 romances", project: "productions-audio" },
+      { icon: "headphones", value: "9 productions", text: "Livres audio : 6 thrillers, 2 romances, 1 cosy mystery", project: "productions-audio" },
       { icon: "briefcase", value: "2021–2024", text: "Project Manager chez ENGIE · +8,8 M€ de CA", project: null },
       { icon: "logo", value: "Depuis 2024", text: "Création de Sensible Indocile", project: null }
     ],
@@ -1148,16 +1202,16 @@ window.SITE = {
       ratio: "16 / 9",
       url: "https://www.filmmakers.eu/fr/actors/leonore-vanier/video/176486",
       poster: {
-        src: "assets/img/acting/bande-demo.webp",
+        src: "contenu/photos/acting/bande-demo.webp",
         w: 1280,
         h: 720,
         alt: "Image de la bande-démo de Léonore Vanier, comédienne."
       },
-      loop: "assets/video/bande-demo.mp4" // aperçu muet, en continu
+      loop: "contenu/video/bande-demo.mp4" // aperçu muet, en continu
     },
     voice: {
       label: "Démo voix",
-      src: "assets/audio/demo-voix.mp3", // lecteur intégré (aucune lecture automatique)
+      src: "contenu/audio/demo-voix.mp3", // lecteur intégré (aucune lecture automatique)
       url: "https://www.filmmakers.eu/en/actors/leonore-vanier/audio/176490",
       linkLabel: "Voir ma démo voix sur Filmmakers"
     },

@@ -1,6 +1,6 @@
 /*
- * Rendu des pages à partir de window.SITE (assets/js/data.js), fusionné avec
- * window.SITE_EN (assets/js/data.en.js) sur les pages anglaises.
+ * Rendu des pages à partir de window.SITE (contenu/data.js), fusionné avec
+ * window.SITE_EN (contenu/data.en.js) sur les pages anglaises.
  * Chaque page HTML est une « coquille » portant :
  *   data-root       chemin relatif vers la racine du site ("./", "../", "../../")
  *   data-lang-root  chemin relatif vers la racine de la langue (identique en français, « en/ » en anglais)
@@ -418,7 +418,7 @@
     if (!list || !list.length) return "";
     var rows = list
       .map(function (c) {
-        if (c.value) return "<div><dt>" + esc(c.label) + "</dt><dd>" + esc(c.value) + "</dd></div>";
+        if (c.value) return "<div><dt>" + esc(c.label) + "</dt><dd>" + (c.url ? ext(c.url, c.value) : esc(c.value)) + "</dd></div>";
         if (!S.showTodos) return "";
         return "<div><dt>" + esc(c.label) + "</dt><dd>" + todo(c.todo, true) + "</dd></div>";
       })
@@ -676,13 +676,16 @@
       (p.highlight ? '<p class="essentials__highlight">' + (p.highlight.icon ? ICONS[p.highlight.icon] : "") + "<span>" + esc(p.highlight.text) + "</span></p>" : "") +
       linksHtml + "</div></div>" +
       (gal ? '<section class="block reveal" aria-labelledby="gal"><h2 id="gal" class="sr-only">' + esc(UI.gallery) + "</h2>" + gal + "</section>" : "") +
-      '<section class="block details reveal" aria-labelledby="cred"><div class="details__syn"><h2>' + esc(UI.synopsis) + "</h2><p>" + esc(p.synopsis) + "</p>" + press + "</div>" +
+      '<section class="block details reveal' + (p.synopsis || press ? "" : " details--solo") + '" aria-labelledby="cred">' +
+      (p.synopsis || press
+        ? '<div class="details__syn">' + (p.synopsis ? "<h2>" + esc(UI.synopsis) + "</h2><p>" + esc(p.synopsis) + "</p>" : "") + press + "</div>"
+        : "") +
       '<div class="details__credits"><h2 id="cred">' + esc(UI.credits) + "</h2>" + credits(p.credits) + "</div></section>" +
       projectNav(p) + "</article>"
     );
   }
 
-  function audioCard(it, role) {
+  function audioCard(it, role, idx) {
     var cover = it.cover
       ? '<div class="audio-card__cover photo">' + img(it.cover) + "</div>"
       : it.status
@@ -701,7 +704,7 @@
     else listen = it.status ? "" : todo("extrait audio ou lien d’écoute");
     if (it.extract && it.listen) listen += '<p class="audio-card__listen">' + ext(it.listen.url, it.listen.label) + "</p>";
     return (
-      '<article class="audio-card reveal" id="' + it.slug + '">' + cover +
+      '<article class="audio-card reveal" id="' + it.slug + '" style="--i:' + (idx || 0) + '">' + cover +
       '<div class="audio-card__body"><h4>' + esc(it.title) + "</h4>" +
       (it.titleTodo ? todo(it.titleTodo, true) : "") +
       '<dl class="credits credits--tight">' + rows.join("") + "</dl>" +
@@ -715,11 +718,11 @@
     var groups = p.groups
       .map(function (g) {
         return (
-          '<section class="audio-group" aria-labelledby="g-' + g.id + '">' +
+          '<section class="audio-group" id="genre-' + g.id + '" aria-labelledby="g-' + g.id + '">' +
           '<header><p class="eyebrow">' + esc(g.label) + "</p>" +
           '<h3 id="g-' + g.id + '">' + esc(g.title) + "</h3>" +
           (g.note ? '<p class="audio-group__note">' + esc(g.note) + "</p>" : "") + "</header>" +
-          '<div class="audio-list">' + g.items.map(function (it) { return audioCard(it, p.itemRole); }).join("") + "</div></section>"
+          '<div class="audio-list">' + g.items.map(function (it, k) { return audioCard(it, p.itemRole, k); }).join("") + "</div></section>"
         );
       })
       .join("");
@@ -730,7 +733,10 @@
       '<ol class="contrib contrib--steps">' +
       ac.steps.map(function (s) { return "<li>" + (s.icon ? ICONS[s.icon] : "") + "<h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></li>"; }).join("") +
       "</ol>" + stats(ac.stats, ac.note) + "</section>" +
-      '<section class="block" aria-labelledby="prods"><h2 id="prods">' + esc(UI.eightProductions) + "</h2>" + groups +
+      '<section class="block" aria-labelledby="prods"><h2 id="prods">' + esc(UI.productionsTitle) + "</h2>" +
+      '<nav class="audio-chips" aria-label="' + esc(UI.audioGenres) + '"><ul>' +
+      p.groups.map(function (g) { return '<li><a href="#genre-' + g.id + '">' + esc(g.label) + "</a></li>"; }).join("") +
+      "</ul></nav>" + groups +
       '<p class="audio-credit">' + esc(p.credit) + "</p></section>" +
       projectNav(p) + "</article>"
     );
@@ -743,7 +749,7 @@
     function portrait(x, eager) {
       var wide = ratioNum(x.ratio) > 1;
       var i = {
-        src: "assets/img/acting/portrait-" + num(x.n - 1) + ".webp",
+        src: "contenu/photos/acting/portrait-" + num(x.n - 1) + ".webp",
         w: x.w,
         h: x.h,
         alt: (LANG === "fr" ? "Portrait de comédienne — photo : " : "Actress portrait — photo: ") + x.credit
@@ -830,6 +836,28 @@
 
   /* ---------- Apparition progressive ---------- */
 
+  // Page Audio : les pastilles de genres se collent en haut de l'écran ; celle du genre visible est mise en évidence.
+  function initChips() {
+    var nav = document.querySelector(".audio-chips");
+    if (!nav || !("IntersectionObserver" in window)) return;
+    var links = nav.querySelectorAll("a");
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          Array.prototype.forEach.call(links, function (a) {
+            if (a.getAttribute("href") === "#" + e.target.id) a.setAttribute("aria-current", "true");
+            else a.removeAttribute("aria-current");
+          });
+        });
+      },
+      { rootMargin: "-25% 0px -65% 0px" }
+    );
+    document.querySelectorAll(".audio-group").forEach(function (g) {
+      io.observe(g);
+    });
+  }
+
   function initReveal() {
     if (REDUCED || !("IntersectionObserver" in window)) return;
     var els = document.querySelectorAll(".reveal");
@@ -876,6 +904,7 @@
     initMenu();
     initDo();
     initLoops();
+    initChips();
     initReveal();
     // Ancre éventuelle (ex. a-propos/#sensible-indocile) : le contenu est généré après le chargement.
     if (location.hash) {

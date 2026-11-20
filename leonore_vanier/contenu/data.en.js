@@ -73,7 +73,8 @@ window.SITE_EN = {
     genre: "Genre",
     series: "Series",
     coverMissing: "Cover to be provided",
-    eightProductions: "The eight productions",
+    productionsTitle: "The nine productions",
+    audioGenres: "Genres",
     portraits: "Portraits",
     representation: "Representation",
     viewPage: "View the page",
@@ -113,7 +114,7 @@ window.SITE_EN = {
         title: "Le Contrôle sanitaire, short film",
         poster: { alt: "Le Contrôle sanitaire: two women face to face in a bedroom, one of them tossing her hair back." }
       },
-      stats: [{ value: "33,000 views", label: "on YouTube (October 2026)" }],
+      stats: [{ value: "35,000 views", label: "on YouTube (October 2026)" }],
       awards: [
         { label: "Special mention", detail: "for “the quality of the writing and of the performances”", source: "Prix Florent Image 2026" },
         { label: "Official selection 2026", detail: "Plus c’est court, plus c’est bon · KINO POP Festival · CAST Festival" }
@@ -142,6 +143,48 @@ window.SITE_EN = {
       links: [{ label: "Watch the film on YouTube" }]
     },
 
+    /* ---- Matriochka ---- */
+    {
+      id: "matriochka",
+      format: "Short film · 2026 · 7 min",
+      role: "Production manager",
+      description:
+        "Matriochka, a short fiction film (2026, 7 min) directed by Marianne Font as part of the Klach! competition of the Paris Court Devant Festival. Léonore Vanier is its production manager.",
+      synopsis: "The film explores the links between transmission, memory and female heritage through an intimate, mysterious atmosphere in which natural spaces (parks, forests, woods, etc.) play a central part. They become a space of passage, memory and transformation.",
+      method: "Shooting location permits; Budget and trade-offs; Framing and coordination with the technical team: logistics, camera and direction; Assignment of image, voice and performance rights; Insurance; Production file; Contacts with local officials.",
+      methodNote: "Klach! competition, which promotes the visibility of people with disabilities: the lead role is given to a person with a disability. Each film is conceived, shot and edited within one month.",
+      status: "Production: November 2026",
+      tile: { images: [{ alt: "Matriochka mood board: a collage of film stills and portraits of women, parks and forests, with the title “Matriocka Mood Board” in the centre." }] },
+      hero: { image: { alt: "Matriochka mood board: a collage of film stills and portraits of women, parks and forests, with the title “Matriocka Mood Board” in the centre." } },
+      stats: [
+        { value: "16", label: "actors and crew" },
+        { value: "2 days", label: "of shooting" },
+        { value: "1 month", label: "from writing to release" },
+        { value: "< €10k", label: "budget (challenge)" }
+      ],
+      credits: [
+        { label: "Format", value: "Short fiction film, 2026" },
+        { label: "Running time", value: "7 minutes" },
+        { label: "Competition", value: "Klach! · Paris Court Devant Festival" },
+        { label: "Direction · Screenplay" },
+        { label: "Screenplay collaboration" },
+        { label: "Script doctoring" },
+        { label: "Production management" },
+        { label: "Assistant direction" },
+        { label: "Script supervisor" },
+        { label: "Cinematography" },
+        { label: "Cast" },
+        { label: "Sound" },
+        { label: "Costumes" },
+        { label: "Make-up" },
+        { label: "Unit management" },
+        { label: "Editing" },
+        { label: "Music" },
+        { label: "Colour grading" },
+        { label: "Mixing" }
+      ]
+    },
+
     /* ---- ADAM ---- */
     {
       id: "adam",
@@ -168,48 +211,6 @@ window.SITE_EN = {
         { label: "My role", value: "Production coordinator · Assistant director" },
         { label: "Photos" },
         { label: "Cast and crew" }
-      ]
-    },
-
-    /* ---- Matriochka ---- */
-    {
-      id: "matriochka",
-      format: "Short film · 2026 · 7 min",
-      role: "Production manager",
-      description:
-        "Matriochka, a short fiction film (2026, 7 min) directed by Marianne Font as part of the Klach! competition of the Paris Court Devant Festival. Léonore Vanier is its production manager.",
-      synopsis: "The film explores the links between transmission, memory and female heritage through an intimate, mysterious atmosphere in which natural spaces (parks, forests, woods, etc.) play a central part. They become a space of passage, memory and transformation.",
-      method: "Production management: production budget, liaison with the directing, camera and logistics teams · Permits: shooting in forests and natural spaces, image rights.",
-      methodNote: "Klach! competition, which promotes the visibility of people with disabilities: the lead role is given to a person with a disability. Each film is conceived, shot and edited within one month.",
-      status: "Production: November 2026",
-      tile: { images: [{ alt: "Matriochka mood board: a collage of film stills and portraits of women, parks and forests, with the title “Matriocka Mood Board” in the centre." }] },
-      hero: { image: { alt: "Matriochka mood board: a collage of film stills and portraits of women, parks and forests, with the title “Matriocka Mood Board” in the centre." } },
-      stats: [
-        { value: "€3k", label: "production budget" },
-        { value: "14 people", label: "in the team" },
-        { value: "2 days", label: "of shooting in natural settings" },
-        { value: "1 month", label: "from writing to final cut" }
-      ],
-      credits: [
-        { label: "Format", value: "Short fiction film, 2026" },
-        { label: "Running time", value: "7 minutes" },
-        { label: "Competition", value: "Klach! · Paris Court Devant Festival" },
-        { label: "Direction · Screenplay" },
-        { label: "Screenplay collaboration" },
-        { label: "Script doctoring" },
-        { label: "Production management" },
-        { label: "Assistant direction" },
-        { label: "Script supervisor" },
-        { label: "Cinematography" },
-        { label: "Cast" },
-        { label: "Sound" },
-        { label: "Costumes" },
-        { label: "Make-up" },
-        { label: "Unit management" },
-        { label: "Editing" },
-        { label: "Music" },
-        { label: "Colour grading" },
-        { label: "Mixing" }
       ]
     },
 
@@ -300,6 +301,28 @@ window.SITE_EN = {
       links: [{ label: "Read the La Provence article" }, { label: "Buy the play" }]
     },
 
+    /* ---- Merci Maman ---- */
+    {
+      id: "merci-maman",
+      format: "Theatre · Contemporary drama",
+      role: "Production coordinator · Assistant stage director",
+      description:
+        "Merci Maman, a contemporary drama written by Dominique Vigna and directed by Sophie Lecarpentier. Léonore Vanier is production coordinator and assistant stage director.",
+      method: "Production file: statement of intent, provisional budgets, technical, artistic and administrative needs, mood board, casting, production and rehearsal schedule, notes to the actors · Presentation to local officials (Levallois cultural department).",
+      status: "Project in progress",
+      tile: { placeholder: "Image coming soon" },
+      hero: { label: "Image to be provided" },
+      credits: [
+        { label: "Text" },
+        { label: "Genre", value: "Contemporary drama" },
+        { label: "Theatre", value: "Private" },
+        { label: "Director" },
+        { label: "Administration" },
+        { label: "Collaboration" },
+        { label: "Supporters" }
+      ]
+    },
+
     /* ---- Life on Xenia ---- */
     {
       id: "life-on-xenia",
@@ -342,7 +365,7 @@ window.SITE_EN = {
       format: "Audiobooks · 2026",
       role: "Producer · Artistic director",
       description:
-        "Eight audiobook productions: prospecting, coordination of recordings, artistic direction, narration and delivery.",
+        "Nine audiobook productions: prospecting, coordination of recordings, artistic direction, narration and delivery.",
       tile: {
         images: [
           { alt: "Cover of the audiobook Les disparues de la crypte, by Mélodie Miller." },
@@ -352,7 +375,7 @@ window.SITE_EN = {
       },
       intro: [
         "Development and structuring of a new audiobook production activity in 2026, from commercial prospecting to delivery of the productions.",
-        "Eight productions: six thrillers, including a trilogy, and two romances."
+        "Nine productions: six thrillers, including a trilogy, two romances and one cosy mystery."
       ],
       activity: {
         title: "From manuscript to final delivery",
@@ -361,7 +384,7 @@ window.SITE_EN = {
           { title: "Production", text: "Hiring and coordinating contributors, recording schedule, artistic and operational follow-up." },
           { title: "Delivery", text: "Coordination of post-production, quality control and delivery of the final files." }
         ],
-        stats: [{ value: "8 contracts", label: "signed" }, { value: "€10,000", label: "revenue generated by the activity" }]
+        stats: [{ value: "9 contracts", label: "signed" }, { value: "€10,000", label: "revenue generated by the activity" }]
       },
       credit: "Post-production: La Lucarne d’Ariane, partner post-production studio.",
       groups: [
@@ -396,6 +419,11 @@ window.SITE_EN = {
               cover: { alt: "Cover of Un chum pour Noël, by Mélodie Miller." }
             }
           ]
+        },
+        {
+          label: "Cosy mystery",
+          title: "Cosy mystery",
+          items: [{ series: "Penny McBride, book 1", status: "In production" }]
         },
         {
           label: "Trilogy",
@@ -492,16 +520,16 @@ window.SITE_EN = {
       { label: "Post-production", proof: "Le Contrôle sanitaire: editing, grading, mixing", project: "le-controle-sanitaire" },
       { label: "Delivery", proof: "Audio: quality control and delivery of final files", project: "productions-audio" },
       { label: "AI video", proof: "Life on Xenia: 30 vertical AI-generated episodes", project: "life-on-xenia" },
-      { label: "Audio", proof: "8 audiobook productions", project: "productions-audio" },
+      { label: "Audio", proof: "9 audiobook productions", project: "productions-audio" },
       { label: "Live performance", proof: "LE BAIN: more than 30 performances in Paris and Avignon", project: "le-bain" }
     ],
     proofsTitle: "Concrete proof",
     proofs: [
-      { value: "Short films", text: "Le Contrôle sanitaire (33,000 views), Sous ta peau brûlante" },
+      { value: "Short films", text: "Le Contrôle sanitaire (35,000 views), Sous ta peau brûlante" },
       { value: "Mini-series", text: "ADAM, produced by FeatureProd" },
       { value: "€45k · 13 · 30+", text: "LE BAIN: budget, people, performances" },
       { value: "30 episodes", text: "Life on Xenia, AI vertical fiction" },
-      { value: "8 productions", text: "Audiobooks: 6 thrillers, 2 romances" },
+      { value: "9 productions", text: "Audiobooks: 6 thrillers, 2 romances, 1 cosy mystery" },
       { value: "2021–2024", text: "Project Manager at ENGIE · +€8.8M revenue" },
       { value: "Since 2024", text: "Creation of Sensible Indocile" }
     ],

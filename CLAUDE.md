@@ -8,7 +8,7 @@ Stack : Jekyll (GitHub Pages) + HTML statique + JS vanilla. Pas de npm, de bundl
 - Pages = coquilles HTML (`index.html`, `spectacles/`, `films/`, `projets/<slug>/`, `audio/`, `a-propos/`, `presse/`, `agenda/`, `mecenat/`, `contact/`, `mentions-legales/`). Mécénat, Contact et Mentions légales contiennent leur texte en HTML.
 - Dossiers PDF téléchargeables : `assets/docs/`.
 - Styles : `assets/css/style.css` (base) puis `assets/css/company.css` et `assets/css/pages.css` (surcharges de la compagnie). Couleurs et police passent par les variables de `:root` (bleu nuit / violet, Cormorant Garamond).
-- `leonore_vanier/` est le portfolio personnel de Léonore : ne pas le modifier depuis ce site.
+- `leonore_vanier/` est le portfolio personnel de Léonore, géré dans son propre dossier : voir `leonore_vanier/README.md` (guide de mise à jour) et `leonore_vanier/CLAUDE.md` (règles). Ne pas le modifier lors d'un travail sur le site de la compagnie.
 - Anciennes URL (`spectacle-*.html`, `galerie.html`, etc.) : simples pages de redirection.
 
 ## Règles
