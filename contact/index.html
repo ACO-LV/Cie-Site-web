@@ -1,0 +1,75 @@
+---
+---
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Compagnie Sensible Indocile</title>
+<meta name="description" content="Contactez la Compagnie Sensible Indocile pour un projet, une commande ou une collaboration.">
+<meta property="og:title" content="Contact — Compagnie Sensible Indocile">
+<meta property="og:description" content="Contactez la Compagnie Sensible Indocile pour un projet, une commande ou une collaboration.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Compagnie Sensible Indocile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://lacompagniesensibleindocile.fr/assets/img/home/hero-poster.webp">
+<meta property="og:url" content="https://lacompagniesensibleindocile.fr/contact/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://lacompagniesensibleindocile.fr/contact/">
+<meta name="theme-color" content="#07062b">
+<script>
+(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem("si-theme")}catch(e){}
+if(t!=="light"&&t!=="dark"){t="dark"}
+d.setAttribute("data-theme",t)})();
+</script>
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/company.css">
+</head>
+<body data-root="../" data-page="static" data-section="contact">
+<a class="skip" href="#main">Aller au contenu</a>
+<div id="site-header"></div>
+<main id="main" tabindex="-1">
+<div class="container prose-page">
+<header class="page-head"><p class="eyebrow">Sensible Indocile</p><h1>Contact</h1></header>
+<p>Vous portez un projet, une commande, une idée de collaboration ? Vous pouvez nous écrire pour toute question ou demande :</p>
+<form id="contact-form" class="form">
+<div><label for="cf-name">Nom</label><input type="text" id="cf-name" name="name" autocomplete="name" required></div>
+<div><label for="cf-email">E-mail</label><input type="email" id="cf-email" name="email" autocomplete="email" required></div>
+<div><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" rows="6" required></textarea></div>
+<div class="sr-only" aria-hidden="true"><label for="cf-bot">Ne pas remplir</label><input type="text" id="cf-bot" name="bot-field" tabindex="-1" autocomplete="off"></div>
+<button type="submit" class="btn">Envoyer</button>
+<p id="form-status" role="status"></p>
+</form>
+<p>Retrouvez-nous aussi sur <a href="https://www.instagram.com/ciesensibleindocile" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (nouvel onglet)</span></a>.</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+<script>
+(function () {
+  emailjs.init({ publicKey: "C9r_QSX-YrY-xG4kZ" });
+  var statusEl = document.getElementById("form-status");
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (e.target["bot-field"].value !== "") return;
+    statusEl.className = "form-status-sending form-status-visible";
+    statusEl.textContent = "Envoi en cours…";
+    emailjs.sendForm("service_ip0b182", "template_gk67h0b", "#contact-form").then(function () {
+      statusEl.className = "form-status-success form-status-visible";
+      statusEl.textContent = "Merci ! Votre message a bien été envoyé.";
+      e.target.reset();
+    }, function (err) {
+      statusEl.className = "form-status-error form-status-visible";
+      statusEl.textContent = "Erreur : " + ((err && err.text) || "envoi impossible") + ". Vous pouvez aussi nous écrire sur Instagram.";
+    });
+  });
+})();
+</script>
+</main>
+<div id="site-footer"></div>
+<script src="../assets/js/data.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

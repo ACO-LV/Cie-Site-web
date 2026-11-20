@@ -1,47 +1,17 @@
 # Rules — Compagnie Sensible Indocile
 
-## Rôle
-Tu es senior front-end engineer qui relit le code d'un junior.
-Stack : Jekyll + GitHub Pages, HTML statique, CSS modulaire, JS vanilla.
+Stack : Jekyll (GitHub Pages) + HTML statique + JS vanilla. Pas de npm, de bundler ni de framework.
 
-## Règles absolues — NE JAMAIS
-- Modifier un nom de classe CSS existant dans un HTML sans chercher toutes ses occurrences
-- Supprimer une règle CSS sans vérifier qu'elle n'est pas utilisée ailleurs
-- Changer la structure du footer (chargé dynamiquement via #footer-placeholder + script.js)
-- Toucher _config.yml sans le signaler explicitement
-- Introduire npm, un bundler, un framework JS ou une dépendance externe non approuvée
-- Créer un fichier CSS sans l'importer dans css/styles.css
-- Casser le responsive : tester mentalement 320px, 768px, 1280px avant toute modif CSS
+## Architecture (refonte 2026)
+- Contenu : `assets/js/data.js` (projets, textes, bureau) et `data/agenda.json` (dates). C'est là qu'on modifie les textes.
+- Rendu : `assets/js/main.js` génère l'en-tête, le pied de page, la mosaïque, les pages projet, Audio, Présentation et Agenda à partir des données.
+- Pages = coquilles HTML (`index.html`, `projets/<slug>/index.html`, `audio/`, `presentation/`, `agenda/`, `mecenat/`, `contact/`, `mentions-legales/`). Mécénat, Contact et Mentions légales contiennent leur texte en HTML.
+- Styles : `assets/css/style.css` (base) puis `assets/css/company.css` (surcharges de la compagnie). Couleurs et police passent par les variables de `:root` (bleu nuit / violet, Cormorant Garamond).
+- `leonore_vanier/` est le portfolio personnel de Léonore : ne pas le modifier depuis ce site.
+- Anciennes URL (`spectacle-*.html`, `galerie.html`, etc.) : simples pages de redirection.
 
-## Règles de codage
-- Toute nouvelle page suit exactement le pattern : front matter Jekyll / body class / hero logo / footer placeholder / {% include schema-performer.html %}
-- Les couleurs et polices passent obligatoirement par les variables de css/theme.css
-- Pas de style inline sauf object-position (déjà présent dans le code existant)
-- Les IDs doivent être uniques dans chaque page (cf. bug haWidget dans mecenat.html)
-- Tout attribut alt doit être descriptif, jamais vide sauf image purement décorative
-
-## Format de réponse
-- Fournis toujours des diffs, jamais le fichier entier sauf si < 30 lignes
-- Signale chaque risque de régression avec 🔴
-- Signale chaque dette technique introduite avec 🟡
-- Une section "✅ Testé mentalement sur" avec les breakpoints vérifiés
-
-## Bugs connus à ne pas reproduire
-
-### mecenat.html
-- IDs `haWidget` dupliqués → toujours utiliser des IDs uniques (haWidget1, haWidget2)
-
-### spectacles.html + courtmetrage.html  
-- Double `>` dans `<body class="spectacles-page">>` → toujours un seul `>`
-
-### agenda.html + mecenat.html
-- Utilisent `.presentation-hero` au lieu de `.agenda-hero` / `.mecenat-hero`
-  → vérifier que la class du hero correspond bien au CSS de la page
-
-### css/theme.css
-- Contient des commentaires avec `#` (syntaxe invalide en CSS pur)
-  → ne pas ajouter de nouveaux commentaires avec `#`
-
-### galerie.html
-- `</div>` orphelin avant les photos ledahut (ferme une div inexistante)
-  → vérifier l'imbrication avant/après toute modif de la galerie
+## Règles
+- Ne jamais inventer d'information (dates, crédits, chiffres) : l'ajouter seulement si elle est fournie.
+- Max 6 photos par projet ; images en WebP, < 400 Ko, avec `w`, `h` et un `alt` descriptif.
+- Ne pas toucher `_config.yml` sans le signaler.
+- Tester 320 px, 768 px et 1280 px, en mode clair et sombre, avant de fusionner.

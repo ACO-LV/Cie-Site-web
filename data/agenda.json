@@ -1,0 +1,19 @@
+{
+  "_aide": "Pour ajouter une date : copier un bloc dans « events », changer id (unique), title, start (AAAA-MM-JJ ou AAAA-MM-JJTHH:MM), end (facultatif, pour une série de jours), place, city, url (billetterie, facultatif), description (facultatif), puis enregistrer (Commit). Le calendrier se met à jour tout seul. Supprimer la ligne « banner » quand une vraie date est publiée.",
+  "banner": {
+    "title": "LE BAIN à Paris",
+    "text": "Exploitation à Paris fin 2027 / 2028 : dates à venir.",
+    "project": "le-bain"
+  },
+  "events": [],
+  "_exemple": {
+    "id": "le-bain-paris-2027-01",
+    "title": "LE BAIN",
+    "start": "2027-11-20T19:00",
+    "end": "2027-12-20T19:00",
+    "place": "Nom du théâtre",
+    "city": "Paris",
+    "url": "https://exemple.fr/billetterie",
+    "description": "Théâtre contemporain, durée à préciser."
+  }
+}

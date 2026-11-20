@@ -1,99 +1,50 @@
 ---
-title: "Compagnie Sensible Indocile"
-description: "Compagnie de production audiovisuelle fondée à Paris. Découvrez nos productions, notre équipe et notre histoire."
-lang: fr
 ---
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="images/Logo2026.png">
-  <meta name="theme-color" content="#8b0000">
-  {% seo %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compagnie Sensible Indocile | Productions audiovisuelles &amp; spectacle vivant</title>
+<meta name="description" content="Compagnie de productions audiovisuelles &amp; spectacle vivant fondée à Paris : spectacles, films, fictions IA et livres audio.">
+<meta property="og:title" content="Compagnie Sensible Indocile | Productions audiovisuelles &amp; spectacle vivant">
+<meta property="og:description" content="Compagnie de productions audiovisuelles &amp; spectacle vivant fondée à Paris : spectacles, films, fictions IA et livres audio.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Compagnie Sensible Indocile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://lacompagniesensibleindocile.fr/assets/img/home/hero-poster.webp">
+<meta property="og:url" content="https://lacompagniesensibleindocile.fr/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://lacompagniesensibleindocile.fr/">
+<meta name="theme-color" content="#07062b">
+<script>
+(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem("si-theme")}catch(e){}
+if(t!=="light"&&t!=="dark"){t="dark"}
+d.setAttribute("data-theme",t)})();
+</script>
+<link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;display=swap">
+<link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="./assets/css/company.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"PerformingGroup","name":"Compagnie Sensible Indocile","url":"https://lacompagniesensibleindocile.fr","logo":"https://lacompagniesensibleindocile.fr/assets/img/brand/logo-2026.webp","description":"Compagnie de productions audiovisuelles et de spectacle vivant, fondée à Paris.","sameAs":["https://www.instagram.com/ciesensibleindocile"]}
+</script>
 </head>
-
-<body>
-  <a href="#hero" class="skip-to-content">Aller au contenu</a>
-    <!-- Bouton hamburger -->  
-      <div class="responsive-header">
-        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
-        <nav class="nav-links-index-responsive" aria-label="Menu mobile">
-          <ul>
-            <li><a href="presentation.html">Présentation</a></li>
-            <li><a href="spectacles.html">Spectacles</a></li>
-            <li><a href="courtmetrage.html">Films</a></li>
-            <li><a href="mecenat.html">Mécénat</a></li>
-            <li><a href="agenda.html">Agenda</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
-          </ul>
-        </nav>
-      </div>
-    
-        <!-- Section Hero - Image de la troupe -->
-    <section class="hero" id="hero">
-        <!-- Div d'overlay pour le filtre de transparence -->
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="header-container">
-                <h1 class="company-name-index">SENSIBLE INDOCILE</h1>
-                <!-- #119: sous-titre compagnie -->
-                <p class="company-subtitle">Compagnie de productions audiovisuelles</p>
-                <!-- Menu de navigation -->
-                <nav class="nav-links-index" aria-label="Menu principal">
-                  <ul>
-                    <li><a href="presentation.html">Présentation</a></li>
-                    <li><a href="spectacles.html">Spectacles</a></li>
-                    <li><a href="courtmetrage.html">Films</a></li>
-                    <li><a href="mecenat.html">Mécénat</a></li>
-                    <li><a href="agenda.html">Agenda</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
-                  </ul>
-                </nav>
-                <!-- #120: CTA hero — mecenat + spectacle -->
-                <div class="hero-cta">
-                  <a href="mecenat.html" class="btn">Soutenir la compagnie</a>
-                  <a href="spectacle-le-bain.html" class="btn-outline">Découvrir LE BAIN</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- POP-UP « Le Bain — Avignon 2026 » -->
-<div id="popup-le-bain" class="popup hidden" role="dialog"
-     aria-modal="true" aria-labelledby="popup-le-bain-title"
-     data-end-date="2026-08-01">
-  <div class="popup-overlay"></div>
-
-  <div class="popup-body">
-    <button class="popup-close" aria-label="Fermer la fenêtre">&times;</button>
-
-    <!-- #91: popup restructuré — titre dédié + paragraphes séparés + bouton CTA -->
-    <p id="popup-le-bain-title" class="popup-title">
-      Nous rejouerons <strong>LE BAIN</strong> au Festival OFF d'Avignon 2026 !
-    </p>
-    <p class="popup-text">
-      C'est une étape très importante pour le spectacle et un vrai défi
-      logistique et financier (transport, hébergement, location/technique,
-      communication, etc.).
-    </p>
-    <p class="popup-text">
-      Pour y aller, nous avons besoin de soutien.
-    </p>
-    <a href="mecenat.html" class="btn popup-btn">Nous soutenir</a>
-  </div>
+<body data-root="./" data-page="home" data-section="">
+<a class="skip" href="#main">Aller au contenu</a>
+<div id="site-header"></div>
+<main id="main" tabindex="-1">
+<noscript>
+<div class="container prose-page">
+<h1>Compagnie Sensible Indocile</h1>
+<p>Ce site nécessite JavaScript pour afficher les projets. Retrouvez-nous sur <a href="https://www.instagram.com/ciesensibleindocile">Instagram</a>.</p>
 </div>
-
-<!-- FOOTER -->
-<div id="footer-placeholder"></div>
-
-<!-- Script JavaScript -->
-<script src="js/script.js"></script>
-
-{% include schema-performer.html %}
+</noscript>
+</main>
+<div id="site-footer"></div>
+<script src="./assets/js/data.js" defer></script>
+<script src="./assets/js/main.js" defer></script>
 </body>
 </html>

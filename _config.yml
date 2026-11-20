@@ -14,7 +14,7 @@ plugins:
 lang: fr
 author: "Compagnie Sensible Indocile"
 
-logo: "/images/Logo2026.png"   # idéalement carré, ≥160 px, <150 ko
+logo: "/assets/img/brand/logo-2026.webp"   # idéalement carré, ≥160 px, <150 ko
 
 # Comptes sociaux
 social:
@@ -25,7 +25,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "/images/spectacle.jpg"
+      image: "/assets/img/home/hero-poster.webp"
       lang: fr
   # Fragment et fichier de vérification Google : hors du sitemap
   - scope:
