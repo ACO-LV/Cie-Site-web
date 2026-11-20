@@ -227,7 +227,7 @@
         i.setAttribute("src", asset(logoSrc(i.getAttribute("data-logo"))));
       });
       var m = document.querySelector('meta[name="theme-color"]');
-      if (m) m.setAttribute("content", dark ? "#07062b" : "#f4f2fb");
+      if (m) m.setAttribute("content", dark ? "#07062b" : "#eef1ff");
     }
     btn.addEventListener("click", function () {
       var next = theme() === "dark" ? "light" : "dark";

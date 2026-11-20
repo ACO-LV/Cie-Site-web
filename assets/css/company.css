@@ -8,12 +8,12 @@
   --serif: var(--display);
   --sans: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
   --accent: #6a2bd0;      /* violet d'interaction (clair) */
-  --magenta: #d6249f;     /* accent discret tiré de la photo d'accueil */
+  --magenta: #5b21b6;     /* accent discret tiré de la photo d'accueil */
   --night: #07062b;       /* bleu nuit constant */
   --royal: #2616e1;       /* bleu intense de la photo d'accueil */
 }
 html[data-theme="dark"] {
-  --accent: #ff8fd0;
+  --accent: #c3b1ff;
 }
 body {
   font-family: var(--sans);
