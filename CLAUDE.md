@@ -5,8 +5,9 @@ Stack : Jekyll (GitHub Pages) + HTML statique + JS vanilla. Pas de npm, de bundl
 ## Architecture (refonte 2026)
 - Contenu : `assets/js/data.js` (projets, textes, bureau) et `data/agenda.json` (dates). C'est là qu'on modifie les textes.
 - Rendu : `assets/js/main.js` génère l'en-tête, le pied de page, la mosaïque, les pages projet, Audio, Présentation et Agenda à partir des données.
-- Pages = coquilles HTML (`index.html`, `projets/<slug>/index.html`, `audio/`, `presentation/`, `agenda/`, `mecenat/`, `contact/`, `mentions-legales/`). Mécénat, Contact et Mentions légales contiennent leur texte en HTML.
-- Styles : `assets/css/style.css` (base) puis `assets/css/company.css` (surcharges de la compagnie). Couleurs et police passent par les variables de `:root` (bleu nuit / violet, Cormorant Garamond).
+- Pages = coquilles HTML (`index.html`, `spectacles/`, `films/`, `projets/<slug>/`, `audio/`, `a-propos/`, `presse/`, `agenda/`, `mecenat/`, `contact/`, `mentions-legales/`). Mécénat, Contact et Mentions légales contiennent leur texte en HTML.
+- Dossiers PDF téléchargeables : `assets/docs/`.
+- Styles : `assets/css/style.css` (base) puis `assets/css/company.css` et `assets/css/pages.css` (surcharges de la compagnie). Couleurs et police passent par les variables de `:root` (bleu nuit / violet, Cormorant Garamond).
 - `leonore_vanier/` est le portfolio personnel de Léonore : ne pas le modifier depuis ce site.
 - Anciennes URL (`spectacle-*.html`, `galerie.html`, etc.) : simples pages de redirection.
 

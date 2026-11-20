@@ -24,19 +24,21 @@ window.SITE = {
   },
 
   /* 2. NAVIGATION ET LIBELLÉS ---------------------------------------------- */
+  email: "ciesensibleindocile@gmail.com",
   nav: [
-    { id: "projets", label: "Projets", path: "projets/" },
-    { id: "audio", label: "Audio", path: "audio/" },
-    { id: "presentation", label: "Présentation", path: "presentation/" },
+    { id: "a-propos", label: "À propos", path: "a-propos/" },
+    { id: "spectacles", label: "Spectacles", path: "spectacles/" },
+    { id: "audio", label: "Livres audio", path: "audio/" },
+    { id: "films", label: "Films", path: "films/" },
     { id: "agenda", label: "Agenda", path: "agenda/" },
+    { id: "presse", label: "Presse", path: "presse/" },
     { id: "mecenat", label: "Mécénat", path: "mecenat/" },
     { id: "contact", label: "Contact", path: "contact/" }
   ],
   categories: {
-    spectacles: { label: "Spectacles", description: "Théâtre contemporain." },
-    films: { label: "Films", description: "Courts-métrages et séries." },
-    ia: { label: "Fictions IA", description: "Fictions créées avec des outils de génération vidéo IA." },
-    audio: { label: "Audio", description: "Livres audio : narration, direction artistique et production." }
+    spectacles: { label: "Spectacles", tag: "Spectacle", path: "spectacles/", description: "Théâtre contemporain produit par la compagnie." },
+    audio: { label: "Livres audio", tag: "Livres audio", path: "audio/", description: "Livres audio : narration, direction artistique et production." },
+    films: { label: "Films", tag: "Film", path: "films/", description: "Courts-métrages produits par la compagnie." }
   },
   ui: {
     skip: "Aller au contenu",
@@ -79,7 +81,33 @@ window.SITE = {
     contactBtn: "Nous contacter",
     memberOpen: "Voir la fiche de ",
     memberClose: "Fermer",
-    seeProject: "Voir le projet"
+    seeProject: "Voir le projet",
+    upcoming: "Prochainement",
+    toAgenda: "Voir l'agenda",
+    supportShort: "Soutenir",
+    contactTitle2: "Envie d'en savoir plus ? Une question ? Un projet ?",
+    contactLine: "Contactez-nous à",
+    copyMail: "Copier l'adresse",
+    copied: "Adresse copiée",
+    pressTitle: "Presse",
+    pressIntro: "LE BAIN dans la presse, et les dossiers à télécharger.",
+    articles: "Articles",
+    downloads: "À télécharger",
+    readArticle: "Lire l'article",
+    download: "Télécharger",
+    founderTitle: "Fondatrice",
+    all: "Tous",
+    listenNow: "▶ Écouter",
+    soon: "À venir",
+    notifyTitle: "Me prévenir de la sortie",
+    notifyEmail: "Votre adresse e-mail",
+    notifyBtn: "Me prévenir",
+    notifyOk: "Merci ! Nous vous préviendrons de la sortie.",
+    notifyKo: "L'envoi a échoué : écrivez-nous directement.",
+    lightboxClose: "Fermer",
+    lightboxPrev: "Photo précédente",
+    lightboxNext: "Photo suivante",
+    closeMenu: "Fermer le menu"
   },
 
   /* 3. PROJETS ------------------------------------------------------------- *
@@ -199,420 +227,9 @@ window.SITE = {
           label: "Lire l’article de La Provence",
           url: "https://www.laprovence.com/article/region/9482563578810414/festival-off-le-bain-absurde-et-derangeant"
         },
+        { label: "Dossier de presse (PDF)", url: "assets/docs/le-bain-dossier-de-presse.pdf", file: true },
+        { label: "Dossier pédagogique (PDF)", url: "assets/docs/le-bain-dossier-pedagogique.pdf", file: true },
         { label: "Acheter la pièce", url: "https://www.amazon.fr/BAIN-pi%C3%A8ce-th%C3%A9%C3%A2tre-contemporaine-absurde/dp/B0G1HZQBQG", primary: true }
-      ]
-    },
-
-    /* ---- LE DAHUT ---- */
-    {
-      id: "le-dahut",
-      category: "films",
-      slug: "le-dahut",
-      title: "Le Dahut",
-      format: "Court-métrage · Prix Florent Image 2025",
-      filmBy: "Un film de Léonore Vanier",
-      role: "Réalisation · Production",
-      description:
-        "Le Dahut, premier court-métrage de fiction réalisé par Léonore Vanier dans le cadre du Prix Florent Image 2025, produit par la Compagnie Sensible Indocile.",
-      synopsis:
-        "Connaissez-vous le Dahut ? À Dahut-Ville, petite bourgade des Vosges, statues, panneaux et spécialités locales : tout est créé pour faire croire à l'existence de cet animal. Quatre amis d'enfance partent à sa recherche, guidés par Daniel et Muriel, un couple de guides passionnés. Mais très vite, des indices troublants se multiplient : des empreintes « trop parfaites », des bruits étranges la nuit, des murmures entre les guides. Emma, déterminée, prend les rênes de l'enquête et découvre la vaste supercherie. Avant de quitter le refuge, une silhouette étrange apparaît au loin sur une crête, laissant planer un doute : le Dahut existe-t-il vraiment ?",
-      tile: {
-        ratio: "16 / 9",
-        focus: "50% 45%",
-        images: [
-          {
-            src: "assets/img/le-dahut/photo-1.webp",
-            w: 1600,
-            h: 900,
-            alt: "Le Dahut : cinq amis en vestes de montagne assis sur un banc devant une forêt."
-          }
-        ]
-      },
-      hero: {
-        type: "image",
-        image: {
-          src: "assets/img/le-dahut/affiche.webp",
-          w: 800,
-          h: 1132,
-          alt: "Affiche du Dahut, un film de Léonore Vanier : cinq amis en vestes de montagne devant une forêt."
-        }
-      },
-      stats: [],
-      awards: [],
-      gallery: [
-        {
-          src: "assets/img/le-dahut/photo-2.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Dahut : des promeneurs de dos, assis face à un paysage de montagnes sous un ciel ensoleillé."
-        },
-        {
-          src: "assets/img/le-dahut/photo-3.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Dahut : paysage vallonné des Vosges sous un ciel de traîne."
-        }
-      ],
-      credits: [
-        { label: "Format", value: "Court-métrage de fiction" },
-        { label: "Réalisation", value: "Léonore Vanier" },
-        { label: "Martin", value: "Guilherme Conde" },
-        { label: "Romy", value: "Juliette Ganay" },
-        { label: "Tom", value: "Colin Pugin-Bron" },
-        { label: "Emma", value: "Léonore Vanier" },
-        { label: "Daniel", value: "Adrien Genoud" },
-        { label: "Muriel", value: "Félicie Genest" },
-        { label: "Assistant à la mise en scène", value: "Nemo Pierson" },
-        { label: "Assistant réalisateur", value: "Guilherme Conde" },
-        { label: "Direction de la photographie", value: "Salomé Bossé" },
-        { label: "Son", value: "Joseph Laurent et Calypso Vanier" },
-        { label: "Régie", value: "Arthur Couvreur" },
-        { label: "Soutiens", value: "Compagnie Sensible Indocile, Mairie de Faucompierre, Cours Florent, Armand Lameloise" }
-      ],
-      links: []
-    },
-
-    {
-      id: "sous-ta-peau-brulante",
-      category: "films",
-      slug: "sous-ta-peau-brulante",
-      title: "Sous ta peau brûlante",
-      format: "Court-métrage · 2025 · 1 min",
-      role: "Productrice · Auteure · Réalisatrice",
-      description:
-        "Sous ta peau brûlante, court-métrage de fiction (2025, 1 min) écrit et réalisé par Léonore Vanier, produit par la Compagnie Sensible Indocile.",
-      synopsis: "Entre Axel et Léo, c’est tout de suite l’étincelle. Alors que le date se poursuit à merveille, Léo remarque un détail chez Axel qui va faire basculer leur idylle en drame.",
-      method: "Écriture → Préparation → Tournage → Postproduction (montage, étalonnage, mixage) → Festivals et diffusion en ligne.",
-      methodNote: "En collaboration avec le Cours Florent.",
-      tile: {
-        ratio: "16 / 9",
-        focus: "50% 40%",
-        loop: "assets/video/sous-ta-peau-brulante.mp4",
-        images: [
-          {
-            src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
-            w: 1600,
-            h: 900,
-            alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
-          }
-        ]
-      },
-      hero: {
-        type: "youtube",
-        id: "jm_t5PYLE94",
-        loop: "assets/video/sous-ta-peau-brulante.mp4",
-        title: "Sous ta peau brûlante, court-métrage",
-        poster: {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
-          w: 1600,
-          h: 900,
-          alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
-        }
-      },
-      stats: [{ value: "4 400 vues", label: "sur Instagram (mai 2025)" }],
-      awards: [{ label: "Sélection festival", detail: "1 min 2 court", source: null }],
-      gallery: [
-        {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
-          w: 1600,
-          h: 900,
-          alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
-        },
-        {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-2.webp",
-          w: 1600,
-          h: 900,
-          alt: "Sous ta peau brûlante : deux silhouettes enlacées sur un fond violet, un bras levé."
-        },
-        {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-3.webp",
-          w: 1600,
-          h: 900,
-          alt: "Sous ta peau brûlante : gros plan sur le visage d’un jeune homme de profil, une main posée sur son épaule."
-        },
-        {
-          src: "assets/img/sous-ta-peau-brulante/photogramme-4.webp",
-          w: 1600,
-          h: 900,
-          alt: "Sous ta peau brûlante : deux hommes enlacés, l’un le visage tourné vers le haut."
-        }
-      ],
-      credits: [
-        { label: "Format", value: "Court-métrage de fiction, 2025" },
-        { label: "Durée", value: "1 minute" },
-        { label: "Réalisation · Écriture", value: "Léonore Vanier" },
-        { label: "Assistanat à la réalisation", value: "Juliette Ganay" },
-        { label: "Direction de la photographie", value: "Calypso Vanier" },
-        { label: "Son et lumière", value: "Joseph Laurent" },
-        { label: "Distribution", value: "Mathias Benhamou, Louis Faudais, Félicie Genest" },
-        { label: "Musique", value: "« Sicilian Tango », Joshua Arcoleo et Alex Munk (Cezame Music)" },
-        { label: "Production", value: "Compagnie Sensible Indocile et Léonore Vanier, en collaboration avec le Cours Florent" },
-        { label: "Photos", value: "@sensibleindocile" }
-      ],
-      links: [{ label: "Voir le film sur YouTube", url: "https://youtu.be/jm_t5PYLE94" }]
-    },
-
-    {
-      id: "le-controle-sanitaire",
-      category: "films",
-      slug: "le-controle-sanitaire",
-      title: "Le Contrôle sanitaire",
-      format: "Court-métrage · 2026 · 8 min",
-      filmBy: "Un film de Léonore Vanier & Juliette Ganay",
-      role: "Productrice · Auteure · Réalisatrice",
-      description:
-        "Le Contrôle sanitaire, court-métrage de fiction (2026, 8 min), un film de Léonore Vanier et Juliette Ganay. Sélections et mention spéciale en festivals.",
-      synopsis: "Alice et Sacha s’aiment éperdument depuis 5 ans, mais le couple s’est fragilisé. Unies par un même amour, les deux jeunes femmes cherchent à concilier leur couple et leurs différences.",
-      method: "Écriture → Préparation → Tournage → Postproduction (montage, étalonnage, mixage) → Festivals et diffusion en ligne.",
-      tile: {
-        ratio: "16 / 9",
-        focus: "50% 40%",
-        loop: "assets/video/le-controle-sanitaire.mp4",
-        images: [
-          {
-            src: "assets/img/le-controle-sanitaire/hd-1.webp",
-            w: 1600,
-            h: 900,
-            alt: "Le Contrôle sanitaire : deux femmes face à face dans une chambre, l’une rejetant ses cheveux en arrière."
-          }
-        ]
-      },
-      hero: {
-        type: "youtube",
-        id: "SmhharGafCE",
-        loop: "assets/video/le-controle-sanitaire.mp4", // animée au survol
-        title: "Le Contrôle sanitaire, court-métrage",
-        poster: {
-          src: "assets/img/le-controle-sanitaire/hd-1.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Contrôle sanitaire : deux femmes face à face dans une chambre, l’une rejetant ses cheveux en arrière."
-        }
-      },
-      stats: [{ value: "33 000 vues", label: "sur YouTube (octobre 2026)" }],
-      awards: [
-        {
-          label: "Mention spéciale",
-          icon: "trophy",
-          detail: "pour « la qualité de l’écriture et de l’interprétation »",
-          source: "Prix Florent Image 2026"
-        },
-        {
-          label: "Sélection officielle 2026",
-          detail: "Plus c’est court, plus c’est bon · KINO POP Festival · CAST Festival",
-          source: null
-        }
-      ],
-      gallery: [
-        {
-          src: "assets/img/le-controle-sanitaire/hd-7.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Contrôle sanitaire : deux jeunes femmes de profil, face à face dans une chambre ; l’une pose la main sur le menton de l’autre, bouche ouverte."
-        },
-        {
-          src: "assets/img/le-controle-sanitaire/hd-2.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Contrôle sanitaire : portrait d’une jeune femme brune en peignoir bleu, l’air inquiet, dans une chambre."
-        },
-        {
-          src: "assets/img/le-controle-sanitaire/hd-3.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Contrôle sanitaire : portrait d’une jeune femme aux cheveux courts, bouche entrouverte, guirlande lumineuse en arrière-plan."
-        },
-        {
-          src: "assets/img/le-controle-sanitaire/hd-4.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Contrôle sanitaire : deux jeunes femmes rieuses se prennent dans les bras."
-        },
-        {
-          src: "assets/img/le-controle-sanitaire/hd-5.webp",
-          w: 1600,
-          h: 900,
-          alt: "Le Contrôle sanitaire : une jeune femme en peignoir bleu, saisie en plein mouvement, regarde hors champ."
-        },
-      ],
-      credits: [
-        { label: "Format", value: "Court-métrage de fiction, 2026" },
-        { label: "Durée", value: "8 minutes" },
-        { label: "Un film de", value: "Léonore Vanier & Juliette Ganay" },
-        { label: "Réalisation · Production", value: "Léonore Vanier" },
-        { label: "Écriture", value: "Juliette Ganay et Léonore Vanier" },
-        { label: "Interprétation", value: "Juliette Ganay et Léonore Vanier" },
-        { label: "Direction de la photographie", value: "Matthieu Le Jeune" },
-        { label: "Son", value: "Louis Faudais" },
-        { label: "Assistanat à la mise en scène", value: "Clara Kermarec" },
-        { label: "Montage · Étalonnage · Mixage", value: "Léonore Vanier" },
-        { label: "Photos", value: "@sensibleindocile" }
-      ],
-      links: [{ label: "Voir le film sur YouTube", url: "https://www.youtube.com/watch?v=SmhharGafCE" }]
-    },
-
-    {
-      id: "adam",
-      category: "films",
-      slug: "adam",
-      title: "ADAM",
-      format: "Mini-série · produite par FeatureProd",
-      role: "Chargée de production · Assistante réalisatrice",
-      description:
-        "ADAM, mini-série réalisée par Hadrien Fière et produite par FeatureProd. Léonore Vanier y est chargée de production et assistante réalisatrice.",
-      synopsis: "Quand Adam apprend qu’il va devenir père, tous ses repères changent. Perdu entre loyauté pour sa nouvelle famille et sa famille d’origine, il se questionne sur son futur rôle de père.",
-      method: "Production : dépouillement, plan de travail, casting, repérages · Assistanat : feuilles de service, contraintes acteurs, lieux et techniques, suivi des rushes.",
-      status: "Projet en cours",
-      tile: {
-        ratio: "16 / 9",
-        focus: "50% 50%",
-        images: [
-          {
-            src: "assets/img/adam/adam-2-169.webp",
-            w: 1011,
-            h: 569,
-            alt: "Image d’ADAM : un homme en long manteau vert se tient dans une rue la nuit, image floue en mouvement."
-          }
-        ]
-      },
-      hero: {
-        type: "image",
-        image: {
-          src: "assets/img/adam/adam-2-169.webp",
-          w: 1011,
-          h: 569,
-          alt: "Image d’ADAM : un homme en long manteau vert se tient dans une rue la nuit, image floue en mouvement."
-        }
-      },
-      stats: [],
-      awards: [],
-      gallery: [
-        {
-          src: "assets/img/adam/adam-2.webp",
-          w: 900,
-          h: 1600,
-          alt: "Image d’ADAM : visage de profil presque entièrement dans l’ombre, lumière rasante sur le nez et les lèvres.",
-          caption: "Photo : FeatureProd"
-        },
-        {
-          src: "assets/img/adam/adam-3.webp",
-          w: 1014,
-          h: 1464,
-          alt: "Image d’ADAM : une main saisit une pelote d’épingles aux têtes colorées.",
-          caption: "Photo : @bidounini"
-        },
-        {
-          src: "assets/img/adam/adam-4.webp",
-          w: 900,
-          h: 1600,
-          alt: "Image d’ADAM : un jeune homme en chemise grise, de profil au premier plan ; une femme floue se tient dans l’embrasure d’une porte.",
-          caption: "Photo : FeatureProd"
-        }
-      ],
-      galleryFirst: {
-        src: "assets/img/adam/adam-1.webp",
-        w: 900,
-        h: 1600,
-        alt: "Image d’ADAM : gros plan sur le profil d’un jeune homme barbu, visage éclairé par une lumière chaude.",
-        caption: "Photo : FeatureProd"
-      },
-      credits: [
-        { label: "Format", value: "Mini-série" },
-        { label: "Réalisation", value: "Hadrien Fière" },
-        { label: "Production", value: "FeatureProd" },
-        { label: "Statut", value: "En cours · sortie prévue fin 2026" },
-        { label: "Mon rôle", value: "Chargée de production · Assistante réalisatrice" },
-        { label: "Photos", value: "@bidounini · FeatureProd" },
-        { label: "Distribution et équipe", value: null, todo: "crédits d’équipe autorisés à la publication" }
-      ],
-      links: []
-    },
-
-    {
-      id: "life-on-xenia",
-      category: "ia",
-      slug: "life-on-xenia",
-      title: "Life on Xenia",
-      format: "Série verticale · fiction générée en IA",
-      role: "Productrice · Scénariste · AI Video Creator",
-      description:
-        "Life on Xenia, fiction verticale en 30 épisodes créée avec des outils de génération vidéo IA : écriture, génération, itérations et sélection des plans.",
-      synopsis: "Fiction verticale (9:16) en 30 épisodes, générée avec des outils de création vidéo par IA.",
-      method: "Écriture → Découpage et prompts → Générations et itérations → Sélection des plans et montage.",
-      tools: "Runway, OpenRouter, FFmpeg, Seedance, WAN, GitHub, Visual Studio Code",
-      tile: {
-        ratio: "16 / 9",
-        focus: "50% 50%",
-        images: [
-          {
-            src: "assets/img/life-on-xenia/foret-vignette.webp",
-            w: 1280,
-            h: 720,
-            alt: "Life on Xenia : une forêt luxuriante traversée de rayons de soleil."
-          }
-        ]
-      },
-      hero: {
-        type: "tiktok",
-        id: "7693246234198396192",
-        url: "https://www.tiktok.com/@lifeonxenia/video/7693246234198396192",
-        title: "Life on Xenia, extrait sur TikTok",
-        ratio: "9 / 16",
-        poster: {
-          src: "assets/img/life-on-xenia/video-poster.webp",
-          w: 720,
-          h: 1280,
-          alt: "Image de Life on Xenia : une femme appuyée contre un homme à l’oreille pointue, dans une forêt la nuit."
-        }
-      },
-      stats: [
-        { value: "30", label: "épisodes" },
-        { value: "+ 14 000 vues", label: "sur TikTok" },
-        { value: "> 8 600 vues", label: "sur Instagram" }
-      ],
-      statsNote: "Vues sur deux semaines de lancement (relevé : octobre 2026).",
-      awards: [],
-      gallery: [
-        {
-          src: "assets/img/life-on-xenia/lya.webp",
-          w: 1600,
-          h: 893,
-          alt: "Planche de personnage : Lya, de face, de dos et en gros plan.",
-          caption: "Planche de personnage : Lya"
-        },
-        {
-          src: "assets/img/life-on-xenia/raafa.webp",
-          w: 1600,
-          h: 893,
-          alt: "Planche de personnage : Raafa, de face, de dos et en gros plan.",
-          caption: "Planche de personnage : Raafa"
-        },
-        {
-          src: "assets/img/life-on-xenia/foret.webp",
-          w: 1600,
-          h: 893,
-          alt: "Planche de décors : six variantes d’une forêt lumineuse traversée de rayons de soleil.",
-          caption: "Décors : la forêt de Xenia"
-        },
-        {
-          src: "assets/img/life-on-xenia/civilisation-ancienne.webp",
-          w: 1600,
-          h: 893,
-          alt: "Planche de décors : vaisseau d’une civilisation ancienne recouvert de lianes dans la jungle.",
-          caption: "Décors : la civilisation ancienne"
-        },
-      ],
-      credits: [
-        { label: "Format", value: "Série verticale 9:16, fiction générée en IA" },
-        { label: "Épisodes", value: "30" },
-        { label: "Rôle", value: "Productrice · Scénariste · AI Video Creator" },
-        { label: "Outils", value: "Runway · OpenRouter · FFmpeg · Seedance · WAN · GitHub · Visual Studio Code" },
-        { label: "Images", value: "@leonorevanier" }
-      ],
-      links: [
-        { label: "Voir l’extrait sur TikTok", url: "https://www.tiktok.com/@lifeonxenia/video/7693246234198396192" },
-        { label: "Life on Xenia sur Instagram", url: "https://www.instagram.com/lifeonxenia/" },
-        { label: "Voir un reel sur Instagram", url: "https://www.instagram.com/reel/De4z9DGsBS4/" }
       ]
     },
 
@@ -647,6 +264,18 @@ window.SITE = {
             h: 434,
             alt: "Couverture du livre audio Au cœur du Yukon, de Sophie Camus Hoguet."
           }
+        ]
+      },
+      tagline: "Huit histoires à écouter, de la romance au thriller.",
+      voice: {
+        title: "La voix de Léonore",
+        text: [
+          "Léonore Vanier prête sa voix aux huit livres audio produits par la compagnie.",
+          "Quatre d'entre eux sont une collaboration mère-fille avec sa mère, l'autrice Mélodie Miller : La Mariée de la fosse, Les disparues de la crypte, L'enfant du canal et Un chum pour Noël."
+        ],
+        links: [
+          { label: "Les romans de Mélodie Miller", url: "https://melodiemiller.fr/" },
+          { label: "Portfolio de Léonore Vanier", url: "leonore_vanier/", internal: true }
         ]
       },
       intro: [
@@ -816,7 +445,255 @@ window.SITE = {
       itemRole: "Narratrice · Productrice · Directrice artistique",
       credits: [],
       links: []
+    },
+
+    {
+      id: "le-controle-sanitaire",
+      category: "films",
+      slug: "le-controle-sanitaire",
+      title: "Le Contrôle sanitaire",
+      format: "Court-métrage · 2026 · 8 min",
+      filmBy: "Un film de Léonore Vanier & Juliette Ganay",
+      role: "Productrice · Auteure · Réalisatrice",
+      description:
+        "Le Contrôle sanitaire, court-métrage de fiction (2026, 8 min), un film de Léonore Vanier et Juliette Ganay. Sélections et mention spéciale en festivals.",
+      synopsis: "Alice et Sacha s’aiment éperdument depuis 5 ans, mais le couple s’est fragilisé. Unies par un même amour, les deux jeunes femmes cherchent à concilier leur couple et leurs différences.",
+      method: "Écriture → Préparation → Tournage → Postproduction (montage, étalonnage, mixage) → Festivals et diffusion en ligne.",
+      tile: {
+        ratio: "16 / 9",
+        focus: "50% 40%",
+        loop: "assets/video/le-controle-sanitaire.mp4",
+        images: [
+          {
+            src: "assets/img/le-controle-sanitaire/hd-1.webp",
+            w: 1600,
+            h: 900,
+            alt: "Le Contrôle sanitaire : deux femmes face à face dans une chambre, l’une rejetant ses cheveux en arrière."
+          }
+        ]
+      },
+      hero: {
+        type: "youtube",
+        id: "SmhharGafCE",
+        loop: "assets/video/le-controle-sanitaire.mp4", // animée au survol
+        title: "Le Contrôle sanitaire, court-métrage",
+        poster: {
+          src: "assets/img/le-controle-sanitaire/hd-1.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Contrôle sanitaire : deux femmes face à face dans une chambre, l’une rejetant ses cheveux en arrière."
+        }
+      },
+      stats: [{ value: "35 000 vues", label: "sur YouTube (novembre 2026)" }],
+      awards: [
+        {
+          label: "Mention spéciale",
+          icon: "trophy",
+          detail: "pour « la qualité de l’écriture et de l’interprétation »",
+          source: "Prix Florent Image 2026"
+        },
+        {
+          label: "Sélection officielle 2026",
+          detail: "Plus c’est court, plus c’est bon · KINO POP Festival · CAST Festival",
+          source: null
+        }
+      ],
+      gallery: [
+        {
+          src: "assets/img/le-controle-sanitaire/hd-7.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Contrôle sanitaire : deux jeunes femmes de profil, face à face dans une chambre ; l’une pose la main sur le menton de l’autre, bouche ouverte."
+        },
+        {
+          src: "assets/img/le-controle-sanitaire/hd-2.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Contrôle sanitaire : portrait d’une jeune femme brune en peignoir bleu, l’air inquiet, dans une chambre."
+        },
+        {
+          src: "assets/img/le-controle-sanitaire/hd-3.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Contrôle sanitaire : portrait d’une jeune femme aux cheveux courts, bouche entrouverte, guirlande lumineuse en arrière-plan."
+        },
+        {
+          src: "assets/img/le-controle-sanitaire/hd-4.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Contrôle sanitaire : deux jeunes femmes rieuses se prennent dans les bras."
+        },
+        {
+          src: "assets/img/le-controle-sanitaire/hd-5.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Contrôle sanitaire : une jeune femme en peignoir bleu, saisie en plein mouvement, regarde hors champ."
+        },
+      ],
+      credits: [
+        { label: "Format", value: "Court-métrage de fiction, 2026" },
+        { label: "Durée", value: "8 minutes" },
+        { label: "Un film de", value: "Léonore Vanier & Juliette Ganay" },
+        { label: "Réalisation · Production", value: "Léonore Vanier" },
+        { label: "Écriture", value: "Juliette Ganay et Léonore Vanier" },
+        { label: "Interprétation", value: "Juliette Ganay et Léonore Vanier" },
+        { label: "Direction de la photographie", value: "Matthieu Le Jeune" },
+        { label: "Son", value: "Louis Faudais" },
+        { label: "Assistanat à la mise en scène", value: "Clara Kermarec" },
+        { label: "Montage · Étalonnage · Mixage", value: "Léonore Vanier" },
+        { label: "Photos", value: "@sensibleindocile" }
+      ],
+      links: [{ label: "Voir le film sur YouTube", url: "https://www.youtube.com/watch?v=SmhharGafCE" }]
+    },
+
+    {
+      id: "le-dahut",
+      category: "films",
+      slug: "le-dahut",
+      title: "Le Dahut",
+      format: "Court-métrage · Prix Florent Image 2025",
+      filmBy: "Un film de Léonore Vanier",
+      role: "Réalisation · Production",
+      description:
+        "Le Dahut, premier court-métrage de fiction réalisé par Léonore Vanier dans le cadre du Prix Florent Image 2025, produit par la Compagnie Sensible Indocile.",
+      synopsis:
+        "Connaissez-vous le Dahut ? À Dahut-Ville, petite bourgade des Vosges, statues, panneaux et spécialités locales : tout est créé pour faire croire à l'existence de cet animal. Quatre amis d'enfance partent à sa recherche, guidés par Daniel et Muriel, un couple de guides passionnés. Mais très vite, des indices troublants se multiplient : des empreintes « trop parfaites », des bruits étranges la nuit, des murmures entre les guides. Emma, déterminée, prend les rênes de l'enquête et découvre la vaste supercherie. Avant de quitter le refuge, une silhouette étrange apparaît au loin sur une crête, laissant planer un doute : le Dahut existe-t-il vraiment ?",
+      tile: {
+        ratio: "16 / 9",
+        focus: "50% 45%",
+        images: [
+          {
+            src: "assets/img/le-dahut/photo-1.webp",
+            w: 1600,
+            h: 900,
+            alt: "Le Dahut : cinq amis en vestes de montagne assis sur un banc devant une forêt."
+          }
+        ]
+      },
+      hero: {
+        type: "image",
+        image: {
+          src: "assets/img/le-dahut/affiche.webp",
+          w: 800,
+          h: 1132,
+          alt: "Affiche du Dahut, un film de Léonore Vanier : cinq amis en vestes de montagne devant une forêt."
+        }
+      },
+      stats: [],
+      awards: [],
+      gallery: [
+        {
+          src: "assets/img/le-dahut/photo-2.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Dahut : des promeneurs de dos, assis face à un paysage de montagnes sous un ciel ensoleillé."
+        },
+        {
+          src: "assets/img/le-dahut/photo-3.webp",
+          w: 1600,
+          h: 900,
+          alt: "Le Dahut : paysage vallonné des Vosges sous un ciel de traîne."
+        }
+      ],
+      credits: [
+        { label: "Format", value: "Court-métrage de fiction" },
+        { label: "Réalisation", value: "Léonore Vanier" },
+        { label: "Martin", value: "Guilherme Conde" },
+        { label: "Romy", value: "Juliette Ganay" },
+        { label: "Tom", value: "Colin Pugin-Bron" },
+        { label: "Emma", value: "Léonore Vanier" },
+        { label: "Daniel", value: "Adrien Genoud" },
+        { label: "Muriel", value: "Félicie Genest" },
+        { label: "Assistant à la mise en scène", value: "Nemo Pierson" },
+        { label: "Assistant réalisateur", value: "Guilherme Conde" },
+        { label: "Direction de la photographie", value: "Salomé Bossé" },
+        { label: "Son", value: "Joseph Laurent et Calypso Vanier" },
+        { label: "Régie", value: "Arthur Couvreur" },
+        { label: "Soutiens", value: "Compagnie Sensible Indocile, Mairie de Faucompierre, Cours Florent, Armand Lameloise" }
+      ],
+      links: []
+    },
+
+    {
+      id: "sous-ta-peau-brulante",
+      category: "films",
+      slug: "sous-ta-peau-brulante",
+      title: "Sous ta peau brûlante",
+      format: "Court-métrage · 2025 · 1 min",
+      role: "Productrice · Auteure · Réalisatrice",
+      description:
+        "Sous ta peau brûlante, court-métrage de fiction (2025, 1 min) écrit et réalisé par Léonore Vanier, produit par la Compagnie Sensible Indocile.",
+      synopsis: "Entre Axel et Léo, c’est tout de suite l’étincelle. Alors que le date se poursuit à merveille, Léo remarque un détail chez Axel qui va faire basculer leur idylle en drame.",
+      method: "Écriture → Préparation → Tournage → Postproduction (montage, étalonnage, mixage) → Festivals et diffusion en ligne.",
+      methodNote: "En collaboration avec le Cours Florent.",
+      tile: {
+        ratio: "16 / 9",
+        focus: "50% 40%",
+        loop: "assets/video/sous-ta-peau-brulante.mp4",
+        images: [
+          {
+            src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
+            w: 1600,
+            h: 900,
+            alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
+          }
+        ]
+      },
+      hero: {
+        type: "youtube",
+        id: "jm_t5PYLE94",
+        loop: "assets/video/sous-ta-peau-brulante.mp4",
+        title: "Sous ta peau brûlante, court-métrage",
+        poster: {
+          src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
+          w: 1600,
+          h: 900,
+          alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
+        }
+      },
+      stats: [{ value: "4 400 vues", label: "sur Instagram (mai 2025)" }],
+      awards: [{ label: "Sélection festival", detail: "1 min 2 court", source: null }],
+      gallery: [
+        {
+          src: "assets/img/sous-ta-peau-brulante/photogramme-1.webp",
+          w: 1600,
+          h: 900,
+          alt: "Sous ta peau brûlante : deux silhouettes de profil, face à face, sur un fond violet."
+        },
+        {
+          src: "assets/img/sous-ta-peau-brulante/photogramme-2.webp",
+          w: 1600,
+          h: 900,
+          alt: "Sous ta peau brûlante : deux silhouettes enlacées sur un fond violet, un bras levé."
+        },
+        {
+          src: "assets/img/sous-ta-peau-brulante/photogramme-3.webp",
+          w: 1600,
+          h: 900,
+          alt: "Sous ta peau brûlante : gros plan sur le visage d’un jeune homme de profil, une main posée sur son épaule."
+        },
+        {
+          src: "assets/img/sous-ta-peau-brulante/photogramme-4.webp",
+          w: 1600,
+          h: 900,
+          alt: "Sous ta peau brûlante : deux hommes enlacés, l’un le visage tourné vers le haut."
+        }
+      ],
+      credits: [
+        { label: "Format", value: "Court-métrage de fiction, 2025" },
+        { label: "Durée", value: "1 minute" },
+        { label: "Réalisation · Écriture", value: "Léonore Vanier" },
+        { label: "Assistanat à la réalisation", value: "Juliette Ganay" },
+        { label: "Direction de la photographie", value: "Calypso Vanier" },
+        { label: "Son et lumière", value: "Joseph Laurent" },
+        { label: "Distribution", value: "Mathias Benhamou, Louis Faudais, Félicie Genest" },
+        { label: "Musique", value: "« Sicilian Tango », Joshua Arcoleo et Alex Munk (Cezame Music)" },
+        { label: "Production", value: "Compagnie Sensible Indocile et Léonore Vanier, en collaboration avec le Cours Florent" },
+        { label: "Photos", value: "@sensibleindocile" }
+      ],
+      links: [{ label: "Voir le film sur YouTube", url: "https://youtu.be/jm_t5PYLE94" }]
     }
+
   ],
 
   /* 4. ACCUEIL ET PRÉSENTATION -------------------------------------------- */
@@ -843,12 +720,6 @@ window.SITE = {
       title: "Spectacle vivant",
       text: "Production et diffusion de spectacles de théâtre contemporain : budget, équipe, lieux, communication et tournée.",
       project: "le-bain"
-    },
-    {
-      icon: "spark",
-      title: "Fictions IA",
-      text: "Création de fictions avec des outils de génération vidéo IA, intégrées à un vrai travail d'écriture et de mise en scène.",
-      project: "life-on-xenia"
     }
   ],
   how: [
@@ -858,24 +729,26 @@ window.SITE = {
     { title: "Diffusion", text: "Nous accompagnons la sortie : festivals, plateformes, salles, communication." }
   ],
 
-  /* 5. BUREAU DE L'ASSOCIATION -------------------------------------------- */
+  /* 5. FONDATRICE ET BUREAU DE L'ASSOCIATION ----------------------------- */
+  founder: {
+    id: "leonore-vanier",
+    name: "Léonore Vanier",
+    role: "Productrice artistique et comédienne",
+    bio: "Fondatrice de Sensible Indocile, Léonore Vanier est productrice artistique et comédienne. Elle développe et produit les projets de la compagnie — films, livres audio, spectacle vivant — et leur prête aussi son jeu et sa voix.",
+    photo: { src: "assets/img/bureau/leonore-vanier.webp", w: 700, h: 1019, alt: "Portrait de Léonore Vanier, souriante, cheveux longs bruns." },
+    links: [
+      { label: "Son site de productrice", url: "leonore_vanier/", internal: true },
+      { label: "Son site de comédienne", url: "https://www.filmmakers.eu/fr/actors/leonore-vanier" }
+    ]
+  },
   bureau: [
     {
-      id: "leonore-vanier",
-      name: "Léonore Vanier",
-      role: "Productrice artistique, Actrice",
-      bio: "Productrice artistique et ingénieure diplômée de l'ENSTA Paris et de la National University of Singapore, Léonore Vanier a débuté sa carrière comme Project Manager chez ENGIE avant de fonder la compagnie de production audiovisuelle Sensible Indocile. Elle y développe et produit des projets audiovisuels, audio et de spectacle vivant, en pilotant stratégie, financement, production, business development et équipes pluridisciplinaires.",
-      photo: { src: "assets/img/bureau/leonore-vanier.webp", w: 700, h: 1019, alt: "Portrait de Léonore Vanier, souriante, cheveux longs bruns." },
-      instagram: { label: "@leonorevanier", url: "https://www.instagram.com/leonorevanier" },
-      site: { label: "Portfolio de Léonore Vanier", url: "leonore_vanier/" }
-    },
-    {
-      id: "melodie-miller",
-      name: "Mélodie Miller",
-      role: "Autrice, Voyageuse",
-      bio: "Mélodie écrit en voyageant et voyage en écrivant. Elle nous entraîne au fil de ses mots vers un panel d'émotions allant du feel good au thriller psychologique.",
-      photo: { src: "assets/img/bureau/melodie-miller.webp", w: 372, h: 372, alt: "Portrait de Mélodie Miller." },
-      instagram: { label: "@melodie.miller.autrice", url: "https://www.instagram.com/melodie.miller.autrice" }
+      id: "valerie-pierson",
+      name: "Valérie Pierson",
+      role: "Présidente · Autrice",
+      bio: "Elle écrit en voyageant et voyage en écrivant. Elle nous entraîne au fil de ses mots vers un panel d'émotions allant du feel good au thriller psychologique.",
+      photo: { src: "assets/img/bureau/melodie-miller.webp", w: 372, h: 372, alt: "Portrait de Valérie Pierson, au chapeau de paille." },
+      site: { label: "Découvrir ses romans", url: "https://melodiemiller.fr/" }
     },
     {
       id: "arthur-couvreur",
@@ -885,5 +758,29 @@ window.SITE = {
       photo: { src: "assets/img/bureau/arthur-couvreur.webp", w: 393, h: 393, alt: "Portrait d'Arthur Couvreur." },
       instagram: { label: "@arthur.couvreur", url: "https://www.instagram.com/arthur.couvreur" }
     }
-  ]
+  ],
+
+  /* 6. PRESSE ------------------------------------------------------------- */
+  press: {
+    articles: [
+      {
+        outlet: "La Provence",
+        title: "Festival off : « Le Bain », absurde et dérangeant",
+        author: "Jean-Noël Grando",
+        date: "19 juillet 2026",
+        url: "https://www.laprovence.com/article/region/9482563578810414/festival-off-le-bain-absurde-et-derangeant"
+      },
+      {
+        outlet: "La République de Seine-et-Marne",
+        title: "Au festival off d'Avignon, Léonore Vanier se jette dans Le (grand) Bain",
+        date: "13 juillet 2026",
+        url: "https://www.pressreader.com/france/la-republique-de-seine-et-marne-edition-c/20260713/281844355390216",
+        image: { src: "assets/img/le-bain/image1.webp", w: 915, h: 902, alt: "Coupure de presse : « Au festival off d'Avignon, Léonore Vanier se jette dans Le (grand) Bain », article avec la photo de Léonore Vanier tenant un livret." }
+      }
+    ],
+    downloads: [
+      { title: "Dossier de presse — LE BAIN", detail: "PDF · 0,8 Mo", url: "assets/docs/le-bain-dossier-de-presse.pdf" },
+      { title: "Dossier pédagogique — LE BAIN", detail: "PDF · 1 Mo", url: "assets/docs/le-bain-dossier-pedagogique.pdf" }
+    ]
+  }
 };

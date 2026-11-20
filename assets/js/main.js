@@ -2,9 +2,10 @@
  * Rendu des pages à partir de window.SITE (assets/js/data.js) et de data/agenda.json.
  * Chaque page HTML est une « coquille » portant :
  *   data-root     chemin relatif vers la racine du site ("./", "../", "../../")
- *   data-page     home | projects | project | presentation | agenda | static
+ *   data-page     home | category | project | about | press | agenda | static
  *   data-section  entrée de menu active
  *   data-project  identifiant du projet (pages projet)
+ *   data-category rubrique (pages category)
  * Pages « static » (Mécénat, Contact, Mentions légales) : le contenu est écrit dans le HTML ;
  * le script n'ajoute que l'en-tête, le pied de page, le thème et le menu.
  */
@@ -15,12 +16,12 @@
   var UI = S.ui;
   var body = document.body;
   var ROOT = body.dataset.root || "./";
+  var PAGE = body.dataset.page;
   var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var SAVE_DATA = !!(navigator.connection && navigator.connection.saveData);
 
   /* ---------- Utilitaires ---------- */
 
-  // Typographie française : espaces insécables avant ; : ? ! % » et après «.
   function nb(s) {
     return String(s).replace(/ ([:;?!»%])/g, " $1").replace(/« /g, "« ");
   }
@@ -36,7 +37,7 @@
     })[0];
   }
   function asset(path) {
-    return /^(https?:)?\/\//.test(path) ? path : ROOT + path;
+    return /^(https?:|mailto:)/.test(path) ? path : ROOT + path;
   }
   function theme() {
     return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
@@ -58,11 +59,21 @@
       ' decoding="async">'
     );
   }
+  // Photo agrandissable (visionneuse)
+  function zoomImg(i) {
+    return '<button type="button" class="photo__btn" data-zoom aria-label="Agrandir la photo : ' + esc(i.alt) + '">' + img(i) + "</button>";
+  }
   function ext(href, label) {
     return (
       '<a class="link-ext" href="' + href + '" target="_blank" rel="noopener noreferrer">' + esc(label) +
       '<span aria-hidden="true"> ↗</span><span class="sr-only"> ' + esc(UI.newTab) + "</span></a>"
     );
+  }
+  // Lien d'un bloc « links » : fichier à télécharger, page du site ou lien externe.
+  function link(l) {
+    if (l.file) return '<a class="link-file" href="' + asset(l.url) + '" download>' + esc(l.label) + '<span aria-hidden="true"> ↓</span></a>';
+    if (l.internal) return '<a class="link-ext" href="' + asset(l.url) + '">' + esc(l.label) + "</a>";
+    return ext(l.url, l.label);
   }
   function ratioNum(r) {
     var p = r.split("/");
@@ -78,32 +89,69 @@
     sun: svg('<circle class="i-sun" cx="12" cy="12" r="4"/><path class="i-sun" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'),
     moon: svg('<path class="i-moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>'),
     camera: svg('<path d="M3 7h12v10H3z"/><path d="M15 10l6-3v10l-6-3"/>'),
-    spark: svg('<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/>'),
     headphones: svg('<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><path d="M4 15h3v5H5a1 1 0 0 1-1-1zM20 15h-3v5h2a1 1 0 0 0 1-1z"/>'),
     masks: svg('<path d="M3 4h10v6a5 5 0 0 1-10 0z"/><path d="M5.5 7.2h1.2M9.5 7.2h1.2M5.6 10.4a2.6 2.6 0 0 0 4.8 0"/><path d="M13 9h8v5a4 4 0 0 1-8 0z"/><path d="M15 12h1M18 12h1M15.2 16.2a2 2 0 0 1 3.6 0"/>'),
     trophy: svg('<path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3M12 14v4M8 21h8M9 18h6"/>'),
     chevL: svg('<path d="M15 6l-6 6 6 6"/>'),
     chevR: svg('<path d="M9 6l6 6-6 6"/>'),
-    calendar: svg('<path d="M4 6h16v14H4z"/><path d="M4 10h16M8 3v4M16 3v4"/>')
+    calendar: svg('<path d="M4 6h16v14H4z"/><path d="M4 10h16M8 3v4M16 3v4"/>'),
+    pdf: svg('<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 15h6M9 18h4"/>'),
+    heart: svg('<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/>'),
+    mail: svg('<path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/>'),
+    play: svg('<path d="M8 5l11 7-11 7z"/>')
   };
+
+  /* ---------- Agenda : données partagées (accueil, pastille, calendrier) ---------- */
+
+  var agendaPromise = null;
+  function getAgenda() {
+    if (!agendaPromise) {
+      agendaPromise = fetch(ROOT + "data/agenda.json", { cache: "no-cache" })
+        .then(function (r) { return r.json(); })
+        .catch(function () { return { events: [] }; });
+    }
+    return agendaPromise;
+  }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function key(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+  function parseDay(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s);
+    return new Date(+m[1], +m[2] - 1, +m[3]);
+  }
+  var MONTHS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  var DAYS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."];
+  function timeOf(s) {
+    var m = /T(\d{2}):(\d{2})/.exec(s || "");
+    return m ? m[1] + "h" + m[2] : "";
+  }
+  function longDate(d) {
+    return d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  }
+  function nextEvent(data) {
+    var today = key(new Date());
+    var up = (data.events || []).filter(function (e) { return e && e.start && e.title && (e.end || e.start).slice(0, 10) >= today; })
+      .sort(function (a, b) { return a.start < b.start ? -1 : 1; });
+    return up[0] || null;
+  }
 
   /* ---------- En-tête, pied de page ---------- */
 
+  function navLinks(cls, section) {
+    return S.nav.map(function (n) {
+      var cur = n.id === section ? ' aria-current="page"' : "";
+      return '<li><a href="' + ROOT + n.path + '"' + cur + ">" + esc(n.label) + "</a></li>";
+    }).join("");
+  }
+
   function renderHeader() {
     var section = body.dataset.section || "";
-    var links = S.nav
-      .map(function (n) {
-        var cur = n.id === section ? ' aria-current="page"' : "";
-        return '<li><a href="' + ROOT + n.path + '"' + cur + ">" + esc(n.label) + "</a></li>";
-      })
-      .join("");
-    var m = S.company.mark;
+    var home = PAGE === "home";
     return (
-      '<header class="site-header"><div class="container site-header__bar">' +
+      '<header class="site-header' + (home ? " site-header--home" : "") + '"><div class="container site-header__bar">' +
       '<a class="brand" href="' + ROOT + '" aria-label="' + esc(S.name) + ' — accueil">' +
       '<img class="brand__mark" data-logo="mark" src="' + asset(logoSrc("mark")) + '" width="17" height="32" alt="">' +
-      '<span class="brand__text"><span class="brand__name">' + esc(S.name) + '</span><span class="brand__role">' + esc(S.baseline) + "</span></span></a>" +
-      '<nav id="site-nav" class="site-nav" aria-label="' + esc(UI.mainNav) + '"><ul>' + links + "</ul></nav>" +
+      '<span class="brand__text"><span class="brand__name">' + esc(S.name) + "</span></span></a>" +
+      '<nav id="site-nav" class="site-nav" aria-label="' + esc(UI.mainNav) + '"><ul>' + navLinks("", section) + "</ul></nav>" +
       '<div class="site-header__tools">' +
       '<button class="theme-btn" type="button" aria-pressed="false">' + ICONS.sun + ICONS.moon + "</button>" +
       '<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">' +
@@ -118,9 +166,14 @@
       '<footer class="site-footer"><div class="container site-footer__inner">' +
       '<a class="footer-logo" href="' + ROOT + '"><img data-logo="full" src="' + asset(logoSrc("full")) + '" width="72" height="94" alt="' + esc(f.alt) + '" loading="lazy"></a>' +
       '<div class="site-footer__text"><p>© ' + new Date().getFullYear() + " Compagnie " + esc(S.name) + " · " + esc(UI.footerRights) + "</p>" +
-      '<p>' + ext(S.instagram.url, S.instagram.label) + ' · <a href="' + ROOT + 'contact/">Contact</a> · <a href="' + ROOT + 'mentions-legales/">' + esc(UI.legal) + "</a></p></div>" +
+      "<p>" + ext(S.instagram.url, S.instagram.label) + ' · <a href="' + ROOT + 'contact/">Contact</a> · <a href="' + ROOT + 'mentions-legales/">' + esc(UI.legal) + "</a></p></div>" +
       "</div></footer>"
     );
+  }
+
+  function renderFab() {
+    if (body.dataset.section === "mecenat") return "";
+    return '<a class="support-fab" href="' + ROOT + 'mecenat/">' + ICONS.heart + "<span>" + esc(UI.supportShort) + "</span></a>";
   }
 
   function initMenu() {
@@ -129,6 +182,7 @@
     if (!btn || !nav) return;
     function set(open) {
       btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.querySelector(".menu-btn__label").textContent = open ? UI.closeMenu : UI.menu;
       nav.classList.toggle("is-open", open);
       document.documentElement.classList.toggle("menu-open", open);
     }
@@ -147,6 +201,18 @@
     window.matchMedia("(min-width: 1001px)").addEventListener("change", function () {
       set(false);
     });
+  }
+
+  // Accueil : la barre n'apparaît qu'une fois le grand visuel (et son menu) dépassé.
+  function initHomeBar() {
+    var bar = document.querySelector(".site-header--home");
+    var hero = document.querySelector(".hero");
+    if (!bar || !hero) return;
+    function upd() {
+      bar.classList.toggle("is-visible", window.scrollY > hero.offsetHeight * 0.55);
+    }
+    window.addEventListener("scroll", upd, { passive: true });
+    upd();
   }
 
   function initTheme() {
@@ -178,65 +244,28 @@
 
   function tileMedia(p, eager) {
     var t = p.tile;
-    var media = t.images
-      .map(function (i) {
-        return img(i, { eager: eager, style: t.focus ? "object-position:" + t.focus : "" });
-      })
-      .join("");
+    var media = t.images.map(function (i) {
+      return img(i, { eager: eager, style: t.focus ? "object-position:" + t.focus : "" });
+    }).join("");
     return '<span class="tile__media tile__media--' + t.images.length + '">' + media + "</span>";
   }
 
   function tile(p, idx) {
     return (
-      '<li class="mosaic__item mosaic__item--' + (idx + 1) + ' reveal" data-cat="' + p.category + '">' +
+      '<li class="mosaic__item mosaic__item--' + (idx + 1) + ' reveal">' +
       '<a class="tile" href="' + projectUrl(p) + '">' +
       '<span class="tile__frame" style="--ar:' + p.tile.ratio + '"' + (p.tile.loop ? ' data-loop="' + p.tile.loop + '"' : "") + ">" +
       tileMedia(p, idx < 2) +
       '<span class="tile__veil" aria-hidden="true"></span>' +
-      '<span class="tile__role"><span class="tile__genre">' + esc(S.categories[p.category].label) + "</span>" +
-      '<span class="tile__roletxt"><span class="sr-only">' + esc(UI.roleSr) + "</span>" + esc(p.role) + "</span></span>" +
+      '<span class="tile__role"><span class="tile__genre">' + esc(S.categories[p.category].tag) + "</span></span>" +
       "</span>" +
       '<span class="tile__caption"><span class="tile__title">' + esc(p.title) + "</span></span>" +
       "</a></li>"
     );
   }
 
-  function mosaic() {
-    return '<ul class="mosaic" id="mosaic">' + S.projects.map(tile).join("") + "</ul>";
-  }
-
-  function filters() {
-    var cats = Object.keys(S.categories);
-    return (
-      '<div class="filters" role="group" aria-label="' + esc(UI.filterLabel) + '">' +
-      '<button type="button" class="filters__btn" data-filter="all" aria-pressed="true">' + esc(UI.allCategories) + "</button>" +
-      cats.map(function (c) {
-        return '<button type="button" class="filters__btn" data-filter="' + c + '" aria-pressed="false">' + esc(S.categories[c].label) + "</button>";
-      }).join("") + "</div>"
-    );
-  }
-
-  function initFilters() {
-    var bar = document.querySelector(".filters");
-    if (!bar) return;
-    var items = document.querySelectorAll("#mosaic .mosaic__item");
-    function set(f) {
-      bar.querySelectorAll(".filters__btn").forEach(function (b) {
-        b.setAttribute("aria-pressed", b.dataset.filter === f ? "true" : "false");
-      });
-      items.forEach(function (li) {
-        li.hidden = !(f === "all" || li.dataset.cat === f);
-      });
-      try {
-        history.replaceState(null, "", f === "all" ? location.pathname : "?c=" + f);
-      } catch (e) {}
-    }
-    bar.addEventListener("click", function (e) {
-      var b = e.target.closest(".filters__btn");
-      if (b) set(b.dataset.filter);
-    });
-    var q = /[?&]c=([a-z]+)/.exec(location.search);
-    if (q && S.categories[q[1]]) set(q[1]);
+  function mosaic(list) {
+    return '<ul class="mosaic" id="mosaic">' + (list || S.projects).map(tile).join("") + "</ul>";
   }
 
   /* ---------- Vidéos en boucle (muettes) ---------- */
@@ -282,12 +311,11 @@
   /* ---------- Composants de page projet ---------- */
 
   function videoUrl(h) {
-    if (h.url) return h.url;
-    return h.type === "tiktok" ? "https://www.tiktok.com/@lifeonxenia/video/" + h.id : "https://www.youtube.com/watch?v=" + h.id;
+    return h.url || "https://www.youtube.com/watch?v=" + h.id;
   }
 
   function player(h) {
-    var ratio = h.ratio || (h.type === "tiktok" ? "9 / 16" : "16 / 9");
+    var ratio = h.ratio || "16 / 9";
     var vertical = ratioNum(ratio) < 1;
     return (
       '<a class="player' + (vertical ? " player--vertical" : "") + '" style="--ar:' + ratio + '" href="' + videoUrl(h) + '" target="_blank" rel="noopener noreferrer" ' +
@@ -297,7 +325,7 @@
   }
 
   function figure(i, extra) {
-    return "<li" + (extra || "") + '><figure class="photo">' + img(i) + (i.caption ? "<figcaption>" + esc(i.caption) + "</figcaption>" : "") + "</figure></li>";
+    return "<li" + (extra || "") + '><figure class="photo">' + zoomImg(i) + (i.caption ? "<figcaption>" + esc(i.caption) + "</figcaption>" : "") + "</figure></li>";
   }
 
   function gallery(items, label) {
@@ -340,14 +368,14 @@
     }
     return (
       '<nav class="pnav" aria-label="' + esc(UI.otherProjects) + '"><ul>' + item(prev, "prev", UI.prev) + item(next, "next", UI.next) +
-      '</ul><p class="pnav__all"><a href="' + ROOT + 'projets/">' + esc(UI.allProjects) + "</a></p></nav>"
+      '</ul><p class="pnav__all"><a href="' + ROOT + '#projets">' + esc(UI.allProjects) + "</a></p></nav>"
     );
   }
 
   function pageHead(p) {
     var cat = S.categories[p.category];
     return (
-      '<header class="page-head reveal"><p class="eyebrow"><a href="' + ROOT + "projets/?c=" + p.category + '">' + esc(cat.label) + "</a></p>" +
+      '<header class="page-head reveal"><p class="eyebrow"><a href="' + ROOT + cat.path + '">' + esc(cat.label) + "</a></p>" +
       "<h1>" + esc(p.title) + "</h1>" +
       '<p class="page-head__format">' + esc(p.format) + (p.filmBy ? " · " + esc(p.filmBy) : "") + "</p></header>"
     );
@@ -358,11 +386,11 @@
     var h = p.hero;
     var heroHtml = "";
     var vertical = false;
-    if (h.type === "youtube" || h.type === "tiktok") {
+    if (h.type === "youtube") {
       heroHtml = player(h);
-      vertical = (h.ratio ? ratioNum(h.ratio) : h.type === "tiktok" ? 0.56 : 1.78) < 1;
+      vertical = (h.ratio ? ratioNum(h.ratio) : 1.78) < 1;
     } else if (h.type === "image") {
-      heroHtml = '<figure class="photo">' + img(h.image, { eager: true }) + "</figure>";
+      heroHtml = '<figure class="photo">' + zoomImg(h.image) + "</figure>";
       vertical = h.image.h > h.image.w;
     }
     var awards = "";
@@ -373,20 +401,18 @@
     }
     var links = p.links || [];
     var linksHtml = links.length
-      ? '<ul class="links">' + links.map(function (l) { return "<li" + (l.primary ? ' class="links__primary"' : "") + ">" + ext(l.url, l.label) + "</li>"; }).join("") + "</ul>"
+      ? '<ul class="links">' + links.map(function (l) { return "<li" + (l.primary ? ' class="links__primary"' : "") + ">" + link(l) + "</li>"; }).join("") + "</ul>"
       : "";
     var gal = gallery(p.galleryFirst ? [p.galleryFirst].concat(p.gallery || []) : p.gallery, UI.gallery);
     var press = p.pressImage
-      ? '<figure class="press__clip photo">' + img(p.pressImage.image) + "<figcaption>" + esc(p.pressImage.credit) + "</figcaption></figure>"
+      ? '<figure class="press__clip photo">' + zoomImg(p.pressImage.image) + "<figcaption>" + esc(p.pressImage.credit) + "</figcaption></figure>"
       : "";
     return (
       '<article class="container project">' + pageHead(p) +
       '<div class="project__top reveal' + (vertical ? " project__top--vertical" : "") + '">' +
       (heroHtml ? '<div class="project__hero">' + heroHtml + "</div>" : "") +
-      '<div class="essentials"><p class="essentials__role"><span class="label">' + esc(UI.role) + "</span>" + esc(p.role) + "</p>" +
+      '<div class="essentials">' +
       (p.stats && p.stats.length ? stats(p.stats, p.statsNote) : "") + awards +
-      (p.method ? '<p class="essentials__method"><span class="label">' + esc(UI.method) + "</span>" + esc(p.method) + (p.methodNote ? '<span class="essentials__note">' + esc(p.methodNote) + "</span>" : "") + "</p>" : "") +
-      (p.tools ? '<p class="essentials__method"><span class="label">' + esc(UI.toolsUsed) + "</span>" + esc(p.tools) + "</p>" : "") +
       (p.status ? '<p class="essentials__status">' + esc(p.status) + "</p>" : "") +
       (p.highlight ? '<p class="essentials__highlight">' + (p.highlight.icon ? ICONS[p.highlight.icon] : "") + "<span>" + esc(p.highlight.text) + "</span></p>" : "") +
       linksHtml + "</div></div>" +
@@ -397,70 +423,165 @@
     );
   }
 
+  /* ---------- Livres audio ---------- */
+
   function audioCard(it, role) {
-    var cover = it.cover
-      ? '<div class="audio-card__cover photo">' + img(it.cover) + "</div>"
-      : it.status ? '<div class="audio-card__cover audio-card__cover--status"><span>' + esc(it.status) + "</span></div>" : "";
+    var cover = it.cover ? '<div class="audio-card__cover">' + img(it.cover) + "</div>" : "";
     var rows = [];
     if (it.author) rows.push("<div><dt>" + esc(UI.textBy) + "</dt><dd>" + esc(it.author) + "</dd></div>");
     rows.push("<div><dt>" + esc(UI.genre) + "</dt><dd>" + esc(it.genre) + "</dd></div>");
     if (it.series) rows.push("<div><dt>" + esc(UI.series) + "</dt><dd>" + esc(it.series) + "</dd></div>");
     rows.push("<div><dt>" + esc(UI.role) + "</dt><dd>" + esc(role) + "</dd></div>");
-    var listen = it.extract ? '<audio controls preload="none" src="' + asset(it.extract) + '"></audio>' : "";
-    if (it.listen) listen += '<p class="audio-card__listen">' + ext(it.listen.url, it.listen.label) + "</p>";
+    var action;
+    if (it.listen) {
+      action = '<p class="audio-card__listen"><a class="btn btn--play" href="' + it.listen.url + '" target="_blank" rel="noopener noreferrer">' + ICONS.play +
+        "<span>" + esc(UI.listenNow) .replace("▶ ", "") + '</span><span class="sr-only"> : ' + esc(it.title) + " — " + esc(it.listen.label) + " " + esc(UI.newTab) + "</span></a></p>";
+    } else {
+      action =
+        '<form class="notify" data-title="' + esc(it.title) + '" novalidate>' +
+        '<label for="n-' + it.slug + '">' + esc(UI.notifyTitle) + "</label>" +
+        '<div class="notify__row"><input type="email" id="n-' + it.slug + '" name="email" placeholder="' + esc(UI.notifyEmail) + '" autocomplete="email" required>' +
+        '<button type="submit" class="btn btn--small">' + esc(UI.notifyBtn) + "</button></div>" +
+        '<p class="notify__status" role="status"></p></form>';
+    }
     return (
       '<article class="audio-card reveal" id="' + it.slug + '">' + cover +
-      '<div class="audio-card__body"><h4>' + esc(it.title) + "</h4>" +
-      '<dl class="credits credits--tight">' + rows.join("") + "</dl>" +
-      (it.status ? '<p class="audio-card__status">' + esc(it.status) + "</p>" : "") + listen + "</div></article>"
+      '<div class="audio-card__body"><p class="audio-card__badge' + (it.listen ? " is-out" : "") + '">' + esc(it.listen ? it.genre : it.status || UI.soon) + "</p>" +
+      "<h4>" + esc(it.title) + "</h4>" +
+      '<dl class="credits credits--tight">' + rows.join("") + "</dl>" + action + "</div></article>"
     );
   }
 
   function renderAudio(p) {
     var ac = p.activity;
+    var v = p.voice;
     var groups = p.groups.map(function (g) {
       return (
-        '<section class="audio-group" aria-labelledby="g-' + g.id + '"><header><p class="eyebrow">' + esc(g.label) + "</p>" +
+        '<section class="audio-group" data-group="' + g.id + '" aria-labelledby="g-' + g.id + '"><header><p class="eyebrow">' + esc(g.label) + "</p>" +
         '<h3 id="g-' + g.id + '">' + esc(g.title) + "</h3>" + (g.note ? '<p class="audio-group__note">' + esc(g.note) + "</p>" : "") + "</header>" +
         '<div class="audio-list">' + g.items.map(function (it) { return audioCard(it, p.itemRole); }).join("") + "</div></section>"
       );
     }).join("");
+    var fil =
+      '<div class="filters" role="group" aria-label="' + esc(UI.filterLabel) + '"><button type="button" class="filters__btn" data-filter="all" aria-pressed="true">' + esc(UI.all) + "</button>" +
+      p.groups.map(function (g) { return '<button type="button" class="filters__btn" data-filter="' + g.id + '" aria-pressed="false">' + esc(g.label) + "</button>"; }).join("") + "</div>";
     return (
       '<article class="container project project--audio">' + pageHead(p) +
-      '<div class="audio-intro reveal"><div>' + p.intro.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") + "</div></div>" +
+      '<div class="audio-intro reveal"><p class="audio-intro__tag">' + esc(p.tagline) + "</p><div>" + p.intro.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") + "</div></div>" +
+      '<section class="block" aria-labelledby="prods"><h2 id="prods" class="sr-only">' + esc(UI.eightProductions) + "</h2>" + fil + groups + "</section>" +
+      '<section class="block voice reveal" aria-labelledby="voice"><h2 id="voice">' + esc(v.title) + "</h2>" +
+      v.text.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
+      '<ul class="links">' + v.links.map(function (l) { return "<li>" + link(l) + "</li>"; }).join("") + "</ul></section>" +
       '<section class="block reveal" aria-labelledby="act"><h2 id="act">' + esc(ac.title) + "</h2>" +
       '<ol class="contrib contrib--steps">' + ac.steps.map(function (s) { return "<li><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></li>"; }).join("") + "</ol>" +
-      stats(ac.stats, ac.note) + "</section>" +
-      '<section class="block" aria-labelledby="prods"><h2 id="prods">' + esc(UI.eightProductions) + "</h2>" + groups +
-      '<p class="audio-credit">' + esc(p.credit) + "</p></section>" + projectNav(p) + "</article>"
+      stats(ac.stats, ac.note) + '<p class="audio-credit">' + esc(p.credit) + "</p></section>" + projectNav(p) + "</article>"
     );
   }
 
-  /* ---------- Accueil ---------- */
+  function initAudio() {
+    var bar = document.querySelector(".project--audio .filters");
+    if (bar) {
+      var groups = document.querySelectorAll(".audio-group");
+      bar.addEventListener("click", function (e) {
+        var b = e.target.closest(".filters__btn");
+        if (!b) return;
+        bar.querySelectorAll(".filters__btn").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        groups.forEach(function (g) { g.hidden = !(b.dataset.filter === "all" || g.dataset.group === b.dataset.filter); });
+      });
+    }
+    var sdk = null;
+    function loadSdk() {
+      if (sdk) return sdk;
+      sdk = new Promise(function (res, rej) {
+        if (window.emailjs) return res(window.emailjs);
+        var s = document.createElement("script");
+        s.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js";
+        s.onload = function () { window.emailjs.init({ publicKey: "C9r_QSX-YrY-xG4kZ" }); res(window.emailjs); };
+        s.onerror = rej;
+        document.head.appendChild(s);
+      });
+      return sdk;
+    }
+    document.querySelectorAll(".notify").forEach(function (f) {
+      f.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var st = f.querySelector(".notify__status");
+        var input = f.querySelector("input");
+        if (!input.value || input.validity.typeMismatch) {
+          st.textContent = "Adresse e-mail invalide.";
+          input.focus();
+          return;
+        }
+        st.textContent = "Envoi en cours…";
+        loadSdk().then(function (em) {
+          return em.send("service_ip0b182", "template_gk67h0b", {
+            name: "Prévenez-moi de la sortie",
+            email: input.value,
+            message: "Merci de me prévenir de la sortie du livre audio « " + f.dataset.title + " »."
+          });
+        }).then(function () {
+          st.textContent = UI.notifyOk;
+          f.reset();
+        }).catch(function () {
+          st.innerHTML = esc(UI.notifyKo) + ' <a href="mailto:' + S.email + "?subject=" + encodeURIComponent("Sortie : " + f.dataset.title) + '">' + esc(S.email) + "</a>";
+        });
+      });
+    });
+  }
+
+  /* ---------- Accueil et rubriques ---------- */
 
   function renderHome() {
     var h = S.home;
+    var ev = nextEvent({ events: [] });
     return (
       '<section class="hero" aria-labelledby="home-title">' +
       '<div class="hero__media"' + (REDUCED || SAVE_DATA ? "" : ' data-loop="' + h.video + '"') + ">" + img(h.poster, { eager: true, style: "object-position:50% 45%" }) + "</div>" +
       '<div class="hero__veil" aria-hidden="true"></div>' +
       '<div class="hero__content"><h1 id="home-title" class="hero__title">' + esc(S.name) + "</h1>" +
-      '<p class="hero__sub">' + esc(S.baseline) + '</p><p class="hero__lead">' + esc(h.lead) + "</p>" +
-      '<p class="hero__cta"><a class="btn" href="' + ROOT + 'mecenat/">' + esc(UI.support) + '</a><a class="btn btn--ghost" href="' + projectUrl(byId("le-bain")) + '">' + esc(UI.discoverBain) + "</a></p></div></section>" +
-      '<section class="container home-projects" aria-labelledby="projets-title"><h2 id="projets-title" class="section-title">' + esc(UI.ourProjects) + "</h2>" + mosaic() + "</section>"
+      '<p class="hero__sub">' + esc(S.baseline) + "</p>" +
+      '<nav class="hero__nav" aria-label="' + esc(UI.mainNav) + '"><ul>' + navLinks("", "") + "</ul></nav>" +
+      '<p class="hero__cta"><a class="btn" href="' + ROOT + 'mecenat/">' + esc(UI.support) + '</a><a class="btn btn--ghost" href="' + projectUrl(byId("le-bain")) + '">' + esc(UI.discoverBain) + "</a></p>" +
+      '<p class="hero__soon" id="hero-soon" hidden></p></div></section>' +
+      '<section class="container home-projects" id="projets" aria-labelledby="projets-title"><h2 id="projets-title" class="section-title">' + esc(UI.ourProjects) + "</h2>" + mosaic() + "</section>"
     );
   }
 
-  function renderProjects() {
+  function initHomeSoon() {
+    var el = document.getElementById("hero-soon");
+    if (!el) return;
+    getAgenda().then(function (data) {
+      var ev = nextEvent(data);
+      var text = null;
+      if (ev) {
+        var d = parseDay(ev.start);
+        text = ev.title + " — " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear() + (ev.city ? ", " + ev.city : "");
+      } else if (data.banner) {
+        text = data.banner.title + " — " + data.banner.text.replace(/\.$/, "");
+      }
+      if (!text) return;
+      el.innerHTML = ICONS.calendar + '<a href="' + ROOT + 'agenda/"><strong>' + esc(UI.upcoming) + " :</strong> " + esc(text) + " →</a>";
+      el.hidden = false;
+    });
+  }
+
+  function renderCategory(cat) {
+    var c = S.categories[cat];
+    var list = S.projects.filter(function (p) { return p.category === cat; });
     return (
-      '<section class="container"><header class="page-head reveal"><p class="eyebrow">' + esc(S.name) + "</p><h1>" + esc(UI.projects) + "</h1></header>" +
-      filters() + mosaic() + "</section>"
+      '<section class="container"><header class="page-head reveal"><p class="eyebrow">' + esc(S.name) + "</p><h1>" + esc(c.label) + "</h1>" +
+      '<p class="page-head__format">' + esc(c.description) + "</p></header>" + mosaic(list) + "</section>"
     );
   }
 
-  /* ---------- Présentation ---------- */
+  /* ---------- À propos ---------- */
 
-  function renderPresentation() {
+  function renderAbout() {
+    var f = S.founder;
+    var founder =
+      '<section class="founder reveal" aria-labelledby="founder"><figure class="founder__photo">' + img(f.photo, { eager: true }) + "</figure>" +
+      '<div class="founder__text"><p class="eyebrow">' + esc(UI.founderTitle) + '</p><h2 id="founder">' + esc(f.name) + '</h2><p class="founder__role">' + esc(f.role) + "</p>" +
+      "<p>" + esc(f.bio) + '</p><ul class="founder__links">' + f.links.map(function (l) { return '<li><a class="btn btn--small" href="' + asset(l.url) + '"' + (l.internal ? "" : ' target="_blank" rel="noopener noreferrer"') + ">" + esc(l.label) + (l.internal ? "" : '<span class="sr-only"> ' + esc(UI.newTab) + "</span>") + "</a></li>"; }).join("") + "</ul></div></section>";
     var services = S.services.map(function (s) {
       return (
         '<li class="service reveal">' + ICONS[s.icon] + "<h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p>" +
@@ -474,13 +595,13 @@
       return (
         '<li class="member reveal"><button type="button" class="member__btn" data-member="' + m.id + '" aria-haspopup="dialog">' +
         '<span class="member__photo">' + img(m.photo) + "</span>" +
-        '<span class="member__name">' + esc(m.name) + '</span><span class="member__role">' + esc(m.role) + '</span>' +
+        '<span class="member__name">' + esc(m.name) + '</span><span class="member__role">' + esc(m.role) + "</span>" +
         '<span class="sr-only"> ' + esc(UI.memberOpen + m.name) + "</span></button></li>"
       );
     }).join("");
     return (
-      '<section class="container presentation"><header class="page-head reveal"><p class="eyebrow">' + esc(S.name) + "</p><h1>Présentation</h1>" +
-      '<p class="page-head__format">' + esc(UI.servicesIntro) + "</p></header>" +
+      '<section class="container presentation"><header class="page-head reveal"><p class="eyebrow">' + esc(S.name) + "</p><h1>À propos</h1>" +
+      '<p class="page-head__format">' + esc(UI.servicesIntro) + "</p></header>" + founder +
       '<section class="block" aria-labelledby="serv"><h2 id="serv">' + esc(UI.servicesTitle) + '</h2><ul class="services">' + services + "</ul></section>" +
       '<section class="block" aria-labelledby="how"><h2 id="how">' + esc(UI.howTitle) + '</h2><ol class="how">' + how + "</ol>" +
       '<div class="callout reveal"><h3>' + esc(UI.contactTitle) + "</h3><p>" + esc(UI.contactText) + '</p><p><a class="btn" href="' + ROOT + 'contact/">' + esc(UI.contactBtn) + "</a></p></div></section>" +
@@ -494,11 +615,13 @@
     if (!dlg) return;
     var opener = null;
     function fill(m) {
+      var links = [];
+      if (m.site) links.push("<li>" + ext(m.site.url, m.site.label) + "</li>");
+      if (m.instagram) links.push("<li>" + ext(m.instagram.url, m.instagram.label) + "</li>");
       dlg.querySelector(".member-modal__body").innerHTML =
         '<button type="button" class="member-modal__close" aria-label="' + esc(UI.memberClose) + '">×</button>' +
-        '<div class="member-modal__photo">' + img(m.photo) + "</div><div><h2 id=\"mm-name\">" + esc(m.name) + '</h2><p class="member-modal__role">' + esc(m.role) + "</p><p>" + esc(m.bio) + "</p>" +
-        '<ul class="links">' + (m.site ? "<li><a href=\"" + ROOT + m.site.url + '">' + esc(m.site.label) + "</a></li>" : "") +
-        (m.instagram ? "<li>" + ext(m.instagram.url, m.instagram.label) + "</li>" : "") + "</ul></div>";
+        '<div class="member-modal__photo">' + img(m.photo) + '</div><div><h2 id="mm-name">' + esc(m.name) + '</h2><p class="member-modal__role">' + esc(m.role) + "</p><p>" + esc(m.bio) + "</p>" +
+        '<ul class="links">' + links.join("") + "</ul></div>";
     }
     document.querySelector(".team").addEventListener("click", function (e) {
       var b = e.target.closest(".member__btn");
@@ -516,23 +639,35 @@
     });
   }
 
+  /* ---------- Presse ---------- */
+
+  function renderPress() {
+    var pr = S.press;
+    var arts = pr.articles.map(function (a) {
+      return (
+        '<li class="press-card reveal">' + (a.image ? '<div class="press-card__img photo">' + zoomImg(a.image) + "</div>" : "") +
+        '<div class="press-card__body"><p class="press-card__outlet">' + esc(a.outlet) + "</p><h3>" + esc(a.title) + "</h3>" +
+        '<p class="press-card__meta">' + esc((a.author ? a.author + " · " : "") + a.date) + "</p>" +
+        '<p><a class="btn btn--small" href="' + a.url + '" target="_blank" rel="noopener noreferrer">' + esc(UI.readArticle) + '<span class="sr-only"> : ' + esc(a.title) + " " + esc(UI.newTab) + "</span></a></p></div></li>"
+      );
+    }).join("");
+    var dls = pr.downloads.map(function (d) {
+      return (
+        '<li class="dl-card reveal">' + ICONS.pdf + "<div><h3>" + esc(d.title) + '</h3><p class="dl-card__meta">' + esc(d.detail) + "</p></div>" +
+        '<a class="btn btn--small" href="' + asset(d.url) + '" download>' + esc(UI.download) + '<span class="sr-only"> : ' + esc(d.title) + "</span></a></li>"
+      );
+    }).join("");
+    return (
+      '<section class="container presse"><header class="page-head reveal"><p class="eyebrow">' + esc(S.name) + "</p><h1>" + esc(UI.pressTitle) + "</h1>" +
+      '<p class="page-head__format">' + esc(UI.pressIntro) + "</p></header>" +
+      '<section class="block" aria-labelledby="art"><h2 id="art">' + esc(UI.articles) + '</h2><ul class="press-list">' + arts + "</ul></section>" +
+      '<section class="block" aria-labelledby="dl"><h2 id="dl">' + esc(UI.downloads) + '</h2><ul class="dl-list">' + dls + "</ul>" +
+      '<p><a href="' + projectUrl(byId("le-bain")) + '">Découvrir LE BAIN →</a></p></section></section>'
+    );
+  }
+
   /* ---------- Agenda dynamique (data/agenda.json) ---------- */
 
-  var MONTHS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-  var DAYS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."];
-  function pad(n) { return (n < 10 ? "0" : "") + n; }
-  function key(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
-  function parseDay(s) {
-    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s);
-    return new Date(+m[1], +m[2] - 1, +m[3]);
-  }
-  function timeOf(s) {
-    var m = /T(\d{2}):(\d{2})/.exec(s || "");
-    return m ? m[1] + "h" + m[2] : "";
-  }
-  function longDate(d) {
-    return d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
-  }
   function icsFile(ev) {
     var d0 = ev.start.replace(/[-:]/g, "").slice(0, 15);
     var hasTime = /T/.test(ev.start);
@@ -560,7 +695,7 @@
       '<div class="agenda__layout"><section class="cal" aria-labelledby="cal-title">' +
       '<div class="cal__bar"><button type="button" class="cal__nav" data-nav="-1" aria-label="Mois précédent">' + ICONS.chevL + "</button>" +
       '<h2 id="cal-title" class="cal__title" aria-live="polite"></h2>' +
-      '<button type="button" class="cal__nav" data-nav="1" aria-label="Mois suivant">' + ICONS.chevR + '</button>' +
+      '<button type="button" class="cal__nav" data-nav="1" aria-label="Mois suivant">' + ICONS.chevR + "</button>" +
       '<button type="button" class="cal__today">Aujourd’hui</button></div>' +
       '<div class="cal__grid" role="grid" aria-labelledby="cal-title"></div></section>' +
       '<aside class="agenda__side"><section aria-labelledby="day-title"><h2 id="day-title" class="agenda__h">Détail du jour</h2><div id="agenda-day" aria-live="polite"></div></section>' +
@@ -571,10 +706,7 @@
   function initAgenda() {
     var grid = document.querySelector(".cal__grid");
     if (!grid) return;
-    fetch(ROOT + "data/agenda.json", { cache: "no-cache" })
-      .then(function (r) { return r.json(); })
-      .catch(function () { return { events: [] }; })
-      .then(function (data) { setup(data || {}); });
+    getAgenda().then(function (data) { setup(data || {}); });
 
     function setup(data) {
       var events = (data.events || []).filter(function (e) { return e && e.start && e.title; }).sort(function (a, b) { return a.start < b.start ? -1 : 1; });
@@ -589,7 +721,7 @@
         var b = data.banner;
         var bp = b.project && byId(b.project);
         document.getElementById("agenda-banner").innerHTML =
-          '<aside class="soon reveal is-in">' + ICONS.calendar + '<div><p class="soon__label">Prochainement</p><p class="soon__title">' + esc(b.title) + "</p>" +
+          '<aside class="soon reveal is-in">' + ICONS.calendar + '<div><p class="soon__label">' + esc(UI.upcoming) + '</p><p class="soon__title">' + esc(b.title) + "</p>" +
           "<p>" + esc(b.text) + "</p>" + (bp ? '<p><a href="' + projectUrl(bp) + '">' + esc(UI.seeProject) + " →</a></p>" : "") + "</div></aside>";
       }
 
@@ -682,7 +814,86 @@
     }
   }
 
-  /* ---------- Apparition progressive ---------- */
+  /* ---------- Contact : copier l'adresse ---------- */
+
+  function initCopy() {
+    var b = document.querySelector("[data-copy]");
+    if (!b) return;
+    var st = document.getElementById("copy-status");
+    b.addEventListener("click", function () {
+      function ok() { if (st) st.textContent = UI.copied; }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(S.email).then(ok, function () {});
+      else {
+        var r = document.createRange();
+        var a = document.querySelector(".contact__mail a");
+        r.selectNodeContents(a);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+        if (st) st.textContent = "Adresse sélectionnée : copiez-la (Ctrl+C).";
+      }
+    });
+  }
+
+  /* ---------- Visionneuse de photos ---------- */
+
+  function initLightbox() {
+    var btns = Array.prototype.slice.call(document.querySelectorAll("button[data-zoom]"));
+    if (!btns.length) return;
+    var dlg = document.createElement("dialog");
+    dlg.className = "lightbox";
+    dlg.setAttribute("aria-label", "Visionneuse de photos");
+    dlg.innerHTML =
+      '<button type="button" class="lightbox__close" aria-label="' + esc(UI.lightboxClose) + '">×</button>' +
+      '<button type="button" class="lightbox__nav lightbox__nav--prev" aria-label="' + esc(UI.lightboxPrev) + '">' + ICONS.chevL + "</button>" +
+      '<figure class="lightbox__fig"><img alt=""><figcaption></figcaption></figure>' +
+      '<button type="button" class="lightbox__nav lightbox__nav--next" aria-label="' + esc(UI.lightboxNext) + '">' + ICONS.chevR + "</button>";
+    document.body.appendChild(dlg);
+    var im = dlg.querySelector("img");
+    var cap = dlg.querySelector("figcaption");
+    var cur = 0;
+    var opener = null;
+    function show(i) {
+      cur = (i + btns.length) % btns.length;
+      var src = btns[cur].querySelector("img");
+      im.src = src.currentSrc || src.src;
+      im.alt = src.alt;
+      cap.textContent = src.alt + (btns.length > 1 ? "  (" + (cur + 1) + "/" + btns.length + ")" : "");
+      var many = btns.length > 1;
+      dlg.querySelector(".lightbox__nav--prev").hidden = !many;
+      dlg.querySelector(".lightbox__nav--next").hidden = !many;
+    }
+    btns.forEach(function (b, i) {
+      b.addEventListener("click", function () {
+        opener = b;
+        show(i);
+        if (dlg.showModal) dlg.showModal();
+        else dlg.setAttribute("open", "");
+      });
+    });
+    dlg.addEventListener("click", function (e) {
+      if (e.target.closest(".lightbox__close") || e.target === dlg) dlg.close();
+      else if (e.target.closest(".lightbox__nav--prev")) show(cur - 1);
+      else if (e.target.closest(".lightbox__nav--next")) show(cur + 1);
+    });
+    dlg.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") show(cur - 1);
+      else if (e.key === "ArrowRight") show(cur + 1);
+    });
+    dlg.addEventListener("close", function () {
+      if (opener) opener.focus();
+    });
+    var x0 = null;
+    dlg.addEventListener("touchstart", function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    dlg.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, { passive: true });
+  }
+
+  /* ---------- Apparition progressive et filtre d'accueil ---------- */
 
   function initReveal() {
     var els = document.querySelectorAll(".reveal");
@@ -705,23 +916,28 @@
   /* ---------- Montage ---------- */
 
   function render() {
-    var page = body.dataset.page;
     var html = null;
-    if (page === "home") html = renderHome();
-    else if (page === "projects") html = renderProjects();
-    else if (page === "project") html = renderProject(byId(body.dataset.project));
-    else if (page === "presentation") html = renderPresentation();
-    else if (page === "agenda") html = renderAgenda();
+    if (PAGE === "home") html = renderHome();
+    else if (PAGE === "category") html = renderCategory(body.dataset.category);
+    else if (PAGE === "project") html = renderProject(byId(body.dataset.project));
+    else if (PAGE === "about") html = renderAbout();
+    else if (PAGE === "press") html = renderPress();
+    else if (PAGE === "agenda") html = renderAgenda();
 
     document.getElementById("site-header").innerHTML = renderHeader();
     if (html !== null) document.getElementById("main").innerHTML = html;
     document.getElementById("site-footer").innerHTML = renderFooter();
+    document.body.insertAdjacentHTML("beforeend", renderFab());
     document.documentElement.classList.add("is-ready");
     initTheme();
     initMenu();
-    initFilters();
+    initHomeBar();
+    initHomeSoon();
+    initAudio();
     initMembers();
     initAgenda();
+    initCopy();
+    initLightbox();
     initLoops();
     initReveal();
   }
