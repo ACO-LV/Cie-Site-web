@@ -154,18 +154,26 @@ window.SITE_EN = {
       method: "Shooting location permits; Budget and trade-offs; Framing and coordination with the technical team: logistics, camera and direction; Assignment of image, voice and performance rights; Insurance; Production file; Contacts with local officials.",
       methodNote: "Klach! competition, which promotes the visibility of people with disabilities: the lead role is given to a person with a disability. Each film is conceived, shot and edited within one month.",
       status: "Production: November 2026",
-      tile: { images: [{ alt: "Matriochka mood board: a collage of film stills and portraits of women, parks and forests, with the title “Matriocka Mood Board” in the centre." }] },
-      hero: { image: { alt: "Matriochka mood board: a collage of film stills and portraits of women, parks and forests, with the title “Matriocka Mood Board” in the centre." } },
+      tile: { images: [{ alt: "On the set of Matriochka: the crew seated on folding chairs in an autumn forest, wearing headphones around a monitor; one person stands in the middle." }] },
+      hero: { image: { alt: "On the set of Matriochka: the crew seated on folding chairs in an autumn forest, wearing headphones around a monitor; one person stands in the middle." } },
       stats: [
         { value: "16", label: "actors and crew" },
         { value: "2 days", label: "of shooting" },
         { value: "1 month", label: "from writing to release" },
         { value: "< €10k", label: "budget (challenge)" }
       ],
+      gallery: [
+        { alt: "Matriochka: two women seated on a green bench, one in a red coat and pink scarf, the other in a beige coat, reading a small book; two people stand on the right in an autumn wood.", caption: "Photo: @leonorevanier" },
+        { alt: "Matriochka: a young woman in a red coat and pink scarf, seated on a green bench with an open book on her lap, looks off camera; a red bag sits beside her.", caption: "Photo: @leonorevanier" },
+        { alt: "On the set of Matriochka: the camera and sound crew on a lawn, with a camera on a tripod, a boom pole and a smiling man seated on a folding chair.", caption: "Photo: @leonorevanier" },
+        { alt: "On the set of Matriochka: a shoot in an autumn forest, an actress in a red coat stands on a dirt path surrounded by the crew and equipment.", caption: "Photo: @leonorevanier" }
+      ],
       credits: [
         { label: "Format", value: "Short fiction film, 2026" },
         { label: "Running time", value: "7 minutes" },
         { label: "Competition", value: "Klach! · Paris Court Devant Festival" },
+        { label: "Shooting", value: "21 and 22 November 2026" },
+        { label: "Deadline", value: "30 November 2026" },
         { label: "Direction · Screenplay" },
         { label: "Screenplay collaboration" },
         { label: "Script doctoring" },
@@ -173,15 +181,21 @@ window.SITE_EN = {
         { label: "Assistant direction" },
         { label: "Script supervisor" },
         { label: "Cinematography" },
+        { label: "1st assistant camera" },
+        { label: "2nd assistant camera" },
+        { label: "Gaffer" },
+        { label: "Electrician" },
         { label: "Cast" },
         { label: "Sound" },
+        { label: "Boom operator" },
         { label: "Costumes" },
         { label: "Make-up" },
         { label: "Unit management" },
         { label: "Editing" },
         { label: "Music" },
         { label: "Colour grading" },
-        { label: "Mixing" }
+        { label: "Mixing" },
+        { label: "Photos" }
       ]
     },
 

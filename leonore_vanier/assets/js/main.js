@@ -78,9 +78,24 @@
   }
   // Projets affichés dans la mosaïque générale (mosaic: false : visible seulement dans sa rubrique).
   function listed() {
-    return S.projects.filter(function (p) {
-      return p.mosaic !== false;
-    });
+    var order = S.mosaicOrder || [];
+    function rank(p) {
+      var i = order.indexOf(p.id);
+      return i < 0 ? order.length : i;
+    }
+    return S.projects
+      .filter(function (p) {
+        return p.mosaic !== false;
+      })
+      .map(function (p, i) {
+        return { p: p, i: i };
+      })
+      .sort(function (a, b) {
+        return rank(a.p) - rank(b.p) || a.i - b.i;
+      })
+      .map(function (x) {
+        return x.p;
+      });
   }
   function inCategory(cat) {
     return S.projects.filter(function (p) {

@@ -151,8 +151,12 @@ window.SITE = {
   },
 
   /* 4. PROJETS ------------------------------------------------------------- *
-   * L’ordre de cette liste = ordre de la mosaïque d’accueil, de l’index (style 3)
-   * et de la navigation « projet précédent / suivant ».                       */
+   * L’ordre des blocs de la liste `projects` = ordre des pages de chaque rubrique (ex. Fiction).
+   * `mosaicOrder` = ordre de la mosaïque (page Projets) et de la navigation « précédent / suivant » :
+   * les identifiants (`id`) des projets, dans l’ordre voulu. Un projet absent de cette liste est
+   * placé à la suite, et un projet avec `mosaic: false` n’apparaît pas dans la mosaïque.               */
+  mosaicOrder: ["le-controle-sanitaire", "adam", "matriochka", "sous-ta-peau-brulante", "le-bain", "life-on-xenia", "productions-audio"],
+
   projects: [
     /* ---- Le Contrôle sanitaire ---- */
     {
@@ -260,12 +264,11 @@ window.SITE = {
       links: [{ label: "Voir le film sur YouTube", url: "https://www.youtube.com/watch?v=SmhharGafCE" }]
     },
 
-    /* ---- Matriochka (hors mosaïque : visible dans la rubrique Fiction ; retirer mosaic: false pour l’afficher partout) ---- */
+    /* ---- Matriochka ---- */
     {
       id: "matriochka",
       category: "fiction",
       slug: "matriochka",
-      mosaic: false,
       title: "Matriochka",
       format: "Court-métrage · 2026 · 7 min",
       role: "Directrice de production",
@@ -280,20 +283,20 @@ window.SITE = {
         focus: "50% 50%",
         images: [
           {
-            src: "contenu/photos/matriochka/moodboard.webp",
-            w: 682,
-            h: 1024,
-            alt: "Planche d’inspiration de Matriochka : collage d’images de films et de portraits de femmes, de parcs et de forêts, avec au centre le titre « Matriocka Mood Board »."
+            src: "contenu/photos/matriochka/equipe-foret.webp",
+            w: 1210,
+            h: 908,
+            alt: "Sur le tournage de Matriochka : l’équipe assise sur des chaises pliantes en forêt d’automne, casques sur les oreilles, autour d’un moniteur ; une personne se tient debout au centre."
           }
         ]
       },
       hero: {
         type: "image",
         image: {
-          src: "contenu/photos/matriochka/moodboard.webp",
-          w: 682,
-          h: 1024,
-          alt: "Planche d’inspiration de Matriochka : collage d’images de films et de portraits de femmes, de parcs et de forêts, avec au centre le titre « Matriocka Mood Board »."
+          src: "contenu/photos/matriochka/equipe-foret.webp",
+          w: 1210,
+          h: 908,
+          alt: "Sur le tournage de Matriochka : l’équipe assise sur des chaises pliantes en forêt d’automne, casques sur les oreilles, autour d’un moniteur ; une personne se tient debout au centre."
         }
       },
       stats: [
@@ -303,27 +306,64 @@ window.SITE = {
         { value: "< 10 k€", label: "de budget (challenge)" }
       ],
       awards: [],
-      gallery: [],
+      gallery: [
+        {
+          src: "contenu/photos/matriochka/banc-lecture.webp",
+          w: 1210,
+          h: 1613,
+          alt: "Matriochka : deux femmes assises sur un banc vert, l’une en manteau rouge et écharpe rose, l’autre en manteau beige, lisent un petit livre ; deux personnes se tiennent debout à droite, dans un sous-bois d’automne.",
+          caption: "Photo : @leonorevanier"
+        },
+        {
+          src: "contenu/photos/matriochka/comedienne-manteau-rouge.webp",
+          w: 1210,
+          h: 1613,
+          alt: "Matriochka : une jeune femme en manteau rouge et écharpe rose, assise sur un banc vert, un livre ouvert sur les genoux, regarde hors champ ; un sac rouge est posé à côté d’elle.",
+          caption: "Photo : @leonorevanier"
+        },
+        {
+          src: "contenu/photos/matriochka/equipe-cameras.webp",
+          w: 1210,
+          h: 908,
+          alt: "Sur le tournage de Matriochka : l’équipe image et son sur une pelouse, avec une caméra sur trépied, une perche et un homme souriant assis sur un fauteuil pliant.",
+          caption: "Photo : @leonorevanier"
+        },
+        {
+          src: "contenu/photos/matriochka/plateau-foret.webp",
+          w: 1210,
+          h: 681,
+          alt: "Sur le tournage de Matriochka : plateau en forêt d’automne, une comédienne en manteau rouge se tient sur un chemin de terre, entourée de l’équipe technique et du matériel.",
+          caption: "Photo : @leonorevanier"
+        }
+      ],
       credits: [
         { label: "Format", value: "Court-métrage de fiction, 2026" },
         { label: "Durée", value: "7 minutes" },
         { label: "Concours", value: "Klach ! · Festival Paris Court Devant" },
+        { label: "Tournage", value: "21 et 22 novembre 2026" },
+        { label: "Échéance", value: "30 novembre 2026" },
         { label: "Réalisation · Scénario", value: "Marianne Font" },
         { label: "Collaboration au scénario", value: "Jonathan Israël" },
         { label: "Script doctoring", value: "Luca Minardi" },
         { label: "Direction de production", value: "Léonore Vanier" },
         { label: "Assistanat à la réalisation", value: "Marie Lager" },
-        { label: "Scripte", value: "Ettie Lechopier" },
+        { label: "Scripte", value: "Fanny Hacot" },
         { label: "Direction de la photographie", value: "Denez Pithois" },
+        { label: "1er assistant caméra", value: "Maxime Hamelin" },
+        { label: "2nd·e assistant·e caméra", value: "Roxane Delcampe" },
+        { label: "Chef électricien", value: "Noé Sirot" },
+        { label: "Électricien", value: "Brian Renaux" },
         { label: "Interprétation", value: "Claire Pitot, Anthony Rhino, Carole André" },
         { label: "Son", value: "Margaux Roux" },
+        { label: "Perche", value: "Elisa Popescu" },
         { label: "Costumes", value: "Solenne Azam" },
         { label: "Maquillage", value: "Lucie Chiron" },
         { label: "Régie générale", value: "Rebecca Gournay" },
         { label: "Montage", value: "Julia Camps" },
         { label: "Musique", value: "Antoine Martre" },
-        { label: "Étalonnage", value: "Aladin" },
-        { label: "Mixage", value: "Anthony Ferrero" }
+        { label: "Étalonnage", value: "Aladin Benfatna" },
+        { label: "Mixage", value: "Anthony Ferrero" },
+        { label: "Photos", value: "@leonorevanier" }
       ],
       links: []
     },

@@ -55,16 +55,20 @@ Chaque texte existe dans `data.js` (français) **et** `data.en.js` (anglais). Le
 **Ajouter le lien de visionnage d'un film (ex. Matriochka).** Dans le bloc du projet de `data.js`, remplacez `links: []` par
 `links: [{ label: "Voir le film sur YouTube", url: "https://..." }]`, puis dans `data.en.js` : `links: [{ label: "Watch the film on YouTube" }]`. Pensez à adapter la ligne `status:` (« Production : novembre 2026 »).
 
-**Remplacer le visuel de Matriochka.** Déposez la photo dans `contenu/photos/matriochka/`, puis changez `src`, `w`, `h` et `alt` aux deux endroits de son bloc : `tile.images` (vignette) et `hero.image` (grand visuel). Faites de même pour `alt` dans `data.en.js`.
+**Remplacer le visuel d'un projet (ex. la vignette de Matriochka).** Déposez la photo dans `contenu/photos/<projet>/`, puis changez `src`, `w`, `h` et `alt` aux deux endroits du bloc du projet : `tile.images` (vignette de la mosaïque) et `hero.image` (grand visuel de la page). Faites de même pour `alt` dans `data.en.js`.
 
 **Livre audio : mettre le lien Audible.** Dans `data.js`, section des productions audio, remplacez `listen: null` par
 `listen: { label: "Écouter sur Audible", url: "https://..." }` et supprimez la ligne `status: "En cours de production",`. En anglais : `listen: { label: "Listen on Audible" }`. Pour la couverture : déposez-la dans `contenu/photos/audio/` puis remplacez `cover: null` par un bloc `{ src: "...", w: 800, h: 800, alt: "..." }`.
 
 **Ajouter un livre audio.** Copiez le bloc d'un livre existant dans la bonne liste `items` (ou créez un groupe en copiant un groupe entier), changez titre, auteur, genre, série. Mettez à jour les nombres (« neuf productions », « 9 contrats »…) : cherchez `neuf` et `9 ` dans les deux fichiers.
 
-**Afficher un projet dans la mosaïque.** Matriochka et Merci Maman n'y sont pas : leur bloc contient la ligne `mosaic: false,`. Supprimez-la (dans `data.js`) pour les montrer dans la mosaïque de la page Projets.
+**Afficher un projet dans la mosaïque.** Merci Maman n'y est pas : son bloc contient la ligne `mosaic: false,`. Supprimez-la (dans `data.js`) pour le montrer dans la mosaïque de la page Projets, puis ajoutez son `id` à la liste `mosaicOrder` (voir ci-dessous) à la place voulue ; sans cela il est placé à la fin.
 
-**Changer l'ordre.** Projets : ordre des blocs dans `projects` (`data.js` **et** `data.en.js`). Menu : liste `nav` (aux deux endroits).
+**Changer l'ordre.** Deux ordres existent :
+- **la mosaïque** (page Projets) et les boutons « précédent / suivant » : la liste `mosaicOrder` en haut de la section PROJETS de `data.js` (les identifiants des projets, dans l'ordre voulu) ; un seul fichier à modifier ;
+- **la page d'une rubrique** (ex. Fiction, Spectacles vivants) : l'ordre des blocs dans `projects`, dans `data.js` **et** `data.en.js` (même ordre des deux côtés).
+
+Le menu : liste `nav` (aux deux endroits).
 
 **Agents, portraits, démo voix.** Section `ACTING` de `data.js`.
 
